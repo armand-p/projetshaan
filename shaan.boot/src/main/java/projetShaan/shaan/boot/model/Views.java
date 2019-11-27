@@ -1,6 +1,8 @@
 package projetShaan.shaan.boot.model;
 
+
 public class Views {
+	
 	public static class ViewCommon {
 	}
 
@@ -46,6 +48,11 @@ public class Views {
 
 	// ----------------------PEUPLES----------------------------------
 	//----------------------------------------------------------------
+	public static class ViewPeuple extends ViewCommon {
+	}	
+	
+	public static class ViewPeupleDetail extends ViewPeuple {
+	}	
 	
 	// -----------------------POUVOIR----------------------------------
 	// ----------------------------------------------------------------

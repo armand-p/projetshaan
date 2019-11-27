@@ -7,29 +7,37 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table
 public class Peuple {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(nullable = false)
+	@JsonView(Views.ViewCommon.class)
 	private String nomPeuple;
 	@Column(length = 5000)
+	@JsonView(Views.ViewCommon.class)
 	private String description;
 	@OneToOne
 	@JoinColumn(name = "Domaine_ID")
+	@JsonView(Views.ViewPeupleDetail.class)
 	private Domaine domaine;
 	@OneToOne
 	@JoinColumn(name = "Specialisation_1_ID")
+	@JsonView(Views.ViewPeupleDetail.class)
 	private Specialisation specialisation1;
 	@OneToOne
 	@JoinColumn(name = "Specialisation_2_ID")
+	@JsonView(Views.ViewPeupleDetail.class)
 	private Specialisation specialisation2;
 
 	public Peuple() {
