@@ -55,6 +55,10 @@ class ApplicationTests {
 	private IMotivationRepository motivationRepository;
 	@Autowired
 	private IPouvoirRepository pouvoirRepository;
+	@Autowired
+	private IAcquisRepository acquisRepository;
+	@Autowired
+	private ISpecialisationAcquisRepository speAcquisRepository;
 	
 	@Test
 	void contextLoads() {

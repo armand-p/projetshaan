@@ -47,6 +47,11 @@ public class Views {
 
 	// -----------------------METIER-----------------------------------
 	// ----------------------------------------------------------------
+	
+	public static class ViewMetier extends ViewCommon {
+	}	
+	
+	public static class ViewMetierDetail extends ViewMetier {}
 
 	// -----------------------MOTIVATION-------------------------------
 	// ----------------------------------------------------------------
@@ -65,11 +70,9 @@ public class Views {
 
 	// ----------------------PEUPLES----------------------------------
 	//----------------------------------------------------------------
-	public static class ViewPeuple extends ViewCommon {
-	}	
+	public static class ViewPeuple extends ViewCommon {}	
 	
-	public static class ViewPeupleDetail extends ViewPeuple {
-	}	
+	public static class ViewPeupleDetail extends ViewPeuple {}	
 	
 	// -----------------------POUVOIR----------------------------------
 	// ----------------------------------------------------------------
@@ -78,10 +81,8 @@ public class Views {
 	// ----------------------------------------------------------------
 	
 	//-----------------------RACES------------------------------------
-	public static class ViewRace extends ViewCommon{
-	}
-	public static class ViewRaceDetail extends ViewRace{
-	}
+	public static class ViewRace extends ViewCommon{}
+	public static class ViewRaceDetail extends ViewRace{}
 	//----------------------------------------------------------------
 
 

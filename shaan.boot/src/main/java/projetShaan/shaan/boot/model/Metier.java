@@ -32,9 +32,11 @@ public class Metier {
 	@JsonView(Views.ViewCommon.class)
 	private String description;
 	@OneToOne(mappedBy = "metier")
+	@JsonView(Views.ViewMetierDetail.class)
 	private Specialisation specialisation;
 	@OneToOne
 	@JoinColumn(name = "Caste_ID")
+	@JsonView(Views.ViewMetierDetail.class)
 	private Caste casteLie;
 
 	public Metier() {
