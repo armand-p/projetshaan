@@ -33,12 +33,14 @@ public class Acquis {
 	private String protection;
 	@Column(length = 5000)
 	private String description;
-	@Column
+	@Column(length = 5000)
 	private String capacité;
 	@Column
 	private Integer valeur;
 	@Column
 	private String type;
+	@Column
+	private Integer prestige;
 	
 	@OneToMany (mappedBy = "acquis")
 	private List <SpecialisationAcquis> speListe = new ArrayList <SpecialisationAcquis>();
@@ -46,7 +48,14 @@ public class Acquis {
 	public Long getId() {
 		return id;
 	}
+	
+	public Integer getPrestige() {
+		return prestige;
+	}
 
+	public void setPrestige(Integer prestige) {
+		this.prestige = prestige;
+	}
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -125,6 +134,14 @@ public class Acquis {
 
 	public Acquis() {
 		super();
+	}
+	
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 }

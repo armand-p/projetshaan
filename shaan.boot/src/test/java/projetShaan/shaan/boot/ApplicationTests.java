@@ -1,9 +1,11 @@
 package projetShaan.shaan.boot;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import projetShaan.shaan.boot.model.Acquis;
 import projetShaan.shaan.boot.model.Caste;
 import projetShaan.shaan.boot.model.Domaine;
 import projetShaan.shaan.boot.model.Metier;
@@ -35,31 +37,49 @@ import projetShaan.shaan.boot.repository.ITableDeJeuRepository;
 
 @SpringBootTest
 class ApplicationTests {
-
-	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
-	IAlterationPersonnageRepository alterationPersonnageRepository = context
-			.getBean(IAlterationPersonnageRepository.class);
-	IJoueurRepository joueurRepository = context.getBean(IJoueurRepository.class);
-	IPeupleRepository peupleRepository = context.getBean(IPeupleRepository.class);
-	IPersonnageRepository personnageRepository = context.getBean(IPersonnageRepository.class);
-	IRaceRepository raceRepository = context.getBean(IRaceRepository.class);
-	IMetierRepository metierRepository = context.getBean(IMetierRepository.class);
-	ICasteRepository casteRepository = context.getBean(ICasteRepository.class);
-	IAlterationEtatRepository alterationEtatRepository = context.getBean(IAlterationEtatRepository.class);
-	ITableDeJeuRepository tableDeJeuRepository = context.getBean(ITableDeJeuRepository.class);
-	IDomainePersonnageRepository domainePersonnageRepository = context.getBean(IDomainePersonnageRepository.class);
-	IDomaineRepository domaineRepository = context.getBean(IDomaineRepository.class);
-	IBonusPersonnageRepository bonusPersonnageRepository = context.getBean(IBonusPersonnageRepository.class);
-	IAcquisRepository acquisRepository = context.getBean(IAcquisRepository.class);
-	ISpecialisationRepository specialisationRepository = context.getBean(ISpecialisationRepository.class);
-	IMotivationRepository motivationRepository = context.getBean(IMotivationRepository.class);
-	IMotivationPersonnageRepository motivationPersonnageRepository = context
-			.getBean(IMotivationPersonnageRepository.class);
-	IMotivationRepository motivRepository = context.getBean(IMotivationRepository.class);
-	IPouvoirPersonnageRepository pouvoirPersonnageRepository = context.getBean(IPouvoirPersonnageRepository.class);
-	IPouvoirRepository pouvoirRepository = context.getBean(IPouvoirRepository.class);
-	ISpecialisationAcquisRepository speAcquisRepository = context.getBean(ISpecialisationAcquisRepository.class);
-	IMaitreDuJeuRepository maitreDuJeuRepository = context.getBean(IMaitreDuJeuRepository.class);
+	
+	@Autowired
+	private IAlterationPersonnageRepository alterationPersonnageRepository ;
+	@Autowired
+	private IJoueurRepository joueurRepository;
+	@Autowired
+	private IPeupleRepository peupleRepository;
+	@Autowired
+	private IPersonnageRepository personnageRepository;
+	@Autowired
+	private IRaceRepository raceRepository;
+	@Autowired
+	private IMetierRepository metierRepository;
+	@Autowired
+	private ICasteRepository casteRepository;
+	@Autowired
+	private IAlterationEtatRepository alterationEtatRepository;
+	@Autowired
+	private ITableDeJeuRepository tableDeJeuRepository;
+	@Autowired
+	private IDomainePersonnageRepository domainePersonnageRepository;
+	@Autowired
+	private IDomaineRepository domaineRepository;
+	@Autowired
+	private IBonusPersonnageRepository bonusPersonnageRepository;
+	@Autowired
+	private IAcquisRepository acquisRepository;
+	@Autowired
+	private ISpecialisationRepository specialisationRepository;
+	@Autowired
+	private IMotivationRepository motivationRepository;
+	@Autowired
+	private IMotivationPersonnageRepository motivationPersonnageRepository;
+	@Autowired
+	private IMotivationRepository motivRepository;
+	@Autowired
+	private IPouvoirPersonnageRepository pouvoirPersonnageRepository;
+	@Autowired
+	private IPouvoirRepository pouvoirRepository;
+	@Autowired
+	private ISpecialisationAcquisRepository speAcquisRepository;
+	@Autowired
+	private IMaitreDuJeuRepository maitreDuJeuRepository;
 	
 	@Test
 	void contextLoads() {
@@ -404,7 +424,26 @@ class ApplicationTests {
 //-------------------------------------------------------------------------------------------------------------------------
 //		CREATION OBJET ACQUIS
 //-------------------------------------------------------------------------------------------------------------------------	
-
+		Acquis brevet = new Acquis();
+		Acquis lanceClous = new Acquis();
+		Acquis herbier = new Acquis();
+		Acquis bestiaire = new Acquis();
+		Acquis trousseDuMenteur = new Acquis();
+		Acquis maquillageTribal = new Acquis();
+		Acquis feuDArtifice = new Acquis();
+		Acquis cachet = new Acquis();
+		Acquis pomolhPuant = new Acquis();
+		Acquis plantesCuratives = new Acquis();
+		Acquis schemeDEnchantementMineur = new Acquis();
+		Acquis tuniqueNomoi = new Acquis();
+		Acquis grigriDuVegetal = new Acquis();
+		Acquis batonWoon = new Acquis();
+		Acquis boomerang = new Acquis();
+		Acquis longueVue = new Acquis();
+		Acquis bolas = new Acquis();
+		Acquis sarbacane = new Acquis();
+		Acquis armeAFeu = new Acquis();
+		Acquis radar = new Acquis();
 //*************************************************************************************************************************
 //		REMPLISSAGE
 //*************************************************************************************************************************
@@ -2300,6 +2339,66 @@ class ApplicationTests {
 		charmer.setDescription(".");
 		charmer.setDomaineLie(arts);
 		charmer = motivationRepository.save(charmer);
+		
+		progresserDogme.setNomMotivation("Progresser au sein de son dogme");
+		progresserDogme.setDescription("Vous expérimentez les voies internes de votre dogme et aspirez à progresser dans la symbiose avec votre Élément. Vous êtes enclin à faire de multiples expériences, braver de nombreux dangers afin de tester votre foi. Au moindre signe de faiblesse, vous redoublez d’efforts pour chercher à vous transcender. Vous avez parfois tendance à provoquer des situations qui pourraient vous mettre en mauvaise posture, rien que pour voir si vous êtes dignes de votre Élément..");
+		progresserDogme.setDomaineLie(rituels);
+		progresserDogme = motivationRepository.save(progresserDogme);
+		
+		confronterElement.setNomMotivation("Se confronter à son élément");
+		confronterElement.setDescription("Vous cherchez à tout prix à défier votre Élément pour faire Corps avec lui. Selon la nature de celui-ci, vous vous imprégnez de tout ce qui caractérise votre Élément (couleur symbolique, attitude, lieu, manifestation naturelle,...) afin de mieux entrer en contact avec lui. Investi de votre Élément, vous voyagez afin de vous confronter aux manifestations naturelles de celui-ci. Par exemple, un Élémentaliste du Feu parcourra le monde à la recherche de brasiers ou d’incendies auxquels il pourrait se confronter, un Élémentaliste de l’Objet se plaira à arpenter les Cités technologiques afin d’en maîtriser tous les rouages, un Élémentaliste de l’Eau sillonnera les mers en espérant être pris dans des tempêtes et ainsi éprouver son pouvoir sur les eaux,....");
+		confronterElement.setDomaineLie(rituels);
+		confronterElement = motivationRepository.save(confronterElement);
+		
+		communier.setNomMotivation("Communier avec d'autres Élémentalistes");
+		communier.setDescription("Vous parcourez le monde à la recherche de Maîtres ou de Disciples partageant la même foi en votre Élément afin d’entrer en communion avec eux. C’est grâce à cette dernière que vous pouvez vous ressourcer, devenir meilleur. Les Élémentalistes motivés par la communion sont plus tolérants que les autres et partagent de nombreux points de vue avec les Shaanistes..");
+		communier.setDomaineLie(rituels);
+		communier = motivationRepository.save(communier);
+		
+		nourrir.setNomMotivation("Se nourrir");
+		nourrir.setDescription("C’est la Motivation la plus essentielle. La plupart du temps, la faim est comblée car vous savez vous organiser. Vous êtes censés prévoir des rations lorsque vous voyagez et pouvez vous rendre dans des auberges ou des restaurants pour vous nourrir. Lorsque vous vous retrouvez en pleine nature et que vous n’avez rien à vous mettre sous la dent, vous vous en remettez à vos connaissances en Survie. Mais si vous n’arrivez pas à trouver de la nourriture, cela peut vous plonger dans un état assez irrationnel où se nourrir devient une priorité absolue. Cet état peut vous rendre très violent. Il n’est pas rare qu’un inoffensif marchand se change en bête féroce et attaque à mains nues un Voyageur qui disposerait de quoi le sustenter. En théorie, vous pouvez jeûner pendant (Corps) jours, mais au-delà, si vous n’avez toujours rien avalé, votre Corps s’affaiblit et le moindre effort devient insurmontable. Vous êtes alors obligé de rester allongé, votre Corps n’ayant plus assez d’énergie pour se déplacer. Difficile alors de chasser dans ces conditions....");
+		nourrir.setDomaineLie(survie);
+		nourrir = motivationRepository.save(nourrir);
+		
+		explorer.setNomMotivation("Explorer un territoire");
+		explorer.setDescription("Connaître le territoire qui nous entoure et savoir en exploiter les moindres parcelles constitue l’une des Motivations les plus ancestrales, du temps où les peuplades primitives vivaient en Héossie, afin de pouvoir mieux se protéger en cas d’agression, de repérer des ressources potentielles, ou de s’adapter à des conditions climatiques inhabituelles..");
+		explorer.setDomaineLie(survie);
+		explorer = motivationRepository.save(explorer);
+		
+		construireVoyage.setNomMotivation("Se construire par le voyage");
+		construireVoyage.setDescription("Peu importe la destination, ce qui compte, c’est le voyage. C’est en ce dernier que réside toute l’expérience qu’il est possible d’acquérir lors de situations extrêmes. Amener vos compagnons ou des clients à bon port vous procure une grande fierté et un sentiment d’harmonie avec l’environnement. Les voyages créent des souvenirs, les souvenirs engendrent l’expérience, l’expérience forge la compétence, la compétence crée le statut, qui peut donner lieu à du Prestige. Une fois connu, vous pourrez raconter votre histoire et donner envie à vos auditeurs de voyager à leur tour.");
+		construireVoyage.setDomaineLie(survie);
+		construireVoyage = motivationRepository.save(construireVoyage);
+		
+		defierMort.setNomMotivation("Défier la mort");
+		defierMort.setDescription("Vous êtes un risque-tout. Vous n’exprimez pleinement votre talent que lorsque votre vie est en danger. La proximité de la mort devient alors pour vous un exutoire que vous recherchez dans le but de vous améliorer sans cesse. Le danger et l’adrénaline qu’il vous procure agissent comme une drogue sur votre organisme. Pendant les longues périodes où votre vie n’est pas menacée, vous vous ennuyez profondément, rongé par l’appel de l’aventure et l’excitation de l’inconnu..");
+		defierMort.setDomaineLie(combat);
+		defierMort = motivationRepository.save(defierMort);
+		
+		protegerFaibles.setNomMotivation("Protéger les faibles");
+		protegerFaibles.setDescription("Vous avez découvert, souvent à vos dépens, que c’est la loi du plus fort qui gagne bien souvent. Et cela vous insupporte. Par obligation, vous êtes devenu fort à votre tour pour pouvoir défendre toutes les victimes de cette loi impitoyable. Cette voie est très longue car plus vous êtes fort, plus la tâche de protéger ceux qui vous entourent est lourde de responsabilités et chargée en émotions..");
+		protegerFaibles.setDomaineLie(combat);
+		protegerFaibles = motivationRepository.save(protegerFaibles);
+		
+		venger.setNomMotivation("Se venger");
+		venger.setDescription("Vous avez une blessure d’enfance : la mort violente d’un proche, l’extermination de votre Peuple, les humiliations d’un Notable, le vol d’un bien précieux, la honte sur votre nom, la ruine de votre famille, ou toute autre raison. Vous n’aspirez plus désormais qu’à une seule chose : la vengeance. On dit que c’est un plat qui se mange froid, mais il se prépare dans la fournaise d’une haine féroce qui s’est entretenue jour après jour. La seule issue possible pour vous, c’est de laver votre blessure dans le sang..");
+		venger.setDomaineLie(combat);
+		venger = motivationRepository.save(venger);
+		
+		peurGens.setNomMotivation("Faire peur aux gens");
+		peurGens.setDescription("Enfant déjà, vous adoriez vous cacher et surgir pour prendre les gens au dépourvu et leur flanquer la peur de leur vie. Avec le temps, ces enfantillages s’estompent, mais pas pour vous. Ce plaisir de faire peur s’est mué en culte de la terreur. Faire peur à l’autre c’est une façon de prendre un peu de son être et de remplir le vide qui vous habite..");
+		peurGens.setDomaineLie(necrose);
+		peurGens = motivationRepository.save(peurGens);
+		
+		jouerLoi.setNomMotivation("Jouer avec la loi");
+		jouerLoi.setDescription("Les règles vous ont toujours mis mal à l’aise, comme si elles n’étaient faites que pour briser vos rêves et votre liberté. Vous avez donc appris à les contourner et espérez bien continuer à le faire le plus longtemps possible. Les représentants de l’ordre deviennent des partenaires de jeu avec lesquels vous disputez des matchs dont vous décidez des règles et du terrain. Jusqu’à présent, vous avez toujours réussi à vous en sortir... Jusqu’à présent....");
+		jouerLoi.setDomaineLie(necrose);
+		jouerLoi = motivationRepository.save(jouerLoi);
+		
+		venererCapital.setNomMotivation("Vénérer le Grand Capital");
+		venererCapital.setDescription("Vous êtes un leader, un entrepreneur. Pour vous, les Négociants n’ont rien compris à l’économie. Peu importe ce que l’on vend ou ce que l’on achète, ni à qui l'on s’adresse, seul compte le Grand Capital qu’il faut nourrir coûte que coûte en lui dégageant des bénéfices. Les personnes que vous employez sont en fait des offrandes conditionnées pour sacrifier leurs Âme sur l’autel du dieu numéraire. Vous allez faire fortune car vous avez la foi..");
+		venererCapital.setDomaineLie(necrose);
+		venererCapital = motivationRepository.save(venererCapital);
 //-------------------------------------------------------------------------------------------------------------------------
 //		REMPLISSAGE OBJET POUVOIR
 //-------------------------------------------------------------------------------------------------------------------------	
@@ -2821,7 +2920,153 @@ class ApplicationTests {
 //-------------------------------------------------------------------------------------------------------------------------
 //		REMPLISSAGE OBJET ACQUIS
 //-------------------------------------------------------------------------------------------------------------------------	
-
+		brevet.setNom("Brevet");
+		brevet.setCategorie("Richesse");
+		brevet.setClasse(1);
+		brevet.setValeur(500);
+		brevet.setDescription("Récompense offerte par un maître Novateur pour saluer une invention marquante.");
+		brevet.setPrestige(1);
+		brevet.setType("Acquis du quotidien");
+		
+		lanceClous.setNom("Lance-clous");
+		lanceClous.setCategorie("Armement");
+		lanceClous.setClasse(1);
+		lanceClous.setValeur(200);
+		lanceClous.setDescription("Le Lance-clous se présente sous la forme d'une petite boîte métallique qui se manipule à deux mains et qui permet de propulser des petits projectiles métalliques.");
+		lanceClous.setType("Acquis du quotidien");
+		
+		herbier.setNom("Herbier");
+		herbier.setCategorie("Manuscrit");
+		herbier.setClasse(1);
+		herbier.setValeur(200);
+		herbier.setPrestige(1);
+		herbier.setDescription("La flore d'Héos");
+		herbier.setType("Manuscrit de classe 1");
+		
+		bestiaire.setNom("Bestiaire");
+		bestiaire.setCategorie("Manuscrit");
+		bestiaire.setClasse(1);
+		bestiaire.setValeur(200);
+		bestiaire.setPrestige(1);
+		bestiaire.setDescription("La faune d'Héos");
+		bestiaire.setType("Manuscrit de classe 1");
+		
+		maquillageTribal.setNom("Maquillage tribal");
+		maquillageTribal.setCategorie("Artefact");
+		maquillageTribal.setClasse(1);
+		maquillageTribal.setValeur(500);
+		maquillageTribal.setPrestige(2);
+		maquillageTribal.setDescription("Peintures, grigris, et autres parures tribales.");
+		maquillageTribal.setType("Artefact,encens et élixirs");
+		
+		trousseDuMenteur.setNom("Trousse du menteur");
+		trousseDuMenteur.setCategorie("Outil");
+		trousseDuMenteur.setClasse(1);
+		trousseDuMenteur.setValeur(100);
+		trousseDuMenteur.setDescription("Faux papiers, photos compromettantes floues, poils de woons,..");
+		trousseDuMenteur.setType("Acquis du quotidien");
+		
+		cachet.setNom("Cachet");
+		cachet.setCategorie("Richesse");
+		cachet.setClasse(1);
+		cachet.setValeur(800);
+		cachet.setPrestige(1);
+		cachet.setDescription("Recette du dernier spectacle à succès, assez récente pour ne pas avoir eu le temps d'être dépensée.");
+		cachet.setType("Richesses");
+		
+		feuDArtifice.setNom("Feu d'artifice");
+		feuDArtifice.setCategorie("Outil");
+		feuDArtifice.setClasse(1);
+		feuDArtifice.setValeur(100);
+		feuDArtifice.setDescription("10 fusées éclairantes multicolores, du matériel pour faire des effets pyrotechniques, 10 doses de poudre explosive,..");
+		feuDArtifice.setType("Outil de classe 1");
+		
+		pomolhPuant.setNom("Pomolh puant");
+		pomolhPuant.setCategorie("Armimale");
+		pomolhPuant.setClasse(1);
+		pomolhPuant.setValeur(1000);
+		pomolhPuant.setDescription("Le Pomolh émet un nuage de gaz anal qui vient se plaquer sur ses adversaires. L’odeur pestilentielle est insupportable et occasionne une gêne pour toute action tentée. Peuple d'origine : Marais");
+		pomolhPuant.setType("Armimale de classe 1");
+		
+		plantesCuratives.setNom("Plantes curatives");
+		plantesCuratives.setCategorie("Artefact");
+		plantesCuratives.setClasse(1);
+		plantesCuratives.setValeur(100);
+		plantesCuratives.setPrestige(2);
+		plantesCuratives.setDescription("10 doses");
+		plantesCuratives.setType("Plantes de classe 1");
+		
+		tuniqueNomoi.setNom("Tunique Nomoi");
+		tuniqueNomoi.setCategorie("Protection");
+		tuniqueNomoi.setClasse(1);
+		tuniqueNomoi.setValeur(300);
+		tuniqueNomoi.setProtection("Corps +1");
+		tuniqueNomoi.setDescription("Combinaison constituée de fines plaques métalliques cousues dans les drapés d'un tissu épais.");
+		tuniqueNomoi.setType("Acquis du quotidien");
+		
+		schemeDEnchantementMineur.setNom("Scheme d'enchantement mineur");
+		schemeDEnchantementMineur.setCategorie("Artefact");
+		schemeDEnchantementMineur.setClasse(1);
+		schemeDEnchantementMineur.setValeur(500);
+		schemeDEnchantementMineur.setPrestige(2);
+		schemeDEnchantementMineur.setDescription("Schème sculpté, gravé, tatoué, peint, ... qui donne un bonus dans la Spécialisation Enchantement.");
+		schemeDEnchantementMineur.setType("Schemes de classe 1");
+		
+		batonWoon.setNom("Baton Woon");
+		batonWoon.setCategorie("Armement");
+		batonWoon.setClasse(1);
+		batonWoon.setValeur(200);
+		batonWoon.setType("Acquis du quotidien");
+		
+		grigriDuVegetal.setNom("Grigri du végétal");
+		grigriDuVegetal.setCategorie("Artefact");
+		grigriDuVegetal.setClasse(1);
+		grigriDuVegetal.setValeur(100);
+		grigriDuVegetal.setPrestige(2);
+		grigriDuVegetal.setDescription("pendentif à icônes, amulette, livre de culte, corne d’appel à la prière, talisman …");
+		grigriDuVegetal.setType("Grigri");
+		
+		longueVue.setNom("Longue vue");
+		longueVue.setCategorie("Outil");
+		longueVue.setClasse(1);
+		longueVue.setValeur(100);
+		longueVue.setType("Outils de classe 1");
+		
+		boomerang.setNom("Boomerang");
+		boomerang.setCategorie("Armement");
+		boomerang.setClasse(1);
+		boomerang.setValeur(200);
+		boomerang.setType("Armement");
+		
+		sarbacane.setNom("Sarbacane");
+		sarbacane.setCategorie("Armement");
+		sarbacane.setClasse(1);
+		sarbacane.setValeur(200);
+		sarbacane.setCapacité("Dards empoisonnés : Si le dard inflige une blessure, on applique les règles de Poison.");
+		sarbacane.setType("Armement de classe 1");
+		
+		bolas.setNom("Bolas");
+		bolas.setCategorie("Artefact");
+		bolas.setClasse(1);
+		bolas.setValeur(200);
+		bolas.setCapacité("Capacité Capturer : Si le personnage parvient à infliger une blessure, il peut choisir de ne pas infliger de dégâts pour capturer l’adversaire. La victime prisonnière sera alors considérée comme paralysée tant qu’elle ne s'est pas libérée grâce à un Test de COMBAT + Forcer ou SURVIE + Acrobatie en opposition.");
+		bolas.setType("Armement de classe 1");
+		
+		radar.setNom("Radar");
+		radar.setCategorie("Technologie");
+		radar.setClasse(1);
+		radar.setValeur(1000);
+		radar.setPrestige(1);
+		radar.setDescription("Dispositif de détection de mouvement aérien qui porte à 10km. Il est livré avec une petite console utilisée pour interpréter les signaux reçus et paramétrer le système de détection.");
+		radar.setType("Technologie de classe 1");
+		
+		armeAFeu.setNom("Arme à feu");
+		armeAFeu.setCategorie("Technologie");
+		armeAFeu.setClasse(1);
+		armeAFeu.setValeur(1000);
+		armeAFeu.setPrestige(1);
+		armeAFeu.setDescription("Tous types de pistolets de petit calibre qui tirent des munitions standard produites dans les Arsenaux des Grandes Familles. Ces armes disposent d'un télémètre (estimateur de distance), d'un objectif pour lunette de corrélation, ainsi que d'une mire laser (point rouge). Leur facilité d'utilisation et de rechargement transforme n'importe quel individu en donneur de mort.");
+		armeAFeu.setType("Armes humaine");
 	
 	}
 
