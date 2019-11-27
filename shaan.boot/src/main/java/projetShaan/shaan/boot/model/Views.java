@@ -14,7 +14,10 @@ public class Views {
 	
 	// -----------------------ALTERATIO NETAT-------------------------
 	// ---------------------------------------------------------------
-
+	public static class ViewAlterationEtat extends ViewCommon{}
+	public static class ViewAlterationEtatDetail extends ViewAlterationEtat{}
+	
+	
 	// -----------------------ALTERATION PERSONNAGE-------------------
 	// ---------------------------------------------------------------
 
