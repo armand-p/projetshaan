@@ -43,11 +43,13 @@ public class PeupleController {
 	}
 	
 	@PostMapping("")
+	@JsonView(Views.ViewPeupleDetail.class)
 	public Peuple create(@RequestBody Peuple peuple) {
 		return peupleRepo.save(peuple);
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewPeupleDetail.class)
 	public Peuple update(@RequestBody Peuple peuple, @PathVariable Long id) {
 		return peupleRepo.save(peuple);
 	}

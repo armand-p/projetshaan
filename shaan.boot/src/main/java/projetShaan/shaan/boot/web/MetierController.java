@@ -43,11 +43,13 @@ public class MetierController {
 	}
 	
 	@PostMapping("")
+	@JsonView(Views.ViewMetier.class)
 	public Metier create(@RequestBody Metier metier) {
 		return metierRepo.save(metier);
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewMetier.class)
 	public Metier update(@RequestBody Metier metier, @PathVariable Long id) {
 		return metierRepo.save(metier);
 	}
