@@ -40,13 +40,7 @@ import projetShaan.shaan.boot.repository.ITableDeJeuRepository;
 class ApplicationTests {
 	
 	@Autowired
-	private IAlterationPersonnageRepository alterationPersonnageRepository ;
-	@Autowired
-	private IJoueurRepository joueurRepository;
-	@Autowired
 	private IPeupleRepository peupleRepository;
-	@Autowired
-	private IPersonnageRepository personnageRepository;
 	@Autowired
 	private IRaceRepository raceRepository;
 	@Autowired
@@ -54,33 +48,13 @@ class ApplicationTests {
 	@Autowired
 	private ICasteRepository casteRepository;
 	@Autowired
-	private IAlterationEtatRepository alterationEtatRepository;
-	@Autowired
-	private ITableDeJeuRepository tableDeJeuRepository;
-	@Autowired
-	private IDomainePersonnageRepository domainePersonnageRepository;
-	@Autowired
 	private IDomaineRepository domaineRepository;
-	@Autowired
-	private IBonusPersonnageRepository bonusPersonnageRepository;
-	@Autowired
-	private IAcquisRepository acquisRepository;
 	@Autowired
 	private ISpecialisationRepository specialisationRepository;
 	@Autowired
 	private IMotivationRepository motivationRepository;
 	@Autowired
-	private IMotivationPersonnageRepository motivationPersonnageRepository;
-	@Autowired
-	private IMotivationRepository motivRepository;
-	@Autowired
-	private IPouvoirPersonnageRepository pouvoirPersonnageRepository;
-	@Autowired
 	private IPouvoirRepository pouvoirRepository;
-	@Autowired
-	private ISpecialisationAcquisRepository speAcquisRepository;
-	@Autowired
-	private IMaitreDuJeuRepository maitreDuJeuRepository;
 	
 	@Test
 	void contextLoads() {

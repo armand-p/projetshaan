@@ -13,27 +13,37 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table
 public class Domaine {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private Integer version;
 	@Column(nullable = false)
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String elementLie;
 	@Column(length = 5000)
+	@JsonView(Views.ViewCommon.class)
 	private String description;
 
 	@OneToMany(mappedBy = "domaineLie")
+	@JsonView(Views.ViewDomaine.class)
 	private List<Motivation> typeMotivation = new ArrayList<Motivation>();
 	@OneToMany(mappedBy = "domaineLie")
+	@JsonView(Views.ViewDomaine.class)
 	private List<Specialisation> listeSpe = new ArrayList<Specialisation>();
 	@OneToMany(mappedBy = "domaineLie")
+	@JsonView(Views.ViewDomaine.class)
 	private List<Pouvoir> listePouvoir = new ArrayList<Pouvoir>();
 
 	public Long getId() {

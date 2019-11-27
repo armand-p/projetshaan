@@ -14,44 +14,44 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import projetShaan.shaan.boot.model.Race;
+import projetShaan.shaan.boot.model.Domaine;
 import projetShaan.shaan.boot.model.Views;
-import projetShaan.shaan.boot.repository.IRaceRepository;
+import projetShaan.shaan.boot.repository.IDomaineRepository;
 
 @RestController
-@RequestMapping("/race")
-public class RaceController {
-
-	@Autowired
-	private IRaceRepository raceRepo;
+@RequestMapping("/domaine")
+public class DomaineController {
 	
+	@Autowired
+	private IDomaineRepository domaineRepo;
+
 	@GetMapping("")
-	@JsonView(Views.ViewRace.class)
-	public List<Race>list(){
-		List<Race> races = raceRepo.findAll();
-		return races;
+	@JsonView(Views.ViewDomaine.class)
+	public List<Domaine>list(){
+		List<Domaine> Domaines = domaineRepo.findAll();
+		return Domaines;
 	}
 	
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewRaceDetail.class)
-	public Race find(@PathVariable Long id) {
-		Race race = raceRepo.findById(id).get();
-		return race;
+	@JsonView(Views.ViewDomaine.class)
+	public Domaine find(@PathVariable Long id) {
+		Domaine Domaine = domaineRepo.findById(id).get();
+		return Domaine;
 	}
 	
 	@PostMapping("")
-	@JsonView(Views.ViewRace.class)
-	public Race create (@RequestBody Race race) {
-		return raceRepo.save(race);
+	@JsonView(Views.ViewDomaine.class)
+	public Domaine create (@RequestBody Domaine Domaine) {
+		return domaineRepo.save(Domaine);
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewRace.class)
-	public Race update(@RequestBody Race race, @PathVariable Long id) {
-		return raceRepo.save(race);
+	@JsonView(Views.ViewDomaine.class)
+	public Domaine update(@RequestBody Domaine Domaine, @PathVariable Long id) {
+		return domaineRepo.save(Domaine);
 	}
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		raceRepo.deleteById(id);
+		domaineRepo.deleteById(id);
 	}
 }

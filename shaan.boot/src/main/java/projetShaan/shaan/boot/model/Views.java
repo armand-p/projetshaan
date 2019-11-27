@@ -29,6 +29,13 @@ public class Views {
 	
 	public static class ViewMetierFromCaste extends ViewCommon {	
 	}
+	
+	// -----------------------DOMAINE---------------------------------
+	public static class ViewDomaine extends ViewCommon{
+	}
+	public static class ViewDomaineDetail extends ViewDomaine{
+	}
+	// ---------------------------------------------------------------
 	// -----------------------DOMAINE PERSONNAGE----------------------
 	// ---------------------------------------------------------------
 
