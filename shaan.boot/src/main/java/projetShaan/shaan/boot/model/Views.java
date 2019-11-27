@@ -61,6 +61,10 @@ public class Views {
 	// ----------------------------------------------------------------
 	
 	//-----------------------RACES------------------------------------
+	public static class ViewRace extends ViewCommon{
+	}
+	public static class ViewRaceDetail extends ViewRace{
+	}
 	//----------------------------------------------------------------
 
 
