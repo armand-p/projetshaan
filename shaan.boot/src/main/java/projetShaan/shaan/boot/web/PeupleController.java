@@ -1,4 +1,4 @@
-package projectShaan.shaan.boot.web;
+package projetShaan.shaan.boot.web;
 
 import java.util.List;
 
