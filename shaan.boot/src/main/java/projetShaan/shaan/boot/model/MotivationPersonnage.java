@@ -9,21 +9,27 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table
 public class MotivationPersonnage {
 	
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private Integer version;
 	
 	@ManyToOne
 	@JoinColumn(name = "Personnage_ID")
+	@JsonView(Views.ViewMotivationPersonnageDetail.class)
 	private Personnage persoLie;
 	@ManyToOne
 	@JoinColumn (name = "motivation_id")
+	@JsonView(Views.ViewMotivationPersonnageDetail.class)
 	private Motivation motivation;
 	
 	public Long getId() {
