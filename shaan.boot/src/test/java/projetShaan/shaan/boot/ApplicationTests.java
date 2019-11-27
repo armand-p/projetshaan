@@ -2393,6 +2393,7 @@ class ApplicationTests {
 		ameliorationDefensive.setDescription(
 				"Le Novateur peut augmenter de +1 la Protection de Corps de (Test de TECHNIQUE) armures ou boucliers pendant 1 Heure. Chaque armure doit être manipulée par le Novateur pendant 1 Action pour être améliorée.");
 		ameliorationDefensive = pouvoirRepository.save(ameliorationDefensive);
+		ameliorationDefensive.setDomaineLie(technique);
 
 		ameliorationOffensive.setNomPouvoir("Amélioration Offensive");
 		ameliorationOffensive.setRang("Rang 1");
@@ -2406,7 +2407,8 @@ class ApplicationTests {
 		ameliorationOffensive.setDescription(
 				"Le Novateur peut augmenter de +1 le Bonus que procurent (Test de TECHNIQUE) armes pendant 1 Heure. Chaque arme doit être manipulée par le Novateur pendant 1 Action pour être améliorée. Cette Astuce fonctionne sur les Armes de mêlée, à projectiles, lancées, de corps, et humaines");
 		ameliorationOffensive = pouvoirRepository.save(ameliorationOffensive);
-
+		ameliorationOffensive.setDomaineLie(technique);
+		
 		brisecode.setNomPouvoir("Brisecode");
 		brisecode.setRang("Rang 2");
 		brisecode.setType("Perception");
@@ -2418,7 +2420,8 @@ class ApplicationTests {
 		brisecode.setDescription(
 				"Le Novateur peut décrypter automatiquement des codes d'accès sans avoir recours à une machine. Cette astuce ne fonctionne que sur les systèmes électroniques issus de la technologie humaine (coffre sécurisé, bombe à désamorcer, programme Arpège, communication cryptée,...).");
 		brisecode = pouvoirRepository.save(brisecode);
-
+		brisecode.setDomaineLie(technique);
+		
 		personnalisationDeVehicule.setNomPouvoir("Personnalisation De Vehicule");
 		personnalisationDeVehicule.setRang("Rang 2");
 		personnalisationDeVehicule.setType("Amélioration");
@@ -2431,7 +2434,8 @@ class ApplicationTests {
 		personnalisationDeVehicule.setDescription(
 				"Le Novateur peut augmenter la capacité d'accueil d'un véhicule de (Test de TECHNIQUE)/3 places. Ce pouvoir n'est utilisable qu'une seule fois par véhicule.");
 		personnalisationDeVehicule = pouvoirRepository.save(personnalisationDeVehicule);
-
+		personnalisationDeVehicule.setDomaineLie(technique);
+		
 		clairvoyance.setNomPouvoir("Clairvoyance");
 		clairvoyance.setRang("Rang 1");
 		clairvoyance.setType("Perception");
@@ -2442,7 +2446,8 @@ class ApplicationTests {
 		clairvoyance.setDescription(
 				"L'Érudit peut utiliser son niveau de SAVOIR à la place du niveau de SHAAN pour déterminer son initiative lors d'une Confrontation.");
 		clairvoyance = pouvoirRepository.save(clairvoyance);
-
+		clairvoyance.setDomaineLie(savoir);
+		
 		connaissancePartagee.setNomPouvoir("Connaissance Partagée");
 		connaissancePartagee.setRang("Rang 1");
 		connaissancePartagee.setType("Amélioration");
@@ -2454,7 +2459,8 @@ class ApplicationTests {
 		connaissancePartagee.setDescription(
 				"L'Érudit accorde un Bonus de +(Test de SAVOIR) pour une Épreuve de SAVOIR en Coopération impliquant jusqu'à SAVOIR alliés.");
 		connaissancePartagee = pouvoirRepository.save(connaissancePartagee);
-
+		connaissancePartagee.setDomaineLie(savoir);
+		
 		apprentissageAccelere.setNomPouvoir("Apprentissage Acceleré");
 		apprentissageAccelere.setRang("Rang 2");
 		apprentissageAccelere.setType("Amélioration");
@@ -2465,7 +2471,8 @@ class ApplicationTests {
 		apprentissageAccelere.setDescription(
 				"L’Érudit peut diviser les durées d'enseignement par 2, qu’il apprenne d’un maître ou qu’il enseigne à un apprenti.");
 		apprentissageAccelere = pouvoirRepository.save(apprentissageAccelere);
-
+		apprentissageAccelere.setDomaineLie(savoir);
+		
 		controleDeLAdministration.setNomPouvoir("Contrôle De L'Administration");
 		controleDeLAdministration.setRang("Rang 2");
 		controleDeLAdministration.setType("Altération");
@@ -2476,7 +2483,8 @@ class ApplicationTests {
 		controleDeLAdministration.setDescription(
 				"L’Érudit a des facilités pour naviguer dans les administrations les plus inertes. Il peut en accélérer les délais, en décoincer les rouages, en divisant les durées normales d’attente par 2. Au contraire, il peut bloquer un processus administratif (procès, inspection,...) en multipliant sa durée par 2. S'il est nécessaire de quantifier le temps plus précisément, on considère que ce Secret peut être activé 1 fois par Semaine.");
 		controleDeLAdministration = pouvoirRepository.save(controleDeLAdministration);
-
+		controleDeLAdministration.setDomaineLie(savoir);
+		
 		allieProvidentiel.setNomPouvoir("Allié Providentiel");
 		allieProvidentiel.setRang("Rang 1");
 		allieProvidentiel.setType("Invocation");
@@ -2488,6 +2496,7 @@ class ApplicationTests {
 		allieProvidentiel.setDescription(
 				"Lorsque le Négociant est dans une ville et qu'il est menacé, un allié providentiel vient automatiquement s'interposer. Pour déterminer les caractéristiques de l'allié, le joueur tire 3D10. Chaque dé correspond à la valeur actuelle du Trihn correspondant. Cet allié ne peut faire que des attaques physiques.");
 		allieProvidentiel = pouvoirRepository.save(allieProvidentiel);
+		allieProvidentiel.setDomaineLie(social);
 
 		chanceAuJeu.setNomPouvoir("Chance Au Jeu");
 		chanceAuJeu.setRang("Rang 1");
@@ -2499,7 +2508,8 @@ class ApplicationTests {
 		chanceAuJeu.setDescription(
 				"Le Négociant gagne (Test de SOCIAL) x 10 Crédos quand il va jouer dans une salle de jeu pendant au moins 1 Heure.");
 		chanceAuJeu = pouvoirRepository.save(chanceAuJeu);
-
+		chanceAuJeu.setDomaineLie(social);
+		
 		achatDuSiecle.setNomPouvoir("Achat Du Siècle");
 		achatDuSiecle.setRang("Rang 2");
 		achatDuSiecle.setType("Contrôle");
@@ -2512,7 +2522,8 @@ class ApplicationTests {
 		achatDuSiecle.setDescription(
 				"Le Négociant peut acheter quelque chose à un prix défiant toute concurrence contre la volonté de la cible. Il lance un (Test de SOCIAL) par 15 minutes de négociation pour dépasser la Défense d'Esprit de la cible. Le prix de base du produit est réduit de Réussite x 10%. Ce Privilège ne fonctionne qu’une seule fois par cible.");
 		achatDuSiecle = pouvoirRepository.save(achatDuSiecle);
-
+		achatDuSiecle.setDomaineLie(social);
+		
 		allianceForcee.setNomPouvoir("Alliance Forcée");
 		allianceForcee.setRang("Rang 2");
 		allianceForcee.setType("Contrôle");
@@ -2526,7 +2537,8 @@ class ApplicationTests {
 		allianceForcee.setDescription(
 				"Le Négociant peut réconcilier deux ennemis. Il doit réussir une Épreuve de SOCIAL en effectuant un Test de SOCIAL par Jour dont la Difficulté est égale à la somme des deux Esprits de ses cibles.");
 		allianceForcee = pouvoirRepository.save(allianceForcee);
-
+		allianceForcee.setDomaineLie(social);
+		
 		chantArcanique.setNomPouvoir("Chant Arcanique");
 		chantArcanique.setRang("Rang 1");
 		chantArcanique.setType("Amélioration");
@@ -2539,6 +2551,7 @@ class ApplicationTests {
 		chantArcanique.setDescription(
 				"L’Artiste peut donner un Bonus de +1 à ARTS alliés (dont lui-même), utilisable pour les Actions de MAGIE réalisées pendant que l'Artiste chante.");
 		chantArcanique = pouvoirRepository.save(chantArcanique);
+		chantArcanique.setDomaineLie(arts);
 
 		chantDeBataille.setNomPouvoir("Chant De Bataille");
 		chantDeBataille.setRang("Rang 1");
@@ -2552,6 +2565,7 @@ class ApplicationTests {
 		chantDeBataille.setDescription(
 				"L’Artiste peut donner un Bonus de +1 à ARTS alliés (dont lui-même), utilisable pour les Actions de COMBAT réalisées pendant que l'Artiste chante.");
 		chantDeBataille = pouvoirRepository.save(chantDeBataille);
+		chantDeBataille.setDomaineLie(arts);
 
 		absurdite.setNomPouvoir("Absurdité");
 		absurdite.setRang("Rang 2");
@@ -2566,6 +2580,7 @@ class ApplicationTests {
 		absurdite.setDescription(
 				"L'Artiste emploie un humour par l'absurde, qui plonge une cible dans un état d'incompréhension. Il lance un Test d'ARTS par Action pour dépasser la Défense d'Esprit de sa cible. Celle-ci subit alors un Malus de Réussite à sa Défense d'Esprit pendant Réussite Tours.");
 		absurdite = pouvoirRepository.save(absurdite);
+		absurdite.setDomaineLie(arts);
 
 		chantDExaltation.setNomPouvoir("Chant D'Exaltation");
 		chantDExaltation.setRang("Rang 2");
@@ -2579,6 +2594,7 @@ class ApplicationTests {
 		chantDExaltation.setDescription(
 				"L'Artiste exalte une cible pour qu'elle s'affranchisse de ses limites physiques. Tant qu'elle est exaltée par ce chant, et même si elle est blessée physiquement, la cible prend toujours la valeur maximum de son Trihn de Corps (au lieu de la valeur actuelle) pour calculer sa Défense de Corps.");
 		chantDExaltation = pouvoirRepository.save(chantDExaltation);
+		chantDExaltation.setDomaineLie(arts);
 
 		brulureDAntiAme.setNomPouvoir("Brulure D'Anti-âme");
 		brulureDAntiAme.setRang("Rang 1");
@@ -2587,13 +2603,13 @@ class ApplicationTests {
 		brulureDAntiAme.setFrequence("1 fois par Tour");
 		brulureDAntiAme.setActivation("1 Test par Action");
 		brulureDAntiAme.setPortee("Interaction");
-		brulureDAntiAme.setCible("Corps");
-		;
+		brulureDAntiAme.setCible("Anti-Ame");
 		brulureDAntiAme.setNbCible("une");
 		brulureDAntiAme.setDegats("corps");
 		brulureDAntiAme.setDescription(
 				"Le Shaaniste lance une attaque en interaction sur un Nécrosien (individu à Âme négative) en effectuant un (Test de SHAAN) par Action pour passer la Défense d’Anti-Âme du Nécrosien. Sa Réussite détermine la gravité de la blessure qu’il inflige à l’Anti-Âme du Nécrosien. Si ce dernier possède un Corps, la Brûlure inflige aussi une blessure de même gravité au Corps du Nécrosien.");
 		brulureDAntiAme = pouvoirRepository.save(brulureDAntiAme);
+		brulureDAntiAme.setDomaineLie(shaan);
 
 		coupDeChance.setNomPouvoir("Coup De Chance");
 		coupDeChance.setRang("Rang 1");
@@ -2605,6 +2621,7 @@ class ApplicationTests {
 		coupDeChance.setDescription(
 				"Le joueur du Shaaniste peut relancer ses 3 dés lors de n’importe quel Test, si leur résultat ne lui convient pas.");
 		coupDeChance = pouvoirRepository.save(coupDeChance);
+		coupDeChance.setDomaineLie(shaan);
 
 		agressionPersonnelle.setNomPouvoir("Agression Personnelle");
 		agressionPersonnelle.setRang("Rang 2");
@@ -2618,6 +2635,7 @@ class ApplicationTests {
 		agressionPersonnelle.setDescription(
 				"L’adversaire qui devait blesser le Shaaniste se porte finalement l’attaque à lui-même. La cible est étourdie pendant SHAAN Tours de jeu (Malus de -1 à toutes ses Actions et Défenses). Le Shaaniste peut activer cette Symbiose en réaction à l’Action de sa cible s’il n’a pas déjà utilisé son Geste du Tour.");
 		agressionPersonnelle = pouvoirRepository.save(agressionPersonnelle);
+		agressionPersonnelle.setDomaineLie(shaan);
 
 		amitieForcee.setNomPouvoir("Amitié Forcée");
 		amitieForcee.setRang("Rang 2");
@@ -2632,6 +2650,7 @@ class ApplicationTests {
 		amitieForcee.setDescription(
 				"Le Shaaniste choisi une cible ennemie, en interaction avec un adversaire qui attaque le Shaaniste et ses alliés. Il lance un (Test de SHAAN) par Action pour dépasser la Défense d'Esprit de la Cible. Celle-ci se met alors à défendre le Shaaniste et ses alliés pendant Réussite Tours de jeu. Si la cible est attaquée par un allié du Shaaniste, l'Amitié Forcée est désactivée.");
 		amitieForcee = pouvoirRepository.save(amitieForcee);
+		amitieForcee.setDomaineLie(shaan);
 
 		armeMagique.setNomPouvoir("Arme Magique");
 		armeMagique.setRang("Rang 1");
@@ -2645,6 +2664,7 @@ class ApplicationTests {
 		armeMagique.setDescription(
 				"Le Magicien matérialise une arme de Mêlée de l’apparence de son choix qui apporte un Bonus de (Test de MAGIE)/3 aux Tests de COMBAT + Armes de Mêlée. Il est le seul à pouvoir l'utiliser, et elle disparait à la fin de la Situation.");
 		armeMagique = pouvoirRepository.save(armeMagique);
+		armeMagique.setDomaineLie(magie);
 
 		attaqueTrihnique.setNomPouvoir("Attaque Trihnique");
 		attaqueTrihnique.setRang("Rang 1");
@@ -2660,6 +2680,7 @@ class ApplicationTests {
 		attaqueTrihnique.setDescription(
 				"Le Magicien peut utiliser l’énergie trihnique pour porter une attaque sur une cible en Interaction. Le type de Trihn consumé pour lancer l’attaque détermine le Trihn ciblé et la Défense à dépasser avec un (Test de MAGIE).");
 		attaqueTrihnique = pouvoirRepository.save(attaqueTrihnique);
+		attaqueTrihnique.setDomaineLie(magie);
 
 		champDeForce.setNomPouvoir("Champ De Force");
 		champDeForce.setRang("Rang 2");
@@ -2675,6 +2696,7 @@ class ApplicationTests {
 		champDeForce.setDescription(
 				"Le Magicien crée un champ de force qui gène MAGIE cibles dont la Défense de Trihn est inférieure à son (Test de MAGIE). Elles subissent un Malus de Réussite aux Test de Domaines liés au Trihn consumé par le Magicien pendant Réussite Tours.");
 		champDeForce = pouvoirRepository.save(champDeForce);
+		champDeForce.setDomaineLie(magie);
 
 		croissance.setNomPouvoir("Croissance");
 		croissance.setRang("Rang 2");
@@ -2688,6 +2710,7 @@ class ApplicationTests {
 		croissance.setDescription(
 				"Le Magicien développe sa masse physique et grandit considérablement : sa taille est augmentée de (Test de MAGIE) x 10%. Sa valeur de Corps est augmentée de (Test de MAGIE)/3 et son niveau de COMBAT augmente de 2.");
 		croissance = pouvoirRepository.save(croissance);
+		croissance.setDomaineLie(magie);
 
 		alarmeElementaire.setNomPouvoir("Alarme Elementaire");
 		alarmeElementaire.setRang("Rang 1");
@@ -2700,6 +2723,7 @@ class ApplicationTests {
 		alarmeElementaire.setDescription(
 				"L'Élémentaliste se met en état de sentir le danger. Durant le pouvoir, le personnage sera averti par son élément de tout danger se présentant à lui dans un rayon de (Test de RITUELS) x 100 mètres. La nature de ce danger restera vague mais le personnage saura quelle est sa nature élémentaire (s'il s'agit d'un animal, d'un minéral, d'un végétal, d'un humain, d'un nécrosien, d'un anthéen...). La nature du danger est indépendante de l'élément prié : une Transe à l'Objet pourra très bien anticiper une agression animale. Pendant la durée de l'alerte, l'Élémentaliste peut également utiliser son niveau de RITUELS à la place du niveau de SHAAN pour déterminer son initiative lors d'une Confrontation. Il bénéficie également d'un Bonus de (Test de RITUELS)/3 pour détecter une embuscade.");
 		alarmeElementaire = pouvoirRepository.save(alarmeElementaire);
+		alarmeElementaire.setDomaineLie(rituels);
 
 		apaisementElementaire.setNomPouvoir("Apaisement Elementaire");
 		apaisementElementaire.setRang("Rang 1");
@@ -2714,6 +2738,7 @@ class ApplicationTests {
 		apaisementElementaire.setDescription(
 				"L'Élémentaliste peut calmer un élément : un animal fougueux (Animal), une plante agressive ou vénéneuse (Végétal), une tempête (Air), une peur ou phobie personnelle (Moi), une personne hystérique ou en colère (Lui), un tremblement de terre (Terre), une machine qui s'emballe (Objet), un feu qui se propage (Feu), une noyade (Eau), ou un nécrosé (Limbes). L'Élémentaliste effectue un (Test de RITUELS) toutes les 2 Actions pour dépasser la meilleure Défense de la cible. Celle-ci ne pourra alors plus attaquer pendant Réussite Tours. La cible peut être attaquée pendant la durée de cette Transe, cela ne la désactivera pas comme c'est le cas pour les Symbioses des Shaanistes par exemple...");
 		apaisementElementaire = pouvoirRepository.save(apaisementElementaire);
+		apaisementElementaire.setDomaineLie(rituels);
 
 		blocageElementaire.setNomPouvoir("Blocage Elementaire");
 		blocageElementaire.setRang("Rang 2");
@@ -2728,6 +2753,7 @@ class ApplicationTests {
 		blocageElementaire.setDescription(
 				"L'Élémentaliste lance un (Test de RITUELS) toutes les 2 Actions pour dépasser la Défense d'Esprit de sa cible. Il peut alors lui interdire l'utilisation du Domaine correspondant à l'élément prié pendant 2 Tours.");
 		blocageElementaire = pouvoirRepository.save(blocageElementaire);
+		blocageElementaire.setDomaineLie(rituels);
 
 		bouclierElementaire.setNomPouvoir("Bouclier Elementaire");
 		bouclierElementaire.setRang("Rang 2");
@@ -2741,6 +2767,7 @@ class ApplicationTests {
 		bouclierElementaire.setDescription(
 				"L'Élémentaliste élève un bouclier fait de poils, d'os, de griffes et de hurlements, de feu, d'eau, de mécanismes, d'individus… Ce bouclier fournit une Protection éphémère qui permet d'annuler la perte de (Test de RITUELS) points de Corps pour lui et ses alliés.");
 		bouclierElementaire = pouvoirRepository.save(bouclierElementaire);
+		bouclierElementaire.setDomaineLie(rituels);
 
 		ameDuChasseur.setNomPouvoir("Ame Du Chasseur");
 		ameDuChasseur.setRang("Rang 1");
@@ -2752,6 +2779,7 @@ class ApplicationTests {
 		ameDuChasseur.setDescription(
 				"Le Voyageur ne fait plus qu'un avec son Arme lancée ou à projectiles. Il peut utiliser un dé non-Actif sans dépenser de point de Trihn pour effectuer un Test de COMBAT + Armes lancées ou Armes à projectiles.");
 		ameDuChasseur = pouvoirRepository.save(ameDuChasseur);
+		ameDuChasseur.setDomaineLie(survie);
 
 		appelDeLaMonture.setNomPouvoir("Appel De La Monture");
 		appelDeLaMonture.setRang("Rang 1");
@@ -2765,6 +2793,8 @@ class ApplicationTests {
 		appelDeLaMonture.setDescription(
 				"Le Voyageur peut siffler pour appeler une monture dressée ou à l'état sauvage. Si un animal pouvant servir de monture se trouve à moins de (Test de SURVIE) km, il rejoindra le Voyageur dans les plus brefs délais si cela est possible pour lui, et pourra être monté par le Voyageur pendant (Test de SURVIE) Heures. En fonction de l'animal appelé, le meneur de jeu pourra imposer une Difficulté aux Tests de SURVIE + Monture.");
 		appelDeLaMonture = pouvoirRepository.save(appelDeLaMonture);
+		appelDeLaMonture.setDomaineLie(survie);
+		
 
 		accelererLeVoyage.setNomPouvoir("Accelerer Le Voyage");
 		accelererLeVoyage.setRang("Rang 2");
@@ -2777,6 +2807,7 @@ class ApplicationTests {
 		accelererLeVoyage.setDescription(
 				"Le Voyageur, lorsqu'il guide un convoi, peut doubler la vitesse de déplacement de ce convoi.");
 		accelererLeVoyage = pouvoirRepository.save(accelererLeVoyage);
+		accelererLeVoyage.setDomaineLie(survie);
 
 		appelDeLAnimal.setNomPouvoir("Appel De L'Animal");
 		appelDeLAnimal.setRang("Rang 2");
@@ -2790,6 +2821,7 @@ class ApplicationTests {
 		appelDeLAnimal.setDescription(
 				"Le Voyageur imite le cri d’un gros animal local pour l’appeler. Un animal se trouvant à moins de (Test de SURVIE) km rejoint le Voyageur. Ce dernier pourra utiliser les capacités de l’animal qui réagira comme s’il était apprivoisé. L’animal pourra ainsi défendre le Voyageur, lui servir de monture, le guider vers un abri, porter un message… Une fois le temps de contrôle écoulé, l’animal redevient sauvage, et pourra même attaquer le Voyageur ou ses alliés.");
 		appelDeLAnimal = pouvoirRepository.save(appelDeLAnimal);
+		appelDeLAnimal.setDomaineLie(survie);
 
 		auraGuerriere.setNomPouvoir("Aura Guerriere");
 		auraGuerriere.setRang("Rang 1");
@@ -2801,6 +2833,7 @@ class ApplicationTests {
 		auraGuerriere.setDescription(
 				"Le Combattant peut utiliser un dé non-Actif sans dépenser de point de Trihn sur un Test de COMBAT + Intimidation pour impressionner ses cibles.");
 		auraGuerriere = pouvoirRepository.save(auraGuerriere);
+		auraGuerriere.setDomaineLie(combat);
 
 		criDeGuerre.setNomPouvoir("Cri De Guerre");
 		criDeGuerre.setRang("Rang 1");
@@ -2814,7 +2847,8 @@ class ApplicationTests {
 		criDeGuerre.setDescription(
 				"Le Combattant peut répartir (Test de COMBAT) Bonus entre lui-même et ses alliés. Ces Bonus pourront être utilisés pour améliorer leur prochain Test de COMBAT.");
 		criDeGuerre = pouvoirRepository.save(criDeGuerre);
-
+		criDeGuerre.setDomaineLie(combat);
+		
 		attaqueTerrifiante.setNomPouvoir("Attaque Terrifiante");
 		attaqueTerrifiante.setRang("Rang 2");
 		attaqueTerrifiante.setType("Attaque");
@@ -2826,7 +2860,8 @@ class ApplicationTests {
 		attaqueTerrifiante.setDescription(
 				"Si le Combattant inflige une blessure physique lors d’un Test de COMBAT, le coup du Combattant inflige une blessure de même gravité à l’Esprit de sa cible.");
 		attaqueTerrifiante = pouvoirRepository.save(attaqueTerrifiante);
-
+		attaqueTerrifiante.setDomaineLie(combat);
+		
 		chargeHeroique.setNomPouvoir("Charge Héroique");
 		chargeHeroique.setRang("Rang 2");
 		chargeHeroique.setType("Déplacement");
@@ -2837,6 +2872,7 @@ class ApplicationTests {
 		chargeHeroique.setDescription(
 				"Le Combattant peut effectuer un déplacement de Corps mètres en plus d'une Action de COMBAT. Le Combattant bénéficie en plus, pour cette attaque, d’un Bonus égal à son niveau de COMBAT/2, grâce à l’effet de surprise.");
 		chargeHeroique = pouvoirRepository.save(chargeHeroique);
+		chargeHeroique.setDomaineLie(combat);
 
 		affaiblissement.setNomPouvoir("Affaiblissement");
 		affaiblissement.setRang("Rang 1");
@@ -2852,6 +2888,7 @@ class ApplicationTests {
 		affaiblissement.setDescription(
 				"L'Ombre fait perdre 2 points de Corps à NÉCROSE cibles dont la Défense de Corps est inférieure à son (Test de NÉCROSE).");
 		affaiblissement = pouvoirRepository.save(affaiblissement);
+		affaiblissement.setDomaineLie(necrose);
 
 		animerLesMorts.setNomPouvoir("Animer Les Morts");
 		animerLesMorts.setRang("Rang 1");
@@ -2865,6 +2902,7 @@ class ApplicationTests {
 		animerLesMorts.setDescription(
 				"L'Ombre peut relever un mort et s'en faire un allié pour qu'il attaque une cible. Le cadavre a les caractéristiques suivantes : Corps (Test de NÉCROSE) Esprit 0 Âme 0. Il reste debout jusqu'à ce que l'Ombre s'endorme. Il est insensible aux attaques d'Esprit et d'Âme et ne peut faire que des attaques de Corps.");
 		animerLesMorts = pouvoirRepository.save(animerLesMorts);
+		animerLesMorts.setDomaineLie(necrose);
 		
 		alterationDeSouvenirs.setNomPouvoir("Alteration De Souvenirs");
 		alterationDeSouvenirs.setRang("Rang 2");
@@ -2880,6 +2918,7 @@ class ApplicationTests {
 		alterationDeSouvenirs.setDescription(
 				"L'Ombre peut altérer les souvenirs d'une victime pour en modifier la teneur : elle lance un (Test de NÉCROSE) pour dépasser la Défense d'Esprit de la cible. Elle pourra alors changer Réussite mots clefs en relation avec un souvenir particulier de la cible.");
 		alterationDeSouvenirs = pouvoirRepository.save(alterationDeSouvenirs);
+		alterationDeSouvenirs.setDomaineLie(necrose);
 
 		contagionNovice.setNomPouvoir("Contagion Novice");
 		contagionNovice.setRang("Rang 2");
@@ -2895,6 +2934,7 @@ class ApplicationTests {
 		contagionNovice.setDescription(
 				"L'Ombre peut créer autour de lui une zone hautement contaminée de (Test de NÉCROSE) mètres de rayon. NÉCROSE cibles présentes dans cette zone perdent 1 point de Corps par Tour pendant Réussite Tours, si leur Défense de Corps est inférieure à son (Test de NÉCROSE). Le nuage corrosif se dissipe au bout de (Test de NÉCROSE) Tours. Les nécrosiens ne subissent pas ce Tourment.");
 		contagionNovice = pouvoirRepository.save(contagionNovice);
+		contagionNovice.setDomaineLie(necrose);
 
 //-------------------------------------------------------------------------------------------------------------------------
 //		REMPLISSAGE OBJET ACQUIS
