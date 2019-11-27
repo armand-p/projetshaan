@@ -7,17 +7,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table
 public class AlterationEtat {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(nullable = false)
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String effet;
 
 	public AlterationEtat() {
