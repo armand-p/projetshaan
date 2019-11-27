@@ -33,7 +33,7 @@ public class DomaineController {
 	}
 	
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewDomaine.class)
+	@JsonView(Views.ViewDomaineDetail.class)
 	public Domaine find(@PathVariable Long id) {
 		Domaine Domaine = domaineRepo.findById(id).get();
 		return Domaine;

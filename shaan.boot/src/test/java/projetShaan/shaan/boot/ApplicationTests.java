@@ -3,8 +3,6 @@ package projetShaan.shaan.boot;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import projetShaan.shaan.boot.model.Acquis;
 import projetShaan.shaan.boot.model.Caste;
 import projetShaan.shaan.boot.model.Domaine;
@@ -16,25 +14,15 @@ import projetShaan.shaan.boot.model.Race;
 import projetShaan.shaan.boot.model.Specialisation;
 import projetShaan.shaan.boot.model.SpecialisationAcquis;
 import projetShaan.shaan.boot.repository.IAcquisRepository;
-import projetShaan.shaan.boot.repository.IAlterationEtatRepository;
-import projetShaan.shaan.boot.repository.IAlterationPersonnageRepository;
-import projetShaan.shaan.boot.repository.IBonusPersonnageRepository;
 import projetShaan.shaan.boot.repository.ICasteRepository;
-import projetShaan.shaan.boot.repository.IDomainePersonnageRepository;
 import projetShaan.shaan.boot.repository.IDomaineRepository;
-import projetShaan.shaan.boot.repository.IJoueurRepository;
-import projetShaan.shaan.boot.repository.IMaitreDuJeuRepository;
 import projetShaan.shaan.boot.repository.IMetierRepository;
-import projetShaan.shaan.boot.repository.IMotivationPersonnageRepository;
 import projetShaan.shaan.boot.repository.IMotivationRepository;
-import projetShaan.shaan.boot.repository.IPersonnageRepository;
 import projetShaan.shaan.boot.repository.IPeupleRepository;
-import projetShaan.shaan.boot.repository.IPouvoirPersonnageRepository;
 import projetShaan.shaan.boot.repository.IPouvoirRepository;
 import projetShaan.shaan.boot.repository.IRaceRepository;
 import projetShaan.shaan.boot.repository.ISpecialisationAcquisRepository;
 import projetShaan.shaan.boot.repository.ISpecialisationRepository;
-import projetShaan.shaan.boot.repository.ITableDeJeuRepository;
 
 @SpringBootTest
 class ApplicationTests {

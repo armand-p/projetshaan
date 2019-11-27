@@ -37,13 +37,13 @@ public class Domaine {
 	private String description;
 
 	@OneToMany(mappedBy = "domaineLie")
-	@JsonView(Views.ViewDomaine.class)
+	@JsonView(Views.ViewDomaineDetail.class)
 	private List<Motivation> typeMotivation = new ArrayList<Motivation>();
 	@OneToMany(mappedBy = "domaineLie")
-	@JsonView(Views.ViewDomaine.class)
+	@JsonView(Views.ViewDomaineDetail.class)
 	private List<Specialisation> listeSpe = new ArrayList<Specialisation>();
 	@OneToMany(mappedBy = "domaineLie")
-	@JsonView(Views.ViewDomaine.class)
+	@JsonView(Views.ViewDomaineDetail.class)
 	private List<Pouvoir> listePouvoir = new ArrayList<Pouvoir>();
 
 	public Long getId() {

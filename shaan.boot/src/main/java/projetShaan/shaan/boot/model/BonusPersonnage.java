@@ -10,27 +10,36 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table
 public class BonusPersonnage {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private Integer version;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private Integer bonusAcquis;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private Integer bonusPerso;
 	
 	@ManyToOne
 	@JoinColumn (name = "specilisationId")
+	@JsonView(Views.ViewBonusPersonnageDetail.class)
 	private Specialisation specialisation;
 	@ManyToOne 
 	@JoinColumn (name = "acquisId")
+	@JsonView(Views.ViewBonusPersonnageDetail.class)
 	private Acquis acquis;
 	@ManyToOne
 	@JoinColumn(name = "Personnage_ID")
+	@JsonView(Views.ViewBonusPersonnageDetail.class)
 	private Personnage persoLie;
 	
 	public Long getId() {

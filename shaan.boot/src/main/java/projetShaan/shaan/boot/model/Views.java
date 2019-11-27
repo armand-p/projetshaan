@@ -20,10 +20,16 @@ public class Views {
 	
 	// -----------------------ALTERATION PERSONNAGE-------------------
 	// ---------------------------------------------------------------
-
+	public static class ViewAlterationPersonnage extends ViewCommon{
+	}
+	public static class ViewAlterationPersonnageDetail extends ViewAlterationPersonnage{
+	}
 	// -----------------------BONUS PERSONNAGE------------------------
 	// ---------------------------------------------------------------
-
+	public static class ViewBonusPersonnage extends ViewCommon{
+	}
+	public static class ViewBonusPersonnageDetail extends ViewBonusPersonnage{
+	}
 	//-----------------------CASTES-----------------------------------
 	//----------------------------------------------------------------
 	public static class ViewCaste extends ViewCommon {	

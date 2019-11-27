@@ -3,6 +3,9 @@ package projetShaan.shaan.boot.model;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,14 +17,18 @@ import javax.persistence.ManyToOne;
 public class AlterationPersonnage {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@ManyToOne
 	@JoinColumn(name = "Personnage_ID")
+	@JsonView(Views.ViewAlterationPersonnageDetail.class)
 	private Personnage persoLie;
 	@ManyToOne
 	@JoinColumn(name = "Alteration_ID")
+	@JsonView(Views.ViewAlterationPersonnageDetail.class)
 	private AlterationEtat alterationEtat;
 
 	public AlterationPersonnage() {

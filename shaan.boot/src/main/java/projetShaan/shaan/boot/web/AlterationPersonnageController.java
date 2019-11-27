@@ -18,6 +18,7 @@ import projetShaan.shaan.boot.model.Views;
 import projetShaan.shaan.boot.repository.IAlterationPersonnageRepository;
 
 @RequestMapping("/alterationPersonnage")
+@JsonView(Views.ViewAlterationPersonnage.class)
 public class AlterationPersonnageController {
 	@Autowired
 	private IAlterationPersonnageRepository alterationPersonnageRepo;
