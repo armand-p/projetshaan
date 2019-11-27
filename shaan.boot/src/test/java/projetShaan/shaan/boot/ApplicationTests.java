@@ -2927,6 +2927,7 @@ class ApplicationTests {
 		brevet.setDescription("Récompense offerte par un maître Novateur pour saluer une invention marquante.");
 		brevet.setPrestige(1);
 		brevet.setType("Acquis du quotidien");
+		brevet=acquisRepository.save(brevet);
 		
 		lanceClous.setNom("Lance-clous");
 		lanceClous.setCategorie("Armement");
@@ -2934,6 +2935,7 @@ class ApplicationTests {
 		lanceClous.setValeur(200);
 		lanceClous.setDescription("Le Lance-clous se présente sous la forme d'une petite boîte métallique qui se manipule à deux mains et qui permet de propulser des petits projectiles métalliques.");
 		lanceClous.setType("Acquis du quotidien");
+		lanceClous=acquisRepository.save(lanceClous);
 		
 		herbier.setNom("Herbier");
 		herbier.setCategorie("Manuscrit");
@@ -2942,6 +2944,7 @@ class ApplicationTests {
 		herbier.setPrestige(1);
 		herbier.setDescription("La flore d'Héos");
 		herbier.setType("Manuscrit de classe 1");
+		herbier=acquisRepository.save(herbier);
 		
 		bestiaire.setNom("Bestiaire");
 		bestiaire.setCategorie("Manuscrit");
@@ -2950,6 +2953,7 @@ class ApplicationTests {
 		bestiaire.setPrestige(1);
 		bestiaire.setDescription("La faune d'Héos");
 		bestiaire.setType("Manuscrit de classe 1");
+		bestiaire=acquisRepository.save(bestiaire);
 		
 		maquillageTribal.setNom("Maquillage tribal");
 		maquillageTribal.setCategorie("Artefact");
@@ -2958,6 +2962,7 @@ class ApplicationTests {
 		maquillageTribal.setPrestige(2);
 		maquillageTribal.setDescription("Peintures, grigris, et autres parures tribales.");
 		maquillageTribal.setType("Artefact,encens et élixirs");
+		maquillageTribal=acquisRepository.save(maquillageTribal);
 		
 		trousseDuMenteur.setNom("Trousse du menteur");
 		trousseDuMenteur.setCategorie("Outil");
@@ -2965,6 +2970,7 @@ class ApplicationTests {
 		trousseDuMenteur.setValeur(100);
 		trousseDuMenteur.setDescription("Faux papiers, photos compromettantes floues, poils de woons,..");
 		trousseDuMenteur.setType("Acquis du quotidien");
+		maquillageTribal=acquisRepository.save(maquillageTribal);
 		
 		cachet.setNom("Cachet");
 		cachet.setCategorie("Richesse");
@@ -2973,6 +2979,7 @@ class ApplicationTests {
 		cachet.setPrestige(1);
 		cachet.setDescription("Recette du dernier spectacle à succès, assez récente pour ne pas avoir eu le temps d'être dépensée.");
 		cachet.setType("Richesses");
+		cachet=acquisRepository.save(cachet);
 		
 		feuDArtifice.setNom("Feu d'artifice");
 		feuDArtifice.setCategorie("Outil");
@@ -2980,6 +2987,7 @@ class ApplicationTests {
 		feuDArtifice.setValeur(100);
 		feuDArtifice.setDescription("10 fusées éclairantes multicolores, du matériel pour faire des effets pyrotechniques, 10 doses de poudre explosive,..");
 		feuDArtifice.setType("Outil de classe 1");
+		feuDArtifice=acquisRepository.save(feuDArtifice);
 		
 		pomolhPuant.setNom("Pomolh puant");
 		pomolhPuant.setCategorie("Armimale");
@@ -2987,6 +2995,7 @@ class ApplicationTests {
 		pomolhPuant.setValeur(1000);
 		pomolhPuant.setDescription("Le Pomolh émet un nuage de gaz anal qui vient se plaquer sur ses adversaires. L’odeur pestilentielle est insupportable et occasionne une gêne pour toute action tentée. Peuple d'origine : Marais");
 		pomolhPuant.setType("Armimale de classe 1");
+		pomolhPuant=acquisRepository.save(pomolhPuant);
 		
 		plantesCuratives.setNom("Plantes curatives");
 		plantesCuratives.setCategorie("Artefact");
@@ -2995,6 +3004,7 @@ class ApplicationTests {
 		plantesCuratives.setPrestige(2);
 		plantesCuratives.setDescription("10 doses");
 		plantesCuratives.setType("Plantes de classe 1");
+		plantesCuratives=acquisRepository.save(plantesCuratives);
 		
 		tuniqueNomoi.setNom("Tunique Nomoi");
 		tuniqueNomoi.setCategorie("Protection");
@@ -3003,6 +3013,7 @@ class ApplicationTests {
 		tuniqueNomoi.setProtection("Corps +1");
 		tuniqueNomoi.setDescription("Combinaison constituée de fines plaques métalliques cousues dans les drapés d'un tissu épais.");
 		tuniqueNomoi.setType("Acquis du quotidien");
+		tuniqueNomoi=acquisRepository.save(tuniqueNomoi);
 		
 		schemeDEnchantementMineur.setNom("Scheme d'enchantement mineur");
 		schemeDEnchantementMineur.setCategorie("Artefact");
@@ -3011,12 +3022,14 @@ class ApplicationTests {
 		schemeDEnchantementMineur.setPrestige(2);
 		schemeDEnchantementMineur.setDescription("Schème sculpté, gravé, tatoué, peint, ... qui donne un bonus dans la Spécialisation Enchantement.");
 		schemeDEnchantementMineur.setType("Schemes de classe 1");
+		schemeDEnchantementMineur=acquisRepository.save(schemeDEnchantementMineur);
 		
 		batonWoon.setNom("Baton Woon");
 		batonWoon.setCategorie("Armement");
 		batonWoon.setClasse(1);
 		batonWoon.setValeur(200);
 		batonWoon.setType("Acquis du quotidien");
+		batonWoon=acquisRepository.save(batonWoon);
 		
 		grigriDuVegetal.setNom("Grigri du végétal");
 		grigriDuVegetal.setCategorie("Artefact");
@@ -3025,18 +3038,21 @@ class ApplicationTests {
 		grigriDuVegetal.setPrestige(2);
 		grigriDuVegetal.setDescription("pendentif à icônes, amulette, livre de culte, corne d’appel à la prière, talisman …");
 		grigriDuVegetal.setType("Grigri");
+		grigriDuVegetal=acquisRepository.save(grigriDuVegetal);
 		
 		longueVue.setNom("Longue vue");
 		longueVue.setCategorie("Outil");
 		longueVue.setClasse(1);
 		longueVue.setValeur(100);
 		longueVue.setType("Outils de classe 1");
+		longueVue=acquisRepository.save(longueVue);
 		
 		boomerang.setNom("Boomerang");
 		boomerang.setCategorie("Armement");
 		boomerang.setClasse(1);
 		boomerang.setValeur(200);
 		boomerang.setType("Armement");
+		boomerang=acquisRepository.save(boomerang);
 		
 		sarbacane.setNom("Sarbacane");
 		sarbacane.setCategorie("Armement");
@@ -3044,6 +3060,7 @@ class ApplicationTests {
 		sarbacane.setValeur(200);
 		sarbacane.setCapacité("Dards empoisonnés : Si le dard inflige une blessure, on applique les règles de Poison.");
 		sarbacane.setType("Armement de classe 1");
+		sarbacane=acquisRepository.save(sarbacane);
 		
 		bolas.setNom("Bolas");
 		bolas.setCategorie("Artefact");
@@ -3051,6 +3068,7 @@ class ApplicationTests {
 		bolas.setValeur(200);
 		bolas.setCapacité("Capacité Capturer : Si le personnage parvient à infliger une blessure, il peut choisir de ne pas infliger de dégâts pour capturer l’adversaire. La victime prisonnière sera alors considérée comme paralysée tant qu’elle ne s'est pas libérée grâce à un Test de COMBAT + Forcer ou SURVIE + Acrobatie en opposition.");
 		bolas.setType("Armement de classe 1");
+		bolas=acquisRepository.save(bolas);
 		
 		radar.setNom("Radar");
 		radar.setCategorie("Technologie");
@@ -3059,6 +3077,7 @@ class ApplicationTests {
 		radar.setPrestige(1);
 		radar.setDescription("Dispositif de détection de mouvement aérien qui porte à 10km. Il est livré avec une petite console utilisée pour interpréter les signaux reçus et paramétrer le système de détection.");
 		radar.setType("Technologie de classe 1");
+		radar=acquisRepository.save(radar);
 		
 		armeAFeu.setNom("Arme à feu");
 		armeAFeu.setCategorie("Technologie");
@@ -3067,7 +3086,8 @@ class ApplicationTests {
 		armeAFeu.setPrestige(1);
 		armeAFeu.setDescription("Tous types de pistolets de petit calibre qui tirent des munitions standard produites dans les Arsenaux des Grandes Familles. Ces armes disposent d'un télémètre (estimateur de distance), d'un objectif pour lunette de corrélation, ainsi que d'une mire laser (point rouge). Leur facilité d'utilisation et de rechargement transforme n'importe quel individu en donneur de mort.");
 		armeAFeu.setType("Armes humaine");
-	
+		armeAFeu=acquisRepository.save(armeAFeu);
+		
 	}
 
 }
