@@ -25,11 +25,11 @@ public class Acquis {
 	private Integer version;
 	@Column(nullable = false)
 	private String nom;
-	@Column
+	@Column(length = 5000)
 	private String categorie;
 	@Column
 	private Integer classe;
-	@Column
+	@Column(length = 5000)
 	private String protection;
 	@Column(length = 5000)
 	private String description;
@@ -37,7 +37,7 @@ public class Acquis {
 	private String capacité;
 	@Column
 	private Integer valeur;
-	@Column
+	@Column(length = 5000)
 	private String type;
 	@Column
 	private Integer prestige;

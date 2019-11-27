@@ -29,6 +29,11 @@ public class SpecialisationAcquis {
 	private Acquis acquis;
 	
 	
+	public SpecialisationAcquis(Specialisation specialisation, Acquis acquis) {
+		super();
+		this.specialisation = specialisation;
+		this.acquis = acquis;
+	}
 	public Long getId() {
 		return id;
 	}

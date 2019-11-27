@@ -14,6 +14,7 @@ import projetShaan.shaan.boot.model.Peuple;
 import projetShaan.shaan.boot.model.Pouvoir;
 import projetShaan.shaan.boot.model.Race;
 import projetShaan.shaan.boot.model.Specialisation;
+import projetShaan.shaan.boot.model.SpecialisationAcquis;
 import projetShaan.shaan.boot.repository.IAcquisRepository;
 import projetShaan.shaan.boot.repository.IAlterationEtatRepository;
 import projetShaan.shaan.boot.repository.IAlterationPersonnageRepository;
@@ -1653,10 +1654,10 @@ class ApplicationTests {
 		defenseMagique = specialisationRepository.save(defenseMagique);
 
 		enchantement.setDescription(
-				"Manipuler les flux trihniques pour former un bouclier magique qui protège des attaques nécrotiques, des Sorts et des Tourments.");
-		enchantement.setNom("Défense magique");
+				"Utiliser l’énergie d’un Trihn pour sceller un Pouvoir connu dans un objet afin de lui conférer des propriétés magiques. Le possesseur de l’objet enchanté peut se servir du Pouvoir investi pour un nombre limité d’utilisations.");
+		enchantement.setNom("Enchantement");
 		enchantement.setDomaineLie(magie);
-		enchantement.setMetier(revocateur);
+		enchantement.setMetier(enchanteur);
 		enchantement = specialisationRepository.save(enchantement);
 
 		incandescence.setDescription(
@@ -1724,7 +1725,7 @@ class ApplicationTests {
 
 		riteDeMagie.setDescription(
 				"S'investir de l'élément \"Moi\" afin de bénéficier de pouvoirs surnaturels.Effectuer un Rite consacré au Moi d'une Heure environ, pour augmenter de 1 le niveau de MAGIE des participants pendant une Situation.");
-		riteDeMagie.setNom("Rite de l'animal");
+		riteDeMagie.setNom("Rite de magie");
 		riteDeMagie.setDomaineLie(rituels);
 		riteDeMagie.setMetier(discipleDuMoi);
 		riteDeMagie = specialisationRepository.save(riteDeMagie);
@@ -1992,7 +1993,7 @@ class ApplicationTests {
 				"Invoquer une Anti-Âme, essence négative issue des Limbes, et l'utiliser pour pratiquer la Magie des Limbes. Pactiser avec une incarnation");
 		pacteNecrotique.setNom("Pacte necrotique");
 		pacteNecrotique.setDomaineLie(necrose);
-		pacteNecrotique.setMetier(voleur);
+		pacteNecrotique.setMetier(necromant);
 		pacteNecrotique = specialisationRepository.save(pacteNecrotique);
 		
 
@@ -2935,7 +2936,9 @@ class ApplicationTests {
 		lanceClous.setValeur(200);
 		lanceClous.setDescription("Le Lance-clous se présente sous la forme d'une petite boîte métallique qui se manipule à deux mains et qui permet de propulser des petits projectiles métalliques.");
 		lanceClous.setType("Acquis du quotidien");
+		SpecialisationAcquis lanceClousArmesaprojectiles = new SpecialisationAcquis(armesAProjectiles,lanceClous);	
 		lanceClous=acquisRepository.save(lanceClous);
+		lanceClousArmesaprojectiles=speAcquisRepository.save(lanceClousArmesaprojectiles);
 		
 		herbier.setNom("Herbier");
 		herbier.setCategorie("Manuscrit");
