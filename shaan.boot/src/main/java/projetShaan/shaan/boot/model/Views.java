@@ -1,5 +1,7 @@
 package projetShaan.shaan.boot.model;
 
+
+
 public class Views {
 	public static class ViewCommon {
 	}
@@ -59,7 +61,8 @@ public class Views {
 
 	// -----------------------SPECIALISATION---------------------------
 	// ----------------------------------------------------------------
-
+	public class ViewSpecialisation extends ViewCommon{}
+	public class ViewSpecialisationDetail extends ViewSpecialisation{}
 	// -----------------------SPECIALISATION ACQUIS--------------------
 	// ----------------------------------------------------------------
 

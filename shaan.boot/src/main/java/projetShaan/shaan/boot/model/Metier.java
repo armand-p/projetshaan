@@ -10,19 +10,26 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table
 public class Metier {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String nomMetier;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String voie;
 	@Column(length = 5000)
+	@JsonView(Views.ViewCommon.class)
 	private String description;
 	@OneToOne(mappedBy = "metier")
 	private Specialisation specialisation;
