@@ -14,23 +14,32 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+
 @Entity
 @Table
 public class Caste {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(nullable = false)
+	@JsonView(Views.ViewCommon.class)
 	private String nomCaste;
 	@Column(length = 50000)
+	@JsonView(Views.ViewCommon.class)
 	private String description;
 	
 	@OneToOne
 	@JoinColumn(name = "Domaine_ID")
+	@JsonView(Views.ViewCasteDetail.class)
 	private Domaine domaine;
 	@OneToMany(mappedBy = "casteLie")
+	@JsonView(Views.ViewMetierFromCaste.class)
 	private List<Metier> metiers = new ArrayList<Metier>();
 
 	public Caste() {

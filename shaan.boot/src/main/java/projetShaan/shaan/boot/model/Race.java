@@ -10,42 +10,58 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table
 public class Race {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(nullable = false)
+	@JsonView(Views.ViewCommon.class)
 	private String nomRace;
 	@OneToOne
 	@JoinColumn(name = "Domaine_ID")
+	@JsonView(Views.ViewRaceDetail.class)
 	private Domaine domaine;
 	@OneToOne
 	@JoinColumn(name = "Specialisation_1_ID")
+	@JsonView(Views.ViewRaceDetail.class)
 	private Specialisation specialisation1;
 	@OneToOne
 	@JoinColumn(name = "Specialisation_2_ID")
+	@JsonView(Views.ViewRaceDetail.class)
 	private Specialisation specialisation2;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String tailleEstimation;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String poidsEstimation;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String langues;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String pouvoirDeRace;
 	@OneToOne
 	@JoinColumn(name = "Peuple_ID")
+	@JsonView(Views.ViewRaceDetail.class)
 	private Peuple peupleOrigine;
 	@OneToOne
 	@JoinColumn(name = "Caste_ID")
+	@JsonView(Views.ViewRaceDetail.class)
 	private Caste castePredilection;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String elementTotem;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String couleurSymbolique;
 
 	public Race() {

@@ -1,8 +1,8 @@
 package projetShaan.shaan.boot.model;
 
 
-
 public class Views {
+	
 	public static class ViewCommon {
 	}
 
@@ -21,7 +21,14 @@ public class Views {
 
 	//-----------------------CASTES-----------------------------------
 	//----------------------------------------------------------------
+	public static class ViewCaste extends ViewCommon {	
+	}
 	
+	public static class ViewCasteDetail extends ViewCaste {	
+	}
+	
+	public static class ViewMetierFromCaste extends ViewCommon {	
+	}
 	// -----------------------DOMAINE PERSONNAGE----------------------
 	// ---------------------------------------------------------------
 
@@ -48,6 +55,11 @@ public class Views {
 
 	// ----------------------PEUPLES----------------------------------
 	//----------------------------------------------------------------
+	public static class ViewPeuple extends ViewCommon {
+	}	
+	
+	public static class ViewPeupleDetail extends ViewPeuple {
+	}	
 	
 	// -----------------------POUVOIR----------------------------------
 	// ----------------------------------------------------------------
@@ -56,6 +68,10 @@ public class Views {
 	// ----------------------------------------------------------------
 	
 	//-----------------------RACES------------------------------------
+	public static class ViewRace extends ViewCommon{
+	}
+	public static class ViewRaceDetail extends ViewRace{
+	}
 	//----------------------------------------------------------------
 
 
