@@ -9,22 +9,29 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table
 public class Motivation {
 	
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private Integer version;
 	@Column (length = 5000)
+	@JsonView(Views.ViewCommon.class)
 	private String nomMotivation;
 	@Column (length = 5000)
+	@JsonView(Views.ViewCommon.class)
 	private String description;
 	
 	@ManyToOne
 	@JoinColumn (name = "motivationId")
+	@JsonView(Views.ViewMotivationDetail.class)
 	private Domaine domaineLie;
 
 	public Long getId() {

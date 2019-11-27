@@ -50,7 +50,10 @@ public class Views {
 
 	// -----------------------MOTIVATION-------------------------------
 	// ----------------------------------------------------------------
-
+	public static class ViewMotivation extends ViewCommon{
+	}
+	public static class ViewMotivationDetail extends ViewMotivation{
+	}
 	// -----------------------MOTIVATION PERSONNAGE--------------------
 	// ----------------------------------------------------------------
 
