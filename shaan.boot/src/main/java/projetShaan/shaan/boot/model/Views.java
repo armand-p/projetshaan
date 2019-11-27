@@ -21,7 +21,14 @@ public class Views {
 
 	//-----------------------CASTES-----------------------------------
 	//----------------------------------------------------------------
+	public static class ViewCaste extends ViewCommon {	
+	}
 	
+	public static class ViewCasteDetail extends ViewCaste {	
+	}
+	
+	public static class ViewMetierFromCaste extends ViewCommon {	
+	}
 	// -----------------------DOMAINE PERSONNAGE----------------------
 	// ---------------------------------------------------------------
 
