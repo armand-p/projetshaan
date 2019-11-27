@@ -9,7 +9,9 @@ public class Views {
 
 	// -----------------------ACQUIS----------------------------------
 	// ---------------------------------------------------------------
-
+	public static class ViewAcquis extends ViewCommon{}
+	public static class ViewAcquisDetail extends ViewAcquis{}
+	
 	// -----------------------ALTERATIO NETAT-------------------------
 	// ---------------------------------------------------------------
 

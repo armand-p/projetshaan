@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table
 public class SpecialisationAcquis {
@@ -23,6 +25,7 @@ public class SpecialisationAcquis {
 	
 	@ManyToOne
 	@JoinColumn(name = "acquisSpe")
+	@JsonView(Views.ViewAcquisDetail.class)
 	private Specialisation specialisation;
 	@ManyToOne
 	@JoinColumn (name = "speAcquis")
