@@ -7,48 +7,66 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 @Table
 public class Pouvoir {
 	
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private Integer version;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String nomPouvoir;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String rang;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String type;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String test;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String frequence;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String activation;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String portee;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String cible;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String nbCible;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String typeDegat;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String duree;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String cout;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String degats;
 	@Column (length = 5000)
+	@JsonView(Views.ViewCommon.class)
 	private String description;
 	
 	@ManyToOne
 	@JoinColumn (name = "pouvoirsDomaine")
+	@JsonView(Views.ViewPouvoirDetail.class)
 	private Domaine domaineLie;
 
 	public Long getId() {
