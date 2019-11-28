@@ -7,13 +7,18 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+import javax.swing.text.View;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @DiscriminatorValue("Maitre du jeu")
 public class MaitreDuJeu extends Utilisateur {
 	@OneToMany(mappedBy = "createur")
+	@JsonView(Views.ViewMaitreDuJeuDetail.class)
 	private List<PersonnageNonJoueur> pnj = new ArrayList<PersonnageNonJoueur>();
 	@OneToMany(mappedBy = "maitreDuJeu")
+	@JsonView(Views.ViewMaitreDuJeuDetail.class)
 	private List<TableDeJeu> creation = new ArrayList<TableDeJeu>();
 
 	public MaitreDuJeu() {
