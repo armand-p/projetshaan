@@ -70,7 +70,10 @@ public class Views {
 	}
 	// -----------------------MAITRE DU JEU----------------------------
 	// ----------------------------------------------------------------
-
+	public static class ViewMaitreDuJeu extends ViewCommon{
+	}
+	public static class ViewMaitreDuJeuDetail extends ViewMaitreDuJeu{
+	}
 	// -----------------------METIER-----------------------------------
 	// ----------------------------------------------------------------
 
