@@ -44,7 +44,8 @@ public class Views {
 	// ----------------------------------------------------------------
 	public static class ViewJoueur extends ViewCommon {
 	}
-
+	public static class ViewPersonnageFromJoueur extends ViewCommon{
+	}
 	public static class ViewJoueurDetail extends ViewJoueur {
 	}
 	// -----------------------MAITRE DU JEU----------------------------
@@ -125,7 +126,5 @@ public class Views {
 	}
 	public static class ViewTableDeJeuDetail extends ViewTableDeJeu{
 	}
-	// -----------------------UTILISATEUR------------------------------
-	// ----------------------------------------------------------------
 
 }

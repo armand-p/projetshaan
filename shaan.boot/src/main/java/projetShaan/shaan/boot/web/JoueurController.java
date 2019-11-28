@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import projetShaan.shaan.boot.model.Joueur;
+import projetShaan.shaan.boot.model.Personnage;
 import projetShaan.shaan.boot.model.Views;
 import projetShaan.shaan.boot.repository.IJoueurRepository;
+import projetShaan.shaan.boot.repository.IPersonnageRepository;
 
 @RestController
 @RequestMapping("/joueur")
@@ -24,6 +26,9 @@ public class JoueurController {
 	
 	@Autowired
 	private IJoueurRepository joueurRepo;
+	
+	@Autowired
+	private IPersonnageRepository persoRepo;
 
 	@GetMapping("")
 	@JsonView(Views.ViewJoueur.class)
@@ -37,6 +42,13 @@ public class JoueurController {
 	public Joueur find(@PathVariable Long id) {
 		Joueur Joueur = joueurRepo.findById(id).get();
 		return Joueur;
+	}
+	
+	@GetMapping("/{id}/perso")
+	@JsonView(Views.ViewPersonnageFromJoueur.class)
+	public List<Personnage>listPerso(@PathVariable Long id){
+		List<Personnage> personnagesLies = persoRepo.findByJoueur(id);
+		return personnagesLies;
 	}
 	
 	@PostMapping("")
