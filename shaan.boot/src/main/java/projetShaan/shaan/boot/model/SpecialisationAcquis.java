@@ -6,9 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -19,16 +17,19 @@ public class SpecialisationAcquis {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private Integer version;
 	
 	@ManyToOne
 	@JoinColumn(name = "acquisSpe")
-	@JsonView(Views.ViewAcquisDetail.class)
+	@JsonView(Views.ViewSpecialisationAcquisDetail.class)
 	private Specialisation specialisation;
 	@ManyToOne
 	@JoinColumn (name = "speAcquis")
+	@JsonView(Views.ViewSpecialisationAcquisDetail.class)
 	private Acquis acquis;
 	
 	

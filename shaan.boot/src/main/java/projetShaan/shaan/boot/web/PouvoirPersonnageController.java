@@ -26,7 +26,7 @@ public class PouvoirPersonnageController {
 	private IPouvoirPersonnageRepository pouvoirPersonnageRepo;
 	
 	@GetMapping("")
-	@JsonView(Views.ViewPeuple.class)
+	@JsonView(Views.ViewPouvoirPersonnage.class)
 	public List<PouvoirPersonnage> list() {
 		List<PouvoirPersonnage> pouvoirPersonnages = pouvoirPersonnageRepo.findAll();
 		
