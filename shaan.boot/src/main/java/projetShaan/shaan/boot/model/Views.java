@@ -49,7 +49,10 @@ public class Views {
 	// ---------------------------------------------------------------
 	// -----------------------DOMAINE PERSONNAGE----------------------
 	// ---------------------------------------------------------------
-
+	public static class ViewDomainePersonnage extends ViewCommon{
+	}
+	public static class ViewDomainePersonnageDetail extends ViewDomainePersonnage{
+	}
 	// -----------------------JOUEUR-----------------------------------
 	// ----------------------------------------------------------------
 
