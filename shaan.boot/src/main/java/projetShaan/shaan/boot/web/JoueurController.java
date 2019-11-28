@@ -31,9 +31,9 @@ public class JoueurController {
 	private IPersonnageRepository persoRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewJoueur.class)
+	@JsonView(Views.ViewCommon.class)
 	public List<Joueur>list(){
-		List<Joueur> Joueurs = joueurRepo.findAll();
+		List<Joueur> Joueurs = joueurRepo.findAllJoueur();
 		return Joueurs;
 	}
 	

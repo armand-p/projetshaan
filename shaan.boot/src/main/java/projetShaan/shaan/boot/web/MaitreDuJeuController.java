@@ -25,7 +25,7 @@ public class MaitreDuJeuController {
 	private IMaitreDuJeuRepository maitreDuJeuRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewMaitreDuJeu.class)
+	@JsonView(Views.ViewCommon.class)
 	public List<MaitreDuJeu>list(){
 		List<MaitreDuJeu> maitresDuJeu = maitreDuJeuRepo.findAll();
 		return maitresDuJeu;

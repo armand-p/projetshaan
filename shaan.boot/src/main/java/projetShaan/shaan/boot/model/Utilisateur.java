@@ -10,6 +10,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -17,14 +19,19 @@ import javax.persistence.Version;
 public class Utilisateur {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String pseudo;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String motDePasse;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String email;
 	
 	public Utilisateur() {
