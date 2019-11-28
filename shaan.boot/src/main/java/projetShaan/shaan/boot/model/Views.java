@@ -149,7 +149,10 @@ public class Views {
 
 	// -----------------------TABLE DE JEU-----------------------------
 	// ----------------------------------------------------------------
-
+	public static class ViewTableDeJeu extends ViewCommon{
+	}
+	public static class ViewTableDeJeuDetail extends ViewTableDeJeu{
+	}
 	// -----------------------UTILISATEUR------------------------------
 	// ----------------------------------------------------------------
 

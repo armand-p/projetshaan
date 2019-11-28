@@ -15,22 +15,30 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table
 public class TableDeJeu {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(length = 500)
+	@JsonView(Views.ViewCommon.class)
 	private String notes;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String timer;
 	@ManyToOne
 	@JoinColumn(name = "Maitre_Du_Jeu_ID")
+	@JsonView(Views.ViewTableDeJeuDetail.class)
 	private MaitreDuJeu maitreDuJeu;
 	@OneToMany(mappedBy = "parties")
+	@JsonView(Views.ViewTableDeJeuDetail.class)
 	private List<Personnage> personnages = new ArrayList<Personnage>();
 
 	public TableDeJeu() {
