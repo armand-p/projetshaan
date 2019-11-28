@@ -6,8 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table
@@ -15,15 +16,19 @@ public class PouvoirPersonnage {
 	
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private Integer version;
 	
 	@ManyToOne
 	@JoinColumn(name = "Personnage_ID")
+	@JsonView(Views.ViewPouvoirPersonnageDetail.class)
 	private Personnage persoLie;
 	@ManyToOne
 	@JoinColumn (name ="pouvoirsPersos")
+	@JsonView(Views.ViewPouvoirPersonnageDetail.class)
 	private Pouvoir pouvoir;
 	
 	public Long getId() {
