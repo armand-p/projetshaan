@@ -84,7 +84,10 @@ public class Views {
 	}
 	// -----------------------PERSONNAGE-------------------------------
 	// ----------------------------------------------------------------
-
+	public static class ViewPersonnage extends ViewCommon{
+	}
+	public static class ViewPersonnageDetail extends ViewPersonnage{
+	}
 	// -----------------------PERSONNAGE NON JOUEUR--------------------
 	// ----------------------------------------------------------------
 

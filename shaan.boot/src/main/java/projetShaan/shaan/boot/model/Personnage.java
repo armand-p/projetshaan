@@ -17,60 +17,83 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type")
 public class Personnage {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private float taille;
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
 	@Column
 	private Sexe sexe;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private Float poids;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private int age;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private int ame;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private int corps;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private int esprit;
 	
 	@OneToMany(mappedBy = "persoLie")
+	@JsonView(Views.ViewPersonnageDetail.class)
 	private List<AlterationPersonnage> alterationPersonnage = new ArrayList<AlterationPersonnage>();
 	@ManyToOne
 	@JoinColumn(name = "Joueur_ID")
+	@JsonView(Views.ViewPersonnageDetail.class)
 	private Joueur joueur;
 	@ManyToOne
 	@JoinColumn(name = "Race_ID")
+	@JsonView(Views.ViewPersonnageDetail.class)
 	private Race racePerso;
 	@ManyToOne
 	@JoinColumn(name = "Peuple_ID")
+	@JsonView(Views.ViewPersonnageDetail.class)
 	private Peuple peuplePerso;
 	@ManyToOne
 	@JoinColumn(name = "Metier_ID")
+	@JsonView(Views.ViewPersonnageDetail.class)
 	private Metier metierPerso;
 	@ManyToOne
 	@JoinColumn(name = "Caste_ID")
+	@JsonView(Views.ViewPersonnageDetail.class)
 	private Caste castePerso;
 	@OneToMany(mappedBy = "persoLie")
+	@JsonView(Views.ViewPersonnageDetail.class)
 	private List<BonusPersonnage> bonusPerso = new ArrayList<BonusPersonnage>();
 	@OneToMany(mappedBy = "persoLie")
+	@JsonView(Views.ViewPersonnageDetail.class)
 	private List<DomainePersonnage> domainesPerso = new ArrayList<DomainePersonnage>();
 	@OneToMany(mappedBy = "persoLie")
+	@JsonView(Views.ViewPersonnageDetail.class)
 	private List<PouvoirPersonnage> pouvoirsPerso = new ArrayList<PouvoirPersonnage>();
 	@OneToMany(mappedBy = "persoLie")
+	@JsonView(Views.ViewPersonnageDetail.class)
 	private List<MotivationPersonnage> motivationsPerso = new ArrayList<MotivationPersonnage>();
 	@ManyToOne
 	@JoinColumn(name = "Partie_ID")
+	@JsonView(Views.ViewPersonnageDetail.class)
 	private TableDeJeu parties;
 
 	public Personnage() {
