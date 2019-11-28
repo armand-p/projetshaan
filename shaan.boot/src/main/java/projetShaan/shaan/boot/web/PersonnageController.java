@@ -64,7 +64,7 @@ public class PersonnageController {
 	}
 	
 	@GetMapping("/{id}/bonusPerso")
-	@JsonView(Views.ViewBonusPersoFromPersonnage.class)
+	@JsonView(Views.ViewBonusPersonnageDetail.class)
 	public List<BonusPersonnage> findBonusPerso(@PathVariable Long id) {
 		List<BonusPersonnage> BonusPersonnages = bonusPersoRepo.findByPersonnage(id);
 
@@ -72,7 +72,7 @@ public class PersonnageController {
 	}
 	
 	@GetMapping("/{id}/domaine")
-	@JsonView(Views.ViewDomainePersoFromPersonnage.class)
+	@JsonView(Views.ViewDomainePersonnageDetail.class)
 	public List<DomainePersonnage> findDomaine(@PathVariable Long id) {
 		List<DomainePersonnage> domainePersonnages = domainePersoRepo.findByPersonnage(id);
 
@@ -80,7 +80,7 @@ public class PersonnageController {
 	}
 	
 	@GetMapping("/{id}/alteration")
-	@JsonView(Views.ViewAlterationPersoFromPersonnage.class)
+	@JsonView(Views.ViewAlterationPersonnageDetail.class)
 	public List<AlterationPersonnage> findAlteration(@PathVariable Long id) {
 		List<AlterationPersonnage> alterationPersonnages = AlterationPersoRepo.findByPersonnage(id);
 
@@ -88,7 +88,7 @@ public class PersonnageController {
 	}
 	
 	@GetMapping("/{id}/pouvoir")
-	@JsonView(Views.ViewPouvoirPersoFromPersonnage.class)
+	@JsonView(Views.ViewPouvoirPersonnageDetail.class)
 	public List<PouvoirPersonnage> findPouvoir(@PathVariable Long id) {
 		List<PouvoirPersonnage> pouvoirPersonnages = pouvoirPersoRepo.findByPersonnage(id);
 
@@ -96,7 +96,7 @@ public class PersonnageController {
 	}
 	
 	@GetMapping("/{id}/motivation")
-	@JsonView(Views.ViewMotivationPersoFromPersonnage.class)
+	@JsonView(Views.ViewMotivationPersonnageDetail.class )
 	public List<MotivationPersonnage> findMotivation(@PathVariable Long id) {
 		List<MotivationPersonnage> motivationPersonnages = motivationPersoRepo.findByPersonnage(id);
 
