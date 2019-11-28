@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import projetShaan.shaan.boot.model.Caste;
+import projetShaan.shaan.boot.model.Metier;
 import projetShaan.shaan.boot.model.Views;
 import projetShaan.shaan.boot.repository.ICasteRepository;
 
@@ -24,6 +25,15 @@ public class CasteController {
 
 	@Autowired
 	private ICasteRepository casteRepo;
+	
+	@GetMapping("/{id}/metiers")
+	@JsonView(Views.ViewMetierFromCaste.class)
+	public List<Metier> listmetiers(@PathVariable Long id){
+		List<Metier> metiers = casteRepo.findAllMetier(id);
+		return metiers;
+	}
+	
+	
 	
 	@GetMapping("")
 	@JsonView(Views.ViewCaste.class)
