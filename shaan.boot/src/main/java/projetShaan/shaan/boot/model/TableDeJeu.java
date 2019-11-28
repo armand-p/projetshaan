@@ -25,12 +25,21 @@ public class TableDeJeu {
 	@Version
 	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@Column
+	@JsonView(Views.ViewCommon.class)
+	private String nom;
 	@Column(length = 500)
 	@JsonView(Views.ViewCommon.class)
 	private String notes;
 	@Column
 	@JsonView(Views.ViewCommon.class)
 	private String timer;
+	@Column
+	@JsonView(Views.ViewCommon.class)
+	private Boolean statut;
+	@Column
+	@JsonView(Views.ViewCommon.class)
+	private Boolean connection;
 	@ManyToOne
 	@JoinColumn(name = "Maitre_Du_Jeu_ID")
 	@JsonView(Views.ViewTableDeJeuDetail.class)
@@ -73,6 +82,30 @@ public class TableDeJeu {
 
 	public void setTimer(String timer) {
 		this.timer = timer;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public Boolean getStatut() {
+		return statut;
+	}
+
+	public void setStatut(Boolean statut) {
+		this.statut = statut;
+	}
+
+	public Boolean getConnection() {
+		return connection;
+	}
+
+	public void setConnection(Boolean connection) {
+		this.connection = connection;
 	}
 
 	public MaitreDuJeu getMaitreDuJeu() {
