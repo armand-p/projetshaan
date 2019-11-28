@@ -3,26 +3,48 @@ package projetShaan.shaan.boot;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import projetShaan.shaan.boot.model.PersonnageNonJoueur;
+import projetShaan.shaan.boot.model.Joueur;
+import projetShaan.shaan.boot.model.MaitreDuJeu;
+import projetShaan.shaan.boot.model.Personnage;
 import projetShaan.shaan.boot.model.Acquis;
+import projetShaan.shaan.boot.model.AlterationEtat;
+import projetShaan.shaan.boot.model.AlterationPersonnage;
+import projetShaan.shaan.boot.model.BonusPersonnage;
 import projetShaan.shaan.boot.model.Caste;
 import projetShaan.shaan.boot.model.Domaine;
+import projetShaan.shaan.boot.model.DomainePersonnage;
 import projetShaan.shaan.boot.model.Metier;
 import projetShaan.shaan.boot.model.Motivation;
+import projetShaan.shaan.boot.model.MotivationPersonnage;
 import projetShaan.shaan.boot.model.Peuple;
 import projetShaan.shaan.boot.model.Pouvoir;
+import projetShaan.shaan.boot.model.PouvoirPersonnage;
 import projetShaan.shaan.boot.model.Race;
 import projetShaan.shaan.boot.model.Specialisation;
 import projetShaan.shaan.boot.model.SpecialisationAcquis;
+import projetShaan.shaan.boot.model.TableDeJeu;
 import projetShaan.shaan.boot.repository.IAcquisRepository;
+import projetShaan.shaan.boot.repository.IAlterationEtatRepository;
+import projetShaan.shaan.boot.repository.IAlterationPersonnageRepository;
+import projetShaan.shaan.boot.repository.IBonusPersonnageRepository;
 import projetShaan.shaan.boot.repository.ICasteRepository;
+import projetShaan.shaan.boot.repository.IDomainePersonnageRepository;
 import projetShaan.shaan.boot.repository.IDomaineRepository;
+import projetShaan.shaan.boot.repository.IJoueurRepository;
+import projetShaan.shaan.boot.repository.IMaitreDuJeuRepository;
 import projetShaan.shaan.boot.repository.IMetierRepository;
+import projetShaan.shaan.boot.repository.IMotivationPersonnageRepository;
 import projetShaan.shaan.boot.repository.IMotivationRepository;
+import projetShaan.shaan.boot.repository.IPersonnageRepository;
 import projetShaan.shaan.boot.repository.IPeupleRepository;
+import projetShaan.shaan.boot.repository.IPouvoirPersonnageRepository;
 import projetShaan.shaan.boot.repository.IPouvoirRepository;
 import projetShaan.shaan.boot.repository.IRaceRepository;
 import projetShaan.shaan.boot.repository.ISpecialisationAcquisRepository;
 import projetShaan.shaan.boot.repository.ISpecialisationRepository;
+import projetShaan.shaan.boot.repository.ITableDeJeuRepository;
 
 @SpringBootTest
 class ApplicationTests {
@@ -47,6 +69,27 @@ class ApplicationTests {
 	private IAcquisRepository acquisRepository;
 	@Autowired
 	private ISpecialisationAcquisRepository speAcquisRepository;
+	@Autowired
+	private IPersonnageRepository personnageRepository; 
+	@Autowired
+	private IJoueurRepository joueurRepository;
+	@Autowired
+	private IMaitreDuJeuRepository maitreDuJeuRepository;
+	@Autowired
+	private ITableDeJeuRepository tableDeJeuRepository;
+	@Autowired
+	private IAlterationEtatRepository alterationEtatRepository;
+	@Autowired
+	private IBonusPersonnageRepository bonusPersonnageRepository;
+	@Autowired
+	private IAlterationPersonnageRepository alterationPersonnageRepository;
+	@Autowired
+	private IMotivationPersonnageRepository motivationPersonnageRepository;
+	@Autowired
+	private IPouvoirPersonnageRepository pouvoirPersonnageRepository;
+	@Autowired
+	private IDomainePersonnageRepository domainePersonnageRepository;
+	
 	
 	@Test
 	void contextLoads() {
@@ -3097,6 +3140,95 @@ class ApplicationTests {
 		armeAFeu.setType("Armes humaine");
 		armeAFeu=acquisRepository.save(armeAFeu);
 		
+//-------------------------------------------------------------------------------------------------------------------------
+//		Donnees test creation personnage
+//-------------------------------------------------------------------------------------------------------------------------	
+
+		
+		Joueur theauj = new Joueur();
+		Personnage theau = new Personnage();
+		MaitreDuJeu baptiste = new MaitreDuJeu();
+		PersonnageNonJoueur pnj = new PersonnageNonJoueur();
+		TableDeJeu parapleteam = new TableDeJeu();
+		AlterationEtat aveugle = new AlterationEtat();
+		BonusPersonnage bonus = new BonusPersonnage();
+		PouvoirPersonnage briseCodeTheau = new PouvoirPersonnage();
+		DomainePersonnage rituelTheau = new DomainePersonnage();
+		MotivationPersonnage forteresseTheau = new MotivationPersonnage();
+		AlterationPersonnage aveugleTheau = new AlterationPersonnage();
+		
+		theauj.setPseudo("theau");
+		theauj.setEmail("coucou@e.fr");
+		theauj.setMotDePasse("mdp");
+	
+		theauj = joueurRepository.save(theauj);
+		
+		baptiste.setEmail("t@e.fr");
+		baptiste.setMotDePasse("mdp");
+		baptiste.setPseudo("baptou");
+		baptiste=maitreDuJeuRepository.save(baptiste);
+		
+		pnj.setCreateur(baptiste);
+		pnj.setCastePerso(artistes);
+		pnj.setMetierPerso(prestidigitateur);
+		pnj.setNom("Armand");
+		pnj.setAge(2);
+		pnj.setAme(0);
+		pnj.setCorps(2);
+		pnj.setEsprit(0);
+		pnj.setTaille(1.25f);
+		pnj.setSexe(null);
+		pnj.setPoids(21f);
+		pnj = (PersonnageNonJoueur) personnageRepository.save(pnj);
+		
+		parapleteam.setNotes("Il y a du gateau et des meufs dans le frigo. Oups");
+		parapleteam.setMaitreDuJeu(baptiste);
+		parapleteam.setTimer(null);
+		parapleteam = tableDeJeuRepository.save(parapleteam);
+		
+		aveugle.setNom("aveuglé");
+		aveugle.setEffet("aveugle");
+		aveugle = alterationEtatRepository.save(aveugle);
+		
+		theau.setAge(22);
+		theau.setAme(5);
+		theau.setNom("Theau");
+		theau.setJoueur(theauj);
+		theau.setMetierPerso(prestidigitateur);
+		theau.setParties(parapleteam);
+		theau.setRacePerso(delhions);
+		theau.setCastePerso(artistes);
+		theau.setPeuplePerso(cites);
+		theau = personnageRepository.save(theau);
+		
+
+		briseCodeTheau.setPersoLie(theau);
+		briseCodeTheau.setPouvoir(brisecode);
+
+		briseCodeTheau = pouvoirPersonnageRepository.save(briseCodeTheau);
+
+		rituelTheau.setRangDomaine(5);
+		rituelTheau.setPersoLie(theau);
+		rituelTheau.setDomaineLie(rituels);
+
+		rituelTheau = domainePersonnageRepository.save(rituelTheau);
+
+		forteresseTheau.setPersoLie(theau);
+		forteresseTheau.setMotivation(forteresse);
+
+		forteresseTheau = motivationPersonnageRepository.save(forteresseTheau);
+
+		bonus.setBonusPerso(1);
+		bonus.setBonusAcquis(1);
+		bonus.setAcquis(lanceClous);
+		bonus.setPersoLie(theau);
+		bonus.setSpecialisation(vigilance);
+
+		bonus = bonusPersonnageRepository.save(bonus);
+
+		aveugleTheau.setAlterationEtat(aveugle);
+		aveugleTheau.setPersoLie(theau);
+		aveugleTheau = alterationPersonnageRepository.save(aveugleTheau);
 	}
 
 }
