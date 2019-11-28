@@ -14,15 +14,40 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import projetShaan.shaan.boot.model.AlterationPersonnage;
+import projetShaan.shaan.boot.model.BonusPersonnage;
+import projetShaan.shaan.boot.model.DomainePersonnage;
+import projetShaan.shaan.boot.model.MotivationPersonnage;
 import projetShaan.shaan.boot.model.Personnage;
+import projetShaan.shaan.boot.model.PouvoirPersonnage;
 import projetShaan.shaan.boot.model.Views;
+import projetShaan.shaan.boot.repository.IAlterationPersonnageRepository;
+import projetShaan.shaan.boot.repository.IBonusPersonnageRepository;
+import projetShaan.shaan.boot.repository.IDomainePersonnageRepository;
+import projetShaan.shaan.boot.repository.IMotivationPersonnageRepository;
 import projetShaan.shaan.boot.repository.IPersonnageRepository;
+import projetShaan.shaan.boot.repository.IPouvoirPersonnageRepository;
 
 @RestController
 @RequestMapping("/personnage")
 public class PersonnageController {
 	@Autowired
 	private IPersonnageRepository personnageRepo;
+	
+	@Autowired
+	private IBonusPersonnageRepository bonusPersoRepo;
+	
+	@Autowired
+	private IDomainePersonnageRepository domainePersoRepo;
+	
+	@Autowired
+	private IPouvoirPersonnageRepository pouvoirPersoRepo;
+	
+	@Autowired
+	private IMotivationPersonnageRepository motivationPersoRepo;
+	
+	@Autowired
+	private IAlterationPersonnageRepository AlterationPersoRepo;
 	
 	@GetMapping("")
 	@JsonView(Views.ViewPersonnage.class)
@@ -38,12 +63,44 @@ public class PersonnageController {
 		return personnage;
 	}
 	
-	@GetMapping("/{id}/detail")
-	@JsonView(Views.ViewPersonnageDetail.class)
-	public Personnage findDetail(@PathVariable Long id) {
-		Personnage personnage = personnageRepo.findById(id).get();
+	@GetMapping("/{id}/bonusPerso")
+	@JsonView(Views.ViewBonusPersoFromPersonnage.class)
+	public List<BonusPersonnage> findBonusPerso(@PathVariable Long id) {
+		List<BonusPersonnage> BonusPersonnages = bonusPersoRepo.findByPersonnage(id);
 
-		return personnage;
+		return BonusPersonnages;
+	}
+	
+	@GetMapping("/{id}/domaine")
+	@JsonView(Views.ViewDomainePersoFromPersonnage.class)
+	public List<DomainePersonnage> findDomaine(@PathVariable Long id) {
+		List<DomainePersonnage> domainePersonnages = domainePersoRepo.findByPersonnage(id);
+
+		return domainePersonnages;
+	}
+	
+	@GetMapping("/{id}/alteration")
+	@JsonView(Views.ViewAlterationPersoFromPersonnage.class)
+	public List<AlterationPersonnage> findAlteration(@PathVariable Long id) {
+		List<AlterationPersonnage> alterationPersonnages = AlterationPersoRepo.findByPersonnage(id);
+
+		return alterationPersonnages;
+	}
+	
+	@GetMapping("/{id}/pouvoir")
+	@JsonView(Views.ViewPouvoirPersoFromPersonnage.class)
+	public List<PouvoirPersonnage> findPouvoir(@PathVariable Long id) {
+		List<PouvoirPersonnage> pouvoirPersonnages = pouvoirPersoRepo.findByPersonnage(id);
+
+		return pouvoirPersonnages;
+	}
+	
+	@GetMapping("/{id}/motivation")
+	@JsonView(Views.ViewMotivationPersoFromPersonnage.class)
+	public List<MotivationPersonnage> findMotivation(@PathVariable Long id) {
+		List<MotivationPersonnage> motivationPersonnages = motivationPersoRepo.findByPersonnage(id);
+
+		return motivationPersonnages;
 	}
 
 	

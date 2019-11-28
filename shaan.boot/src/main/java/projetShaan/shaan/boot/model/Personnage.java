@@ -15,7 +15,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -57,7 +56,7 @@ public class Personnage {
 	private int esprit;
 	
 	@OneToMany(mappedBy = "persoLie")
-	@JsonView(Views.ViewPersonnageDetail.class)
+	@JsonView(Views.ViewAlterationPersoFromPersonnage.class)
 	private List<AlterationPersonnage> alterationPersonnage = new ArrayList<AlterationPersonnage>();
 	@ManyToOne
 	@JoinColumn(name = "Joueur_ID")
@@ -80,16 +79,16 @@ public class Personnage {
 	@JsonView(Views.ViewPersonnageDetail.class)
 	private Caste castePerso;
 	@OneToMany(mappedBy = "persoLie")
-	@JsonView(Views.ViewPersonnageDetail.class)
+	@JsonView(Views.ViewBonusPersoFromPersonnage.class)
 	private List<BonusPersonnage> bonusPerso = new ArrayList<BonusPersonnage>();
 	@OneToMany(mappedBy = "persoLie")
-	@JsonView(Views.ViewPersonnageDetail.class)
+	@JsonView(Views.ViewDomainePersoFromPersonnage.class)
 	private List<DomainePersonnage> domainesPerso = new ArrayList<DomainePersonnage>();
 	@OneToMany(mappedBy = "persoLie")
-	@JsonView(Views.ViewPersonnageDetail.class)
+	@JsonView(Views.ViewPouvoirPersoFromPersonnage.class)
 	private List<PouvoirPersonnage> pouvoirsPerso = new ArrayList<PouvoirPersonnage>();
 	@OneToMany(mappedBy = "persoLie")
-	@JsonView(Views.ViewPersonnageDetail.class)
+	@JsonView(Views.ViewMotivationPersoFromPersonnage.class)
 	private List<MotivationPersonnage> motivationsPerso = new ArrayList<MotivationPersonnage>();
 	@ManyToOne
 	@JoinColumn(name = "Partie_ID")

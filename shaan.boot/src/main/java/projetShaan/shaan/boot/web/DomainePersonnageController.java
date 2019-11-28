@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import projetShaan.shaan.boot.model.Acquis;
 import projetShaan.shaan.boot.model.DomainePersonnage;
 import projetShaan.shaan.boot.model.Views;
 import projetShaan.shaan.boot.repository.IDomainePersonnageRepository;
