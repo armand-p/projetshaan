@@ -83,7 +83,11 @@ public class Views {
 	}
 	// -----------------------PERSONNAGE NON JOUEUR--------------------
 	// ----------------------------------------------------------------
-
+	public static class ViewPersonnageNonJoueur extends ViewCommon {	
+	}
+	
+	public static class ViewPersonnageNonJoueurDetail extends ViewPersonnageNonJoueur {	
+	}
 	// ----------------------PEUPLES----------------------------------
 	// ----------------------------------------------------------------
 	public static class ViewPeuple extends ViewCommon {}
