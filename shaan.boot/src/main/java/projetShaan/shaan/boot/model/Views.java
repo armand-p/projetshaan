@@ -119,6 +119,9 @@ public class Views {
 
 	// -----------------------POUVOIR PERSONNAGE-----------------------
 	// ----------------------------------------------------------------
+	
+	public static class ViewPouvoirPersonnage extends ViewCommon {}
+	public static class ViewPouvoirPersonnageDetail extends ViewPouvoirPersonnage {}
 
 	// -----------------------RACES------------------------------------
 	public static class ViewRace extends ViewCommon {
