@@ -44,50 +44,46 @@ public class Views {
 	// ----------------------------------------------------------------
 	public static class ViewJoueur extends ViewCommon {
 	}
-
+	public static class ViewPersonnageFromJoueur extends ViewCommon{
+	}
 	public static class ViewJoueurDetail extends ViewJoueur {
 	}
 	// -----------------------MAITRE DU JEU----------------------------
 	// ----------------------------------------------------------------
-	public static class ViewMaitreDuJeu extends ViewCommon{
-	}
-	public static class ViewMaitreDuJeuDetail extends ViewMaitreDuJeu{
-	}
+	public static class ViewMaitreDuJeu extends ViewCommon{}
+	public static class ViewMaitreDuJeuDetail extends ViewMaitreDuJeu{}
+	
 	// -----------------------METIER-----------------------------------
 	// ----------------------------------------------------------------
 
-	public static class ViewMetier extends ViewCommon {
-	}
-
-	public static class ViewMetierDetail extends ViewMetier {
-	}
+	public static class ViewMetier extends ViewCommon {}
+	public static class ViewMetierDetail extends ViewMetier {}
 
 	// -----------------------MOTIVATION-------------------------------
 	// ----------------------------------------------------------------
-	public static class ViewMotivation extends ViewCommon {
-	}
-
-	public static class ViewMotivationDetail extends ViewMotivation {
-	}
+	public static class ViewMotivation extends ViewCommon {}
+	public static class ViewMotivationDetail extends ViewMotivation {}
 
 	// -----------------------MOTIVATION PERSONNAGE--------------------
 	// ----------------------------------------------------------------
 	public static class ViewMotivationPersonnage extends ViewCommon {}
-	public static class ViewMotivationPersonnageDetail extends ViewMotivationPersonnage {
-	}
+	public static class ViewMotivationPersonnageDetail extends ViewMotivationPersonnage {}
+	
 	// -----------------------PERSONNAGE-------------------------------
 	// ----------------------------------------------------------------
-	public static class ViewPersonnage extends ViewCommon{
-	}
-	public static class ViewPersonnageDetail extends ViewPersonnage{
-	}
+	public static class ViewPersonnage extends ViewCommon{}
+	public static class ViewPersonnageDetail extends ViewPersonnage{}
+	public static class ViewBonusPersoFromPersonnage extends ViewCommon{}
+	public static class ViewDomainePersoFromPersonnage extends ViewCommon{}
+	public static class ViewPouvoirPersoFromPersonnage extends ViewCommon{}
+	public static class ViewMotivationPersoFromPersonnage extends ViewCommon{}
+	public static class ViewAlterationPersoFromPersonnage extends ViewCommon{}
+	
 	// -----------------------PERSONNAGE NON JOUEUR--------------------
 	// ----------------------------------------------------------------
-	public static class ViewPersonnageNonJoueur extends ViewCommon {	
-	}
+	public static class ViewPersonnageNonJoueur extends ViewCommon {}
+	public static class ViewPersonnageNonJoueurDetail extends ViewPersonnageNonJoueur {}
 	
-	public static class ViewPersonnageNonJoueurDetail extends ViewPersonnageNonJoueur {	
-	}
 	// ----------------------PEUPLES----------------------------------
 	// ----------------------------------------------------------------
 	public static class ViewPeuple extends ViewCommon {}
@@ -125,7 +121,5 @@ public class Views {
 	}
 	public static class ViewTableDeJeuDetail extends ViewTableDeJeu{
 	}
-	// -----------------------UTILISATEUR------------------------------
-	// ----------------------------------------------------------------
 
 }
