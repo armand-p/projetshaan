@@ -10,10 +10,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @DiscriminatorValue("Joueur")
 public class Joueur extends Utilisateur{
 	@OneToMany(mappedBy = "joueur")
+	@JsonView(Views.ViewJoueurDetail.class)
 	private List<Personnage> personnages = new ArrayList<Personnage>();
 
 	public Joueur() {

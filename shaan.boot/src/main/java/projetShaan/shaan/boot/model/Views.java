@@ -55,7 +55,10 @@ public class Views {
 	}
 	// -----------------------JOUEUR-----------------------------------
 	// ----------------------------------------------------------------
-
+	public static class ViewJoueur extends ViewCommon{
+	}
+	public static class ViewJoueurDetail extends ViewJoueur{
+	}
 	// -----------------------MAITRE DU JEU----------------------------
 	// ----------------------------------------------------------------
 
