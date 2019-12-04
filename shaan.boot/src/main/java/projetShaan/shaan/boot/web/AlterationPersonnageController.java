@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -17,6 +18,7 @@ import projetShaan.shaan.boot.model.AlterationPersonnage;
 import projetShaan.shaan.boot.model.Views;
 import projetShaan.shaan.boot.repository.IAlterationPersonnageRepository;
 
+@RestController
 @RequestMapping("/alterationPersonnage")
 @JsonView(Views.ViewAlterationPersonnage.class)
 public class AlterationPersonnageController {

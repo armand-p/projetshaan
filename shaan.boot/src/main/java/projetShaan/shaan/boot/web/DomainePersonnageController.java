@@ -33,19 +33,12 @@ public class DomainePersonnageController {
 	}
 	
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewDomainePersonnage.class)
+	@JsonView(Views.ViewDomainePersonnageDetail.class)
 	public DomainePersonnage find(@PathVariable Long id){
 		DomainePersonnage domainePersonnage = domainePersonnageRepo.findById(id).get();
 		return domainePersonnage;
 	}
 	
-	@GetMapping("/{id}/detail")
-	@JsonView(Views.ViewDomainePersonnageDetail.class)
-	public DomainePersonnage findDetail(@PathVariable Long id) {
-		DomainePersonnage domainePersonnage = domainePersonnageRepo.findById(id).get();
-
-		return domainePersonnage;
-	}
 
 	
 	@PostMapping("")
