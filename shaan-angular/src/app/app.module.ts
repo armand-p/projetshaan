@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PersonnageComponent } from './personnage/personnage.component';
+import { HomeComponent } from './home/home.component';
+import {FormsModule} from "@angular/forms";
+import { CreationCompteComponent } from './creation-compte/creation-compte.component';
+import { AccueilJoueurComponent } from './accueil-joueur/accueil-joueur.component';
 import { PersonnageIdentiteComponent } from './personnage-identite/personnage-identite.component';
 import { PersonnageSpecialisationComponent } from './personnage-specialisation/personnage-specialisation.component';
 import { PersonnagePouvoirComponent } from './personnage-pouvoir/personnage-pouvoir.component';
@@ -14,6 +18,10 @@ import { PersonnageMotivationComponent } from './personnage-motivation/personnag
   declarations: [
     AppComponent,
     PersonnageComponent,
+    HomeComponent,
+    CreationCompteComponent,
+    AccueilJoueurComponent
+    PersonnageComponent,
     PersonnageIdentiteComponent,
     PersonnageSpecialisationComponent,
     PersonnagePouvoirComponent,
@@ -22,7 +30,8 @@ import { PersonnageMotivationComponent } from './personnage-motivation/personnag
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

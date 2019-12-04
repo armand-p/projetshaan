@@ -1,0 +1,19 @@
+<div><h3>Création d'un nouveau compte utilisateur</h3>
+<br>
+<p>Nom d'utilisateur : <input [(ngModel)] = "nomUtilisateur"> </p>
+<br>
+<p>Email : <input [(ngModel)] = "emailUtilisateur"> </p>
+<p>Confirmer l'email : <input [(ngModel)] = "confirmationEmailUtilisateur"> </p>
+<br>
+<p>Mot de passe : <input [(ngModel)] = "motDePasse"> </p>
+<p>Confirmer le mot de passe : <input [(ngModel)] = "confirmationMotDePasse"> </p>
+<br>
+  <div>
+  <input type="radio" name="role"><label>Joueur</label><br>
+    <input type="radio" name="role"><label>Maître du jeu</label>
+
+</div>
+  <br>
+  <button  [routerLink]="['']">Validation</button> <button  [routerLink]="['']">Retour</button>
+</div>
+
