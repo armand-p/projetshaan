@@ -1,0 +1,19 @@
+<p>Ce que je suis : </p>
+<span *ngFor="let race of races">
+<input type="radio" name="race">{{race}}
+</span>
+
+<p>D'où je viens : </p>
+ <span *ngFor="let race of races">
+  <input type="radio" name="origine">{{race}}
+ </span>
+
+<p>Ce que je fais : </p>
+<span *ngFor="let race of races">
+  <input type="radio" name="caste">{{race}}
+ </span>
+
+<p>Metiers : </p>
+<span *ngFor="let race of races">
+  <input type="radio" name="metiers">{{race}}
+ </span>
