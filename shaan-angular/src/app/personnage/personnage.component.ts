@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Personnage} from "../model/Personnage";
-import {PersonnageIdentiteComponent} from "../personnage-identite/personnage-identite.component";
+import {PersonnageService} from "../service/personnage.service";
 
 @Component({
   selector: 'app-personnage',
@@ -13,7 +13,7 @@ export class PersonnageComponent implements OnInit {
 
   personnage:Personnage = new Personnage();
 
-  constructor() {
+  constructor(private personnageService:PersonnageService) {
   }
 
   ngOnInit() {
@@ -24,6 +24,10 @@ export class PersonnageComponent implements OnInit {
     this.personnage.peuplePerso = persoRecu.peuplePerso;
     this.personnage.castePerso = persoRecu.castePerso;
     this.personnage.metierPerso = persoRecu.metierPerso;
+  }
+
+  save() {
+    this.personnageService.save(this.personnage);
   }
 
 }
