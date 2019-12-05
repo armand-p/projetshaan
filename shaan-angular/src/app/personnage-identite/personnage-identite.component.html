@@ -1,24 +1,24 @@
 <div>
   <p>Ce que je suis : </p>
   <span *ngFor="let race of listRace()">
-<input type="radio" name="race" [value]="race" [ngModel]="racePerso">{{race.nomRace}}
+<input type="radio" name="race" [value]="race" [(ngModel)]="personnage.racePerso">{{race.nomRace}}
 </span>
 
   <p><br>D'où je viens : </p>
   <span *ngFor="let peuple of listpeuple()">
-  <input type="radio" name="origine">{{peuple.nomPeuple}}
+  <input type="radio" name="origine" [value]="peuple" [(ngModel)]="personnage.peuplePerso">{{peuple.nomPeuple}}
  </span>
   <br>
 
   <p><br>Ce que je fais : </p>
   <span *ngFor="let caste of listcaste()">
-  <input type="radio" name="caste" [value]="caste" [ngModel]="castePerso" (ngModelChange)="selectCaste($event)">{{caste.nomCaste}}
+  <input type="radio" name="caste" [value]="caste" [ngModel]="personnage.castePerso" (ngModelChange)="selectCaste($event)">{{caste.nomCaste}}
  </span>
 
   <p><br>Metiers : </p>
-  <div *ngIf="castePerso">
+  <div *ngIf="personnage.castePerso">
   <span *ngFor="let metier of metiers">
-  <input type="radio" name="metiers">{{metier.nomMetier}}
+  <input type="radio" name="metiers" [value]="metier" [(ngModel)]="personnage.metierPerso">{{metier.nomMetier}}
   </span>
   </div>
 </div>
@@ -44,4 +44,4 @@
 
 </div>
 
-<button>Validation</button>
+<button (click)=" personnageEnvoi.emit(personnage)">Validation</button>
