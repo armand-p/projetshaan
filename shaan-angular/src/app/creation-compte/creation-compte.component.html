@@ -1,19 +1,21 @@
-<p>Confirmer l'email : <input [(ngModel)] = "confirmationEmailUtilisateur"> </p>
-<div><h3>Création d'un nouveau compte utilisateur</h3>
-<br>
-<p>Nom d'utilisateur : <input type="text" [(ngModel)] = "nomUtilisateur"> </p>
-<br>
-<p>Email : <input type="text" [(ngModel)] = "emailUtilisateur"> </p>
-<p>Confirmer l'email : <input type="text" [(ngModel)] = "confirmationEmailUtilisateur"> </p>
-<br>
-<p>Mot de passe : <input type="text" [(ngModel)] = "motDePasse"> </p>
-<p>Confirmer le mot de passe : <input type="text" [(ngModel)] = "confirmationMotDePasse"> </p>
-<br>
-  <div>
-  <input type="radio" name="role"><label>Joueur</label><br>
-    <input type="radio" name="role"><label>Maître du jeu</label>
+<div class="container"><h3>Création d'un nouveau compte utilisateur</h3>
+<br><table>
+<tr><th>Nom d'utilisateur : </th><th><input type="text" [(ngModel)] = "nomUtilisateur"> </tr>
 
-</div>
+<tr><th>Email : </th><th><input type="text" [(ngModel)] = "emailUtilisateur"> </tr>
+<tr><th>Confirmer l'email : </th><th><input type="text" [(ngModel)] = "confirmationEmailUtilisateur"> </tr>
+
+<tr><th>Mot de passe : </th><th><input type="text" [(ngModel)] = "motDePasse"> </tr>
+<tr><th>Confirmer le mot de passe : </th><th><input type="text" [(ngModel)] = "confirmationMotDePasse"> </tr><br>
+
+  <tr>
+    <th>Rôle :</th>
+
+    <th><input type="radio" name="role"><label>Joueur</label><br>
+      <input type="radio" name="role"><label>Maître du jeu</label></th></tr>
+
+  </table>
+
   <br>
     <table><td><button  [routerLink]="['']">Validation</button></td><td><button  [routerLink]="['']">Retour</button></td> </table>
 
