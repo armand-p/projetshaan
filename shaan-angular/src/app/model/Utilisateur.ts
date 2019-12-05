@@ -1,4 +1,4 @@
-export abstract class Utilisateur {
+export class Utilisateur {
   id: number;
   version: number;
   pseudo: string;

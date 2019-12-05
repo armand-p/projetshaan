@@ -3,6 +3,7 @@ package projetShaan.shaan.boot.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +28,7 @@ import projetShaan.shaan.boot.repository.IDomainePersonnageRepository;
 import projetShaan.shaan.boot.repository.IMotivationPersonnageRepository;
 import projetShaan.shaan.boot.repository.IPersonnageRepository;
 import projetShaan.shaan.boot.repository.IPouvoirPersonnageRepository;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/personnage")
 public class PersonnageController {

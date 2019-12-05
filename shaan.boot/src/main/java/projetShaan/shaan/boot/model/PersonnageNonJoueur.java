@@ -7,6 +7,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
+@JsonTypeName("pnj")
 @Entity
 @DiscriminatorValue("PNJ")
 public class PersonnageNonJoueur extends Personnage{

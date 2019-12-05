@@ -1,6 +1,7 @@
 package projetShaan.shaan.boot.model;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -17,7 +18,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include=As.PROPERTY ,property = "type") @JsonSubTypes({
+
+@JsonSubTypes.Type(value = MaitreDuJeu.class, name = "pnj"),
+})
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type")
