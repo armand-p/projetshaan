@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {AppConfigService} from '../app-config.service';
 import {Caste} from '../model/Caste';
 import {Observable} from 'rxjs';
+import {Metier} from "../model/Metier";
 
 @Injectable({
   providedIn: 'root'
@@ -20,12 +21,16 @@ export class CasteService {
       .subscribe(resp => this.castes = resp);
   }
 
-  public findAll(): Array<Caste> {
+  findAll(): Array<Caste> {
     return this.castes;
   }
 
   findById(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backEnd + 'caste/' + id);
+  }
+
+  findAllMetierByCaste(id: number): Observable<Array<Metier>>{
+    return this.http.get<Array<Metier>>(this.appConfigService.backEnd + 'caste/' + id + '/metiers');
   }
 
   save(caste: Caste) {

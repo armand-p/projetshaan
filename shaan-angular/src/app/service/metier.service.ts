@@ -20,7 +20,7 @@ export class MetierService {
       .subscribe(resp => this.metiers = resp);
   }
 
-  public findAll(): Array<Metier> {
+  findAll(): Array<Metier> {
     return this.metiers;
   }
 
