@@ -8,6 +8,7 @@ import {TableDeJeu} from './TableDeJeu';
 export class Personnage {
   id: number;
   version: number;
+  type:string;
   nom:string;
   taille:number;
   sexe:string;

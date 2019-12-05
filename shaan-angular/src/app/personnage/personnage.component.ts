@@ -14,6 +14,7 @@ export class PersonnageComponent implements OnInit {
   personnage:Personnage = new Personnage();
 
   constructor(private personnageService:PersonnageService) {
+    this.personnage.type = 'Personnage';
   }
 
   ngOnInit() {
