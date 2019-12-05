@@ -4,12 +4,14 @@ import {AppConfigService} from '../app-config.service';
 import {Utilisateur} from '../model/Utilisateur';
 import {Observable} from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class UtilisateurService {
+private utilisateurs : any;
 
-  private utilisateurs: any;
+
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService) {
     this.load();
@@ -23,9 +25,19 @@ export class UtilisateurService {
   public findAll(): Array<Utilisateur> {
     return this.utilisateurs;
   }
+  public findAllJoueur(): Observable<any> {
+    return this.http.get(this.appConfigService.backEnd + 'utilisateur/joueur');
+  }
+  public findAllMasterOfTheGame(): Observable<any> {
+    return this.http.get(this.appConfigService.backEnd + 'utilisateur/mj');
+  }
 
-  findById(id: number): Observable<any> {
-    return this.http.get(this.appConfigService.backEnd + 'utilisateur/' + id);
+
+  findByIdJoueur(id: number): Observable<any> {
+    return this.http.get(this.appConfigService.backEnd + 'utilisateur/joueur/' + id);
+  }
+  findByIdMasterOfTheGame(id: number): Observable<any> {
+    return this.http.get(this.appConfigService.backEnd + 'utilisateur/mj/' + id);
   }
 
   save(utilisateur: Utilisateur) {
@@ -36,6 +48,10 @@ export class UtilisateurService {
     }
   }
 
+
+
   deleteBydId(id: number) {
     this.http.delete(this.appConfigService.backEnd + 'utilisateur/' + id).subscribe(resp => this.load());
-  }}
+  }
+
+}
