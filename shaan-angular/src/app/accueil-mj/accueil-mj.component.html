@@ -12,16 +12,28 @@
     <th>Partie</th>
     <th>Nombre de joueurs</th>
 </tr>
-  <tr>
-    <th>Partie mighty quest</th>
+  <tr *ngFor="let table of list()">
+    <th>{{table.nom}}</th>
     <th>4 joueurs</th>
-    <th><button type="button" class="btn btn-danger btn-circle"  [routerLink]="['/personnage']">Supprimer la partie</button></th>
+    <th><button type="button" class="btn btn-danger btn-circle" (click)="delete(table.id)" >Supprimer la partie</button></th>
   </tr>
 
   </tbody>
   </table>
   <table>
-    <th><button type="button" class="btn btn-primary btn-circle" [routerLink]="['']">Ajouter une partie</button></th>
+    <th><button type="button" class="btn btn-primary btn-circle" (click)="creer()">Ajouter une partie</button></th>
 
   </table>
+</div>
+<div *ngIf="tabledujeu">
+  <form>
+    <div class="form-group">
+    <label for="nom">Nom:</label>
+    <input type="text" class="form-control" [(ngModel)]="tabledujeu.nom" [ngModelOptions]="{standalone: true}" id="nom">
+  </div>
+    <div class="form-group">
+     <button type="button" class="btn btn-primary btn-circle" (click)="save()"></button>
+    </div>
+
+  </form>
 </div>

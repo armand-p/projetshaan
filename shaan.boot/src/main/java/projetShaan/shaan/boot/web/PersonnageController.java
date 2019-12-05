@@ -58,7 +58,7 @@ public class PersonnageController {
 	}
 	
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewPersonnage.class)
+	@JsonView(Views.ViewPersonnageDetail.class)
 	public Personnage find(@PathVariable Long id){
 		Personnage personnage = personnageRepo.findById(id).get();
 		return personnage;
@@ -106,13 +106,13 @@ public class PersonnageController {
 
 	
 	@PostMapping("")
-	@JsonView(Views.ViewPersonnage.class)
+	@JsonView(Views.ViewPersonnageDetail.class)
 	public Personnage create (@RequestBody Personnage personnage) {
 		return personnageRepo.save(personnage);
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewPersonnage.class)
+	@JsonView(Views.ViewPersonnageDetail.class)
 	public Personnage update(@RequestBody Personnage personnage,  @PathVariable Long id) {
 		return personnageRepo.save(personnage);
 	}
