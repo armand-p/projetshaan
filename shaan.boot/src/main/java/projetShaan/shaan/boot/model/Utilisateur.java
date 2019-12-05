@@ -10,8 +10,15 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonView;
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include=As.PROPERTY ,property = "type") @JsonSubTypes({
 
+@JsonSubTypes.Type(value = MaitreDuJeu.class, name = "maitreDuJeu"),
+@JsonSubTypes.Type(value = Joueur.class, name = "joueur")
+})
 @Entity
 @Table
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
