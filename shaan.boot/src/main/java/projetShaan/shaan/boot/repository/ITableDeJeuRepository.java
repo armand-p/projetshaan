@@ -6,4 +6,7 @@ import projetShaan.shaan.boot.model.TableDeJeu;
 
 public interface ITableDeJeuRepository extends JpaRepository<TableDeJeu, Long>{
 
+
+	
+	
 }

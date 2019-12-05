@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import projetShaan.shaan.boot.model.Personnage;
 import projetShaan.shaan.boot.model.TableDeJeu;
 import projetShaan.shaan.boot.model.Views;
+import projetShaan.shaan.boot.repository.IPersonnageRepository;
 import projetShaan.shaan.boot.repository.ITableDeJeuRepository;
 @CrossOrigin("*")
 @RestController
@@ -25,6 +27,7 @@ import projetShaan.shaan.boot.repository.ITableDeJeuRepository;
 public class TableDeJeuController {
 	@Autowired
 	private ITableDeJeuRepository tableDeJeuRepo;
+	private IPersonnageRepository personnageRepo;
 	
 	@GetMapping("")
 	@JsonView(Views.ViewTableDeJeu.class)
@@ -46,6 +49,13 @@ public class TableDeJeuController {
 		TableDeJeu tableDeJeu = tableDeJeuRepo.findById(id).get();
 
 		return tableDeJeu;
+	}
+	
+	@GetMapping("/{id}/personnages")
+	@JsonView(Views.ViewPersonnage.class)
+	public List<Personnage>findbyTable(@PathVariable Long id){
+		List<Personnage> personnages = personnageRepo.findByTableDeJeu(id);
+		return personnages;
 	}
 
 	

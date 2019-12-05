@@ -522,61 +522,61 @@ class ApplicationTests {
 //-------------------------------------------------------------------------------------------------------------------------
 //				REMPLISSAGE OBJET CASTE
 //-------------------------------------------------------------------------------------------------------------------------
-		novateurs.setNomCaste("Les Novateurs");
+		novateurs.setNomCaste("Novateurs");
 		novateurs.setDescription(
 				"Cette Caste rassemble tous ceux qui travaillent le cuir, le métal, la pierre, le bois, le verre, le tissu, ainsi que les machinistes et ceux qui peuvent être amenés à utiliser de la technologie humaine. Cette Caste très influente dispose de nombreuses ramifications au sein des sociétés humaines et héossiennes grâce aux nombreux Ateliers de production qu'elle gère et qui constituent autant de points névralgiques de l'économie héossienne.");
 		novateurs.setDomaine(technique);
 		novateurs = casteRepository.save(novateurs);
 
-		erudits.setNomCaste("Les Erudits");
+		erudits.setNomCaste("Erudits");
 		erudits.setDescription(
 				"C'est l'élite intellectuelle de la population héossienne. Tous les scientifiques, philosophes, littéraires, ingénieurs et juristes y sont représentés. Le Nouvel Ordre et les Grandes Familles se méfient toujours des Érudits, qui ont été les premiers à comprendre la culture technologique humaine.");
 		erudits.setDomaine(savoir);
 		erudits = casteRepository.save(erudits);
 
-		negociants.setNomCaste("Les Négociants");
+		negociants.setNomCaste("Négociants");
 		negociants.setDescription(
 				"La Caste des Négociants accueille tous ceux qui tissent des liens sociaux, que ce soit à but lucratif ou par intérêt politique. Cette Caste constitue la pierre angulaire de l'économie héossienne, mais est surtout un trait d' union avec les civilisations humaines et nécrosiennes. Le Négociant sait toujours tirer profit d'une situation, quelle qu'elle soit. Peu importe son interlocuteur, il sait que chacun dispose d'une faille qu'il suffit d'exploiter pour prendre l'avantage.");
 		negociants.setDomaine(social);
 		negociants = casteRepository.save(negociants);
 
-		artistes.setNomCaste("Les Artistes");
+		artistes.setNomCaste("Artistes");
 		artistes.setDescription(
 				"La Caste des Artistes rassemble tous ceux dont le but est de divertir la population, que ce soit par la musique, la danse, la comédie, la peinture, la gastronomie, la jonglerie ou les acrobaties. Le Nouvel Ordre n'aimait pas les Artistes, réprimant immédiatement toute manifestation publique. Avec la Révolution et la chute du régime humain, les choses ont changé et les Artistes sont aujourd'hui encouragés à créer, à exposer et à s'exprimer pour revaloriser la culture héossienne. Certains courants artistiques engendrent d'ailleurs de véritables effets de modes qui, grâce à Arpège, se diffusent à l'ensemble du continent, offrant aux Artistes une renommée, une notoriété et une popularité parfois plus importante que celle de toutes les autres Castes.");
 		artistes.setDomaine(arts);
 		artistes = casteRepository.save(artistes);
 
-		shaanistes.setNomCaste("Les Shaanistes");
+		shaanistes.setNomCaste("Shaanistes");
 		shaanistes.setDescription(
 				"Les Shaanistes sont des porteurs de lumière. Transmettant le Shaan à qui l'accepte, ils ont pour charge d'apaiser les Âmes, d'harmoniser les Esprits et de réguler toute sorte de fanatisme. Le Nouvel Ordre a systématiquement persécuté les Shaanistes. Les génocides qui se sont produits ont, pendant un moment, rendu la pratique du Shaan dangereuse, mais aucun de ses adeptes ne s'est détourné de sa voie.");
 		shaanistes.setDomaine(shaan);
 		shaanistes = casteRepository.save(shaanistes);
 
-		magiciens.setNomCaste("Les Magiciens");
+		magiciens.setNomCaste("Magiciens");
 		magiciens.setDescription(
 				"Les Magiciens utilisent les Trihns qui voyagent sur Héos et s'en servent comme combustible pour leurs Pouvoirs. Souvent en contact avec les autres Castes, ils les aident par leur savoir et leur pratique.");
 		magiciens.setDomaine(magie);
 		magiciens = casteRepository.save(magiciens);
 
-		elementalistes.setNomCaste("Les Élémentalistes");
+		elementalistes.setNomCaste("Élémentalistes");
 		elementalistes.setDescription(
 				"Les Élémentalistes échappent au système de classement des autres Castes. Ils vouent un culte aux Éléments tels qu'ils sont représentés au sein du Cercle des Réalités. Chacun de ces Éléments constitue une voie qu'un Élémentaliste peut choisir de suivre. Si un Élémentaliste transgresse volontairement un de ses tabous, il attire la colère de l'Élément offensé. Pendant trois Jours, tous ses Tests de RITUELS impliquant cet Élément lui feront perdre un point de Corps supplémentaire à cause de cette agressivité élémentaire. Il sera en pénitence et devra passer ce temps à prier son Élément.");
 		elementalistes.setDomaine(rituels);
 		elementalistes = casteRepository.save(elementalistes);
 
-		voyageurs.setNomCaste("Les Voyageurs");
+		voyageurs.setNomCaste("Voyageurs");
 		voyageurs.setDescription(
 				"Cette Caste rassemble les anthéens chargés de transporter quelque chose ou quelqu'un d'un point à un autre. Les Sportifs qui vont de ville en ville font également partie de cette Caste. Les Voyageurs ont pu conserver une importance malgré la démocratisation des Portes de Transfert, car bien que plus lents, ils restent tout de même bien meilleur marché");
 		voyageurs.setDomaine(survie);
 		voyageurs = casteRepository.save(voyageurs);
 
-		combattants.setNomCaste("Les Combattants");
+		combattants.setNomCaste("Combattants");
 		combattants.setDescription(
 				"Cette Caste rassemble tous ceux qui ne vivent que par la guerre et le respect de l'ordre. Soldats, miliciens, gladiateurs, hommes de main en sont les dignes représentants. Entre les Castes, les Guildes, les Notables et les Grandes Familles, nombreux sont ceux qui les utilisent à tour de bras pour régler des conflits, protéger un lieu ou récupérer quelque chose.");
 		combattants.setDomaine(combat);
 		combattants = casteRepository.save(combattants);
 
-		ombres.setNomCaste("Les Ombres");
+		ombres.setNomCaste("Ombres");
 		ombres.setDescription(
 				"Cette Caste siège à l'Assemblée Héossienne et dans les Conseils des Castes. Organisée de façon assez anarchique, elle suit malgré tout une hiérarchie pyramidale, chapeauté par plusieurs Parrains dont l'identité n'est jamais clairement établie, mais qui imposent leur autorité par la peur.");
 		ombres.setDomaine(necrose);
@@ -1007,70 +1007,70 @@ class ApplicationTests {
 				"Le Voleur de Trihn a mauvaise réputation. Quand il est allié, on apprécie sa compagnie et ses talents galvanisent le groupe. Mais lorsqu'il se présente en ennemi, il devient souvent la principale cible des mages adverses qui ne peuvent se permettre de se laisser voler leurs Trihns. Pour cette raison, le Voleur de Trihn garde généralement la nature de son métier secrète et préfère mentir sur sa spécialisation.");
 		voleurDeTrihn = metierRepository.save(voleurDeTrihn);
 
-		discipleDeLAir.setNomMetier("disciple de l'air");
+		discipleDeLAir.setNomMetier("Disciple de l'air");
 		discipleDeLAir.setVoie("Voie de l'Air");
 		discipleDeLAir.setCasteLie(elementalistes);
 		discipleDeLAir.setDescription(
 				"Le culte de l’Air pourrait se résumer en un mot : liberté. Liberté de penser, d’agir, de se déplacer, de créer. Les disciples de l’Air sont des nomades dans l’âme qui trouvent leur salut dans le voyage. Philosophes, certains disciples aiment à se perdre dans les méandres de la pensée et peuvent ainsi discuter pendant des jours sans s’arrêter. Le disciple d’Ëlhi n’est pas à la recherche de la connaissance absolue, mais de ses propres limites intellectuelles, le but étant de les repousser le plus loin possible. Adepte de l’autogestion, il a tendance à rejeter les rapports hiérarchiques. Très spontané, le disciple de l’Air dit toujours ce qu’il pense.");
 		discipleDeLAir = metierRepository.save(discipleDeLAir);
 
-		discipleDeLAnimal.setNomMetier("disciple de l'animal");
+		discipleDeLAnimal.setNomMetier("Disciple de l'animal");
 		discipleDeLAnimal.setVoie("Voie de l'animal");
 		discipleDeLAnimal.setCasteLie(elementalistes);
 		discipleDeLAnimal.setDescription(
 				"Le culte de l’Animal est l’un des plus répandus en Héossie. Prônant des valeurs d’énergie, de courage et d’autorité, il trouve largement sa place au sein des peuples de nature guerrière ou en prise directe avec la nature. Les disciples de l’Animal ont tendance à être assez primitifs et à réagir au quart de tour. Mais en amitié, ils savent aussi être fidèles et se comportent en chef de meute.");
 		discipleDeLAnimal = metierRepository.save(discipleDeLAnimal);
 
-		discipleDeLautre.setNomMetier("disciple de l'Autre");
+		discipleDeLautre.setNomMetier("Disciple de l'Autre");
 		discipleDeLautre.setVoie("Voie de l'Autre");
 		discipleDeLautre.setCasteLie(elementalistes);
 		discipleDeLautre.setDescription(
 				"Le culte de l’Autre est l’un des plus appréciés en Héossie. Fondamentalement pacifiste dans l’âme, le disciple de l’Autre place le respect de la vie au cœur de toute chose. Mais le disciple de l’Autre n’est pas pour autant un imbécile, il est bien conscient que la violence peut s’avérer nécessaire pour sauver les faibles et surtout pour combattre la Nécrose. Car il n’est pas de culte plus hostile à la Nécrose que la voie de Löd. Pour ces disciples, l’âme est source de vie, la perdre, c’est ne plus être vivant.");
 		discipleDeLautre = metierRepository.save(discipleDeLautre);
 
-		discipleDeLEau.setNomMetier("disciple de l'Eau");
+		discipleDeLEau.setNomMetier("Disciple de l'Eau");
 		discipleDeLEau.setVoie("Voie de l'Eau");
 		discipleDeLEau.setCasteLie(elementalistes);
 		discipleDeLEau.setDescription(
 				"Le culte de l’Eau puise ses racines dans l’enfance, dans le fluide amniotique. Les rêves, les secrets et ce qui échappe au sens commun des mortels reste familier aux yeux du disciple de l’Eau. Très joueur, il ne peut s’empêcher de relever les défis qu’on lui propose, quitte à mettre sa vie et celle de ses proches en danger. Le disciple de l’Eau vit dans son monde et peut donner l’impression d’être parfois absent. Mais ce n’est qu’une impression car le disciple de Rhéa est en contact direct avec le fluide vital des êtres...");
 		discipleDeLEau = metierRepository.save(discipleDeLEau);
 
-		discipleDeLObjet.setNomMetier("disciple de l'Objet");
+		discipleDeLObjet.setNomMetier("Disciple de l'Objet");
 		discipleDeLObjet.setVoie("Voie de l'Objet");
 		discipleDeLObjet.setCasteLie(elementalistes);
 		discipleDeLObjet.setDescription(
 				"Le culte de l’Objet fait partie des plus appréciés en Héossie, car il est l’apanage des artisans et des techniciens. Un disciple de l’Objet ayant toujours à cœur que les choses fonctionnent bien autour de lui et ne pourra s’empêcher de réparer ce qui est cassé. Très imaginatif, un disciple de l’Objet préfèrera toujours un moyen compliqué pour résoudre un problème donné ou une solution trop évidente et donc suspecte. Méthodique, le disciple de l’Objet peut paraître froid par moment lorsqu’il est plongé dans l’analyse de ce qui l’entoure. Il peut également faire preuve d’un détachement déconcertant vis à vis de la mort qui n’est pour lui qu’une panne définitive...");
 		discipleDeLObjet = metierRepository.save(discipleDeLObjet);
 
-		discipleDaLaTerre.setNomMetier("disciple de la Terre");
+		discipleDaLaTerre.setNomMetier("Disciple de la Terre");
 		discipleDaLaTerre.setVoie("Voie de la Terre");
 		discipleDaLaTerre.setCasteLie(elementalistes);
 		discipleDaLaTerre.setDescription(
 				"Le culte de la Terre est l’un des plus déroutants. Intégrant dans son dogme le cycle des Trihns, il offre à ses adeptes une vision du monde globale peu accessible aux autres. Le relativisme et le fatalisme dont font preuve les disciples de Ling les place toujours en décalage de ce qui est communément admis. En prise directe avec l’insondable et les forces telluriques, les adeptes de la Terre font souvent preuve d’une grande détermination. Ils voient ce que les autres ne peuvent voir, comme si la terre et tout ce qu’elle avait accumulé depuis toujours était en prise directe avec leur âme...");
 		discipleDaLaTerre = metierRepository.save(discipleDaLaTerre);
 
-		discipleDesLimbes.setNomMetier("disciple des Limbes");
+		discipleDesLimbes.setNomMetier("Disciple des Limbes");
 		discipleDesLimbes.setVoie("Voie des Limbes");
 		discipleDesLimbes.setCasteLie(elementalistes);
 		discipleDesLimbes.setDescription(
 				"Le culte des Limbes est le plus décrié car le plus ambigüe. Car si certains disciples prétendent pratiquer ce culte pour mieux comprendre les Limbes de l’intérieur et pouvoir ainsi mieux les combattre, il n’empêche que cette voie est surtout pratiquée en majorité par les Nécrosiens. Le contact direct avec les névroses les plus abyssales laissent souvent des séquelles aux adeptes de Gargan. Et si tous ne finissent pas nécrosés, c’est que ceux qui restent du «bon côté» sont devenus fous... S’engager sur la voie des Limbes, c’est être sur le fil du rasoir, on peut basculer à tout moment...");
 		discipleDesLimbes = metierRepository.save(discipleDesLimbes);
 
-		discipleDuFeu.setNomMetier("disciple du Feu");
+		discipleDuFeu.setNomMetier("Disciple du Feu");
 		discipleDuFeu.setVoie("Voie du Feu");
 		discipleDuFeu.setCasteLie(elementalistes);
 		discipleDuFeu.setDescription(
 				"Le culte du Feu exalte les passions et les conflits. Brûlant tout sur son passage, le disciple du Feu plie ses adversaires à sa volonté. Il s'enflamme pour un rien et ne recule devant rien pour atteindre ses objectifs. Ayant soif de conquêtes et de renommée, le disciple du Feu n’hésite jamais à provoquer les événements plutôt que de les subir. Assez à l’aise dans le chaos, il n’apprécie guère le consensus et peut parfois faire preuve d’esprit de contradiction, par simple plaisir d’en découdre... Les Guerriers, les Sorciers et les Ensorceleurs sont bien en phase avec cette voie.");
 		discipleDuFeu = metierRepository.save(discipleDuFeu);
 
-		discipleDuMoi.setNomMetier("disciple du Moi");
+		discipleDuMoi.setNomMetier("Disciple du Moi");
 		discipleDuMoi.setVoie("Voie du Moi");
 		discipleDuMoi.setCasteLie(elementalistes);
 		discipleDuMoi.setDescription(
 				"Le culte du Moi est assez singulier. En effet, les disciples ne peuvent compter que sur eux-mêmes pour progresser dans leur voie. Cette dernière, faite de frustration et de solitude a tendance à couper ses adeptes du reste du monde. Égotique et orgueilleux, les adeptes du Moi nourrissent un véritable complexe de supériorité. Ils se plaisent à répéter à qui veut l’entendre qu’ils se sont faits tout seuls... Les Magiciens apprécient particulièrement ce culte qu’ils trouvent en phase avec leurs préoccupations.");
 		discipleDuMoi = metierRepository.save(discipleDuMoi);
 
-		discipleDuVegetal.setNomMetier("disciple du Végétal");
+		discipleDuVegetal.setNomMetier("Disciple du Végétal");
 		discipleDuVegetal.setVoie("Voie du Végétal");
 		discipleDuVegetal.setCasteLie(elementalistes);
 		discipleDuVegetal.setDescription(

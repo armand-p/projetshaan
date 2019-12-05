@@ -4,26 +4,26 @@
 
 <div class="container">
   <div style="flex: 60%; background: #ccc" >
-    <p>Nom : <input type="text">
+    <p>Nom : <input type="text" [(ngModel)]="personnage.nom">
       Sexe : <input type="radio" name="sexe"> M <input type="radio" name="sexe"> F
-      Age : <input type="text">
+      Age : <input type="text" [(ngModel)]="personnage.age">
     </p>
-    <p>Race : <input type="text">
-      Taille : <input type="text">
+    <p><b>Race : </b><span *ngIf="personnage.racePerso">{{personnage.racePerso.nomRace}}</span>
+      Taille : <input type="text" [(ngModel)]="personnage.taille">
       Motivation : <input type="text">
     </p>
-    <p>Peuple : <input type="text">
-      Poids : <input type="text">
+    <p><b>Peuple : </b><span *ngIf="personnage.peuplePerso">{{personnage.peuplePerso.nomPeuple}}</span>
+      Poids : <input type="text" [(ngModel)]="personnage.poids">
     </p>
-    <p>Caste : <input type="text">
-      Métier : <input type="text">
+    <p><b>Caste : </b><span *ngIf="personnage.castePerso">{{personnage.castePerso.nomCaste}}</span>
+      <b> Métier : </b><span *ngIf="personnage.metierPerso">{{personnage.metierPerso.nomMetier}}</span>
     </p>
   </div>
 
   <div style="flex: 3">
 
     <p>
-      <button>Validation</button>
+      <button (click)="save()">Validation</button>
     </p>
     <p>
       <button>Aléatoire</button>
@@ -53,7 +53,7 @@
 
   <div class="container" style="background: #ccc">
 
-      <personnage-identite *ngIf="page === 'identite'"></personnage-identite>
+      <personnage-identite *ngIf="page === 'identite'" (personnageEnvoi)="receptionPerso($event)"></personnage-identite>
 
       <personnage-specialisation *ngIf="page === 'specialisation'"></personnage-specialisation>
 
