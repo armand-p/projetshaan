@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonnageComponent implements OnInit {
 
-  page: string;
+  page: string = 'identite';
 
   constructor() { }
 

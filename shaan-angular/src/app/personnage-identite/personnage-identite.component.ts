@@ -9,7 +9,9 @@ export class PersonnageIdentiteComponent implements OnInit {
 
   //Données temporaires
   races: Array<string> = ['Kelwin', 'Ygwan', 'Delian'];
-
+  origines: Array<string> = ['Forets blanches', 'desert', 'ville'];
+  castes: Array<string> = ['Novateurs', 'ombres', 'artisants','artiste'];
+  metiers: Array<string> = ['forgeron', 'mineur', 'codeur'];
 
   constructor() { }
 
