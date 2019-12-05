@@ -13,8 +13,8 @@ import { PersonnageSpecialisationComponent } from './personnage-specialisation/p
 import { PersonnagePouvoirComponent } from './personnage-pouvoir/personnage-pouvoir.component';
 import { PersonnageAcquisComponent } from './personnage-acquis/personnage-acquis.component';
 import { PersonnageMotivationComponent } from './personnage-motivation/personnage-motivation.component';
-import {AppConfigService} from "../../../../formation-angular V2/src/app/app-config.service";
 import {HttpClientModule} from "@angular/common/http";
+import {AppConfigService} from './app-config.service';
 
 
 @NgModule({
