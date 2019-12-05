@@ -31,7 +31,7 @@ public class Utilisateur {
 	@Version
 	@JsonView(Views.ViewCommon.class)
 	private int version;
-	@Column
+	@Column(unique = true)
 	@JsonView(Views.ViewCommon.class)
 	private String pseudo;
 	@Column
