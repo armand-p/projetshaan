@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import projetShaan.shaan.boot.model.Race;
 import projetShaan.shaan.boot.model.Views;
 import projetShaan.shaan.boot.repository.IRaceRepository;
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/race")
 @CrossOrigin("*")

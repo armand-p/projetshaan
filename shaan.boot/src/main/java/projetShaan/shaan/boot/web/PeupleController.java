@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import projetShaan.shaan.boot.model.Peuple;
 import projetShaan.shaan.boot.model.Views;
 import projetShaan.shaan.boot.repository.IPeupleRepository;
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/peuple")
 @CrossOrigin("*")
