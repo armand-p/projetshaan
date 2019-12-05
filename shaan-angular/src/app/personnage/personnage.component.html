@@ -1,10 +1,9 @@
-<div class="card mt-3">
-  <div class="card-header bg-info text-white">
-    <h2>Information personnage</h2>
-  </div>
+<div>
+  <h2>Information personnage</h2>
+</div>
 
-  <div class="card-body">
-
+<div class="container">
+  <div style="flex: 2; background: #ccc" >
     <p>Nom : <input type="text">
       Sexe : <input type="radio" name="sexe"> M <input type="radio" name="sexe"> F
       Age : <input type="text">
@@ -19,26 +18,51 @@
     <p>Caste : <input type="text">
       Métier : <input type="text">
     </p>
-
   </div>
 
-  <div>
-    <p><button>Identité</button>
-      <button>Spécialisation</button>
-      <button>Pouvoir</button>
-      <button>Acquis</button>
-      <button>Motivation</button></p>
+  <div style="flex: 3">
+
+    <p>
+      <button>Validation</button>
+    </p>
+    <p>
+      <button>Aléatoire</button>
+    </p>
+    <p>
+      <button>Effacer</button>
+    </p>
+
+
   </div>
-
-  <personnage-identite></personnage-identite>
-
-  <personnage-specialisation></personnage-specialisation>
-
-  <personnage-pouvoir></personnage-pouvoir>
-
-  <personnage-acquis></personnage-acquis>
-
-  <personnage-motivation></personnage-motivation>
-
 
 </div>
+
+<div class="clear"></div>
+
+
+<div>
+  <div>
+    <p>
+      <button (click)="page = 'identite'">Identité</button>
+      <button (click)="page = 'specialisation'">Spécialisation</button>
+      <button (click)="page = 'pouvoir'">Pouvoir</button>
+      <button (click)="page = 'acquis'">Acquis</button>
+      <button (click)="page = 'motivation'">Motivation</button>
+    </p>
+  </div>
+
+  <div class="container" style="background: #ccc">
+
+      <personnage-identite *ngIf="page === 'identite'"></personnage-identite>
+
+      <personnage-specialisation *ngIf="page === 'specialisation'"></personnage-specialisation>
+
+      <personnage-pouvoir *ngIf="page === 'pouvoir'"></personnage-pouvoir>
+
+      <personnage-acquis *ngIf="page === 'acquis'"></personnage-acquis>
+
+      <personnage-motivation *ngIf="page === 'motivation'"></personnage-motivation>
+
+  </div>
+</div>
+
