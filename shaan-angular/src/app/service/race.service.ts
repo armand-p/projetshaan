@@ -1,9 +1,8 @@
-import { Injectable } from '@angular/core';
-import {AppConfigService} from "../../../../../formation-angular V2/src/app/app-config.service";
-import {Stagiaire} from "../../../../../formation-angular V2/src/app/model/stagiaire";
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Race} from "../model/Race";
+import {AppConfigService} from "../app-config.service";
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +20,7 @@ export class RaceService {
       .subscribe(resp => this.races = resp);
   }
 
-  public findAll(): any {
+  findAll(): any {
     return this.races;
   }
 
