@@ -1,4 +1,4 @@
-  templateUrl: './accueil-joueur.component.html',
+  templateUrl: './accueil-joueur.component.html'
 import { Component, OnInit } from '@angular/core';
 
 @Component({
