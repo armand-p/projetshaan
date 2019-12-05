@@ -20,7 +20,7 @@ export class RaceService {
       .subscribe(resp => this.races = resp);
   }
 
-  public findAll(): any {
+  findAll(): any {
     return this.races;
   }
 

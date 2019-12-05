@@ -13,6 +13,8 @@ import { PersonnageSpecialisationComponent } from './personnage-specialisation/p
 import { PersonnagePouvoirComponent } from './personnage-pouvoir/personnage-pouvoir.component';
 import { PersonnageAcquisComponent } from './personnage-acquis/personnage-acquis.component';
 import { PersonnageMotivationComponent } from './personnage-motivation/personnage-motivation.component';
+import {AppConfigService} from "../../../../formation-angular V2/src/app/app-config.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -31,9 +33,10 @@ import { PersonnageMotivationComponent } from './personnage-motivation/personnag
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AppConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
