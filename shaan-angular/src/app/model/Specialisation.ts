@@ -1,3 +1,6 @@
+import {Metier} from './Metier';
+import {Domaine} from './Domaine';
+
 export class Specialisation {
   id : number;
   version : number;

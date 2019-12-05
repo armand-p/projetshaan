@@ -1,5 +1,7 @@
 import {Specialisation} from './Specialisation';
 import {Peuple} from './Peuple';
+import {Domaine} from './Domaine';
+import {Caste} from './Caste';
 
 export class Race{
   id : number;

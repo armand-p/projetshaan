@@ -1,3 +1,5 @@
+import {MaitreDuJeu} from './MaitreDuJeu';
+
 export class PersonnageNonJoueur {
   createur : MaitreDuJeu;
 

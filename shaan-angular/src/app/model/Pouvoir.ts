@@ -1,3 +1,5 @@
+import {Domaine} from './Domaine';
+
 export class Pouvoir {
   id : number;
   version : number;

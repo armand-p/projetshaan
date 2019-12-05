@@ -1,4 +1,5 @@
 import {Specialisation} from './Specialisation';
+import {Acquis} from './Acquis';
 
 export class SpecialisationAcquis {
   id: number;
