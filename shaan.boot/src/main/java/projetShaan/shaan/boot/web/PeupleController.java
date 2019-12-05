@@ -21,6 +21,7 @@ import projetShaan.shaan.boot.repository.IPeupleRepository;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/peuple")
+@CrossOrigin("*")
 public class PeupleController {
 
 	@Autowired

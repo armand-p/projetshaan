@@ -1,42 +1,46 @@
-  <div>
-    <p>Ce que je suis : </p>
-    <span *ngFor="let race of origines">
-<input type="radio" name="race">{{race}}
+<div>
+  <p>Ce que je suis : </p>
+  <span *ngFor="let race of listRace()">
+<input type="radio" name="race">{{race.nomRace}}
 </span>
 
-    <p>D'où je viens : </p>
-    <span *ngFor="let origine of origines">
-  <input type="radio" name="origine">{{origine}}
- </span>
 
-    <p>Ce que je fais : </p>
-    <span *ngFor="let caste of castes">
+  <p><br>D'où je viens : </p>
+  <span *ngFor="let peuple of listpeuple()">
+  <input type="radio" name="origine">{{peuple.nomPeuple}}
+ </span>
+  <br>
+
+  <p><br>Ce que je fais : </p>
+  <span *ngFor="let caste of castes">
   <input type="radio" name="caste">{{caste}}
  </span>
 
-    <p>Metiers : </p>
-    <span *ngFor="let metier of metiers">
+  <p><br>Metiers : </p>
+  <span *ngFor="let metier of metiers">
   <input type="radio" name="metiers">{{metier}}
  </span>
-  </div>
+</div>
 
-  <div>
-    <h3>Domaines :</h3>
-    <h4>Corps :</h4>
-    <p>Combat : <input type="number" style="width: 25px"></p>
-    <p>Survie : <input type="number" style="width: 25px"></p>
-    <p>Rituel : <input type="number" style="width: 25px"></p>
+<div>
+  <br>
+  <br>
+  <h3>Domaines :</h3>
+  <h4>Corps :</h4>
+  <p>Combat : <input type="number" style="width: 25px"></p>
+  <p>Survie : <input type="number" style="width: 25px"></p>
+  <p>Rituel : <input type="number" style="width: 25px"></p>
 
-    <h4>Ame :</h4>
-    <p>Magie : <input type="number" style="width: 25px"></p>
-    <p>Shaan : <input type="number" style="width: 25px"></p>
-    <p>Art : <input type="number" style="width: 25px"></p>
+  <h4>Ame :</h4>
+  <p>Magie : <input type="number" style="width: 25px"></p>
+  <p>Shaan : <input type="number" style="width: 25px"></p>
+  <p>Art : <input type="number" style="width: 25px"></p>
 
-    <h4>Esprit :</h4>
-    <p>Social : <input type="number" style="width: 25px"></p>
-    <p>Savoir : <input type="number" style="width: 25px"></p>
-    <p>Technique : <input type="number" style="width: 25px"></p>
+  <h4>Esprit :</h4>
+  <p>Social : <input type="number" style="width: 25px"></p>
+  <p>Savoir : <input type="number" style="width: 25px"></p>
+  <p>Technique : <input type="number" style="width: 25px"></p>
 
-  </div>
+</div>
 
-  <button>Validation</button>
+<button>Validation</button>

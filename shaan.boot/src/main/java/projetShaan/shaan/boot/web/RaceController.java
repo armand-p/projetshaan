@@ -21,6 +21,7 @@ import projetShaan.shaan.boot.repository.IRaceRepository;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/race")
+@CrossOrigin("*")
 public class RaceController {
 
 	@Autowired
