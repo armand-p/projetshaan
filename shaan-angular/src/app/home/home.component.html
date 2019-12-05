@@ -1,13 +1,16 @@
 <div>
 <h3>Bienvenue dans le créateur de personnage Shaan</h3>
 <br>
-<p>Nom d'utilisateur : <input [(ngModel)] = "nomUtilisateur"> </p>
+ <table>
+  <tr>
+<tr><th>Nom d'utilisateur :</th><th><input [(ngModel)] = "nomUtilisateur"></th></tr>
+<tr><th>Mot de passe :</th><th><input [(ngModel)] = "motDePasse"></th> </tr>
 
-<p>Mot de passe : <input [(ngModel)] = "motDePasse"> </p>
+
+
+<tr><th class="container-fluid"><button [routerLink]="['/accueiljoueur']">Connexion</button></th>
+    <th class="container-fluid"><button  [routerLink]="['/creationcompte/']">Création</button></th></tr></table>
+
+
+
 </div>
-<br>
-<div><button [routerLink]="['/accueiljoueur']">Connexion</button>
-<button  [routerLink]="['/creationcompte/']">Création</button></div>
-
-
-
