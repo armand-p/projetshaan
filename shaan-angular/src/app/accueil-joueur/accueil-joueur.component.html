@@ -17,11 +17,11 @@
 
     <tr *ngFor ="let personnage of list()">
       <td> {{ personnage.nom }}</td>
-      <td> {{ personnage.racePerso }} </td>
-      <td> {{ personnage.peuplePerso }}</td>
-      <td> {{ personnage.castePerso }} </td>
-      <td> {{ personnage.metierPerso }}</td>
-      <td> {{ personnage.parties }} </td>
+      <td> {{ personnage.racePerso?.nomRace}} </td>
+      <td> {{ personnage.peuplePerso?.nomPeuple }}</td>
+      <td> {{ personnage.castePerso?.nomCaste }} </td>
+      <td> {{ personnage.metierPerso?.nomMetier }}</td>
+      <td> {{ personnage.parties?.nom }} </td>
     </tr>
 
 
