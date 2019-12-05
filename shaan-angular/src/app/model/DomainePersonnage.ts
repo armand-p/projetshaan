@@ -4,15 +4,15 @@ import {Personnage} from './Personnage';
 export class DomainePersonnage{
   id:number;
   version:number;
-  rengDomaine:number;
+  rangDomaine:number;
   domaineLie:Domaine;
   persoLie:Personnage;
 
 
-  constructor(id?: number, version?: number, rengDomaine?: number, domaineLie?: Domaine, persoLie?: Personnage) {
+  constructor(id?: number, version?: number, rangDomaine?: number, domaineLie?: Domaine, persoLie?: Personnage) {
     this.id = id;
     this.version = version;
-    this.rengDomaine = rengDomaine;
+    this.rangDomaine = rangDomaine;
     this.domaineLie = domaineLie;
     this.persoLie = persoLie;
   }

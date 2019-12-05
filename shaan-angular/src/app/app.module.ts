@@ -17,6 +17,7 @@ import { PersonnageMotivationComponent } from './personnage-motivation/personnag
 import {HttpClientModule} from "@angular/common/http";
 import {AppConfigService} from './app-config.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
