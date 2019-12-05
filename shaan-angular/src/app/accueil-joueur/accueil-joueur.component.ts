@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accueil-joueur.component.css']
 })
 export class AccueilJoueurComponent implements OnInit {
+  personnageNom: string;
+  personnageRace: string;
+  personnagePeuple: string;
+  personnageCaste: string;
+  personnageMetier: string;
+  personnagePartie: string;
 
   constructor() { }
 
