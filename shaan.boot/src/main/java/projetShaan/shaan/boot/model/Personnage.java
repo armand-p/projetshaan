@@ -72,19 +72,19 @@ public class Personnage {
 	private Joueur joueur;
 	@ManyToOne
 	@JoinColumn(name = "Race_ID")
-	@JsonView(Views.ViewPersonnageDetail.class)
+	@JsonView(Views.ViewCommon.class)
 	private Race racePerso;
 	@ManyToOne
 	@JoinColumn(name = "Peuple_ID")
-	@JsonView(Views.ViewPersonnageDetail.class)
+	@JsonView(Views.ViewCommon.class)
 	private Peuple peuplePerso;
 	@ManyToOne
 	@JoinColumn(name = "Metier_ID")
-	@JsonView(Views.ViewPersonnageDetail.class)
+	@JsonView(Views.ViewCommon.class)
 	private Metier metierPerso;
 	@ManyToOne
 	@JoinColumn(name = "Caste_ID")
-	@JsonView(Views.ViewPersonnageDetail.class)
+	@JsonView(Views.ViewCommon.class)
 	private Caste castePerso;
 	@OneToMany(mappedBy = "persoLie")
 	@JsonView(Views.ViewBonusPersoFromPersonnage.class)

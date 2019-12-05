@@ -44,10 +44,9 @@ private utilisateurs : any;
     if (utilisateur.id) {
       this.http.put(this.appConfigService.backEnd + 'utilisateur/' + utilisateur.id, utilisateur).subscribe(resp => this.load());
     } else {
-      this.http.post(this.appConfigService.backEnd + 'utilisateur/', utilisateur).subscribe(resp => this.load());
+      this.http.post(this.appConfigService.backEnd + 'utilisateur', utilisateur).subscribe(resp => this.load());
     }
   }
-
 
 
   deleteBydId(id: number) {

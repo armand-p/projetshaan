@@ -43,13 +43,13 @@ public class DomainePersonnageController {
 
 	
 	@PostMapping("")
-	@JsonView(Views.ViewDomainePersonnage.class)
+	@JsonView(Views.ViewDomainePersonnageDetail.class)
 	public DomainePersonnage create (@RequestBody DomainePersonnage domainePersonnage) {
 		return domainePersonnageRepo.save(domainePersonnage);
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewDomainePersonnage.class)
+	@JsonView(Views.ViewDomainePersonnageDetail.class)
 	public DomainePersonnage update(@RequestBody DomainePersonnage domainePersonnage,  @PathVariable Long id) {
 		return domainePersonnageRepo.save(domainePersonnage);
 	}

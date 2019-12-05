@@ -10,6 +10,7 @@ import {Observable} from 'rxjs';
 export class PersonnageService {
 
   private personnages: any;
+  private idPerso: any;
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService) {
     this.load();
@@ -28,14 +29,21 @@ export class PersonnageService {
     return this.http.get(this.appConfigService.backEnd + 'personnage/' + id);
   }
 
-  save(personnage: Personnage) {
+  save(personnage: Personnage)  {
     if (personnage.id) {
       this.http.put(this.appConfigService.backEnd + 'personnage/' + personnage.id, personnage).subscribe(resp => this.load());
     } else {
-      this.http.post(this.appConfigService.backEnd + 'personnage/', personnage).subscribe(resp => this.load());
+      this.http.post(this.appConfigService.backEnd + 'personnage/', personnage).subscribe(resp => {
+        this.idPerso = resp.id;
+        console.log(this.idPerso);
+        this.load()
+      });
+
+
     }
   }
 
   deleteBydId(id: number) {
     this.http.delete(this.appConfigService.backEnd + 'personnage/' + id).subscribe(resp => this.load());
-  }}
+  }
+}

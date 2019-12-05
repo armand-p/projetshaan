@@ -1,23 +1,29 @@
 <div class="container"><h3>Création d'un nouveau compte utilisateur</h3>
-<br><table>
-<tr><th>Nom d'utilisateur : </th><th><input type="text" [(ngModel)] = "nomUtilisateur"> </tr>
+<br>
+  <table>
+<tr><th>Pseudo d'utilisateur : </th><th><input type="text" [(ngModel)]="utilisateur.pseudo"> </tr>
 
-<tr><th>Email : </th><th><input type="text" [(ngModel)] = "emailUtilisateur"> </tr>
-<tr><th>Confirmer l'email : </th><th><input type="text" [(ngModel)] = "confirmationEmailUtilisateur"> </tr>
+<tr><th>Email : </th><th><input type="text" name="email" [(ngModel)] = "utilisateur.email"> </tr>
+<tr><th>Confirmer l'email : </th><th><input type="text" name="email-confirmation"> </tr>
 
-<tr><th>Mot de passe : </th><th><input type="text" [(ngModel)] = "motDePasse"> </tr>
-<tr><th>Confirmer le mot de passe : </th><th><input type="text" [(ngModel)] = "confirmationMotDePasse"> </tr><br>
+<tr><th>Mot de passe : </th><th><input type="text" name = "mdp" [(ngModel)] = "utilisateur.motDePasse"> </tr>
+<tr><th>Confirmer le mot de passe : </th><th><input type="text" name = "md-confirmation"> </tr><br>
 
-  <tr>
-    <th>Rôle :</th>
-
-    <th><input type="radio" name="role"><label>Joueur</label><br>
-      <input type="radio" name="role"><label>Maître du jeu</label></th></tr>
-
+    <tr>
+      <th>Rôle :</th>
+      <th>
+        <input type="radio" name="role" [value]="'joueur'" [(ngModel)]="utilisateur.type"><label>Joueur</label><br>
+        <input type="radio" name="role" [value]="'maitreDuJeu'" [(ngModel)]="utilisateur.type"><label>Maître du jeu</label>
+      </th>
+    </tr>
   </table>
 
   <br>
-    <table><td><button  [routerLink]="['']">Validation</button></td><td><button  [routerLink]="['']">Retour</button></td> </table>
+    <table>
+      <td><button  [routerLink]="['']" (click)="save()">Validation</button></td>
+<!--      validation !!!-->
+      <td><button  [routerLink]="['']">Retour</button></td>
+    </table>
 
 </div>
 
