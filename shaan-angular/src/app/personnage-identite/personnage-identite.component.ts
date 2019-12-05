@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {RaceService} from "../service/race.service";
 import {Race} from "../model/Race";
 import {Peuple} from "../model/Peuple";
@@ -6,8 +6,8 @@ import {PeupleService} from "../service/peuple.service";
 import {Caste} from "../model/Caste";
 import {CasteService} from "../service/caste.service";
 import {Metier} from "../model/Metier";
-import {Personnage} from "../model/Personnage";
 import {MetierService} from "../service/metier.service";
+import {Personnage} from "../model/Personnage";
 
 @Component({
   selector: 'personnage-identite',
@@ -16,9 +16,11 @@ import {MetierService} from "../service/metier.service";
 })
 export class PersonnageIdentiteComponent implements OnInit {
 
-  racePerso: Race = null;
 
-  castePerso: Caste = null;
+  @Output()
+  personnageEnvoi = new EventEmitter<Personnage>();
+
+  personnage:Personnage = new Personnage();
   metiers: Array<Metier> = new Array<Metier>();
 
   constructor(private raceService: RaceService, private peupleService: PeupleService,
@@ -32,6 +34,7 @@ export class PersonnageIdentiteComponent implements OnInit {
     return this.raceService.findAll();
   }
 
+
   listpeuple(): Array<Peuple> {
     return this.peupleService.findAll();
   }
@@ -41,8 +44,8 @@ export class PersonnageIdentiteComponent implements OnInit {
   }
 
   selectCaste($event) {
-    this.castePerso = $event;
-    this.casteService.findAllMetierByCaste(this.castePerso.id).subscribe(resp => this.metiers = resp);
+    this.personnage.castePerso = $event;
+    this.casteService.findAllMetierByCaste(this.personnage.castePerso.id).subscribe(resp => this.metiers = resp);
   }
 
   // listmetier() {
