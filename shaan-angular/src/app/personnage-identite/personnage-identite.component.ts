@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RaceService} from "../service/race.service";
 import {Race} from "../model/Race";
 import {Peuple} from "../model/Peuple";
 import {PeupleService} from "../service/peuple.service";
+import {Caste} from "../model/Caste";
+import {CasteService} from "../service/caste.service";
+import {Metier} from "../model/Metier";
+import {Personnage} from "../model/Personnage";
+import {MetierService} from "../service/metier.service";
 
 @Component({
   selector: 'personnage-identite',
@@ -11,11 +16,14 @@ import {PeupleService} from "../service/peuple.service";
 })
 export class PersonnageIdentiteComponent implements OnInit {
 
-  //Données temporaires
-  castes: Array<string> = ['Novateurs', 'ombres', 'artisants','artiste'];
-  metiers: Array<string> = ['forgeron', 'mineur', 'codeur'];
+  racePerso: Race = null;
 
-  constructor(private raceService:RaceService, private peupleService:PeupleService) { }
+  castePerso: Caste = null;
+  metiers: Array<Metier> = new Array<Metier>();
+
+  constructor(private raceService: RaceService, private peupleService: PeupleService,
+              private casteService: CasteService, private metierService: MetierService) {
+  }
 
   ngOnInit() {
   }
@@ -28,12 +36,19 @@ export class PersonnageIdentiteComponent implements OnInit {
     return this.peupleService.findAll();
   }
 
-  listcaste(): Array<Race> {
-    return null;
+  listcaste(): Array<Caste> {
+    return this.casteService.findAll();
   }
 
-  listmetier(): Array<Race> {
-    return null;
+  selectCaste($event) {
+    this.castePerso = $event;
+    this.casteService.findAllMetierByCaste(this.castePerso.id).subscribe(resp => this.metiers = resp);
   }
+
+  // listmetier() {
+  //   console.log(this.casteJoueur.id);
+  //   this.casteService.findAllMetierByCaste(this.casteJoueur.id).subscribe(resp => this.metiers = resp);
+  // }
+
 
 }
