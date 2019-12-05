@@ -9,8 +9,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.swing.text.View;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonView;
-
+@JsonTypeName("maitreDuJeu")
 @Entity
 @DiscriminatorValue("Maitre du jeu")
 public class MaitreDuJeu extends Utilisateur {

@@ -7,8 +7,9 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonView;
-
+@JsonTypeName("joueur")
 @Entity
 @DiscriminatorValue("Joueur")
 public class Joueur extends Utilisateur{
