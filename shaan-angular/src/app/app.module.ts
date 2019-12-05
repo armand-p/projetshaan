@@ -20,7 +20,7 @@ import { PersonnageMotivationComponent } from './personnage-motivation/personnag
     PersonnageComponent,
     HomeComponent,
     CreationCompteComponent,
-    AccueilJoueurComponent
+    AccueilJoueurComponent,
     PersonnageComponent,
     PersonnageIdentiteComponent,
     PersonnageSpecialisationComponent,
