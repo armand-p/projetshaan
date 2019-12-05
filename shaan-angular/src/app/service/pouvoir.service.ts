@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class pouvoirService {
+export class PouvoirService {
 
   private pouvoirs: any;
 
