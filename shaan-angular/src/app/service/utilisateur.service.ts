@@ -4,65 +4,54 @@ import {AppConfigService} from '../app-config.service';
 import {Utilisateur} from '../model/Utilisateur';
 import {Observable} from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class UtilisateurService {
-  private maitreDuJeus : any;
-  private joueurs: any;
+private utilisateurs : any;
+
+
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService) {
     this.load();
   }
 
   load() {
-    this.http.get(this.appConfigService.backEnd + 'joueur')
-      .subscribe(resp => this.joueurs = resp);
-    this.http.get(this.appConfigService.backEnd + 'mj')
-      .subscribe(resp => this.maitreDuJeus = resp);
+    this.http.get(this.appConfigService.backEnd + 'utilisateur')
+      .subscribe(resp => this.utilisateurs = resp);
   }
 
-  public findAll(type:string): Array<Utilisateur> {
-    if(type === "joueur"){
-    return this.joueurs;}
-    else if(type=== "maitreDuJeu"){
-      return this.maitreDuJeus
-    }
+  public findAll(): Array<Utilisateur> {
+    return this.utilisateurs;
+  }
+  public findAllJoueur(): Observable<any> {
+    return this.http.get(this.appConfigService.backEnd + 'utilisateur/joueur');
+  }
+  public findAllMasterOfTheGame(): Observable<any> {
+    return this.http.get(this.appConfigService.backEnd + 'utilisateur/mj');
   }
 
-  findById(id: number,type:string): Observable<any> {
-    if(type === "joueur"){
-      return this.http.get(this.appConfigService.backEnd + 'joueur/' + id);}
-    else if(type=== "maitreDuJeu"){
-      return this.http.get(this.appConfigService.backEnd + 'mj/' + id);
-    }
 
+  findByIdJoueur(id: number): Observable<any> {
+    return this.http.get(this.appConfigService.backEnd + 'utilisateur/joueur/' + id);
+  }
+  findByIdMasterOfTheGame(id: number): Observable<any> {
+    return this.http.get(this.appConfigService.backEnd + 'utilisateur/mj/' + id);
   }
 
   save(utilisateur: Utilisateur) {
-    if(utilisateur.type="maitreDuJeu"){
-      if (utilisateur.id) {
-        this.http.put(this.appConfigService.backEnd + 'mj/' + utilisateur.id, utilisateur).subscribe(resp => this.load());
-      } else {
-        this.http.post(this.appConfigService.backEnd + 'mj/', utilisateur).subscribe(resp => this.load());
-      }
-
-    }
-    else{
-      if (utilisateur.id) {
-        this.http.put(this.appConfigService.backEnd + 'joueur/' + utilisateur.id, utilisateur).subscribe(resp => this.load());
-      } else {
-        this.http.post(this.appConfigService.backEnd + 'joueur/', utilisateur).subscribe(resp => this.load());
-      }
-
+    if (utilisateur.id) {
+      this.http.put(this.appConfigService.backEnd + 'utilisateur/' + utilisateur.id, utilisateur).subscribe(resp => this.load());
+    } else {
+      this.http.post(this.appConfigService.backEnd + 'utilisateur/', utilisateur).subscribe(resp => this.load());
     }
   }
 
-  deleteBydId(id: number,type:string) {
-    if(type === "joueur"){
-      this.http.delete(this.appConfigService.backEnd + 'joueur/' + id).subscribe(resp => this.load());}
-    else if(type=== "maitreDuJeu"){
-      this.http.delete(this.appConfigService.backEnd + 'mj/' + id).subscribe(resp => this.load());
-    }
 
-  }}
+
+  deleteBydId(id: number) {
+    this.http.delete(this.appConfigService.backEnd + 'utilisateur/' + id).subscribe(resp => this.load());
+  }
+
+}
