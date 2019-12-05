@@ -2093,7 +2093,7 @@ class ApplicationTests {
 //-------------------------------------------------------------------------------------------------------------------------
 //		REMPLISSAGE OBJET RACE
 //-------------------------------------------------------------------------------------------------------------------------	
-		boreals.setNomRace("boreals");
+		boreals.setNomRace("Boreals");
 		boreals.setDomaine(survie);
 		boreals.setSpecialisation1(vigilance);
 		boreals.setSpecialisation2(navigation);
