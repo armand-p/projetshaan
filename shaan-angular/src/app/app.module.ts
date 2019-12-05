@@ -16,6 +16,9 @@ import { PersonnageMotivationComponent } from './personnage-motivation/personnag
 
 import {HttpClientModule} from "@angular/common/http";
 import {AppConfigService} from './app-config.service';
+import { PartieComponent } from './partie/partie.component';
+import { AccueilMjComponent } from './accueil-mj/accueil-mj.component';
+import { FichePersonnageComponent } from './fiche-personnage/fiche-personnage.component';
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import {AppConfigService} from './app-config.service';
     PersonnageSpecialisationComponent,
     PersonnagePouvoirComponent,
     PersonnageAcquisComponent,
-    PersonnageMotivationComponent
+    PersonnageMotivationComponent,
+    PartieComponent,
+    AccueilMjComponent,
+    FichePersonnageComponent
   ],
   imports: [
     BrowserModule,

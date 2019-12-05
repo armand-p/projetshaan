@@ -1,4 +1,4 @@
-<div>
+<div class="container">
   <table border="1">
     <thead>
     <tr>
@@ -7,29 +7,30 @@
     </thead>
     <tbody>
     <tr>
-      <td>Personnage</td>
-      <td>Race</td>
-      <td>Peuple</td>
-      <td>Caste</td>
-      <td>Métier</td>
-      <td>Partie</td>
+      <th>Personnage</th>
+      <th>Race</th>
+      <th>Peuple</th>
+      <th>Caste</th>
+      <th>Métier</th>
+      <th>Partie</th>
     </tr>
     <tr>
 
 
-      <td>Lennek</td>
-      <td>Darken</td>
-      <td>Terres Brulées</td>
-      <td>Voyageur</td>
-      <td>Espion</td>
-      <td>Partie migthy quest</td>
-      <td><button  [routerLink]="['/personnage']">Modifier</button></td>
-      <td><button>Supprimer</button></td>
+      <th>Lennek</th>
+      <th>Darken</th>
+      <th>Terres Brulées</th>
+      <th>Voyageur</th>
+      <th>Espion</th>
+      <th>Partie migthy quest</th>
+      <th><button  [routerLink]="['/personnage']">Modifier</button></th>
+      <th><button>Supprimer</button></th>
     </tr>
     </tbody>
   </table>
-</div>
+
 <table>
-  <td><button type="button" class="btn btn-danger btn-circle" [routerLink]="['']"><i class="fas fa-arrow-alt-circle-left"></i></button></td>
-  <td><button type="button" class="btn btn-primary btn-circle"  [routerLink]="['/personnage']"><i class="fas fa-user-plus"></i></button></td>
+  <th><button type="button" class="btn btn-danger btn-circle" [routerLink]="['']"><i class="fas fa-arrow-alt-circle-left"></i></button></th>
+  <th><button type="button" class="btn btn-primary btn-circle"  [routerLink]="['/personnage']"><i class="fas fa-user-plus"></i></button></th>
 </table>
+</div>
