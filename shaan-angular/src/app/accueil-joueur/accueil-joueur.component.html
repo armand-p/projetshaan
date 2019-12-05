@@ -14,18 +14,26 @@
       <th>Métier</th>
       <th>Partie</th>
     </tr>
-    <tr>
 
-
-      <th>Lennek</th>
-      <th>Darken</th>
-      <th>Terres Brulées</th>
-      <th>Voyageur</th>
-      <th>Espion</th>
-      <th>Partie migthy quest</th>
-      <th><button  [routerLink]="['/personnage']">Modifier</button></th>
-      <th><button>Supprimer</button></th>
+    <tr *ngFor ="let personnage of list()">
+      <td> {{ personnage.nom }}</td>
+      <td> {{ personnage.racePerso }} </td>
+      <td> {{ personnage.peuplePerso }}</td>
+      <td> {{ personnage.castePerso }} </td>
+      <td> {{ personnage.metierPerso }}</td>
+      <td> {{ personnage.parties }} </td>
     </tr>
+
+
+<!--      <th>Lennek</th>-->
+<!--      <th>Darken</th>-->
+<!--      <th>Terres Brulées</th>-->
+<!--      <th>Voyageur</th>-->
+<!--      <th>Espion</th>-->
+<!--      <th>Partie migthy quest</th>-->
+<!--      <th><button  [routerLink]="['/personnage']">Modifier</button></th>-->
+<!--      <th><button>Supprimer</button></th>-->
+<!--    </tr>-->
     </tbody>
   </table>
 
