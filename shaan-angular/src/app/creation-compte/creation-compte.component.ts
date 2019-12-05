@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Utilisateur} from '../model/Utilisateur';
+import {UtilisateurService} from '../service/utilisateur.service';
 
 @Component({
   selector: 'app-creation-compte',
@@ -6,16 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./creation-compte.component.css']
 })
 export class CreationCompteComponent implements OnInit {
-  nomUtilisateur: string;
-  emailUtilisateur: string;
-  confirmationEmailUtilisateur: string;
-  motDePasse: string;
-  confirmationMotDePasse: string;
 
+    utilisateur : Utilisateur = new Utilisateur();
 
-  constructor() { }
+  save(){
+     this.utilisateurService.save(this.utilisateur);
+  }
+  constructor(private utilisateurService : UtilisateurService) { }
 
   ngOnInit() {
   }
+
 
 }
