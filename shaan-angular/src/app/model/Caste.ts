@@ -1,3 +1,5 @@
+import {Domaine} from './Domaine';
+
 export class Caste{
   id:number;
   version:number;

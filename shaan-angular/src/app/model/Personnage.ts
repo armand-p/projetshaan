@@ -1,6 +1,9 @@
 import {Joueur} from './Joueur';
 import {Metier} from './Metier';
 import {Caste} from './Caste';
+import {Race} from './Race';
+import {Peuple} from './Peuple';
+import {TableDeJeu} from './TableDeJeu';
 
 export class Personnage {
   id: number;
