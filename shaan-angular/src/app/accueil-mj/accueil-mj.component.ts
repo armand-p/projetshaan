@@ -25,11 +25,10 @@ save(){
 list():Array<TableDeJeu>{
     return this.tableDeJeuService.findAll();
 }
-  delete(id){
-   let test : TableDeJeu;
-    this.tableDeJeuService.findById(id).subscribe(resp =>test=resp);
-    console.log(test.personnages.length);
 
+
+  delete(id){
+    this.tableDeJeuService.deleteBydId(id);
   }
 
 }

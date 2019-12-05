@@ -45,7 +45,7 @@ public class TableDeJeu {
 	@JsonView(Views.ViewTableDeJeuDetail.class)
 	private MaitreDuJeu maitreDuJeu;
 	@OneToMany(mappedBy = "parties")
-	@JsonView(Views.ViewTableDeJeuDetail.class)
+	@JsonView(Views.ViewTableDeJeu.class)
 	private List<Personnage> personnages = new ArrayList<Personnage>();
 
 	public TableDeJeu() {
