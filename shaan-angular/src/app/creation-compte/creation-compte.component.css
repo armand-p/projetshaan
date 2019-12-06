@@ -10,7 +10,7 @@ span{
   padding: 10px;
   /*background-color: aquamarine;*/
 }
-input[type=text]{
+input[type=text], input[type=password]{
   background-color : blanchedalmond;
   box-shadow: 3px 3px;
   border-radius: 5px;

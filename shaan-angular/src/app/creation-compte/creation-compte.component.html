@@ -1,7 +1,7 @@
 <span>
   <div class="container"><h3>Création d'un nouveau compte utilisateur</h3>
 <br>
-    <form #myForm="ngForm" name="myform" [mustMatch]="['mdp', 'mdpconfirmation']" novalidate>
+    <form #myForm="ngForm" name="myform" [mustMatch]="['mdp', 'mdpconfirmation']" [mustMatch]="['email', 'emailConfirmation']">
   <table>
     <tr><th>Pseudo d'utilisateur : </th><th>
       <input name="pseudo" type="text" [(ngModel)]="utilisateur.pseudo" required #pseudo="ngModel">
@@ -10,16 +10,19 @@
     <tr><th>Email : </th><th><input type="text" name="email" [(ngModel)]="utilisateur.email" required #email="ngModel"/>
       <div value="error" [hidden]="email.valid || email.pristine">e-mail non valide</div></th></tr><br>
 
-    <tr><th>Confirmer l'email : </th><th><input type="text" name="email-confirmation"> </tr><br>
+    <tr><th>Confirmer l'email : </th><th><input type="text" name="emailConfirmation" [(ngModel)]="utilisateur.emailConfirmation" required #emailConfirmation="ngModel">
+      <div *ngIf="mdpConfirmation.invalid"><div *ngIf="emailConfirmation.errors.mustMatch">Les deux champs doivent etre identiques</div></div>
+    </tr><br>
 
-    <tr><th>Mot de passe : </th><th><input type="text" name="mdp" [(ngModel)]="utilisateur.motDePasse" required
+    <tr><th>Mot de passe : </th><th><input type="password" name="mdp" [(ngModel)]="utilisateur.motDePasse" required
                                            #mdp="ngModel">
       <div value="error" [hidden]="mdp.valid || mdp.pristine"> mot de passe non valide</div>
     </th></tr><br>
 
-<tr><th>Confirmer le mot de passe : </th><th><input type="text" name="mdpconfirmation" [(ngModel)]="utilisateur.mdpConfirmation" required #mdpconfirmation="ngModel">
-<div *ngIf="mdpconfirmation.errors.mustMatch">Passwords must match</div>
-</tr><br><br>
+<tr><th>Confirmer le mot de passe : </th><th><input type="password" name="mdpconfirmation" [(ngModel)]="utilisateur.mdpConfirmation" required #mdpConfirmation="ngModel">
+<div *ngIf="mdpConfirmation.invalid"><div *ngIf="mdpConfirmation.errors.mustMatch">Les deux champs doivent etre identiques</div></div>
+</tr><br>
+    <br>
     <tr>
       <th>Rôle :</th>
       <th>

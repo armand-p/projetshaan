@@ -17,7 +17,7 @@ export class CreationCompteComponent implements OnInit {
   save(){
      this.utilisateurService.save(this.utilisateur);
   }
-  constructor(private utilisateurService : UtilisateurService, private fb: FormBuilder) { }
+  constructor(private utilisateurService : UtilisateurService) { }
 
   ngOnInit() {
   }
