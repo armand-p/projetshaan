@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Utilisateur} from '../model/Utilisateur';
 import {UtilisateurService} from '../service/utilisateur.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-creation-compte',
@@ -10,14 +12,14 @@ import {UtilisateurService} from '../service/utilisateur.service';
 export class CreationCompteComponent implements OnInit {
 
     utilisateur : Utilisateur = new Utilisateur();
+    myForm: FormGroup;
 
   save(){
      this.utilisateurService.save(this.utilisateur);
   }
-  constructor(private utilisateurService : UtilisateurService) { }
+  constructor(private utilisateurService : UtilisateurService, private fb: FormBuilder) { }
 
   ngOnInit() {
   }
-
 
 }
