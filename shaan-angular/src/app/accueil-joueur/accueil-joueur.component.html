@@ -22,18 +22,13 @@
       <td> {{ personnage.castePerso?.nomCaste }} </td>
       <td> {{ personnage.metierPerso?.nomMetier }}</td>
       <td> {{ personnage.parties?.nom }} </td>
+      <th><button type="button" style="color:#4497BD" class="btn  btn-light btn-circle" (click)="edit(personnage.id)" [routerLink]="['/personnage']"><i class="fas fa-user-edit"></i></button></th>
+      <th><button type="button" style="color:#DE1423" class="btn  btn-light btn-circle" (click)="delete(personnage.id)"><i class="fas fa-trash-alt"></i></button></th>
     </tr>
 
 
-<!--      <th>Lennek</th>-->
-<!--      <th>Darken</th>-->
-<!--      <th>Terres Brulées</th>-->
-<!--      <th>Voyageur</th>-->
-<!--      <th>Espion</th>-->
-<!--      <th>Partie migthy quest</th>-->
-<!--      <th><button  [routerLink]="['/personnage']">Modifier</button></th>-->
-<!--      <th><button>Supprimer</button></th>-->
-<!--    </tr>-->
+<!--    [routerLink]="['/personnage']-->
+
     </tbody>
   </table>
 
@@ -41,4 +36,11 @@
   <th><button type="button" class="btn btn-danger btn-circle" [routerLink]="['']"><i class="fas fa-arrow-alt-circle-left"></i></button></th>
   <th><button type="button" class="btn btn-primary btn-circle"  [routerLink]="['/personnage']"><i class="fas fa-user-plus"></i></button></th>
 </table>
+
+
 </div>
+
+
+
+
+

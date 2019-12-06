@@ -37,6 +37,7 @@
 
 </div>
 
+
 <div class="clear"></div>
 
 
@@ -53,7 +54,7 @@
 
   <div class="container" style="background: #ccc">
 
-      <personnage-identite *ngIf="page === 'identite'" (personnageEnvoi)="receptionPerso($event)"></personnage-identite>
+      <personnage-identite *ngIf="page === 'identite'" (personnageEnvoi)="receptionPerso($event)" (domainePersoEnvoi)="receptionDomaine($event)"></personnage-identite>
 
       <personnage-specialisation *ngIf="page === 'specialisation'"></personnage-specialisation>
 

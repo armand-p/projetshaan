@@ -25,7 +25,7 @@ export class Personnage {
   parties:TableDeJeu;
 
 
-  constructor(id?: number, version?: number, nom?: string, taille?: number, sexe?: string, poids?: number, age?: number, ame?: number, corps?: number, esprit?: number, joueur?: Joueur, racePerso?: Race, peuplePerso?: Peuple, metierPerso?: Metier, castePerso?: Caste, parties?: TableDeJeu) {
+  constructor(id?: number, version?: number, nom?: string, taille?: number, sexe?: string, poids?: number, age?: number, ame?: number, corps?: number, esprit?: number, joueur?: Joueur, racePerso?: Race, peuplePerso?: Peuple, metierPerso?: Metier, castePerso?: Caste, parties?: TableDeJeu, type?:string) {
     this.id = id;
     this.version = version;
     this.nom = nom;
@@ -42,5 +42,6 @@ export class Personnage {
     this.metierPerso = metierPerso;
     this.castePerso = castePerso;
     this.parties = parties;
+    this.type=type;
   }
 }
