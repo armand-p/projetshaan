@@ -13,6 +13,7 @@ export class AccueilMjComponent implements OnInit {
 
   tabledujeu:TableDeJeu = null;
   tableencours:TableDeJeu=null;
+  tableasupprimer:TableDeJeu=null;
   persoarajouter:Personnage=null;
   persoaenlever:Personnage=null;
   show:boolean = false;
@@ -42,14 +43,14 @@ add(table?:TableDeJeu):Array<Personnage>{
     return this.personnageService.findAllPersoOrphanPartie();
 }
 
-remove(id):TableDeJeu{
+async remove(id){
 
-    this.tableDeJeuService.findById(id).subscribe(resp =>this.tableencours=resp);
+   await this.tableDeJeuService.findById(id).toPromise().then(resp =>{this.tableencours=resp;
+      this.showRemove=true;});
 
 
-  this.showRemove=true;
 
-  return this.tableencours;
+
 }
 listr():Array<Personnage>{
 
@@ -57,8 +58,16 @@ listr():Array<Personnage>{
 
 }
 
-  delete(id){
-    this.tableDeJeuService.deleteBydId(id);
+  async delete(id){
+    await this.tableDeJeuService.findById(id).toPromise().then(resp =>{this.tableasupprimer=resp;
+      for(let perso of this.tableasupprimer.personnages)
+      {  this.persoaenlever=perso;
+        this.persoaenlever.parties=null;
+        this.personnageService.savesimple(this.persoaenlever);
+          this.tableDeJeuService.load()}
+      this.tableDeJeuService.deleteBydId(id);}
+    );
+
   }
 linkparties(perso:Personnage){
 
@@ -66,20 +75,23 @@ linkparties(perso:Personnage){
   this.persoarajouter.parties=this.tableencours;
   this.personnageService.savesimple(this.persoarajouter);
   this.tableDeJeuService.load();
-  this.personnageService.load()
+  this.personnageService.load();
   this.personnageService.loadPersoOrphanPartie();
 }
 close(){
     this.show=false;
+}
+closer(){
   this.showRemove=false;
 }
-  unlinkparties(perso:Personnage){
+  async unlinkparties(perso:Personnage){
 
     this.persoaenlever=perso;
     this.persoaenlever.parties=null;
     this.personnageService.savesimple(this.persoaenlever);
     this.tableDeJeuService.load();
     this.personnageService.loadPersoOrphanPartie();
-    this.tableDeJeuService.findById(this.tableencours.id).subscribe(resp =>this.tableencours=resp);
+    await this.tableDeJeuService.findById(this.tableencours.id).toPromise().then(resp =>{this.tableencours=resp;
+      });
   }
 }
