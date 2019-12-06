@@ -100,7 +100,7 @@ public class Personnage {
 	private List<MotivationPersonnage> motivationsPerso = new ArrayList<MotivationPersonnage>();
 	@ManyToOne
 	@JoinColumn(name = "Partie_ID")
-	@JsonView(Views.ViewPersonnageDetail.class)
+	@JsonView({Views.ViewPersonnageDetail.class,Views.ViewPersonnagePartie.class})
 	private TableDeJeu parties;
 
 	public Personnage() {

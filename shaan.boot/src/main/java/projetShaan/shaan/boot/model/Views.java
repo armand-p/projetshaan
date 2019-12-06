@@ -78,6 +78,7 @@ public class Views {
 	public static class ViewPouvoirPersoFromPersonnage extends ViewCommon{}
 	public static class ViewMotivationPersoFromPersonnage extends ViewCommon{}
 	public static class ViewAlterationPersoFromPersonnage extends ViewCommon{}
+	public static class ViewPersonnagePartie extends ViewPersonnage{}
 	
 	// -----------------------PERSONNAGE NON JOUEUR--------------------
 	// ----------------------------------------------------------------

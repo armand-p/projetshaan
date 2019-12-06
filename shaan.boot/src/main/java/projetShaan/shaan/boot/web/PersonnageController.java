@@ -56,6 +56,19 @@ public class PersonnageController {
 		List<Personnage> personnages = personnageRepo.findAll();
 		return personnages;
 	}
+	@GetMapping("/onlyPerso")
+	@JsonView(Views.ViewPersonnage.class)
+	public List<Personnage>findAllPersonnage(){
+		List<Personnage> personnages = personnageRepo.findAllPersonnage();
+		return personnages;
+	}
+	
+	@GetMapping("/noPartie")
+	@JsonView(Views.ViewPersonnagePartie.class)
+	public List<Personnage>findAllPersonnagenopartie(){
+		List<Personnage> personnages = personnageRepo.findAllPersonnageWithNoPartie();
+		return personnages;
+	}
 	
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewPersonnageDetail.class)

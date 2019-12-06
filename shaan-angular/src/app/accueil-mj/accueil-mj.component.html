@@ -13,9 +13,11 @@
     <th>Nombre de joueurs</th>
 </tr>
   <tr *ngFor="let table of list()">
-    <th>{{table.nom}}</th>
-    <th>{{table.personnages.length}}</th>
-    <th><button type="button" class="btn btn-danger btn-circle" (click)="delete(table.id)" >Supprimer la partie</button></th>
+    <td>{{table.nom}}</td>
+    <td>{{table.personnages.length}}</td>
+    <td><button type="button" class="btn btn-danger btn-circle" (click)="delete(table.id)" ><i class="fas fa-times"></i></button></td>
+    <td><button type="button" class="btn btn-danger btn-circle" (click)="add(table)" ><i class="fas fa-user-plus"></i></button></td>
+    <td><button type="button" class="btn btn-danger btn-circle" (click)="remove(table.id)" ><i class="fas fa-user-minus"></i></button></td>
   </tr>
 
   </tbody>
@@ -24,7 +26,7 @@
     <th><button type="button" class="btn btn-primary btn-circle" (click)="creer()">Ajouter une partie</button></th>
 
   </table>
-</div>
+
 <div *ngIf="tabledujeu">
   <form>
     <div class="form-group">
@@ -36,4 +38,29 @@
     </div>
 
   </form>
+</div>
+<div *ngIf="show">
+  <table border>
+    <tr>
+      <th>Nom:</th>
+    </tr>
+  <tr *ngFor="let perso of add()">
+    <td>{{perso.nom}}</td>
+    <td><button type="button" class="btn btn-primary btn-circle" (click)="linkparties(perso)"><i class="fas fa-plus"></i></button></td>
+  </tr>
+  </table>
+  <button type="button" class="btn btn-primary btn-circle" (click)="close()"><i class="fas fa-backward"></i></button>
+</div>
+  <div *ngIf="showRemove">
+    <table border>
+      <tr>
+        <th>Nom:</th>
+      </tr>
+      <tr *ngFor="let perso of listr()">
+        <td>{{perso.nom}}</td>
+        <td><button type="button" class="btn btn-primary btn-circle" (click)="unlinkparties(perso)"><i class="fas fa-minus"></i></button></td>
+      </tr>
+    </table>
+    <button type="button" class="btn btn-primary btn-circle" (click)="close()"><i class="fas fa-backward"></i></button>
+  </div>
 </div>

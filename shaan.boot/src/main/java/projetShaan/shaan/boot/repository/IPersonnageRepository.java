@@ -14,6 +14,12 @@ public interface IPersonnageRepository extends JpaRepository<Personnage, Long>{
 	@Query("from PersonnageNonJoueur")
 	List <PersonnageNonJoueur> findAllPersonnageNonJoueur();
 	
+	@Query("from Personnage p where p.class=Personnage")
+	List <Personnage>findAllPersonnage();
+	
+	@Query("from Personnage p where p.class=Personnage and p.parties is null")
+	List <Personnage>findAllPersonnageWithNoPartie();
+	
 	@Query("select p from Personnage p left join p.joueur j where j.id = :id")
 	List<Personnage>findByJoueur(@Param("id") Long id);
 
