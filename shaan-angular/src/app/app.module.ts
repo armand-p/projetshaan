@@ -19,8 +19,7 @@ import {AppConfigService} from './app-config.service';
 import { PartieComponent } from './partie/partie.component';
 import { AccueilMjComponent } from './accueil-mj/accueil-mj.component';
 import { FichePersonnageComponent } from './fiche-personnage/fiche-personnage.component';
-// import { ConfirmationEmailValidatorDirective } from './confirmation-email-validator.directive';
-// import { MustMatchDirective } from './must-match.directive';
+import { MustMatchDirective } from './must-match.directive';
 
 
 @NgModule({
@@ -39,8 +38,7 @@ import { FichePersonnageComponent } from './fiche-personnage/fiche-personnage.co
     PartieComponent,
     AccueilMjComponent,
     FichePersonnageComponent,
-    // ConfirmationEmailValidatorDirective,
-    // MustMatchDirective
+    MustMatchDirective
   ],
   imports: [
     BrowserModule,

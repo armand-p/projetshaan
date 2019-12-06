@@ -4,7 +4,6 @@ templateUrl: './accueil-joueur.component.html'
 import { Component, OnInit } from '@angular/core';
 import {Produit} from "../../../../../tpAngular/src/app/produit";
 import {PersonnageService} from "../service/personnage.service";
-import {Adresse} from "../../../../../formation-angular/src/app/model/adresse";
 import {Peuple} from "../model/Peuple";
 import {Race} from "../model/Race";
 import {TableDeJeu} from "../model/TableDeJeu";
