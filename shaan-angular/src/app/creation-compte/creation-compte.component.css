@@ -1,14 +1,4 @@
-span{
-  /*background-image: url('logo3.JPG');*/
-  background-color: #DE1423;
-  width: 1000px;
-  height: 1000px;
-}
-.div.formulaire{
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-  /*background-color: aquamarine;*/
+div{
 }
 input[type=text], input[type=password]{
   background-color : blanchedalmond;
@@ -17,7 +7,7 @@ input[type=text], input[type=password]{
 }
 div [value=error]{
   color: #c51a20;
-  text-align: center;
+  text-align: left;
 }
 button{
   background-color: aliceblue;
