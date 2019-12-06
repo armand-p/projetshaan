@@ -33,8 +33,7 @@ export class AccueilJoueurComponent implements OnInit {
 }
 
   edit(id: number) {
-    this.personnageService.findById(id).subscribe(resp => this.personnage = resp
-    );
+    this.personnageService.findById(id).subscribe(resp => this.personnage = resp);
     }
 
   delete(id: number) {

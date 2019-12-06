@@ -8,15 +8,15 @@
       Sexe : <input type="radio" name="sexe"> M <input type="radio" name="sexe"> F
       Age : <input type="text" [(ngModel)]="personnage.age">
     </p>
-    <p><b>Race : </b><span *ngIf="personnage.racePerso">{{personnage.racePerso.nomRace}}</span>
+    <p><b>Race : </b><span *ngIf="personnage.racePerso"><input type="text" [(ngModel)]="personnage.racePerso.nomRace"></span>
       Taille : <input type="text" [(ngModel)]="personnage.taille">
       Motivation : <input type="text">
     </p>
-    <p><b>Peuple : </b><span *ngIf="personnage.peuplePerso">{{personnage.peuplePerso.nomPeuple}}</span>
+    <p><b>Peuple : </b><span *ngIf="personnage.peuplePerso"><input type="text" [(ngModel)]="personnage.peuplePerso.nomPeuple"></span>
       Poids : <input type="text" [(ngModel)]="personnage.poids">
     </p>
-    <p><b>Caste : </b><span *ngIf="personnage.castePerso">{{personnage.castePerso.nomCaste}}</span>
-      <b> Métier : </b><span *ngIf="personnage.metierPerso">{{personnage.metierPerso.nomMetier}}</span>
+    <p><b>Caste : </b><span *ngIf="personnage.castePerso"><input type="text" [(ngModel)]="personnage.castePerso.nomCaste"></span>
+      <b> Métier : </b><span *ngIf="personnage.metierPerso"><input type="text" [(ngModel)]="personnage.metierPerso.nomMetier"></span>
     </p>
   </div>
 

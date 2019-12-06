@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Personnage} from "../model/Personnage";
 import {PersonnageService} from "../service/personnage.service";
 import {DomainePersonnage} from "../model/DomainePersonnage";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-personnage',
@@ -15,11 +16,20 @@ export class PersonnageComponent implements OnInit {
   personnage:Personnage = new Personnage();
   domainePerso: Array<DomainePersonnage> = new Array<DomainePersonnage>(10);
 
+
+  id:number;
+
   @Output()
   childEvent = new EventEmitter();
 
-  constructor(private personnageService:PersonnageService) {
-    this.personnage.type = 'Personnage';
+  constructor(private personnageService:PersonnageService,private route:ActivatedRoute ) {
+    this.route.params.subscribe(params => this.id=params.id);
+    if (this.id == null){
+      this.personnage.type = 'Personnage';
+    } else {
+      this.personnageService.findById(this.id).subscribe(resp => this.personnage = resp);
+    }
+
   }
 
   ngOnInit() {

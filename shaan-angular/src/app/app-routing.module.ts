@@ -10,6 +10,7 @@ import {AccueilMjComponent} from "./accueil-mj/accueil-mj.component";
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'personnage', component: PersonnageComponent},
+  {path: 'personnage/:id', component: PersonnageComponent},
   {path: 'creationcompte', component: CreationCompteComponent},
   {path: 'accueiljoueur', component: AccueilJoueurComponent},
   {path: 'accueilmj', component: AccueilMjComponent}
