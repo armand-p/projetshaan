@@ -12,10 +12,13 @@ import {DomainePersonnageService} from "./domaine-personnage.service";
 export class PersonnageService {
 
   private personnages: any;
-  private idPerso: number;
+  private personnageOnly :any;
+  private personnageNoPartie :any;
+  private idPerso: any;
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService, private domainePersonnageService:DomainePersonnageService) {
     this.load();
+    this.loadPersoOrphanPartie();
   }
 
   load() {
@@ -27,13 +30,45 @@ export class PersonnageService {
     return this.personnages;
   }
 
+  loadPersoOnly() {
+    this.http.get(this.appConfigService.backEnd + 'personnage/onlyPerso')
+      .subscribe(resp => this.personnageOnly = resp);
+  }
+  public findAllPersoOnly(): Array<Personnage> {
+    return this.personnageOnly;
+  }
+
+  loadPersoOrphanPartie() {
+    this.http.get(this.appConfigService.backEnd + 'personnage/noPartie')
+      .subscribe(resp => this.personnageNoPartie = resp);
+  }
+
+  public findAllPersoOrphanPartie(): Array<Personnage> {
+    return this.personnageNoPartie;
+  }
+
+
   findById(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backEnd + 'personnage/' + id);
   }
 
+  savesimple(personnage: Personnage)  {
+    if (personnage.id) {
+      this.http.put(this.appConfigService.backEnd + 'personnage/' + personnage.id, personnage).subscribe(resp => {this.load();this.loadPersoOrphanPartie()});
+    } else {
+      this.http.post<Personnage>(this.appConfigService.backEnd + 'personnage/', personnage).subscribe(resp => {
+        this.load()
+      });
+
+
+    }}
+
+
+
+
   save(personnage: Personnage, domainePerso:Array<DomainePersonnage>)  {
     if (personnage.id) {
-      this.http.put(this.appConfigService.backEnd + 'personnage/' + personnage.id, personnage).subscribe(resp => this.load());
+      this.http.put(this.appConfigService.backEnd + 'personnage/' + personnage.id, personnage).subscribe(resp => {this.load();this.loadPersoOrphanPartie()});
     } else {
       this.http.post<Personnage>(this.appConfigService.backEnd + 'personnage/', personnage).subscribe(resp => {
         this.idPerso = resp.id;
@@ -48,8 +83,8 @@ export class PersonnageService {
       });
 
 
-    }
-  }
+    }}
+
 
   deleteBydId(id: number) {
     this.http.delete(this.appConfigService.backEnd + 'personnage/' + id).subscribe(resp => this.load());
