@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Personnage} from "../model/Personnage";
 import {PersonnageService} from "../service/personnage.service";
 
@@ -11,7 +11,11 @@ export class PersonnageComponent implements OnInit {
 
   page: string = 'identite';
 
-  personnage:Personnage = new Personnage();
+  @Input("current")
+  personnage:Personnage;
+
+  @Output()
+  childEvent = new EventEmitter();
 
   constructor(private personnageService:PersonnageService) {
     this.personnage.type = 'Personnage';
@@ -29,6 +33,11 @@ export class PersonnageComponent implements OnInit {
 
   save() {
     this.personnageService.save(this.personnage);
+    this.childEvent.emit();
+  }
+
+  cancel(){
+    this.childEvent.emit();
   }
 
 }

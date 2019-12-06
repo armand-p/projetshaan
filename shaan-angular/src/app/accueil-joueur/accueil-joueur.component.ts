@@ -4,6 +4,12 @@ templateUrl: './accueil-joueur.component.html'
 import { Component, OnInit } from '@angular/core';
 import {Produit} from "../../../../../tpAngular/src/app/produit";
 import {PersonnageService} from "../service/personnage.service";
+import {Adresse} from "../../../../../formation-angular/src/app/model/adresse";
+import {Peuple} from "../model/Peuple";
+import {Race} from "../model/Race";
+import {TableDeJeu} from "../model/TableDeJeu";
+import {Metier} from "../model/Metier";
+import {Caste} from "../model/Caste";
 
 @Component({
   selector: 'app-accueil-joueur',
@@ -12,13 +18,7 @@ import {PersonnageService} from "../service/personnage.service";
 })
 export class AccueilJoueurComponent implements OnInit {
   personnages: Array<Personnage> = new Array<Personnage>();
-  recherche: string = "";
-  rentrerNom: string="";
-  rentrerRace: string="";
-  rentrerPeuple: string="";
-  rentrerCaste: string="";
-  rentrerMetier: string="";
-  rentrerPartie: string="";
+  personnage : Personnage=null;
 
 
   constructor(private personnageService: PersonnageService) { }
@@ -31,5 +31,15 @@ export class AccueilJoueurComponent implements OnInit {
     return this.personnageService.findAll();
 
 }
+
+  edit(id: number) {
+    this.personnageService.findById(id).subscribe(resp => this.personnage = resp
+    );
+    }
+
+  delete(id: number) {
+    this.personnageService.deleteBydId(id);
+  }
+
 
 }

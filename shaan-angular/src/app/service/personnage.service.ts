@@ -34,8 +34,8 @@ export class PersonnageService {
       this.http.put(this.appConfigService.backEnd + 'personnage/' + personnage.id, personnage).subscribe(resp => this.load());
     } else {
       this.http.post(this.appConfigService.backEnd + 'personnage/', personnage).subscribe(resp => {
-        this.idPerso = resp.id;
-        console.log(this.idPerso);
+        // this.idPerso = resp.id;
+        // console.log(this.idPerso);
         this.load()
       });
 
