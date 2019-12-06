@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class domaineService {
+export class DomaineService {
 
   private domaines: any;
 
@@ -20,7 +20,7 @@ export class domaineService {
       .subscribe(resp => this.domaines = resp);
   }
 
-  public findAll(): Array<Domaine> {
+  findAll(): Array<Domaine> {
     return this.domaines;
   }
 

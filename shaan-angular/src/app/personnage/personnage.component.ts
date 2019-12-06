@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Personnage} from "../model/Personnage";
 import {PersonnageService} from "../service/personnage.service";
+import {DomainePersonnage} from "../model/DomainePersonnage";
 
 @Component({
   selector: 'app-personnage',
@@ -11,8 +12,8 @@ export class PersonnageComponent implements OnInit {
 
   page: string = 'identite';
 
-  @Input("current")
-  personnage:Personnage;
+  personnage:Personnage = new Personnage();
+  domainePerso: Array<DomainePersonnage> = new Array<DomainePersonnage>(10);
 
   @Output()
   childEvent = new EventEmitter();
@@ -31,9 +32,15 @@ export class PersonnageComponent implements OnInit {
     this.personnage.metierPerso = persoRecu.metierPerso;
   }
 
+  receptionDomaine(domaineRecu:Array<DomainePersonnage>){
+    for(let i = 0; i < this.domainePerso.length; i++){
+      this.domainePerso[i] = new DomainePersonnage();
+      this.domainePerso[i]=domaineRecu[i];
+    }
+  }
+
   save() {
-    this.personnageService.save(this.personnage);
-    this.childEvent.emit();
+    this.personnageService.save(this.personnage, this.domainePerso);
   }
 
   cancel(){
