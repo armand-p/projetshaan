@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PersonnageComponent } from './personnage/personnage.component';
 import { HomeComponent } from './home/home.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CreationCompteComponent } from './creation-compte/creation-compte.component';
 import { AccueilJoueurComponent } from './accueil-joueur/accueil-joueur.component';
 import { PersonnageIdentiteComponent } from './personnage-identite/personnage-identite.component';
@@ -19,6 +19,8 @@ import {AppConfigService} from './app-config.service';
 import { PartieComponent } from './partie/partie.component';
 import { AccueilMjComponent } from './accueil-mj/accueil-mj.component';
 import { FichePersonnageComponent } from './fiche-personnage/fiche-personnage.component';
+import { ConfirmationEmailValidatorDirective } from './confirmation-email-validator.directive';
+import { MustMatchDirective } from './must-match.directive';
 
 
 @NgModule({
@@ -36,12 +38,15 @@ import { FichePersonnageComponent } from './fiche-personnage/fiche-personnage.co
     PersonnageMotivationComponent,
     PartieComponent,
     AccueilMjComponent,
-    FichePersonnageComponent
+    FichePersonnageComponent,
+    ConfirmationEmailValidatorDirective,
+    MustMatchDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [AppConfigService],

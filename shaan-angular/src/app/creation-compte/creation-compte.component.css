@@ -1,0 +1,32 @@
+span{
+  /*background-image: url('logo3.JPG');*/
+  background-color: #DE1423;
+  width: 1000px;
+  height: 1000px;
+}
+.div.formulaire{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  /*background-color: aquamarine;*/
+}
+input[type=text]{
+  background-color : blanchedalmond;
+  box-shadow: 3px 3px;
+  border-radius: 5px;
+}
+div [value=error]{
+  color: #c51a20;
+  text-align: center;
+}
+button{
+  background-color: aliceblue;
+  box-shadow: 3px 3px;
+  border-radius: 5px;
+}
+tr{
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-bottom : 5px solid #42A948;
+}
