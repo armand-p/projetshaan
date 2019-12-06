@@ -52,6 +52,20 @@ export class PersonnageService {
     return this.http.get(this.appConfigService.backEnd + 'personnage/' + id);
   }
 
+  savesimple(personnage: Personnage)  {
+    if (personnage.id) {
+      this.http.put(this.appConfigService.backEnd + 'personnage/' + personnage.id, personnage).subscribe(resp => {this.load();this.loadPersoOrphanPartie()});
+    } else {
+      this.http.post<Personnage>(this.appConfigService.backEnd + 'personnage/', personnage).subscribe(resp => {
+        this.load()
+      });
+
+
+    }}
+
+
+
+
   save(personnage: Personnage, domainePerso:Array<DomainePersonnage>)  {
     if (personnage.id) {
       this.http.put(this.appConfigService.backEnd + 'personnage/' + personnage.id, personnage).subscribe(resp => {this.load();this.loadPersoOrphanPartie()});

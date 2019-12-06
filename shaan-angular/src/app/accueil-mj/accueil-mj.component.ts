@@ -64,7 +64,7 @@ linkparties(perso:Personnage){
 
   this.persoarajouter=perso;
   this.persoarajouter.parties=this.tableencours;
-  this.personnageService.save(this.persoarajouter);
+  this.personnageService.savesimple(this.persoarajouter);
   this.tableDeJeuService.load();
   this.personnageService.load()
   this.personnageService.loadPersoOrphanPartie();
@@ -77,7 +77,7 @@ close(){
 
     this.persoaenlever=perso;
     this.persoaenlever.parties=null;
-    this.personnageService.save(this.persoaenlever);
+    this.personnageService.savesimple(this.persoaenlever);
     this.tableDeJeuService.load();
     this.personnageService.loadPersoOrphanPartie();
     this.tableDeJeuService.findById(this.tableencours.id).subscribe(resp =>this.tableencours=resp);
