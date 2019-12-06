@@ -3,7 +3,9 @@ export class Utilisateur {
   version: number;
   pseudo: string;
   motDePasse: string;
+  mdpConfirmation: string;
   email: string;
+  emailConfirmation: string;
   type:string;
 
   constructor(id?: number, version?: number, pseudo?: string, motDePasse?: string, email?: string, type?:string) {

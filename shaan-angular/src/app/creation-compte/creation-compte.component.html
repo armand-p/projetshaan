@@ -1,7 +1,7 @@
 <span>
   <div class="container"><h3>Création d'un nouveau compte utilisateur</h3>
 <br>
-    <form #myForm="ngForm" name="myform">
+    <form #myForm="ngForm" name="myform" [mustMatch]="['mdp', 'mdpconfirmation']" novalidate>
   <table>
     <tr><th>Pseudo d'utilisateur : </th><th>
       <input name="pseudo" type="text" [(ngModel)]="utilisateur.pseudo" required #pseudo="ngModel">
@@ -12,10 +12,14 @@
 
     <tr><th>Confirmer l'email : </th><th><input type="text" name="email-confirmation"> </tr><br>
 
-    <tr><th>Mot de passe : </th><th><input type="text" name="mdp" [(ngModel)]="utilisateur.motDePasse" required #mdp="ngModel">
-      <div value="error" [hidden]="mdp.valid || mdp.pristine"> mot de passe non valide</div> </th></tr><br>
+    <tr><th>Mot de passe : </th><th><input type="text" name="mdp" [(ngModel)]="utilisateur.motDePasse" required
+                                           #mdp="ngModel">
+      <div value="error" [hidden]="mdp.valid || mdp.pristine"> mot de passe non valide</div>
+    </th></tr><br>
 
-<tr><th>Confirmer le mot de passe : </th><th><input type="text" name="mdpconfirmation" > </tr><br><br>
+<tr><th>Confirmer le mot de passe : </th><th><input type="text" name="mdpconfirmation" [(ngModel)]="utilisateur.mdpConfirmation" required #mdpconfirmation="ngModel">
+<div *ngIf="mdpconfirmation.errors.mustMatch">Passwords must match</div>
+</tr><br><br>
     <tr>
       <th>Rôle :</th>
       <th>
