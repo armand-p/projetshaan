@@ -483,7 +483,7 @@ class ApplicationTests {
 		arts.setDescription("Exprime la firme artistique, la sensualité et la créativité");
 		arts = domaineRepository.save(arts);
 
-		shaan.setNom("Savoir");
+		shaan.setNom("Shaan");
 		shaan.setElementLie("Moi");
 		shaan.setDescription(
 				"Symbolise l'harmonie avec l'environnement, la magnétisme, la chance brute et la lutte contre les LImbes pour le règne de la paix et de l'équilibre");

@@ -27,21 +27,11 @@
   <br>
   <br>
   <h3>Domaines :</h3>
-  <h4>Corps :</h4>
-  <p>Combat : <input type="number" style="width: 25px"></p>
-  <p>Survie : <input type="number" style="width: 25px"></p>
-  <p>Rituel : <input type="number" style="width: 25px"></p>
-
-  <h4>Ame :</h4>
-  <p>Magie : <input type="number" style="width: 25px"></p>
-  <p>Shaan : <input type="number" style="width: 25px"></p>
-  <p>Art : <input type="number" style="width: 25px"></p>
-
-  <h4>Esprit :</h4>
-  <p>Social : <input type="number" style="width: 25px"></p>
-  <p>Savoir : <input type="number" style="width: 25px"></p>
-  <p>Technique : <input type="number" style="width: 25px"></p>
-
+  <span *ngFor="let domaine of listDomaine(); let i = index">
+    <p>{{domaine.nom}} <input type="number" style="width: 30px" [ngModel]="domainePerso[i]?.rangDomaine" (ngModelChange)="setDomaine($event, i, domaine)"></p>
+  </span>
 </div>
 
-<button (click)=" personnageEnvoi.emit(personnage)">Validation</button>
+<!--{{domainePerso[1].domaineLie.nom}}-->
+
+<button (click)="envoi()">Validation</button>

@@ -8,7 +8,6 @@ export class DomainePersonnage{
   domaineLie:Domaine;
   persoLie:Personnage;
 
-
   constructor(id?: number, version?: number, rangDomaine?: number, domaineLie?: Domaine, persoLie?: Personnage) {
     this.id = id;
     this.version = version;
@@ -16,4 +15,6 @@ export class DomainePersonnage{
     this.domaineLie = domaineLie;
     this.persoLie = persoLie;
   }
+
+
 }
