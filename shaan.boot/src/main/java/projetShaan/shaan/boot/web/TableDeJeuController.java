@@ -27,7 +27,6 @@ import projetShaan.shaan.boot.repository.ITableDeJeuRepository;
 public class TableDeJeuController {
 	@Autowired
 	private ITableDeJeuRepository tableDeJeuRepo;
-	private IPersonnageRepository personnageRepo;
 	
 	@GetMapping("")
 	@JsonView(Views.ViewTableDeJeu.class)
@@ -36,28 +35,15 @@ public class TableDeJeuController {
 		return tableDeJeus;
 	}
 	
-	@GetMapping("/{id}")
-	@JsonView(Views.ViewTableDeJeu.class)
-	public TableDeJeu find(@PathVariable Long id){
-		TableDeJeu tableDeJeu = tableDeJeuRepo.findById(id).get();
-		return tableDeJeu;
-	}
+
 	
-	@GetMapping("/{id}/detail")
+	@GetMapping("/{id}")
 	@JsonView(Views.ViewTableDeJeuDetail.class)
 	public TableDeJeu findDetail(@PathVariable Long id) {
 		TableDeJeu tableDeJeu = tableDeJeuRepo.findById(id).get();
 
 		return tableDeJeu;
 	}
-	
-	@GetMapping("/{id}/personnages")
-	@JsonView(Views.ViewPersonnage.class)
-	public List<Personnage>findbyTable(@PathVariable Long id){
-		List<Personnage> personnages = personnageRepo.findByTableDeJeu(id);
-		return personnages;
-	}
-
 	
 	@PostMapping("")
 	@JsonView(Views.ViewTableDeJeu.class)
