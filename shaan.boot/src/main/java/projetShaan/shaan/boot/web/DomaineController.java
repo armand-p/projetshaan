@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import projetShaan.shaan.boot.model.Domaine;
+import projetShaan.shaan.boot.model.Specialisation;
 import projetShaan.shaan.boot.model.Views;
 import projetShaan.shaan.boot.repository.IDomaineRepository;
+import projetShaan.shaan.boot.repository.ISpecialisationRepository;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/domaine")
@@ -25,6 +27,9 @@ public class DomaineController {
 	
 	@Autowired
 	private IDomaineRepository domaineRepo;
+	
+	@Autowired
+	private ISpecialisationRepository specialisationRepo;
 
 	@GetMapping("")
 	@JsonView(Views.ViewDomaine.class)
@@ -38,6 +43,14 @@ public class DomaineController {
 	public Domaine find(@PathVariable Long id) {
 		Domaine Domaine = domaineRepo.findById(id).get();
 		return Domaine;
+	}
+	
+	@GetMapping("/{id}/specialisation")
+	@JsonView(Views.ViewSpecialisation.class)
+	public List<Specialisation> findspecialisation(@PathVariable Long id) {
+		List<Specialisation> specialisations = specialisationRepo.findByDomaine(id);
+
+		return specialisations;
 	}
 	
 

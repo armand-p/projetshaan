@@ -28,6 +28,10 @@ export class SpecialisationService {
     return this.http.get(this.appConfigService.backEnd + 'specialisation/' + id);
   }
 
+  findByDomaine(id: number):Observable<any> {
+    return this.http.get(this.appConfigService.backEnd + '/domaine/' + id + '/specialisation');
+  }
+
   save(specialisation: Specialisation) {
     if (specialisation.id) {
       this.http.put(this.appConfigService.backEnd + 'specialisation/' + specialisation.id, specialisation).subscribe(resp => this.load());
