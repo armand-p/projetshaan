@@ -7,6 +7,8 @@ import {DomainePersonnage} from "../model/DomainePersonnage";
 import {DomainePersonnageService} from "./domaine-personnage.service";
 import {BonusPersonnage} from "../model/BonusPersonnage";
 import {BonusPersonnageService} from "./bonus-personnage.service";
+import {PouvoirPersonnage} from "../model/PouvoirPersonnage";
+import {PouvoirPersonnageService} from "./pouvoir-personnage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +16,13 @@ import {BonusPersonnageService} from "./bonus-personnage.service";
 export class PersonnageService {
 
   private personnages: any;
+  private personnageJoueur:any;
   private personnageOnly :any;
   private personnageNoPartie :any;
   private idPerso: any;
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService, private domainePersonnageService:DomainePersonnageService,
-              private bonusPersonnageService:BonusPersonnageService) {
+              private bonusPersonnageService:BonusPersonnageService, private pouvoirPersonnageService:PouvoirPersonnageService) {
     this.load();
     this.loadPersoOrphanPartie();
   }
@@ -31,6 +34,10 @@ export class PersonnageService {
 
   public findAll(): Array<Personnage> {
     return this.personnages;
+  }
+  findByJoueur(id:number): Observable<any>{
+    this.http.get(this.appConfigService.backEnd+'persos/'+ id).subscribe(resp =>this.personnageJoueur =resp);
+    return this.personnageJoueur;
   }
 
   loadPersoOnly() {
@@ -67,7 +74,7 @@ export class PersonnageService {
     }}
 
 
-  save(personnage: Personnage, domainePerso:Array<DomainePersonnage>, bonusPerso:Array<BonusPersonnage>)  {
+  save(personnage: Personnage, domainePerso:Array<DomainePersonnage>, bonusPerso:Array<BonusPersonnage>, pouvoirPerso:Array<PouvoirPersonnage>)  {
     if (personnage.id) {
       this.http.put(this.appConfigService.backEnd + 'personnage/' + personnage.id, personnage).subscribe(resp => {this.load();this.loadPersoOrphanPartie()});
     } else {
@@ -85,6 +92,11 @@ export class PersonnageService {
           this.bonusPersonnageService.save(bonusPerso[i]);
         }
 
+        for(let i = 0; i < pouvoirPerso.length; i++){
+          pouvoirPerso[i].persoLie = resp;
+          this.pouvoirPersonnageService.save(pouvoirPerso[i]);
+        }
+
         this.load()
       });
 
@@ -95,4 +107,5 @@ export class PersonnageService {
   deleteBydId(id: number) {
     this.http.delete(this.appConfigService.backEnd + 'personnage/' + id).subscribe(resp => this.load());
   }
+
 }

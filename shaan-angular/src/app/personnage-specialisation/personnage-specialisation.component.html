@@ -1,15 +1,15 @@
 <h3>Domaines :</h3>
 
 <div class="container">
-  <div style="flex: 40%; background: #ccc">
+  <div style="flex: 60%">
     <div *ngFor="let domaine of listDomaine()">
       <h5>{{domaine.nom}}</h5>
       <div *ngIf="specialisations && domaines">
         <div *ngFor="let specialisation of triSpecialisation(domaine.nom)">
-          <p>{{specialisation.nom}}
+          <h6>{{specialisation.nom}}
             <button (click)="ajouteSpe(specialisation)">+</button>
             <button [hidden]="findSpe(specialisation)" (click)="suppressionSpe(specialisation)">-</button>
-          </p>
+          </h6>
         </div>
       </div>
     </div>
@@ -17,7 +17,7 @@
   </div>
 
 
-  <div style="flex: 10%; background: #ccc">
+  <div style="flex: 10%">
     <div *ngIf="bonusPers">
       <div *ngFor="let bonus of bonusPers">
         <p>{{bonus.specialisation.nom}} | {{bonus.bonusPerso}}</p>
