@@ -15,8 +15,8 @@ const routes: Routes = [
   {path: 'personnage', component: PersonnageComponent},//, canActivate: [AuthGuard]},
   {path: 'personnage/:id', component: PersonnageComponent},//, canActivate: [AuthGuard]},
   {path: 'creationcompte', component: CreationCompteComponent},
-  {path: 'accueiljoueur', component: AccueilJoueurComponent},
-  {path: 'accueilmj', component: AccueilMjComponent},
+  {path: 'accueiljoueur/:id', component: AccueilJoueurComponent},
+  {path: 'accueilmj/:id', component: AccueilMjComponent},
   {path: 'tabledejeu/:id', component: TableDeJeuComponent},
 ];
 

@@ -20,6 +20,8 @@ export class tableDeJeuService {
       .subscribe(resp => this.tableDeJeus = resp);
   }
 
+
+
   public findAll(): Array<TableDeJeu> {
     return this.tableDeJeus;
   }
@@ -27,6 +29,11 @@ export class tableDeJeuService {
   findById(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backEnd + 'tableDeJeu/' + id);
   }
+  findBymjId(id: number): Observable<any> {
+    return this.http.get(this.appConfigService.backEnd + 'tableDeJeu/mj/' + id);
+  }
+
+
 
   save(tableDeJeu: TableDeJeu) {
     if (tableDeJeu.id) {

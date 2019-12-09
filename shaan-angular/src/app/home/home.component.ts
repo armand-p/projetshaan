@@ -36,19 +36,14 @@ export class HomeComponent implements OnInit {
             localStorage.setItem(this.motDePasse, this.utilisateur.motDePasse);
             localStorage.setItem(this.pseudo, this.utilisateur.pseudo);
             localStorage.setItem(this.type, this.utilisateur.type);
-            console.log(this.pseudo);
-            console.log(this.motDePasse)
-            console.log(this.utilisateur.type);
 
             if (this.utilisateur.type == 'joueur') {
               this.type = 'joueur';
               localStorage.setItem(this.type, 'joueur');
-              console.log(this.type);
               this.router.navigate(['/accueiljoueur']);
             } else if (this.utilisateur.type == 'maitreDuJeu') {
               localStorage.setItem(this.type, 'mj');
-              console.log(this.type);
-              this.router.navigate(['/accueilmj']);
+              this.router.navigate(['/accueilmj/',this.utilisateur.id]);
             }
           } else {
             this.router.navigate(['']);

@@ -3,6 +3,9 @@ import {TableDeJeu} from '../model/TableDeJeu';
 import {tableDeJeuService} from '../service/tableDeJeu.service';
 import {PersonnageService} from '../service/personnage.service';
 import {Personnage} from '../model/Personnage';
+import {UtilisateurService} from '../service/utilisateur.service';
+import {ActivatedRoute} from '@angular/router';
+import {MaitreDuJeu} from '../model/MaitreDuJeu';
 
 @Component({
   selector: 'app-accueil-mj',
@@ -18,33 +21,48 @@ export class AccueilMjComponent implements OnInit {
   persoaenlever:Personnage=null;
   show:boolean = false;
   showRemove:boolean=false;
+  idMJ:number;
+  masterOfTheGame : MaitreDuJeu;
+  listTable : Array<TableDeJeu>;
+  constructor(private tableDeJeuService:tableDeJeuService,private personnageService:PersonnageService,private utilisateurService:UtilisateurService,private route:ActivatedRoute) {
+    this.route.params.subscribe(params =>this.idMJ=params.id);
+    this.utilisateurService.findByIdMasterOfTheGame(this.idMJ).toPromise().then(resp => {this.masterOfTheGame=resp; this.load(this.masterOfTheGame.id);});
 
-  constructor(private tableDeJeuService:tableDeJeuService,private personnageService:PersonnageService) { }
+  }
 
   ngOnInit() {
   }
 creer(){
+
     this.tabledujeu=new TableDeJeu();
 }
 save(){
+    this.tabledujeu.maitreDuJeu=this.masterOfTheGame;
     this.tableDeJeuService.save(this.tabledujeu);
     this.tabledujeu=null;
 }
-list():Array<TableDeJeu>{
-    return this.tableDeJeuService.findAll();
+list(id:number):Array<TableDeJeu>{
+
+    return this.listTable;
 }
+async load(id:number){
+  await this.tableDeJeuService.findBymjId(id).toPromise().then(resp => this.listTable=resp);
+}
+
+
+
 add(table?:TableDeJeu):Array<Personnage>{
 
     if(table != null){
       this.tableencours=table;
     }
     this.show=true;
-
+  this.load(this.masterOfTheGame.id);
     return this.personnageService.findAllPersoOrphanPartie();
 }
 
 async remove(id){
-
+  this.load(this.masterOfTheGame.id);
    await this.tableDeJeuService.findById(id).toPromise().then(resp =>{this.tableencours=resp;
       this.showRemove=true;});
 
@@ -76,6 +94,7 @@ async linkparties(perso:Personnage){
   await this.personnageService.savesimple(this.persoarajouter);
   this.tableDeJeuService.load();
   this.personnageService.load();
+  this.load(this.masterOfTheGame.id);
   this.personnageService.loadPersoOrphanPartie();
 }
 close(){
@@ -88,9 +107,10 @@ closer(){
 
     this.persoaenlever=perso;
     this.persoaenlever.parties=null;
-    this.personnageService.savesimple(this.persoaenlever);
+    await this.personnageService.savesimple(this.persoaenlever);
     this.tableDeJeuService.load();
-    this.personnageService.loadPersoOrphanPartie();
+    this.personnageService.load();
+    await this.load(this.masterOfTheGame.id);
     await this.tableDeJeuService.findById(this.tableencours.id).toPromise().then(resp =>{this.tableencours=resp;
       });
   }
