@@ -16,6 +16,7 @@ import {PouvoirPersonnageService} from "./pouvoir-personnage.service";
 export class PersonnageService {
 
   private personnages: any;
+  private personnageJoueur:any;
   private personnageOnly :any;
   private personnageNoPartie :any;
   private idPerso: any;
@@ -33,6 +34,10 @@ export class PersonnageService {
 
   public findAll(): Array<Personnage> {
     return this.personnages;
+  }
+  findByJoueur(id:number): Observable<any>{
+    this.http.get(this.appConfigService.backEnd+'persos/'+ id).subscribe(resp =>this.personnageJoueur =resp);
+    return this.personnageJoueur;
   }
 
   loadPersoOnly() {
@@ -102,4 +107,5 @@ export class PersonnageService {
   deleteBydId(id: number) {
     this.http.delete(this.appConfigService.backEnd + 'personnage/' + id).subscribe(resp => this.load());
   }
+
 }
