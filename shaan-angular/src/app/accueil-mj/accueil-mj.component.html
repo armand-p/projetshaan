@@ -1,5 +1,5 @@
-<div class="bg-dark">
-<div class="container bg-light">
+
+<div class="container">
   <table class="table table-sm table-hover">
     <thead>
     <tr>
@@ -17,6 +17,7 @@
     <td><button type="button" class="btn btn-danger btn-circle" (click)="delete(table.id)" ><i class="fas fa-times"></i></button></td>
     <td><button type="button" class="btn btn-success btn-circle" (click)="add(table)" ><i class="fas fa-user-plus"></i></button></td>
     <td><button type="button" class="btn btn-danger btn-circle" (click)="remove(table.id)" ><i class="fas fa-user-minus"></i></button></td>
+    <td><button type="button" class="btn btn-success btn-circle" [routerLink]="['/tabledejeu/'+table.id]" ><i class="fas fa-external-link-square-alt"></i></button></td>
   </tr>
 
   </tbody>
@@ -63,4 +64,4 @@
     <button type="button" class="btn btn-primary btn-circle" (click)="closer()"><i class="fas fa-reply"></i></button>
   </div>
 </div>
-</div>
+

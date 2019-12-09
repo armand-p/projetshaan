@@ -5,6 +5,8 @@ import {HomeComponent} from "./home/home.component";
 import {CreationCompteComponent} from "./creation-compte/creation-compte.component";
 import {AccueilJoueurComponent} from "./accueil-joueur/accueil-joueur.component";
 import {AccueilMjComponent} from "./accueil-mj/accueil-mj.component";
+import {tableDeJeuService} from './service/tableDeJeu.service';
+import {TableDeJeuComponent} from './table-de-jeu/table-de-jeu.component';
 
 
 const routes: Routes = [
@@ -13,7 +15,8 @@ const routes: Routes = [
   {path: 'personnage/:id', component: PersonnageComponent},
   {path: 'creationcompte', component: CreationCompteComponent},
   {path: 'accueiljoueur', component: AccueilJoueurComponent},
-  {path: 'accueilmj', component: AccueilMjComponent}
+  {path: 'accueilmj', component: AccueilMjComponent},
+  {path: 'tabledejeu/:id', component: TableDeJeuComponent},
 ];
 
 @NgModule({

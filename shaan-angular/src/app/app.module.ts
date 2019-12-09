@@ -20,6 +20,7 @@ import { PartieComponent } from './partie/partie.component';
 import { AccueilMjComponent } from './accueil-mj/accueil-mj.component';
 import { FichePersonnageComponent } from './fiche-personnage/fiche-personnage.component';
 import { MustMatchDirective } from './must-match.directive';
+import { TableDeJeuComponent } from './table-de-jeu/table-de-jeu.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { MustMatchDirective } from './must-match.directive';
     PartieComponent,
     AccueilMjComponent,
     FichePersonnageComponent,
-    MustMatchDirective
+    MustMatchDirective,
+    TableDeJeuComponent
   ],
   imports: [
     BrowserModule,
