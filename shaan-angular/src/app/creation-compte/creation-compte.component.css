@@ -1,4 +1,6 @@
-div{
+.container{
+  margin-left: 550px;
+  padding: 30px;
 }
 input[type=text], input[type=password]{
   background-color : blanchedalmond;
@@ -13,8 +15,6 @@ button{
   background-color: aliceblue;
   box-shadow: 3px 3px;
   border-radius: 5px;
-}
-tr{
 }
 
 .ng-valid[required], .ng-valid.required  {

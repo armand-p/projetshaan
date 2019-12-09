@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {AppConfigService} from '../app-config.service';
 import {Specialisation} from '../model/Specialisation';
 import {Observable} from 'rxjs';
+import {filter} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -20,15 +21,21 @@ export class SpecialisationService {
       .subscribe(resp => this.specialisations = resp);
   }
 
-  public findAll(): Array<Specialisation> {
+  findAll(): Array<Specialisation> {
     return this.specialisations;
   }
+
+  // findSpecByDomaine(): Array<Specialisation> {
+  //
+  //   this.http.get(this.appConfigService.backEnd + 'specialisation/').subscribe(resp => resp);
+  //
+  // }
 
   findById(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backEnd + 'specialisation/' + id);
   }
 
-  findByDomaine(id: number):Observable<any> {
+  findByDomaine(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backEnd + '/domaine/' + id + '/specialisation');
   }
 
@@ -42,4 +49,5 @@ export class SpecialisationService {
 
   deleteBydId(id: number) {
     this.http.delete(this.appConfigService.backEnd + 'specialisation/' + id).subscribe(resp => this.load());
-  }}
+  }
+}

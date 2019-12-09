@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.erreur);
   }
 
   validate() {
@@ -50,6 +51,10 @@ export class HomeComponent implements OnInit {
             this.erreur = true;
           }
         });
+
+      } else {
+        this.router.navigate(['']);
+        this.erreur = true;
       }
     }
   }

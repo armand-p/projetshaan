@@ -8,16 +8,18 @@ import {AccueilMjComponent} from "./accueil-mj/accueil-mj.component";
 import {tableDeJeuService} from './service/tableDeJeu.service';
 import {TableDeJeuComponent} from './table-de-jeu/table-de-jeu.component';
 import {AuthGuard} from './auth-guard.service';
+import {FichePersonnageComponent} from "./fiche-personnage/fiche-personnage.component";
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'personnage', component: PersonnageComponent},//, canActivate: [AuthGuard]},
-  {path: 'personnage/:id', component: PersonnageComponent},//, canActivate: [AuthGuard]},
+  {path: 'personnage', component: PersonnageComponent, canActivate: [AuthGuard]},
+  {path: 'personnage/:id', component: PersonnageComponent, canActivate: [AuthGuard]},
   {path: 'creationcompte', component: CreationCompteComponent},
   {path: 'accueiljoueur/:id', component: AccueilJoueurComponent},
   {path: 'accueilmj/:id', component: AccueilMjComponent},
   {path: 'tabledejeu/:id', component: TableDeJeuComponent},
+  {path: 'fichePerso/:id', component: FichePersonnageComponent}
 ];
 
 @NgModule({

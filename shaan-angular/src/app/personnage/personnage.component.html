@@ -1,19 +1,21 @@
-<div>
-  <h2>Information personnage</h2>
+<br>
+<div class="container">
+  <h3>Information personnage</h3>
 </div>
 
-<div class="container">
-  <div style="flex: 60%; background: #ccc" >
+<div class="container" style="color: white">
+  <div style="flex: 60%; background: #193753">
     <p>Nom : <input type="text" [(ngModel)]="personnage.nom">
-      Sexe : <input type="radio" name="sexe"> M <input type="radio" name="sexe"> F
-      Age : <input type="text" [(ngModel)]="personnage.age">
+      Sexe : <input type="radio" name="sexe"> M <input type="radio" name="sexe"> F 
+    Age : <input type="text" [(ngModel)]="personnage.age">
     </p>
-    <p><b>Race : </b><span *ngIf="personnage.racePerso"><input type="text" [(ngModel)]="personnage.racePerso.nomRace"></span>
+    <p><span *ngIf="personnage.racePerso"><b>Race : </b><input type="text" [(ngModel)]="personnage.racePerso.nomRace"></span>
       Taille : <input type="text" [(ngModel)]="personnage.taille">
       Motivation : <input type="text">
+      Poids : <input type="text" [(ngModel)]="personnage.poids">
     </p>
     <p><b>Peuple : </b><span *ngIf="personnage.peuplePerso"><input type="text" [(ngModel)]="personnage.peuplePerso.nomPeuple"></span>
-      Poids : <input type="text" [(ngModel)]="personnage.poids">
+
     </p>
     <p><b>Caste : </b><span *ngIf="personnage.castePerso"><input type="text" [(ngModel)]="personnage.castePerso.nomCaste"></span>
       <b> Métier : </b><span *ngIf="personnage.metierPerso"><input type="text" [(ngModel)]="personnage.metierPerso.nomMetier"></span>
@@ -40,23 +42,23 @@
 
 <div class="clear"></div>
 
+<br>
+<div >
+  <div class="container">
 
-<div>
-  <div>
-    <p>
       <button (click)="page = 'identite'">Identité</button>
       <button (click)="page = 'specialisation'">Spécialisation</button>
       <button (click)="page = 'pouvoir'">Pouvoir</button>
       <button (click)="page = 'acquis'">Acquis</button>
       <button (click)="page = 'motivation'">Motivation</button>
-    </p>
+
   </div>
 
-  <div class="container" style="background: #ccc">
+  <div class="container" style="background: #193753">
 
       <personnage-identite *ngIf="page === 'identite'" (personnageEnvoi)="receptionPerso($event)" (domainePersoEnvoi)="receptionDomaine($event)"></personnage-identite>
 
-      <personnage-specialisation *ngIf="page === 'specialisation'"></personnage-specialisation>
+      <personnage-specialisation *ngIf="page === 'specialisation'" (specialisationEnvoi)="receptionSpecialisation($event)"></personnage-specialisation>
 
       <personnage-pouvoir *ngIf="page === 'pouvoir'"></personnage-pouvoir>
 

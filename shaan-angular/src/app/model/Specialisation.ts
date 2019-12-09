@@ -7,7 +7,7 @@ export class Specialisation {
   nom : string;
   description : string;
   metier : Metier;
-  domineLie :Domaine;
+  domaineLie :Domaine;
 
 
   constructor(id?: number, version?: number, nom?: string, description?: string, metier?: Metier, domineLie?: Domaine) {
@@ -16,6 +16,6 @@ export class Specialisation {
     this.nom = nom;
     this.description = description;
     this.metier = metier;
-    this.domineLie = domineLie;
+    this.domaineLie = domineLie;
   }
 }
