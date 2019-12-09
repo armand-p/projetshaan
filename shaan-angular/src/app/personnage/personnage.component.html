@@ -6,7 +6,7 @@
 <div class="container" style="color: white">
   <div style="flex: 60%; background: #193753">
     <p>Nom : <input type="text" [(ngModel)]="personnage.nom">
-      Sexe : <input type="radio" name="sexe"> M <input type="radio" name="sexe"> F 
+      Sexe : <input type="radio" name="sexe"> M <input type="radio" name="sexe"> F
     Age : <input type="text" [(ngModel)]="personnage.age">
     </p>
     <p><span *ngIf="personnage.racePerso"><b>Race : </b><input type="text" [(ngModel)]="personnage.racePerso.nomRace"></span>
@@ -60,7 +60,7 @@
 
       <personnage-specialisation *ngIf="page === 'specialisation'" (specialisationEnvoi)="receptionSpecialisation($event)"></personnage-specialisation>
 
-      <personnage-pouvoir *ngIf="page === 'pouvoir'"></personnage-pouvoir>
+      <personnage-pouvoir *ngIf="page === 'pouvoir'" (pouvoirEnvoi)="receptionPouvoir($event)"></personnage-pouvoir>
 
       <personnage-acquis *ngIf="page === 'acquis'"></personnage-acquis>
 

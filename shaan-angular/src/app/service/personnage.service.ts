@@ -7,6 +7,8 @@ import {DomainePersonnage} from "../model/DomainePersonnage";
 import {DomainePersonnageService} from "./domaine-personnage.service";
 import {BonusPersonnage} from "../model/BonusPersonnage";
 import {BonusPersonnageService} from "./bonus-personnage.service";
+import {PouvoirPersonnage} from "../model/PouvoirPersonnage";
+import {PouvoirPersonnageService} from "./pouvoir-personnage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,7 @@ export class PersonnageService {
   private idPerso: any;
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService, private domainePersonnageService:DomainePersonnageService,
-              private bonusPersonnageService:BonusPersonnageService) {
+              private bonusPersonnageService:BonusPersonnageService, private pouvoirPersonnageService:PouvoirPersonnageService) {
     this.load();
     this.loadPersoOrphanPartie();
   }
@@ -67,7 +69,7 @@ export class PersonnageService {
     }}
 
 
-  save(personnage: Personnage, domainePerso:Array<DomainePersonnage>, bonusPerso:Array<BonusPersonnage>)  {
+  save(personnage: Personnage, domainePerso:Array<DomainePersonnage>, bonusPerso:Array<BonusPersonnage>, pouvoirPerso:Array<PouvoirPersonnage>)  {
     if (personnage.id) {
       this.http.put(this.appConfigService.backEnd + 'personnage/' + personnage.id, personnage).subscribe(resp => {this.load();this.loadPersoOrphanPartie()});
     } else {
@@ -83,6 +85,11 @@ export class PersonnageService {
         for(let i = 0; i < bonusPerso.length; i++){
           bonusPerso[i].pesoLie = resp;
           this.bonusPersonnageService.save(bonusPerso[i]);
+        }
+
+        for(let i = 0; i < pouvoirPerso.length; i++){
+          pouvoirPerso[i].persoLie = resp;
+          this.pouvoirPersonnageService.save(pouvoirPerso[i]);
         }
 
         this.load()

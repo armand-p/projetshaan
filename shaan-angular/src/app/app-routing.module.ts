@@ -14,7 +14,7 @@ import {FichePersonnageComponent} from "./fiche-personnage/fiche-personnage.comp
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'personnage', component: PersonnageComponent, canActivate: [AuthGuard]},
-  {path: 'personnage/:id', component: PersonnageComponent, canActivate: [AuthGuard]},
+  {path: 'personnage/:id', component: PersonnageComponent},//, canActivate: [AuthGuard]},
   {path: 'creationcompte', component: CreationCompteComponent},
   {path: 'accueiljoueur/:id', component: AccueilJoueurComponent},
   {path: 'accueilmj/:id', component: AccueilMjComponent},

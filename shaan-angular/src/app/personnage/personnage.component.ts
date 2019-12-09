@@ -5,6 +5,7 @@ import {DomainePersonnage} from "../model/DomainePersonnage";
 import {ActivatedRoute} from "@angular/router";
 import {BonusPersonnage} from "../model/BonusPersonnage";
 import {last} from "rxjs/operators";
+import {PouvoirPersonnage} from "../model/PouvoirPersonnage";
 
 @Component({
   selector: 'app-personnage',
@@ -18,6 +19,7 @@ export class PersonnageComponent implements OnInit {
   personnage:Personnage = new Personnage();
   domainePerso: Array<DomainePersonnage> = new Array<DomainePersonnage>(10);
   bonusPerso: Array<BonusPersonnage> = new Array<BonusPersonnage>();
+  pouvoirPerso: Array<PouvoirPersonnage> = new Array<PouvoirPersonnage>();
 
 
   id:number;
@@ -26,6 +28,7 @@ export class PersonnageComponent implements OnInit {
   childEvent = new EventEmitter();
 
   constructor(private personnageService:PersonnageService,private route:ActivatedRoute ) {
+
     this.route.params.subscribe(params => this.id=params.id);
     if (this.id == null){
       this.personnage.type = 'Personnage';
@@ -57,12 +60,18 @@ export class PersonnageComponent implements OnInit {
       this.bonusPerso.push(new BonusPersonnage());
       this.bonusPerso[i].bonusPerso = specilisationRecu[i].bonusPerso;
       this.bonusPerso[i].specialisation = specilisationRecu[i].specialisation;
-      console.log('ee')
+    }
+  }
+
+  receptionPouvoir(pouvoirRecu:Array<PouvoirPersonnage>){
+    for(let i = 0; i < pouvoirRecu.length; i++){
+      this.pouvoirPerso.push(new PouvoirPersonnage());
+      this.pouvoirPerso[i].pouvoir = pouvoirRecu[i].pouvoir;
     }
   }
 
   save() {
-    this.personnageService.save(this.personnage, this.domainePerso, this.bonusPerso);
+    this.personnageService.save(this.personnage, this.domainePerso, this.bonusPerso, this.pouvoirPerso);
   }
 
   cancel(){

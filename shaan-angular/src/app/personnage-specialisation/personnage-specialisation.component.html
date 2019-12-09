@@ -3,7 +3,7 @@
 <div class="container">
   <div style="flex: 60%">
     <div *ngFor="let domaine of listDomaine()">
-      <p>{{domaine.nom}}</p>
+      <h5>{{domaine.nom}}</h5>
       <div *ngIf="specialisations && domaines">
         <div *ngFor="let specialisation of triSpecialisation(domaine.nom)">
           <h6>{{specialisation.nom}}

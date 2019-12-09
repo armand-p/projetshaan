@@ -1,11 +1,28 @@
-<div style="background: #007bff">
-  <h5>Magie</h5>
+<h3>Pouvoirs :</h3>
+
+<div class="container">
+  <div style="flex: 60%">
+    <div *ngFor="let domaine of listDomaine()">
+      <h5>{{domaine.nom}}</h5>
+      <div *ngIf="pouvoirs && domaines">
+        <div *ngFor="let pouvoir of triPouvoir(domaine.nom)">
+          <h6>{{pouvoir.nomPouvoir}}
+            <button [hidden]="!findPouvoir(pouvoir)" (click)="ajoutePouvoir(pouvoir)">+</button>
+            <button [hidden]="findPouvoir(pouvoir)" (click)="suppressionPouvoir(pouvoir)">-</button>
+          </h6>
+        </div>
+      </div>
+    </div>
+    <button (click)="envoi()">Validation</button>
+  </div>
+
+
+  <div style="flex: 10%">
+    <div *ngIf="pouvoirPerso">
+      <div *ngFor="let pouvoir of pouvoirPerso">
+        <p>{{pouvoir.pouvoir.nomPouvoir}}</p>
+      </div>
+    </div>
+
+  </div>
 </div>
-
-
-<div>
-  <h4>Liste des pouvoirs</h4>
-  <p>exemple 1 <button>+</button> <button>-</button></p>
-</div>
-
-<button>Validation</button>
