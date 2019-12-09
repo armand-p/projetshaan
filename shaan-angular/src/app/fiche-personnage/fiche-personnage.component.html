@@ -1,1 +1,20 @@
-<p>fiche-personnage works!</p>
+
+
+
+
+<div>
+  Nom : <span type="text" [(ngModel)]="personnage.nom"></span>
+  Sexe : <span type="text" [(ngModel)]="personnage.sexe"></span>
+  Age : <span type="text" [(ngModel)]="personnage.age"></span>
+
+  Race : <span type="text" [(ngModel)]="personnage.racePerso.nomRace"></span>
+    Taille : <span type="text" [(ngModel)]="personnage.taille"></span>
+    Poids : <span type="text" [(ngModel)]="personnage.poids"></span>
+
+  Peuple : <span type="text" [(ngModel)]="personnage.peuplePerso.nomPeuple"></span>
+
+
+  Caste : <span type="text" [(ngModel)]="personnage.castePerso.nomCaste"></span>
+    < Métier : <span type="text" [(ngModel)]="personnage.metierPerso.nomMetier"></span>
+
+</div>
