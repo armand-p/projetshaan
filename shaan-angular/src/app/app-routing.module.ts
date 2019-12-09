@@ -7,12 +7,13 @@ import {AccueilJoueurComponent} from "./accueil-joueur/accueil-joueur.component"
 import {AccueilMjComponent} from "./accueil-mj/accueil-mj.component";
 import {tableDeJeuService} from './service/tableDeJeu.service';
 import {TableDeJeuComponent} from './table-de-jeu/table-de-jeu.component';
+import {AuthGuard} from './auth-guard.service';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'personnage', component: PersonnageComponent},
-  {path: 'personnage/:id', component: PersonnageComponent},
+  {path: 'personnage', component: PersonnageComponent},//, canActivate: [AuthGuard]},
+  {path: 'personnage/:id', component: PersonnageComponent},//, canActivate: [AuthGuard]},
   {path: 'creationcompte', component: CreationCompteComponent},
   {path: 'accueiljoueur', component: AccueilJoueurComponent},
   {path: 'accueilmj', component: AccueilMjComponent},

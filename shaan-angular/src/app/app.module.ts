@@ -23,6 +23,8 @@ import { MustMatchDirective } from './must-match.directive';
 import { TableDeJeuComponent } from './table-de-jeu/table-de-jeu.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,7 @@ import { TableDeJeuComponent } from './table-de-jeu/table-de-jeu.component';
     HttpClientModule
   ],
   providers: [AppConfigService],
+  exports:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
