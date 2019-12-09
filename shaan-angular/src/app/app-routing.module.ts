@@ -5,15 +5,16 @@ import {HomeComponent} from "./home/home.component";
 import {CreationCompteComponent} from "./creation-compte/creation-compte.component";
 import {AccueilJoueurComponent} from "./accueil-joueur/accueil-joueur.component";
 import {AccueilMjComponent} from "./accueil-mj/accueil-mj.component";
+import {AuthGuard} from './auth-guard.service';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'personnage', component: PersonnageComponent},
-  {path: 'personnage/:id', component: PersonnageComponent},
+  {path: 'personnage', component: PersonnageComponent},//, canActivate: [AuthGuard]},
+  {path: 'personnage/:id', component: PersonnageComponent},//, canActivate: [AuthGuard]},
   {path: 'creationcompte', component: CreationCompteComponent},
-  {path: 'accueiljoueur', component: AccueilJoueurComponent},
-  {path: 'accueilmj', component: AccueilMjComponent}
+  {path: 'accueiljoueur', component: AccueilJoueurComponent},//, canActivate: [AuthGuard]},
+  {path: 'accueilmj', component: AccueilMjComponent},//, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
