@@ -1,34 +1,35 @@
-<div>
-  <p>Ce que je suis : </p>
+<div style="color: white">
+  <p><b> Ce que je suis : </b></p>
   <span *ngFor="let race of listRace()">
 <input type="radio" name="race" [value]="race" [(ngModel)]="personnage.racePerso">{{race.nomRace}}
 </span>
 
-  <p><br>D'où je viens : </p>
+  <p><br><b>D'où je viens : </b></p>
   <span *ngFor="let peuple of listpeuple()">
   <input type="radio" name="origine" [value]="peuple" [(ngModel)]="personnage.peuplePerso">{{peuple.nomPeuple}}
  </span>
   <br>
 
-  <p><br>Ce que je fais : </p>
+  <p><br><b>Ce que je fais : </b></p>
   <span *ngFor="let caste of listcaste()">
   <input type="radio" name="caste" [value]="caste" [ngModel]="personnage.castePerso" (ngModelChange)="selectCaste($event)">{{caste.nomCaste}}
  </span>
 
-  <p><br>Metiers : </p>
+
   <div *ngIf="personnage.castePerso">
+    <p><br><b>Metiers : </b></p>
   <span *ngFor="let metier of metiers">
   <input type="radio" name="metiers" [value]="metier" [(ngModel)]="personnage.metierPerso">{{metier.nomMetier}}
   </span>
   </div>
 </div>
 
-<div>
+<div style="color: white">
   <br>
   <br>
-  <h3>Domaines :</h3>
+  <h3>Domaines : </h3>
   <span *ngFor="let domaine of listDomaine(); let i = index">
-    <p>{{domaine.nom}} <input type="number" style="width: 30px" [ngModel]="domainePerso[i]?.rangDomaine" (ngModelChange)="setDomaine($event, i, domaine)"></p>
+    <p>{{domaine.nom}} <input type="number" style="width: 50px" [ngModel]="domainePerso[i]?.rangDomaine" (ngModelChange)="setDomaine($event, i, domaine)"></p>
   </span>
 </div>
 

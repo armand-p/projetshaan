@@ -3,6 +3,8 @@ import {Personnage} from "../model/Personnage";
 import {PersonnageService} from "../service/personnage.service";
 import {DomainePersonnage} from "../model/DomainePersonnage";
 import {ActivatedRoute} from "@angular/router";
+import {BonusPersonnage} from "../model/BonusPersonnage";
+import {last} from "rxjs/operators";
 
 @Component({
   selector: 'app-personnage',
@@ -15,6 +17,7 @@ export class PersonnageComponent implements OnInit {
 
   personnage:Personnage = new Personnage();
   domainePerso: Array<DomainePersonnage> = new Array<DomainePersonnage>(10);
+  bonusPerso: Array<BonusPersonnage> = new Array<BonusPersonnage>();
 
 
   id:number;
@@ -49,8 +52,17 @@ export class PersonnageComponent implements OnInit {
     }
   }
 
+  receptionSpecialisation(specilisationRecu:Array<BonusPersonnage>){
+    for(let i = 0; i < specilisationRecu.length; i++){
+      this.bonusPerso.push(new BonusPersonnage());
+      this.bonusPerso[i].bonusPerso = specilisationRecu[i].bonusPerso;
+      this.bonusPerso[i].specialisation = specilisationRecu[i].specialisation;
+      console.log('ee')
+    }
+  }
+
   save() {
-    this.personnageService.save(this.personnage, this.domainePerso);
+    this.personnageService.save(this.personnage, this.domainePerso, this.bonusPerso);
   }
 
   cancel(){

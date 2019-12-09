@@ -8,6 +8,7 @@ import {AccueilMjComponent} from "./accueil-mj/accueil-mj.component";
 import {tableDeJeuService} from './service/tableDeJeu.service';
 import {TableDeJeuComponent} from './table-de-jeu/table-de-jeu.component';
 import {AuthGuard} from './auth-guard.service';
+import {FichePersonnageComponent} from "./fiche-personnage/fiche-personnage.component";
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'accueiljoueur', component: AccueilJoueurComponent},
   {path: 'accueilmj', component: AccueilMjComponent},
   {path: 'tabledejeu/:id', component: TableDeJeuComponent},
+  {path: 'fichePerso/:id', component: FichePersonnageComponent}
 ];
 
 @NgModule({

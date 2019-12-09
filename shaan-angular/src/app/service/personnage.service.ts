@@ -5,6 +5,8 @@ import {Personnage} from '../model/Personnage';
 import {Observable} from 'rxjs';
 import {DomainePersonnage} from "../model/DomainePersonnage";
 import {DomainePersonnageService} from "./domaine-personnage.service";
+import {BonusPersonnage} from "../model/BonusPersonnage";
+import {BonusPersonnageService} from "./bonus-personnage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,8 @@ export class PersonnageService {
   private personnageNoPartie :any;
   private idPerso: any;
 
-  constructor(private http: HttpClient, private appConfigService: AppConfigService, private domainePersonnageService:DomainePersonnageService) {
+  constructor(private http: HttpClient, private appConfigService: AppConfigService, private domainePersonnageService:DomainePersonnageService,
+              private bonusPersonnageService:BonusPersonnageService) {
     this.load();
     this.loadPersoOrphanPartie();
   }
@@ -64,9 +67,7 @@ export class PersonnageService {
     }}
 
 
-
-
-  save(personnage: Personnage, domainePerso:Array<DomainePersonnage>)  {
+  save(personnage: Personnage, domainePerso:Array<DomainePersonnage>, bonusPerso:Array<BonusPersonnage>)  {
     if (personnage.id) {
       this.http.put(this.appConfigService.backEnd + 'personnage/' + personnage.id, personnage).subscribe(resp => {this.load();this.loadPersoOrphanPartie()});
     } else {
@@ -77,6 +78,11 @@ export class PersonnageService {
         for(let i = 0; i < domainePerso.length; i++){
           domainePerso[i].persoLie = resp;
           this.domainePersonnageService.save(domainePerso[i]);
+        }
+
+        for(let i = 0; i < bonusPerso.length; i++){
+          bonusPerso[i].pesoLie = resp;
+          this.bonusPersonnageService.save(bonusPerso[i]);
         }
 
         this.load()
