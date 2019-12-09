@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
             if (this.utilisateur.type == 'joueur') {
               this.type = 'joueur';
               localStorage.setItem(this.type, 'joueur');
-              this.router.navigate(['/accueiljoueur']);
+              this.router.navigate(['/accueiljoueur/', this.utilisateur.id]);
             } else if (this.utilisateur.type == 'maitreDuJeu') {
               localStorage.setItem(this.type, 'mj');
               this.router.navigate(['/accueilmj/',this.utilisateur.id]);

@@ -9,6 +9,7 @@ import {Race} from "../model/Race";
 import {TableDeJeu} from "../model/TableDeJeu";
 import {Metier} from "../model/Metier";
 import {Caste} from "../model/Caste";
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-accueil-joueur',
@@ -18,9 +19,12 @@ import {Caste} from "../model/Caste";
 export class AccueilJoueurComponent implements OnInit {
   personnages: Array<Personnage> = new Array<Personnage>();
   personnage : Personnage=null;
+  joueurId : number;
 
 
-  constructor(private personnageService: PersonnageService) { }
+  constructor(private personnageService: PersonnageService, private route:ActivatedRoute) {
+    this.route.params.subscribe(params =>this.joueurId=params.id);
+  }
 
 
   ngOnInit() {

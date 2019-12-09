@@ -56,6 +56,8 @@ public class PersonnageController {
 		List<Personnage> personnages = personnageRepo.findAll();
 		return personnages;
 	}
+	
+	
 	@GetMapping("/onlyPerso")
 	@JsonView(Views.ViewPersonnage.class)
 	public List<Personnage>findAllPersonnage(){
@@ -76,6 +78,9 @@ public class PersonnageController {
 		Personnage personnage = personnageRepo.findById(id).get();
 		return personnage;
 	}
+	
+	
+
 	
 	@GetMapping("/{id}/bonusPerso")
 	@JsonView(Views.ViewBonusPersonnageDetail.class)

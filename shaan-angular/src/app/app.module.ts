@@ -21,7 +21,6 @@ import { AccueilMjComponent } from './accueil-mj/accueil-mj.component';
 import { FichePersonnageComponent } from './fiche-personnage/fiche-personnage.component';
 import { MustMatchDirective } from './must-match.directive';
 import { TableDeJeuComponent } from './table-de-jeu/table-de-jeu.component';
-import {MustMatchEmailDirective} from './must-match-email.directive';
 
 
 

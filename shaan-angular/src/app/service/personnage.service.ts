@@ -14,6 +14,7 @@ import {BonusPersonnageService} from "./bonus-personnage.service";
 export class PersonnageService {
 
   private personnages: any;
+  private personnageJoueur:any;
   private personnageOnly :any;
   private personnageNoPartie :any;
   private idPerso: any;
@@ -31,6 +32,10 @@ export class PersonnageService {
 
   public findAll(): Array<Personnage> {
     return this.personnages;
+  }
+  findByJoueur(id:number){
+    this.http.get(this.appConfigService.backEnd+'personnage/'+id).subscribe(resp =>this.personnageJoueur =resp);
+    return this.personnageJoueur;
   }
 
   loadPersoOnly() {
@@ -95,4 +100,5 @@ export class PersonnageService {
   deleteBydId(id: number) {
     this.http.delete(this.appConfigService.backEnd + 'personnage/' + id).subscribe(resp => this.load());
   }
+
 }
