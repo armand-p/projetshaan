@@ -22,6 +22,8 @@ import { FichePersonnageComponent } from './fiche-personnage/fiche-personnage.co
 import { MustMatchDirective } from './must-match.directive';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +50,7 @@ import { MustMatchDirective } from './must-match.directive';
     HttpClientModule
   ],
   providers: [AppConfigService],
+  exports:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
