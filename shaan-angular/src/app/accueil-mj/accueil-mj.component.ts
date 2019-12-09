@@ -69,11 +69,11 @@ listr():Array<Personnage>{
     );
 
   }
-linkparties(perso:Personnage){
+async linkparties(perso:Personnage){
 
   this.persoarajouter=perso;
   this.persoarajouter.parties=this.tableencours;
-  this.personnageService.savesimple(this.persoarajouter);
+  await this.personnageService.savesimple(this.persoarajouter);
   this.tableDeJeuService.load();
   this.personnageService.load();
   this.personnageService.loadPersoOrphanPartie();
