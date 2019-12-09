@@ -84,7 +84,7 @@ public class UtilisateurController {
 		return joueur;
 	}
 	
-	@GetMapping("/{id}/persos")
+	@GetMapping("/persos/{id}")
 	@JsonView(Views.ViewPersonnageDetail.class)
 	public List<Personnage> findByJoueur(@PathVariable Long id){
 		List<Personnage> personnages = persoRepo.findByJoueur(id);

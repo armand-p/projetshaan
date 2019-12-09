@@ -34,8 +34,12 @@ export class AccueilJoueurComponent implements OnInit {
     return this.personnageService.findAll();
 
 }
+  public perso(id:number): any {
+    return this.personnageService.findByJoueur(id);
 
-  edit(id: number) {
+  }
+
+    edit(id: number) {
     this.personnageService.findById(id).subscribe(resp => this.personnage = resp);
     }
 

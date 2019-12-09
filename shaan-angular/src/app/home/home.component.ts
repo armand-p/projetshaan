@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   pseudo: string;
   motDePasse: string;
   type: string;
+  id:string;
 
 
   constructor(private router: Router, private utilisateurService: UtilisateurService) {
@@ -32,15 +33,17 @@ export class HomeComponent implements OnInit {
         this.utilisateurService.findById(util.id).subscribe(resp => {
           this.utilisateur = resp;
           if (this.utilisateur.motDePasse == this.motDePasse) {
-            console.log("trouve le mdp");
             localStorage.setItem('isLoggedin', 'true');
             localStorage.setItem(this.motDePasse, this.utilisateur.motDePasse);
             localStorage.setItem(this.pseudo, this.utilisateur.pseudo);
+            localStorage.setItem(this.id, this.utilisateur.id);
             localStorage.setItem(this.type, this.utilisateur.type);
+
 
             if (this.utilisateur.type == 'joueur') {
               this.type = 'joueur';
               localStorage.setItem(this.type, 'joueur');
+              console.log("trouve le type");
               this.router.navigate(['/accueiljoueur/', this.utilisateur.id]);
             } else if (this.utilisateur.type == 'maitreDuJeu') {
               localStorage.setItem(this.type, 'mj');

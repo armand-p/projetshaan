@@ -33,8 +33,8 @@ export class PersonnageService {
   public findAll(): Array<Personnage> {
     return this.personnages;
   }
-  findByJoueur(id:number){
-    this.http.get(this.appConfigService.backEnd+'personnage/'+id).subscribe(resp =>this.personnageJoueur =resp);
+  findByJoueur(id:number): Observable<any>{
+    this.http.get(this.appConfigService.backEnd+'persos/'+ id).subscribe(resp =>this.personnageJoueur =resp);
     return this.personnageJoueur;
   }
 
