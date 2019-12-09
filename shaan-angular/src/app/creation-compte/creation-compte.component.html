@@ -10,7 +10,7 @@
       <div value="error" [hidden]="email.valid || email.pristine">e-mail non valide</div></th></tr><br>
 
     <tr><th>Confirmer l'email : </th><th><input type="text" name="emailConfirmation" [(ngModel)]="utilisateur.emailConfirmation" required #emailConfirmation="ngModel">
-      <div *ngIf="emailConfirmation.invalid"><div type="error"  *ngIf="emailConfirmation.errors.mustMatch">Les deux champs doivent etre identiques</div></div>
+      <div value="error"  *ngIf="emailConfirmation.invalid"><div type="error"  *ngIf="emailConfirmation.errors.mustMatch">Les deux champs doivent etre identiques</div></div>
     </tr><br>
 
     <tr><th>Mot de passe : </th><th><input type="password" name="mdp" [(ngModel)]="utilisateur.motDePasse" required
@@ -19,7 +19,7 @@
     </th></tr><br>
 
 <tr><th>Confirmer le mot de passe : </th><th><input type="password" name="mdpconfirmation" [(ngModel)]="utilisateur.mdpConfirmation" required #mdpConfirmation="ngModel">
-<div *ngIf="mdpConfirmation.invalid"><div type="error" *ngIf="mdpConfirmation.errors.mustMatch">Les deux champs doivent etre identiques</div></div>
+<div value="error" *ngIf="mdpConfirmation.invalid"><div type="error" *ngIf="mdpConfirmation.errors.mustMatch">Les deux champs doivent etre identiques</div></div>
 </tr><br>
     <br>
     <tr>
