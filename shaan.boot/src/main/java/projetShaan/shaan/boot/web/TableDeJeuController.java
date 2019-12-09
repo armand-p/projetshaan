@@ -56,13 +56,13 @@ public class TableDeJeuController {
 	
 	
 	@PostMapping("")
-	@JsonView(Views.ViewTableDeJeu.class)
+	@JsonView(Views.ViewTableDeJeuDetail.class)
 	public TableDeJeu create (@RequestBody TableDeJeu tableDeJeu) {
 		return tableDeJeuRepo.save(tableDeJeu);
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewTableDeJeu.class)
+	@JsonView(Views.ViewTableDeJeuDetail.class)
 	public TableDeJeu update(@RequestBody TableDeJeu tableDeJeu,  @PathVariable Long id) {
 		return tableDeJeuRepo.save(tableDeJeu);
 	}

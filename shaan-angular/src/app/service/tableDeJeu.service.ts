@@ -37,9 +37,9 @@ export class tableDeJeuService {
 
   save(tableDeJeu: TableDeJeu) {
     if (tableDeJeu.id) {
-      this.http.put(this.appConfigService.backEnd + 'tableDeJeu/' + tableDeJeu.id, tableDeJeu).subscribe(resp => this.load());
+      this.http.put(this.appConfigService.backEnd + 'tableDeJeu/' + tableDeJeu.id, tableDeJeu).subscribe(resp => {this.load();console.log("save")})
     } else {
-      this.http.post(this.appConfigService.backEnd + 'tableDeJeu/', tableDeJeu).subscribe(resp => this.load());
+      this.http.post(this.appConfigService.backEnd + 'tableDeJeu/', tableDeJeu).subscribe(resp => {this.load();console.log("save")});
     }
   }
 

@@ -36,17 +36,23 @@ creer(){
 
     this.tabledujeu=new TableDeJeu();
 }
-save(){
-    this.tabledujeu.maitreDuJeu=this.masterOfTheGame;
-    this.tableDeJeuService.save(this.tabledujeu);
+async save(){
+    let m :MaitreDuJeu = new MaitreDuJeu();
+    m.id=this.masterOfTheGame.id;
+    m.type="maitreDuJeu";
+    this.tabledujeu.maitreDuJeu=m;
+    await this.tableDeJeuService.save(this.tabledujeu);
     this.tabledujeu=null;
+    await this.load(this.masterOfTheGame.id);
+  await this.load(this.masterOfTheGame.id);
 }
 list(id:number):Array<TableDeJeu>{
 
     return this.listTable;
 }
 async load(id:number){
-  await this.tableDeJeuService.findBymjId(id).toPromise().then(resp => this.listTable=resp);
+  await this.tableDeJeuService.findBymjId(id).toPromise().then(resp => {this.listTable=resp;console.log("coucou")});
+
 }
 
 
@@ -57,7 +63,7 @@ add(table?:TableDeJeu):Array<Personnage>{
       this.tableencours=table;
     }
     this.show=true;
-  this.load(this.masterOfTheGame.id);
+
     return this.personnageService.findAllPersoOrphanPartie();
 }
 
@@ -83,9 +89,12 @@ listr():Array<Personnage>{
         this.persoaenlever.parties=null;
         this.personnageService.savesimple(this.persoaenlever);
           this.tableDeJeuService.load()}
-      this.tableDeJeuService.deleteBydId(id);}
-    );
+      this.tableDeJeuService.deleteBydId(id);
+    }
 
+    );
+    await this.load(this.masterOfTheGame.id);
+    await this.load(this.masterOfTheGame.id);
   }
 async linkparties(perso:Personnage){
 
@@ -94,8 +103,10 @@ async linkparties(perso:Personnage){
   await this.personnageService.savesimple(this.persoarajouter);
   this.tableDeJeuService.load();
   this.personnageService.load();
-  this.load(this.masterOfTheGame.id);
-  this.personnageService.loadPersoOrphanPartie();
+  await this.load(this.masterOfTheGame.id);
+  await this.load(this.masterOfTheGame.id);
+  await this.load(this.masterOfTheGame.id);
+  await this.personnageService.loadPersoOrphanPartie();
 }
 close(){
     this.show=false;
@@ -110,6 +121,8 @@ closer(){
     await this.personnageService.savesimple(this.persoaenlever);
     this.tableDeJeuService.load();
     this.personnageService.load();
+    await this.load(this.masterOfTheGame.id);
+    await this.load(this.masterOfTheGame.id);
     await this.load(this.masterOfTheGame.id);
     await this.tableDeJeuService.findById(this.tableencours.id).toPromise().then(resp =>{this.tableencours=resp;
       });

@@ -41,9 +41,9 @@ export class PersonnageService {
     return this.personnageOnly;
   }
 
-  loadPersoOrphanPartie() {
-    this.http.get(this.appConfigService.backEnd + 'personnage/noPartie')
-      .subscribe(resp => this.personnageNoPartie = resp);
+  async loadPersoOrphanPartie() {
+   await this.http.get(this.appConfigService.backEnd + 'personnage/noPartie')
+      .toPromise().then(resp => this.personnageNoPartie = resp);
   }
 
   public findAllPersoOrphanPartie(): Array<Personnage> {
