@@ -22,7 +22,7 @@ private utilisateurs : any;
       .subscribe(resp => this.utilisateurs = resp);
   }
 
-  public findAll(): Observable <Array<Utilisateur>> {
+  public findAll() : Array<Utilisateur> {
     return this.utilisateurs;
   }
   public findAllJoueur(): Observable<any> {

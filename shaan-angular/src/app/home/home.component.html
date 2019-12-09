@@ -3,12 +3,12 @@
 <br>
  <table>
   <tr>
-<tr><th>Nom d'utilisateur :</th><th><input [(ngModel)] = "nomUtilisateur"></th></tr>
+<tr><th>Nom d'utilisateur :</th><th><input [(ngModel)] = "pseudo"></th></tr>
 <tr><th>Mot de passe :</th><th><input type="password" [(ngModel)] = "motDePasse"></th> </tr>
 
 
 
-<tr><th><button [routerLink]="['/accueiljoueur']" (click)="validate()">Connexion</button></th>
+<tr><th><button (click)="validate()" >Connexion</button></th>
     <th><button  [routerLink]="['/creationcompte/']">Création</button></th></tr></table>
 
 
