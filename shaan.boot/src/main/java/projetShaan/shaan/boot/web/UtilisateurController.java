@@ -61,12 +61,21 @@ public class UtilisateurController {
 		return mj;
 	}
 	
+	@GetMapping("/{id}")
+	@JsonView(Views.ViewUtilisateurDetail.class)
+	public Utilisateur findUtilisateur(@PathVariable Long id) {
+		Utilisateur utilisateur = userRepo.findById(id).get();
+		return utilisateur;
+	}
+	
 	@GetMapping("/mj/{id}")
 	@JsonView(Views.ViewMaitreDuJeuDetail.class)
 	public MaitreDuJeu findMJ(@PathVariable Long id){
 		MaitreDuJeu maitreDuJeu = maitreRepo.findById(id).get();
 		return maitreDuJeu;
 	}
+	
+	
 	@GetMapping("/joueur/{id}")
 	@JsonView(Views.ViewJoueurDetail.class)
 	public Joueur findJoueur(@PathVariable Long id) {

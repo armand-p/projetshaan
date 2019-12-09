@@ -1,14 +1,15 @@
 <div class="container">
-<h3>Bienvenue dans le créateur de personnage Shaan</h3>
+
+  <div> <img src="../assets/Logo4-removebg-preview.png" height="220" width="320"></div>
 <br>
  <table>
   <tr>
-<tr><th>Nom d'utilisateur :</th><th><input [(ngModel)] = "nomUtilisateur"></th></tr>
-<tr><th>Mot de passe :</th><th><input [(ngModel)] = "motDePasse"></th> </tr>
+<tr><th>Nom d'utilisateur :</th><th><input [(ngModel)] = "pseudo"></th></tr>
+<tr><th>Mot de passe :</th><th><input type="password" [(ngModel)] = "motDePasse"></th> </tr>
 
 
 
-<tr><th><button [routerLink]="['/accueiljoueur']">Connexion</button></th>
+<tr><th><button (click)="validate()" >Connexion</button></th>
     <th><button  [routerLink]="['/creationcompte/']">Création</button></th></tr></table>
 
 

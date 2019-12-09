@@ -1,0 +1,40 @@
+<div class="container">
+  <table >
+    <tr>
+      <td></td>
+      <ng-container *ngFor="let perso of tabledejeu.personnages, let i=index "> <td align="justify" *ngIf="i<tabledejeu.personnages.length/2">
+      <div style="background-color: antiquewhite" class="container" [routerLink]="['/fichePerso/',perso.id]">
+        {{perso.nom}}<br>
+        {{perso.age}}<br>
+        {{perso.metierPerso?.nomMetier}}<br>
+        {{perso.racePerso?.nomRace}}<br>
+        {{perso.peuplePerso?.nomPeuple}}<br>
+        <img [attr.src]="'../../assets/'+perso.racePerso?.nomRace+'.jpg'">
+
+      </div>
+
+      </td></ng-container>
+    </tr>
+    <tr valign="center">
+      <td><div style="background-color: antiquewhite"><img src="../../assets/vincent-price-maitre-du-monde-1961-rwdx0f.jpg" width="160" height="160"> {{tabledejeu.maitreDuJeu.pseudo}}</div></td>
+      <td [attr.colspan]="tabledejeu.personnages.length"><img width="400" height="200" src="../../assets/téléchargement.jpg"></td>
+    </tr>
+    <tr>
+      <td></td>
+    <ng-container *ngFor="let perso of tabledejeu.personnages, let i=index "> <td align="justify" *ngIf="i>tabledejeu.personnages.length/2">
+      <div style="background-color: antiquewhite"[routerLink]="['/fichePerso/',perso.id]" >
+        {{perso.nom}}<br>
+        {{perso.age}}<br>
+        {{perso.metierPerso?.nomMetier}}<br>
+        {{perso.racePerso?.nomRace}}<br>
+        {{perso.peuplePerso?.nomPeuple}}<br>
+        <img [attr.src]="'../../assets/'+perso.racePerso?.nomRace+'.jpg'">
+      </div>
+
+    </td></ng-container>
+    </tr>
+
+  </table>
+
+
+</div>

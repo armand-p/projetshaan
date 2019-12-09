@@ -22,7 +22,7 @@ private utilisateurs : any;
       .subscribe(resp => this.utilisateurs = resp);
   }
 
-  public findAll(): Array<Utilisateur> {
+  public findAll() : Array<Utilisateur> {
     return this.utilisateurs;
   }
   public findAllJoueur(): Observable<any> {
@@ -32,6 +32,9 @@ private utilisateurs : any;
     return this.http.get(this.appConfigService.backEnd + 'utilisateur/mj');
   }
 
+  findById(id: number): Observable<any> {
+    return this.http.get(this.appConfigService.backEnd + 'utilisateur/' + id);
+  }
 
   findByIdJoueur(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backEnd + 'utilisateur/joueur/' + id);

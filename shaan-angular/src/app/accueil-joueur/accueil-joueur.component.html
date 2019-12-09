@@ -1,10 +1,11 @@
+<br>
 <div class="container">
+  <thead>
+ <h3>Liste des personnages</h3>
+  </thead>
+  <br>
   <table border="1">
-    <thead>
-    <tr>
-      <th colspan="6">Liste des personnages</th>
-    </tr>
-    </thead>
+
     <tbody>
     <tr>
       <th>Personnage</th>
@@ -15,6 +16,7 @@
       <th>Partie</th>
     </tr>
 
+
     <tr *ngFor ="let personnage of list()">
       <td> {{ personnage.nom }}</td>
       <td> {{ personnage.racePerso?.nomRace}} </td>
@@ -22,7 +24,7 @@
       <td> {{ personnage.castePerso?.nomCaste }} </td>
       <td> {{ personnage.metierPerso?.nomMetier }}</td>
       <td> {{ personnage.parties?.nom }} </td>
-      <th><button type="button" style="color:#4497BD" class="btn  btn-light btn-circle" (click)="edit(personnage.id)" [routerLink]="['/personnage/'+personnage.id]"><i class="fas fa-user-edit"></i></button></th>
+      <th><button title="Modifier" type="button" style="color:#4497BD" class="btn  btn-light btn-circle" (click)="edit(personnage.id)" [routerLink]="['/personnage/'+personnage.id]"><i class="fas fa-user-edit"></i></button></th>
       <th><button type="button" style="color:#DE1423" class="btn  btn-light btn-circle" (click)="delete(personnage.id)"><i class="fas fa-trash-alt"></i></button></th>
     </tr>
 
@@ -31,12 +33,12 @@
 
     </tbody>
   </table>
-
+  <br>
 <table>
-  <th><button type="button" class="btn btn-danger btn-circle" [routerLink]="['']"><i class="fas fa-arrow-alt-circle-left"></i></button></th>
-  <th><button type="button" class="btn btn-primary btn-circle"  [routerLink]="['/personnage']"><i class="fas fa-user-plus"></i></button></th>
-</table>
+  <th><button title="Retour" type="button" class="btn btn-danger btn-circle" [routerLink]="['']"><i class="fas fa-arrow-alt-circle-left"></i></button></th>
+  <th><button title="Nouveau Personnage" type="button" class="btn btn-primary btn-circle"  [routerLink]="['/personnage']"><i class="fas fa-user-plus"></i></button></th>
 
+</table>
 
 </div>
 

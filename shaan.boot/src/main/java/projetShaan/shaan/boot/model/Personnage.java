@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
@@ -86,16 +87,16 @@ public class Personnage {
 	@JoinColumn(name = "Caste_ID")
 	@JsonView(Views.ViewCommon.class)
 	private Caste castePerso;
-	@OneToMany(mappedBy = "persoLie")
+	@OneToMany(mappedBy = "persoLie", cascade = CascadeType.REMOVE)
 	@JsonView(Views.ViewBonusPersoFromPersonnage.class)
 	private List<BonusPersonnage> bonusPerso = new ArrayList<BonusPersonnage>();
-	@OneToMany(mappedBy = "persoLie")
+	@OneToMany(mappedBy = "persoLie", cascade = CascadeType.REMOVE)
 	@JsonView(Views.ViewDomainePersoFromPersonnage.class)
 	private List<DomainePersonnage> domainesPerso = new ArrayList<DomainePersonnage>();
-	@OneToMany(mappedBy = "persoLie")
+	@OneToMany(mappedBy = "persoLie", cascade = CascadeType.REMOVE)
 	@JsonView(Views.ViewPouvoirPersoFromPersonnage.class)
 	private List<PouvoirPersonnage> pouvoirsPerso = new ArrayList<PouvoirPersonnage>();
-	@OneToMany(mappedBy = "persoLie")
+	@OneToMany(mappedBy = "persoLie", cascade = CascadeType.REMOVE)
 	@JsonView(Views.ViewMotivationPersoFromPersonnage.class)
 	private List<MotivationPersonnage> motivationsPerso = new ArrayList<MotivationPersonnage>();
 	@ManyToOne
