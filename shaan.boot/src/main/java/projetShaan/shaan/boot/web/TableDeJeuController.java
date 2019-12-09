@@ -45,6 +45,16 @@ public class TableDeJeuController {
 		return tableDeJeu;
 	}
 	
+	@GetMapping("/mj/{id}")
+	@JsonView(Views.ViewTableDeJeuDetail.class)
+	public List<TableDeJeu> findAllbymj(@PathVariable Long id) {
+		List<TableDeJeu> tablesDeJeu = tableDeJeuRepo.findAllByMasterOfTheGame(id);
+
+		return tablesDeJeu;
+	}
+	
+	
+	
 	@PostMapping("")
 	@JsonView(Views.ViewTableDeJeu.class)
 	public TableDeJeu create (@RequestBody TableDeJeu tableDeJeu) {
