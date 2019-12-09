@@ -1,10 +1,10 @@
 <div class="container">
+  <thead>
+ <h3>Liste des personnages</h3>
+  </thead>
+  <br>
   <table border="1">
-    <thead>
-    <tr>
-      <th colspan="6">Liste des personnages</th>
-    </tr>
-    </thead>
+
     <tbody>
     <tr>
       <th>Personnage</th>
@@ -14,6 +14,7 @@
       <th>Métier</th>
       <th>Partie</th>
     </tr>
+
 
     <tr *ngFor ="let personnage of list()">
       <td> {{ personnage.nom }}</td>
@@ -31,7 +32,7 @@
 
     </tbody>
   </table>
-
+  <br>
 <table>
   <th><button title="Retour" type="button" class="btn btn-danger btn-circle" [routerLink]="['']"><i class="fas fa-arrow-alt-circle-left"></i></button></th>
   <th><button title="Nouveau Personnage" type="button" class="btn btn-primary btn-circle"  [routerLink]="['/personnage']"><i class="fas fa-user-plus"></i></button></th>
