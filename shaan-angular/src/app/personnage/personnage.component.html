@@ -52,11 +52,11 @@
     </p>
   </div>
 
-  <div class="container" style="background: #ccc">
+  <div>
 
       <personnage-identite *ngIf="page === 'identite'" (personnageEnvoi)="receptionPerso($event)" (domainePersoEnvoi)="receptionDomaine($event)"></personnage-identite>
 
-      <personnage-specialisation *ngIf="page === 'specialisation'"></personnage-specialisation>
+      <personnage-specialisation *ngIf="page === 'specialisation'" (specialisationEnvoi)="receptionSpecialisation($event)"></personnage-specialisation>
 
       <personnage-pouvoir *ngIf="page === 'pouvoir'"></personnage-pouvoir>
 

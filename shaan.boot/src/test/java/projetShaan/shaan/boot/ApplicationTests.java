@@ -3183,90 +3183,66 @@ class ApplicationTests {
 //-------------------------------------------------------------------------------------------------------------------------	
 
 		
-		Joueur theauj = new Joueur();
-		Personnage theau = new Personnage();
-		MaitreDuJeu baptiste = new MaitreDuJeu();
-		PersonnageNonJoueur pnj = new PersonnageNonJoueur();
-		TableDeJeu parapleteam = new TableDeJeu();
-		AlterationEtat aveugle = new AlterationEtat();
-		BonusPersonnage bonus = new BonusPersonnage();
-		PouvoirPersonnage briseCodeTheau = new PouvoirPersonnage();
-		DomainePersonnage rituelTheau = new DomainePersonnage();
-		MotivationPersonnage forteresseTheau = new MotivationPersonnage();
-		AlterationPersonnage aveugleTheau = new AlterationPersonnage();
-		
-		theauj.setPseudo("theau");
-		theauj.setEmail("coucou@e.fr");
-		theauj.setMotDePasse("mdp");
-	
-		theauj = joueurRepository.save(theauj);
-		
-		baptiste.setEmail("t@e.fr");
-		baptiste.setMotDePasse("mdp");
-		baptiste.setPseudo("baptou");
-		baptiste=maitreDuJeuRepository.save(baptiste);
-		
-		pnj.setCreateur(baptiste);
-		pnj.setCastePerso(artistes);
-		pnj.setMetierPerso(prestidigitateur);
-		pnj.setNom("Armand");
-		pnj.setAge(2);
-		pnj.setAme(0);
-		pnj.setCorps(2);
-		pnj.setEsprit(0);
-		pnj.setTaille(1.25f);
-		pnj.setSexe(null);
-		pnj.setPoids(21f);
-		pnj = (PersonnageNonJoueur) personnageRepository.save(pnj);
-		
-		parapleteam.setNotes("Il y a du gateau et des meufs dans le frigo. Oups");
-		parapleteam.setMaitreDuJeu(baptiste);
-		parapleteam.setTimer(null);
-		parapleteam = tableDeJeuRepository.save(parapleteam);
-		
-		aveugle.setNom("aveuglé");
-		aveugle.setEffet("aveugle");
-		aveugle = alterationEtatRepository.save(aveugle);
-		
-		theau.setAge(22);
-		theau.setAme(5);
-		theau.setNom("Theau");
-		theau.setJoueur(theauj);
-		theau.setMetierPerso(prestidigitateur);
-		theau.setParties(parapleteam);
-		theau.setRacePerso(delhions);
-		theau.setCastePerso(artistes);
-		theau.setPeuplePerso(cites);
-		theau = personnageRepository.save(theau);
-		
-
-		briseCodeTheau.setPersoLie(theau);
-		briseCodeTheau.setPouvoir(brisecode);
-
-		briseCodeTheau = pouvoirPersonnageRepository.save(briseCodeTheau);
-
-		rituelTheau.setRangDomaine(5);
-		rituelTheau.setPersoLie(theau);
-		rituelTheau.setDomaineLie(rituels);
-
-		rituelTheau = domainePersonnageRepository.save(rituelTheau);
-
-		forteresseTheau.setPersoLie(theau);
-		forteresseTheau.setMotivation(forteresse);
-
-		forteresseTheau = motivationPersonnageRepository.save(forteresseTheau);
-
-		bonus.setBonusPerso(1);
-		bonus.setBonusAcquis(1);
-		bonus.setAcquis(lanceClous);
-		bonus.setPersoLie(theau);
-		bonus.setSpecialisation(vigilance);
-
-		bonus = bonusPersonnageRepository.save(bonus);
-
-		aveugleTheau.setAlterationEtat(aveugle);
-		aveugleTheau.setPersoLie(theau);
-		aveugleTheau = alterationPersonnageRepository.save(aveugleTheau);
+		/*
+		 * Joueur theauj = new Joueur(); Personnage theau = new Personnage();
+		 * MaitreDuJeu baptiste = new MaitreDuJeu(); PersonnageNonJoueur pnj = new
+		 * PersonnageNonJoueur(); TableDeJeu parapleteam = new TableDeJeu();
+		 * AlterationEtat aveugle = new AlterationEtat(); BonusPersonnage bonus = new
+		 * BonusPersonnage(); PouvoirPersonnage briseCodeTheau = new
+		 * PouvoirPersonnage(); DomainePersonnage rituelTheau = new DomainePersonnage();
+		 * MotivationPersonnage forteresseTheau = new MotivationPersonnage();
+		 * AlterationPersonnage aveugleTheau = new AlterationPersonnage();
+		 * 
+		 * theauj.setPseudo("theau"); theauj.setEmail("coucou@e.fr");
+		 * theauj.setMotDePasse("mdp");
+		 * 
+		 * theauj = joueurRepository.save(theauj);
+		 * 
+		 * baptiste.setEmail("t@e.fr"); baptiste.setMotDePasse("mdp");
+		 * baptiste.setPseudo("baptou"); baptiste=maitreDuJeuRepository.save(baptiste);
+		 * 
+		 * pnj.setCreateur(baptiste); pnj.setCastePerso(artistes);
+		 * pnj.setMetierPerso(prestidigitateur); pnj.setNom("Armand"); pnj.setAge(2);
+		 * pnj.setAme(0); pnj.setCorps(2); pnj.setEsprit(0); pnj.setTaille(1.25f);
+		 * pnj.setSexe(null); pnj.setPoids(21f); pnj = (PersonnageNonJoueur)
+		 * personnageRepository.save(pnj);
+		 * 
+		 * parapleteam.setNotes("Il y a du gateau et des meufs dans le frigo. Oups");
+		 * parapleteam.setMaitreDuJeu(baptiste); parapleteam.setTimer(null); parapleteam
+		 * = tableDeJeuRepository.save(parapleteam);
+		 * 
+		 * aveugle.setNom("aveuglé"); aveugle.setEffet("aveugle"); aveugle =
+		 * alterationEtatRepository.save(aveugle);
+		 * 
+		 * theau.setAge(22); theau.setAme(5); theau.setNom("Theau");
+		 * theau.setJoueur(theauj); theau.setMetierPerso(prestidigitateur);
+		 * theau.setParties(parapleteam); theau.setRacePerso(delhions);
+		 * theau.setCastePerso(artistes); theau.setPeuplePerso(cites); theau =
+		 * personnageRepository.save(theau);
+		 * 
+		 * 
+		 * briseCodeTheau.setPersoLie(theau); briseCodeTheau.setPouvoir(brisecode);
+		 * 
+		 * briseCodeTheau = pouvoirPersonnageRepository.save(briseCodeTheau);
+		 * 
+		 * rituelTheau.setRangDomaine(5); rituelTheau.setPersoLie(theau);
+		 * rituelTheau.setDomaineLie(rituels);
+		 * 
+		 * rituelTheau = domainePersonnageRepository.save(rituelTheau);
+		 * 
+		 * forteresseTheau.setPersoLie(theau);
+		 * forteresseTheau.setMotivation(forteresse);
+		 * 
+		 * forteresseTheau = motivationPersonnageRepository.save(forteresseTheau);
+		 * 
+		 * bonus.setBonusPerso(1); bonus.setBonusAcquis(1); bonus.setAcquis(lanceClous);
+		 * bonus.setPersoLie(theau); bonus.setSpecialisation(vigilance);
+		 * 
+		 * bonus = bonusPersonnageRepository.save(bonus);
+		 * 
+		 * aveugleTheau.setAlterationEtat(aveugle); aveugleTheau.setPersoLie(theau);
+		 * aveugleTheau = alterationPersonnageRepository.save(aveugleTheau);
+		 */
 	}
 
 }
