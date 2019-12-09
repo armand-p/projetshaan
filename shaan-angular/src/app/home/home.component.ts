@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Utilisateur} from '../model/Utilisateur';
 import {Router} from '@angular/router';
 import {UtilisateurService} from '../service/utilisateur.service';
@@ -13,36 +13,49 @@ export class HomeComponent implements OnInit {
   private utilisateur: any;
   private utilisateurs: Array<Utilisateur> = new Array<Utilisateur>();
   erreur: boolean = false;
-  nomUtilisateur: string;
+  pseudo: string;
   motDePasse: string;
+  type: string;
+
 
   constructor(private router: Router, private utilisateurService: UtilisateurService) {
   }
+
   ngOnInit() {
   }
+
   validate() {
-    this.utilisateurService.findAll().subscribe(resp => {
-      this.utilisateurs = resp;
-      for (let util of this.utilisateurs) {
-        if (util.id == this.model.id) {
-          this.utilisateurService.findById(this.model.id).subscribe(resp => {
-            this.utilisateur = resp;
-            console.log(this.utilisateur);
-            if (this.utilisateur.mdp == this.model.motDePasse) {
-              localStorage.setItem('isLoggedin', 'true');
-              localStorage.setItem('identifiant', this.model.motDePasse);
-              localStorage.setItem('id', this.utilisateur.id);
-              this.router.navigate(['/utilisateur/', this.utilisateur.id]);
-            } else {
-              this.router.navigate(['/login']);
-              this.erreur = true;
+    this.utilisateurs = this.utilisateurService.findAll();
+    for (let util of this.utilisateurs) {
+      if (util.pseudo == this.pseudo) {
+        this.utilisateurService.findById(util.id).subscribe(resp => {
+          this.utilisateur = resp;
+          if (this.utilisateur.motDePasse == this.motDePasse) {
+            console.log("trouve le mdp");
+            localStorage.setItem('isLoggedin', 'true');
+            localStorage.setItem(this.motDePasse, this.utilisateur.motDePasse);
+            localStorage.setItem(this.pseudo, this.utilisateur.pseudo);
+            localStorage.setItem(this.type, this.utilisateur.type);
+            console.log(this.pseudo);
+            console.log(this.motDePasse)
+            console.log(this.utilisateur.type);
+
+            if (this.utilisateur.type == 'joueur') {
+              this.type = 'joueur';
+              localStorage.setItem(this.type, 'joueur');
+              console.log(this.type);
+              this.router.navigate(['/accueiljoueur']);
+            } else if (this.utilisateur.type == 'maitreDuJeu') {
+              localStorage.setItem(this.type, 'mj');
+              console.log(this.type);
+              this.router.navigate(['/accueilmj']);
             }
-          });
-        } else {
-          this.router.navigate(['/login']);
-          this.erreur = true;
-        }
+          } else {
+            this.router.navigate(['']);
+            this.erreur = true;
+          }
+        });
       }
-    });
+    }
   }
 }
