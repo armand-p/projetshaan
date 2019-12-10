@@ -6,7 +6,7 @@ export class SpecialisationAcquis {
   version: number;
   specialisation : Specialisation;
   acquis : Acquis;
-  rangSpecilisation : number;
+  rangSpecialisation : number;
 
 
   constructor(id: number, version: number, specialisation: Specialisation, acquis: Acquis, rangSpecilisation:number) {
@@ -14,6 +14,6 @@ export class SpecialisationAcquis {
     this.version = version;
     this.specialisation = specialisation;
     this.acquis = acquis;
-    this.rangSpecilisation = rangSpecilisation;
+    this.rangSpecialisation = rangSpecilisation;
   }
 }

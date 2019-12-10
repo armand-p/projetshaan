@@ -62,7 +62,7 @@
 
       <personnage-pouvoir *ngIf="page === 'pouvoir'" (pouvoirEnvoi)="receptionPouvoir($event)"></personnage-pouvoir>
 
-      <personnage-acquis *ngIf="page === 'acquis'"></personnage-acquis>
+      <personnage-acquis *ngIf="page === 'acquis'" (acquisEnvoi)="receptionAcquis($event)"></personnage-acquis>
 
       <personnage-motivation *ngIf="page === 'motivation'" (motivationEnvoi)="receptionMotivation($event)"></personnage-motivation>
 
