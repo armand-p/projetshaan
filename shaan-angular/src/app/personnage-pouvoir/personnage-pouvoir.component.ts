@@ -1,9 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {BonusPersonnage} from "../model/BonusPersonnage";
-import {Specialisation} from "../model/Specialisation";
 import {Domaine} from "../model/Domaine";
 import {DomaineService} from "../service/domaine.service";
-import {SpecialisationService} from "../service/specialisation.service";
 import {PouvoirPersonnage} from "../model/PouvoirPersonnage";
 import {Pouvoir} from "../model/Pouvoir";
 import {PouvoirService} from "../service/pouvoir.service";

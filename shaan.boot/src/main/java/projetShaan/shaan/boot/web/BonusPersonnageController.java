@@ -42,13 +42,13 @@ public class BonusPersonnageController {
 	}
 	
 	@PostMapping("")
-	@JsonView(Views.ViewBonusPersonnage.class)
+	@JsonView(Views.ViewBonusPersonnageDetail.class)
 	public BonusPersonnage create (@RequestBody BonusPersonnage BonusPersonnage) {
 		return bonusPersonnageRepo.save(BonusPersonnage);
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewBonusPersonnage.class)
+	@JsonView(Views.ViewBonusPersonnageDetail.class)
 	public BonusPersonnage update(@RequestBody BonusPersonnage BonusPersonnage, @PathVariable Long id) {
 		return bonusPersonnageRepo.save(BonusPersonnage);
 	}

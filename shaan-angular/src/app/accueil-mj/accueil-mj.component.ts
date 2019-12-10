@@ -45,6 +45,7 @@ async save(){
     this.tabledujeu=null;
     await this.load(this.masterOfTheGame.id);
   await this.load(this.masterOfTheGame.id);
+  await this.load(this.masterOfTheGame.id);
 }
 list(id:number):Array<TableDeJeu>{
 
@@ -55,7 +56,9 @@ async load(id:number){
 
 }
 
-
+closeadd(){
+    this.tabledujeu=null;
+}
 
 add(table?:TableDeJeu):Array<Personnage>{
 

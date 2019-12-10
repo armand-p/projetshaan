@@ -1,4 +1,14 @@
 .test{
-  background-color:#00AF7F;
+  background: rgb(138,254,177) ;
+  background: url("../assets/Fondecrean.png"),linear-gradient(190deg, rgba(138,254,177,1) 0%, rgba(6,10,59,1) 100%) ;
+  background-size: cover;
+
+
   min-height: 100vh;
 }
+
+
+.fond{
+
+}
+

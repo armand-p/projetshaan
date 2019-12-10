@@ -64,7 +64,7 @@
 
       <personnage-acquis *ngIf="page === 'acquis'"></personnage-acquis>
 
-      <personnage-motivation *ngIf="page === 'motivation'"></personnage-motivation>
+      <personnage-motivation *ngIf="page === 'motivation'" (motivationEnvoi)="receptionMotivation($event)"></personnage-motivation>
 
   </div>
 </div>

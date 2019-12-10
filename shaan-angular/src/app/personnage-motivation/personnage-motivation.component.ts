@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Domaine} from "../model/Domaine";
+import {DomaineService} from "../service/domaine.service";
+import {Motivation} from "../model/Motivation";
+import {MotivationPersonnage} from "../model/MotivationPersonnage";
+import {MotivationService} from "../service/motivation.service";
 
 @Component({
   selector: 'personnage-motivation',
@@ -7,9 +12,68 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonnageMotivationComponent implements OnInit {
 
-  constructor() { }
+  @Output()
+  motivationEnvoi = new EventEmitter<Array<MotivationPersonnage>>();
+
+  motivations: Array<Motivation> = new Array<Motivation>();
+  domaines: Array<Domaine> = new Array<Domaine>();
+  motivationrPerso: Array<MotivationPersonnage> = new Array<MotivationPersonnage>();
+  id: number = null;
+
+
+  constructor(private domaineService: DomaineService, private motivationService: MotivationService) {
+  }
 
   ngOnInit() {
   }
+
+  listDomaine(): Array<Domaine> {
+    this.listMotivation();
+    return this.domaines = this.domaineService.findAll();
+  }
+
+  listMotivation() {
+    this.motivations = this.motivationService.findAll();
+  }
+
+  triMotivation(nom: string): Array<Motivation> {
+    return this.motivations.filter(motivation => motivation.domaineLie.nom.indexOf(nom) !== -1);
+  }
+
+  ajouteMotivation(motivation: Motivation) {
+
+    if (this.motivationrPerso.filter(motivationPerso => motivationPerso.motivation.nomMotivation.indexOf(motivation.nomMotivation) !== -1).length > 0) {
+
+    } else {
+      this.motivationrPerso.push(new MotivationPersonnage(null, null, null, motivation ));
+    }
+
+    console.log(this.motivationrPerso);
+  }
+
+  suppressionMotivation(motivation: Motivation) {
+
+    var index = this.motivationrPerso.findIndex(motivationrPerso => motivationrPerso.motivation.nomMotivation === motivation.nomMotivation);
+    this.motivationrPerso.splice(index, 1);
+
+    console.log(this.motivationrPerso);
+
+  }
+
+  findMotivation(motivation: Motivation): boolean {
+
+    if (this.motivationrPerso.findIndex(motivationrPerso => motivationrPerso.motivation.nomMotivation === motivation.nomMotivation) === -1) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+
+  envoi() {
+    console.log('envoi')
+    this.motivationEnvoi.emit(this.motivationrPerso);
+  }
+
 
 }

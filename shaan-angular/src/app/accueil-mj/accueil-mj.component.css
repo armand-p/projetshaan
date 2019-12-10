@@ -1,0 +1,9 @@
+.princ {
+  align-items: center;
+  display: block;
+  justify-content: center;
+  background-color: beige;
+  margin: auto;
+  border-style: solid;
+  border-color: gold;
+}
