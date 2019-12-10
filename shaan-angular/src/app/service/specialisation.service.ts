@@ -4,6 +4,7 @@ import {AppConfigService} from '../app-config.service';
 import {Specialisation} from '../model/Specialisation';
 import {Observable} from 'rxjs';
 import {filter} from "rxjs/operators";
+import {DomainePersonnage} from "../model/DomainePersonnage";
 
 @Injectable({
   providedIn: 'root'
@@ -50,4 +51,9 @@ export class SpecialisationService {
   deleteBydId(id: number) {
     this.http.delete(this.appConfigService.backEnd + 'specialisation/' + id).subscribe(resp => this.load());
   }
+
+  speDomaines(id:number):Observable<Array<Specialisation>> {
+    return this.http.get<Array<Specialisation>>(this.appConfigService.backEnd + 'specialisation/' + id);
+
+}
 }

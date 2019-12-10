@@ -10,6 +10,9 @@
             <button [hidden]="!findAcquis(acquis)"(click)="ajouteAcquis(acquis)">+</button>
             <button [hidden]="findAcquis(acquis)" (click)="suppressionAcquis(acquis)">-</button>
           </h6>
+          <br>
+          <b>{{acquis.description}}</b>
+          <br>
         </div>
       </div>
     </div>

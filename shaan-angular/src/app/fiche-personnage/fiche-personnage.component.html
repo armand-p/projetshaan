@@ -13,6 +13,7 @@
   Peuple : <span type="text" >{{personnage.peuplePerso?.nomPeuple}}</span>
   Caste : <span type="text" >{{personnage.castePerso?.nomCaste}}</span>
   Métier : <span type="text" >{{personnage.metierPerso?.nomMetier}}</span>
+  <br>
 
 <!--  Domaines : <span type="text">{{personnageService.domaineperso(personnage.id)}}</span>-->
 
@@ -20,10 +21,17 @@
 
 <!--<span *ngFor="let domaine of personnageService.domaineperso(id)">-->
 
-  <span *ngFor="let domaine of listdomaine()">
+  <span *ngFor="let domaine of listDomaines">
   <td>{{domaine.domaineLie.nom}}</td>
   <td>{{domaine.rangDomaine}}</td>
 </span>
+
+  <br>
+
+  <span *ngFor="let spe of listSpecialisations">
+    <td>{{spe.nom}}</td>
+    <td>Rang Spé</td>
+  </span>
 
 <!--  <ng-container *ngFor="let perso of tabledejeu.personnages, let i=index "> <td align="justify" *ngIf="i>tabledejeu.personnages.length/2">-->
 <!--    <div style="background-color: antiquewhite"[routerLink]="['/fichePerso/',perso.id]" >-->

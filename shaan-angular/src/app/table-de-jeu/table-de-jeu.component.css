@@ -4,6 +4,7 @@
   border-style: solid;
   border-color: gold;
   text-align: center;
+  padding-left: 20px;
 
   margin: auto;
 }
@@ -12,4 +13,8 @@ td{
 }
 .td2{
   text-align: right;
+}
+.tabl{
+  border-style: solid;
+  border-color: saddlebrown;
 }

@@ -30,6 +30,9 @@ export class PersonnageIdentiteComponent implements OnInit {
   domainePerso: Array<DomainePersonnage> = new Array<DomainePersonnage>(10);
   personnage: Personnage = new Personnage();
   metiers: Array<Metier> = new Array<Metier>();
+  hidden : boolean = true;
+  c5:number = 0;
+  cf:number;
 
   constructor(private raceService: RaceService, private peupleService: PeupleService,
               private casteService: CasteService, private domaineService: DomaineService) {
@@ -39,59 +42,267 @@ export class PersonnageIdentiteComponent implements OnInit {
   ngOnInit() {
   }
 
-  selectionRace(race : Race){
-      if (this.personnage.racePerso.nomRace == "Boreals"){
-        this.domainePerso[7].rangDomaine=5;
-      }else if (this.personnage.racePerso.nomRace == "Darkens"){
-        this.domainePerso[8].rangDomaine=5;
-      }else if (this.personnage.racePerso.nomRace == "Delhions"){
-        this.domainePerso[2].rangDomaine=5;
-      }else if(this.personnage.racePerso.nomRace == "Felings"){
-        this.domainePerso[4].rangDomaine=5;
-      }else if (this.personnage.racePerso.nomRace == "Kelwins"){
-        this.domainePerso[0].rangDomaine=5;
-      }else if (this.personnage.racePerso.nomRace == "Melodiens"){
-        this.domainePerso[3].rangDomaine=5;
-      }else if (this.personnage.racePerso.nomRace == "Nomoïs"){
-        this.domainePerso[5].rangDomaine=5;
-      }else if (this.personnage.racePerso.nomRace == "Woons"){
-        this.domainePerso[6].rangDomaine=5;
-      }else if (this.personnage.racePerso.nomRace == "Ygwans"){
-        this.domainePerso[1].rangDomaine=5;
-      }else if (this.personnage.racePerso.nomRace == "Humains"){
-        this.domainePerso[9].rangDomaine=5;
-      }
-    }
-
-  selectionPeuple(peuple : Peuple){
-    if (peuple!=null){
-      if (this.personnage.peuplePerso.nomPeuple== "Forêts Blanches"){
-        if (this.domainePerso[7].rangDomaine==5){
-          this.domainePerso[7].rangDomaine=6;
+  selectionRace(){
+    if (this.personnage.racePerso!=null){
+    if (this.personnage.racePerso.nomRace == "Boreals"){
+        if (this.domainePerso[7].rangDomaine>=5){
+          this.domainePerso[7].rangDomaine+=1;
         }else{
-        this.domainePerso[7].rangDomaine=5;
+          this.domainePerso[7].rangDomaine=5;
+          this.c5= this.c5+1;
+          console.log(this.c5);
         }
       }else if (this.personnage.racePerso.nomRace == "Darkens"){
-        this.domainePerso[8].rangDomaine=5;
+        if (this.domainePerso[8].rangDomaine>=5){
+          this.domainePerso[8].rangDomaine+=1;
+        }else{
+          this.domainePerso[8].rangDomaine=5;
+          this.c5= this.c5+1;
+        }
+
       }else if (this.personnage.racePerso.nomRace == "Delhions"){
-        this.domainePerso[2].rangDomaine=5;
+        if (this.domainePerso[2].rangDomaine>=5){
+          this.domainePerso[2].rangDomaine+=1;
+        }else{
+          this.domainePerso[2].rangDomaine=5;
+          this.c5= this.c5+1;
+        }
       }else if(this.personnage.racePerso.nomRace == "Felings"){
-        this.domainePerso[4].rangDomaine=5;
+        if (this.domainePerso[4].rangDomaine>=5){
+          this.domainePerso[4].rangDomaine+=1;
+        }else{
+          this.domainePerso[4].rangDomaine=5;
+          this.c5= this.c5+1;
+        }
       }else if (this.personnage.racePerso.nomRace == "Kelwins"){
-        this.domainePerso[0].rangDomaine=5;
+        if (this.domainePerso[0].rangDomaine>=5){
+          this.domainePerso[0].rangDomaine+=1;
+        }else{
+          this.domainePerso[0].rangDomaine=5;
+          this.c5= this.c5+1;
+        }
       }else if (this.personnage.racePerso.nomRace == "Melodiens"){
-        this.domainePerso[3].rangDomaine=5;
+        if (this.domainePerso[3].rangDomaine>=5){
+          this.domainePerso[3].rangDomaine+=1;
+        }else{
+          this.domainePerso[3].rangDomaine=5;
+          this.c5= this.c5+1;
+        }
       }else if (this.personnage.racePerso.nomRace == "Nomoïs"){
-        this.domainePerso[5].rangDomaine=5;
+        if (this.domainePerso[5].rangDomaine>=5){
+          this.domainePerso[5].rangDomaine+=1;
+        }else{
+          this.domainePerso[5].rangDomaine=5;
+          this.c5= this.c5+1;
+        }
       }else if (this.personnage.racePerso.nomRace == "Woons"){
-        this.domainePerso[6].rangDomaine=5;
+        if (this.domainePerso[6].rangDomaine>=5){
+          this.domainePerso[6].rangDomaine+=1;
+        }else{
+          this.domainePerso[6].rangDomaine=5;
+          this.c5= this.c5+1;
+        }
       }else if (this.personnage.racePerso.nomRace == "Ygwans"){
-        this.domainePerso[1].rangDomaine=5;
+        if (this.domainePerso[1].rangDomaine>=5){
+          this.domainePerso[1].rangDomaine+=1;
+        }else{
+          this.domainePerso[1].rangDomaine=5;
+          this.c5= this.c5+1;
+        }
       }else if (this.personnage.racePerso.nomRace == "Humains"){
-        this.domainePerso[9].rangDomaine=5;
+        if (this.domainePerso[9].rangDomaine>=5){
+          this.domainePerso[9].rangDomaine+=1;
+        }else{
+          this.domainePerso[9].rangDomaine=5;
+          this.c5= this.c5+1;
+        }
       }
     }
   }
+
+  selectionPeuple() {
+      if (this.personnage.peuplePerso != null) {
+        if (this.personnage.peuplePerso.nomPeuple == "Rivages") {
+          if (this.domainePerso[7].rangDomaine >= 5) {
+            this.domainePerso[7].rangDomaine += 1;
+          } else {
+            this.domainePerso[7].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.peuplePerso.nomPeuple == "Sables") {
+          if (this.domainePerso[8].rangDomaine >= 5) {
+            this.domainePerso[8].rangDomaine += 1;
+          } else {
+            this.domainePerso[8].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.peuplePerso.nomPeuple == "Montagnes") {
+          if (this.domainePerso[2].rangDomaine >= 5) {
+            this.domainePerso[2].rangDomaine += 1;
+          } else {
+            this.domainePerso[2].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.peuplePerso.nomPeuple == "Grands Arbres") {
+          if (this.domainePerso[4].rangDomaine >= 5) {
+            this.domainePerso[4].rangDomaine += 1;
+          } else {
+            this.domainePerso[4].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.peuplePerso.nomPeuple == "Terres Brûlées") {
+          if (this.domainePerso[0].rangDomaine >= 5) {
+            this.domainePerso[0].rangDomaine += 1;
+          } else {
+            this.domainePerso[0].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.peuplePerso.nomPeuple == "Hautes Herbes") {
+          if (this.domainePerso[3].rangDomaine >= 5) {
+            this.domainePerso[3].rangDomaine += 1;
+          } else {
+            this.domainePerso[3].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.peuplePerso.nomPeuple == "Glaces") {
+          if (this.domainePerso[5].rangDomaine >= 5) {
+            this.domainePerso[5].rangDomaine += 1;
+          } else {
+            this.domainePerso[5].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.peuplePerso.nomPeuple == "Forêts Blanches") {
+          if (this.domainePerso[6].rangDomaine >= 5) {
+            this.domainePerso[6].rangDomaine += 1;
+          } else {
+            this.domainePerso[6].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.peuplePerso.nomPeuple == "Marais") {
+          if (this.domainePerso[1].rangDomaine >= 5) {
+            this.domainePerso[1].rangDomaine += 1;
+          } else {
+            this.domainePerso[1].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.peuplePerso.nomPeuple == "Cités") {
+          if (this.domainePerso[9].rangDomaine >= 5) {
+            this.domainePerso[9].rangDomaine += 1;
+          } else {
+            this.domainePerso[9].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        }
+      }
+  }
+
+  selectionCaste() {
+      if (this.personnage.castePerso != null) {
+        if (this.personnage.castePerso.nomCaste == "Voyageurs") {
+          if (this.domainePerso[7].rangDomaine >= 5) {
+            this.domainePerso[7].rangDomaine += 1;
+          } else {
+            this.domainePerso[7].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.castePerso.nomCaste == "Combattants") {
+          if (this.domainePerso[8].rangDomaine >= 5) {
+            this.domainePerso[8].rangDomaine += 1;
+          } else {
+            this.domainePerso[8].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.castePerso.nomCaste == "Négociants") {
+          if (this.domainePerso[2].rangDomaine >= 5) {
+            this.domainePerso[2].rangDomaine += 1;
+          } else {
+            this.domainePerso[2].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.castePerso.nomCaste == "Shaanistes") {
+          if (this.domainePerso[4].rangDomaine >= 5) {
+            this.domainePerso[4].rangDomaine += 1;
+          } else {
+            this.domainePerso[4].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.castePerso.nomCaste == "Novateurs") {
+          if (this.domainePerso[0].rangDomaine >= 5) {
+            this.domainePerso[0].rangDomaine += 1;
+          } else {
+            this.domainePerso[0].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.castePerso.nomCaste == "Artistes") {
+          if (this.domainePerso[3].rangDomaine >= 5) {
+            this.domainePerso[3].rangDomaine += 1;
+          } else {
+            this.domainePerso[3].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.castePerso.nomCaste == "Magiciens") {
+          if (this.domainePerso[5].rangDomaine >= 5) {
+            this.domainePerso[5].rangDomaine += 1;
+          } else {
+            this.domainePerso[5].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.castePerso.nomCaste == "Élémentalistes") {
+          if (this.domainePerso[6].rangDomaine >= 5) {
+            this.domainePerso[6].rangDomaine += 1;
+          } else {
+            this.domainePerso[6].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.castePerso.nomCaste == "Erudits") {
+          if (this.domainePerso[1].rangDomaine >= 5) {
+            this.domainePerso[1].rangDomaine += 1;
+          } else {
+            this.domainePerso[1].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        } else if (this.personnage.castePerso.nomCaste == "Ombres") {
+          if (this.domainePerso[9].rangDomaine >= 5) {
+            this.domainePerso[9].rangDomaine += 1;
+          } else {
+            this.domainePerso[9].rangDomaine = 5;
+            this.c5= this.c5+1;
+          }
+
+        }
+      }
+  }
+
+  cache(){
+    if(this.hidden==false){
+      this.hidden=true;
+    }else {
+      this.hidden = false;
+    }
+   this.cf= 8+3*(4-this.c5);
+    console.log(this.c5);
+    console.log(this.cf);
+  }
+
 
   listRace(): Array<Race> {
     return this.raceService.findAll();
