@@ -17,6 +17,7 @@ export class FichePersonnageComponent implements OnInit {
   id:number;
   private Domaines: Array<DomainePersonnage>;
   listDomaines:Array<DomainePersonnage>;
+  bool:boolean;
 
   constructor(private domainePersonnageService:DomainePersonnageService, private personnageService:PersonnageService,private route:ActivatedRoute ) {
     this.route.params.subscribe(params => this.id = params.id);
@@ -30,9 +31,12 @@ export class FichePersonnageComponent implements OnInit {
     return this.personnageService.findAll();
   }
 
-  listdomaine():Array<DomainePersonnage>{
+  listdomaine():Array<DomainePersonnage> {
+    this.bool = true;
+    if (this.bool==true){
+      this.bool=false;
     return this.personnageService.domaineperso(this.id);
-
+  }
   }
 
   async load(id:number){
