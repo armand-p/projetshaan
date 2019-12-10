@@ -40,7 +40,7 @@ export class PersonnageService {
     return this.personnages;
   }
   findByJoueur(id:number): Observable<any>{
-    this.http.get(this.appConfigService.backEnd+'persos/'+ id).subscribe(resp =>this.personnageJoueur =resp);
+    this.http.get(this.appConfigService.backEnd+'/utilisateur/persos/'+ id).subscribe(resp =>this.personnageJoueur =resp);
     return this.personnageJoueur;
   }
 

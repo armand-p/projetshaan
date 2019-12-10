@@ -29,7 +29,7 @@ public class DomainePersonnage {
 	
 	@ManyToOne
 	@JoinColumn (name = "domainesPerso")
-	@JsonView(Views.ViewDomainePersonnageDetail.class)
+	@JsonView(Views.ViewDomainePersonnage.class)
 	private Domaine domaineLie;
 	@ManyToOne
 	@JoinColumn(name = "Personnage_ID")

@@ -2,12 +2,12 @@
 <div >
   <p><b> Ce que je suis : </b></p>
   <span *ngFor="let race of listRace()">
-<input type="radio" name="race" [value]="race" [(ngModel)]="personnage.racePerso">{{race.nomRace}}
+<input type="radio" name="race" [value]="race" [(ngModel)]="personnage.racePerso" (click)="selectionRace(race)">{{race.nomRace}}
 </span>
 
   <p><br><b>D'où je viens : </b></p>
   <span *ngFor="let peuple of listpeuple()">
-  <input type="radio" name="origine" [value]="peuple" [(ngModel)]="personnage.peuplePerso">{{peuple.nomPeuple}}
+  <input type="radio" name="origine" [value]="peuple" [(ngModel)]="personnage.peuplePerso" (click)="selectionPeuple(peuple)">{{peuple.nomPeuple}}
  </span>
   <br>
 

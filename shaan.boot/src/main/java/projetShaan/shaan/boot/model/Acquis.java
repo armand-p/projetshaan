@@ -9,8 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
@@ -55,8 +55,13 @@ public class Acquis {
 	@JsonView(Views.ViewCommon.class)
 	private Integer prestige;
 	
+	@OneToOne
+	@JoinColumn(name = "Domaine_ID")
+	@JsonView(Views.ViewAcquis.class)
+	private Domaine domaine;
+	
 	@OneToMany (mappedBy = "acquis")
-	@JsonView(Views.ViewAcquisDetail.class)
+	@JsonView(Views.ViewAcquis.class)
 	private List <SpecialisationAcquis> speListe = new ArrayList <SpecialisationAcquis>();
 
 	public Long getId() {
@@ -65,6 +70,16 @@ public class Acquis {
 	
 	public Integer getPrestige() {
 		return prestige;
+	}
+	
+	
+
+	public Domaine getDomaine() {
+		return domaine;
+	}
+
+	public void setDomaine(Domaine domaine) {
+		this.domaine = domaine;
 	}
 
 	public void setPrestige(Integer prestige) {
