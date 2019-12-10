@@ -1,17 +1,32 @@
 <div class="princ">
 <div >
   <p><b> Ce que je suis : </b></p>
+  <div *ngIf="personnage.racePerso"><img width="150" height="300" [attr.src]="'../../assets/'+personnage.racePerso?.nomRace+'g.jpg'">
+  <br>
+  </div>
   <span *ngFor="let race of listRace()">
 <input type="radio" name="race" [value]="race" [(ngModel)]="personnage.racePerso" (click)="selectionRace(race)">{{race.nomRace}}
 </span>
 
   <p><br><b>D'où je viens : </b></p>
+  <div *ngIf="personnage.peuplePerso">
+    Description:<br>
+    <b>{{personnage.peuplePerso?.description}}</b>
+    <br>
+  </div>
+  <br>
   <span *ngFor="let peuple of listpeuple()">
   <input type="radio" name="origine" [value]="peuple" [(ngModel)]="personnage.peuplePerso" (click)="selectionPeuple(peuple)">{{peuple.nomPeuple}}
  </span>
   <br>
 
   <p><br><b>Ce que je fais : </b></p>
+  <div *ngIf="personnage.castePerso">
+    Description:<br>
+    <b>{{personnage.castePerso?.description}}</b>
+    <br>
+  </div>
+  <br>
   <span *ngFor="let caste of listcaste()">
   <input type="radio" name="caste" [value]="caste" [ngModel]="personnage.castePerso" (ngModelChange)="selectCaste($event)">{{caste.nomCaste}}
  </span>
@@ -19,6 +34,12 @@
 
   <div *ngIf="personnage.castePerso">
     <p><br><b>Metiers : </b></p>
+    <div *ngIf="personnage.metierPerso">
+      Description:<br>
+      <b>{{personnage.metierPerso?.description}}</b>
+      <br>
+    </div>
+    <br>
   <span *ngFor="let metier of metiers">
   <input type="radio" name="metiers" [value]="metier" [(ngModel)]="personnage.metierPerso">{{metier.nomMetier}}
   </span>
@@ -28,14 +49,19 @@
 <div >
   <br>
   <br>
+  <br>
   <h3>Domaines : </h3>
   <span *ngFor="let domaine of listDomaine(); let i = index">
     <div *ngIf="setDomaine(i, domaine)">
+      <br>
     <p>{{domaine.nom}} <input type="text" style="width: 50px" value="{{domainePerso[i].rangDomaine}}">
     <button (click)="domainePerso[i].rangDomaine = domainePerso[i].rangDomaine+1">+</button>
             <button [hidden]="domainePerso[i].rangDomaine <= 1" (click)="domainePerso[i].rangDomaine = domainePerso[i].rangDomaine-1">-</button></p>
     </div>
+    <div><b>{{domaine.description}}</b></div>
+
   </span>
+  <br>
 </div>
 
 <button (click)="envoi()" class="btn btn-info btn-circle">Validation</button>

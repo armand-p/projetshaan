@@ -7,10 +7,14 @@
       <h5>{{domaine.nom}}</h5>
       <div *ngIf="specialisations && domaines">
         <div *ngFor="let specialisation of triSpecialisation(domaine.nom)" >
+          <br>
           <h6>{{specialisation.nom}}
             <button (click)="ajouteSpe(specialisation)">+</button>
             <button [hidden]="findSpe(specialisation)" (click)="suppressionSpe(specialisation)">-</button>
           </h6>
+          <br>
+          <b>{{specialisation.description}}</b>
+          <br>
         </div>
       </div>
     </div>
