@@ -125,4 +125,7 @@ export class PersonnageService {
     return this.domainespersonnage;
   }
 
+  domainesansboucle(id:number):Observable<any>{
+    return this.http.get(this.appConfigService.backEnd + 'personnage/' + id + '/domaine');
+  }
 }

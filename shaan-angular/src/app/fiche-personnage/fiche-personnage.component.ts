@@ -4,6 +4,7 @@ import {PersonnageService} from "../service/personnage.service";
 import {ActivatedRoute} from "@angular/router";
 import {DomainePersonnageService} from "../service/domaine-personnage.service";
 import {DomainePersonnage} from "../model/DomainePersonnage";
+import {TableDeJeu} from "../model/TableDeJeu";
 
 @Component({
   selector: 'app-fiche-personnage',
@@ -14,6 +15,8 @@ export class FichePersonnageComponent implements OnInit {
 
   personnage: Personnage = new Personnage();
   id:number;
+  private Domaines: Array<DomainePersonnage>;
+  listDomaines:Array<DomainePersonnage>;
 
   constructor(private domainePersonnageService:DomainePersonnageService, private personnageService:PersonnageService,private route:ActivatedRoute ) {
     this.route.params.subscribe(params => this.id = params.id);
@@ -32,5 +35,12 @@ export class FichePersonnageComponent implements OnInit {
 
   }
 
+  async load(id:number){
+    await this.personnageService.domainesansboucle(id).toPromise().then(resp => {this.listDomaines=resp;console.log("ça marche !")});
+
+}
+  listDom(id:number):Array<DomainePersonnage>{
+    return this.listDomaines;
+}
 
 }
