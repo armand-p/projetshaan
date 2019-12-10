@@ -1,6 +1,7 @@
 
 <div class="container">
-  <table class="table table-sm table-hover">
+  <div class="princ">
+  <table class="table table-sm table-hover ">
     <thead>
     <tr>
       <th colspan="6">Liste des parties</th>
@@ -23,23 +24,27 @@
   </tbody>
   </table>
   <table>
-    <th><button type="button" class="btn btn-primary btn-circle" (click)="creer()"><i class="fas fa-plus"></i></button></th>
+    <th><button type="button" class="btn btn-primary btn-circle notprinc" (click)="creer()"><i class="fas fa-plus"></i></button></th>
 
   </table>
-
-<div *ngIf="tabledujeu">
+  </div>
+<div *ngIf="tabledujeu" class="princ">
   <form>
+    <h1>Creation de table</h1>
     <div class="form-group">
-    <label for="nom">Nom:</label>
+
+    <label for="nom">Nom de la table de jeu:</label>
     <input type="text" class="form-control" [(ngModel)]="tabledujeu.nom" [ngModelOptions]="{standalone: true}" id="nom">
   </div>
     <div class="form-group">
      <button type="button" class="btn btn-primary btn-circle" (click)="save()"><i class="fas fa-save"></i></button>
+      <button type="button" class="btn btn-primary btn-circle" (click)="closeadd()"><i class="fas fa-reply"></i></button>
     </div>
 
   </form>
 </div>
-<div *ngIf="show">
+<div *ngIf="show" class="princ">
+  <h1>Ajout de personnages</h1>
   <table border>
     <tr>
       <th>Nom:</th>
@@ -51,7 +56,8 @@
   </table>
   <button type="button" class="btn btn-primary btn-circle" (click)="close()"><i class="fas fa-reply"></i></button>
 </div>
-  <div *ngIf="showRemove">
+  <div *ngIf="showRemove" class="princ">
+    <h1>Retrait de personnages</h1>
     <table border>
       <tr>
         <th>Nom:</th>

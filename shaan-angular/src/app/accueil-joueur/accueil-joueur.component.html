@@ -1,5 +1,5 @@
 <br>
-<div class="container">
+<div class="container princ">
   <thead>
  <h3>Liste des personnages</h3>
   </thead>
@@ -17,7 +17,7 @@
     </tr>
 
 
-    <tr *ngFor ="let personnage of list()">
+    <tr *ngFor ="let personnage of perso(this.joueurId)">
 <!--      // of perso(this.joueurId)-->
       <td> {{ personnage.nom }}</td>
       <td> {{ personnage.racePerso?.nomRace}} </td>
