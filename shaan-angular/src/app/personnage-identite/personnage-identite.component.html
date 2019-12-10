@@ -5,7 +5,7 @@
   <br>
   </div>
   <span *ngFor="let race of listRace()">
-<input type="radio" name="race" [value]="race" [(ngModel)]="personnage.racePerso" (click)="selectionRace(race)">{{race.nomRace}}
+<input type="radio" name="race" [value]="race" [(ngModel)]="personnage.racePerso">{{race.nomRace}}
 </span>
 
   <p><br><b>D'où je viens : </b></p>
@@ -16,7 +16,7 @@
   </div>
   <br>
   <span *ngFor="let peuple of listpeuple()">
-  <input type="radio" name="origine" [value]="peuple" [(ngModel)]="personnage.peuplePerso" (click)="selectionPeuple(peuple)">{{peuple.nomPeuple}}
+  <input type="radio" name="origine" [value]="peuple" [(ngModel)]="personnage.peuplePerso">{{peuple.nomPeuple}}
  </span>
   <br>
 
@@ -55,14 +55,14 @@
     <div *ngIf="setDomaine(i, domaine)">
       <br>
     <p>{{domaine.nom}} <input type="text" style="width: 50px" value="{{domainePerso[i].rangDomaine}}">
-    <button (click)="domainePerso[i].rangDomaine = domainePerso[i].rangDomaine+1">+</button>
-            <button [hidden]="domainePerso[i].rangDomaine <= 1" (click)="domainePerso[i].rangDomaine = domainePerso[i].rangDomaine-1">-</button></p>
+    <button [hidden]="domainePerso[i].rangDomaine > 3|| hidden==true" (click)="domainePerso[i].rangDomaine = domainePerso[i].rangDomaine+1; this.cf=this.cf-1">+</button>
+            <button [hidden]="domainePerso[i].rangDomaine <= 1 || domainePerso[i].rangDomaine > 4 || hidden==true" (click)="domainePerso[i].rangDomaine = domainePerso[i].rangDomaine-1; this.cf=this.cf+1">-</button></p>
     </div>
     <div><b>{{domaine.description}}</b></div>
 
   </span>
-  <br>
+  <div name="display" [hidden]="hidden==true" style="display: flex">Ajuster vos Domaines : 1 à 1, 2 à 2 , 3 à 3, le reste à 4. Plus que {{this.cf}} points</div>
 </div>
+<button [hidden]="hidden==false" (click)="selectionPeuple(); selectionCaste(); selectionRace(); cache()">Mon identité</button>
 
-<button (click)="envoi()" class="btn btn-info btn-circle">Validation</button>
-</div>
+<button [hidden]="hidden==true" (click)="envoi(); cache()" [disabled]="cf!=0">Validation</button>
