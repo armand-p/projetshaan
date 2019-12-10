@@ -9,7 +9,7 @@ export class BonusPersonnage{
   bonusPerso:number;
   specialisation:Specialisation;
   acquis:Acquis;
-  pesoLie:Personnage;
+  persoLie:Personnage;
 
 
   constructor(id?: number, version?: number, bonusAcquis?: number, bonusPerso?: number, specialisation?: Specialisation, acquis?: Acquis, pesoLie?: Personnage) {
@@ -19,6 +19,6 @@ export class BonusPersonnage{
     this.bonusPerso = bonusPerso;
     this.specialisation = specialisation;
     this.acquis = acquis;
-    this.pesoLie = pesoLie;
+    this.persoLie = pesoLie;
   }
 }

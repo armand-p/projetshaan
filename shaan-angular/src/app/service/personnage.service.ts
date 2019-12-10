@@ -9,6 +9,8 @@ import {BonusPersonnage} from "../model/BonusPersonnage";
 import {BonusPersonnageService} from "./bonus-personnage.service";
 import {PouvoirPersonnage} from "../model/PouvoirPersonnage";
 import {PouvoirPersonnageService} from "./pouvoir-personnage.service";
+import {MotivationPersonnageService} from "./motivation-personnage.service";
+import {MotivationPersonnage} from "../model/MotivationPersonnage";
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,8 @@ export class PersonnageService {
   private idPerso: any;
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService, private domainePersonnageService:DomainePersonnageService,
-              private bonusPersonnageService:BonusPersonnageService, private pouvoirPersonnageService:PouvoirPersonnageService) {
+              private bonusPersonnageService:BonusPersonnageService, private pouvoirPersonnageService:PouvoirPersonnageService,
+              private motivationPersonnageService: MotivationPersonnageService) {
     this.load();
     this.loadPersoOrphanPartie();
   }
@@ -74,7 +77,9 @@ export class PersonnageService {
     }}
 
 
-  save(personnage: Personnage, domainePerso:Array<DomainePersonnage>, bonusPerso:Array<BonusPersonnage>, pouvoirPerso:Array<PouvoirPersonnage>)  {
+  save(personnage: Personnage, domainePerso:Array<DomainePersonnage>, bonusPerso:Array<BonusPersonnage>, pouvoirPerso:Array<PouvoirPersonnage>,
+       motivationPerso:Array<MotivationPersonnage>)  {
+
     if (personnage.id) {
       this.http.put(this.appConfigService.backEnd + 'personnage/' + personnage.id, personnage).subscribe(resp => {this.load();this.loadPersoOrphanPartie()});
     } else {
@@ -88,13 +93,19 @@ export class PersonnageService {
         }
 
         for(let i = 0; i < bonusPerso.length; i++){
-          bonusPerso[i].pesoLie = resp;
+          bonusPerso[i].persoLie = resp;
+          console.log(bonusPerso[i]);
           this.bonusPersonnageService.save(bonusPerso[i]);
         }
 
         for(let i = 0; i < pouvoirPerso.length; i++){
           pouvoirPerso[i].persoLie = resp;
           this.pouvoirPersonnageService.save(pouvoirPerso[i]);
+        }
+
+        for(let i = 0; i < motivationPerso.length; i++){
+          motivationPerso[i].persoLie = resp;
+          this.motivationPersonnageService.save(motivationPerso[i]);
         }
 
         this.load()

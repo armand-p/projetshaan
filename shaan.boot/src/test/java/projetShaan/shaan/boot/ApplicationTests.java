@@ -2344,11 +2344,6 @@ class ApplicationTests {
 				"La Magie ets lié au cerecles des Trihns, mais si la théorie est perceptible de tous, la pratique relève de nombreuses zones d'ombres, des phénomènes inexpliqués, des situations paradoxales. Vous voulez rester maîtres de votre art et voulez tout comprendre pour pouvoir bien contrôler ce que vous faites au moment où vous le faites.");
 		percerMysteres.setDomaineLie(magie);
 		percerMysteres = motivationRepository.save(percerMysteres);
-
-		charmer.setNomMotivation("");
-		charmer.setDescription(".");
-		charmer.setDomaineLie(arts);
-		charmer = motivationRepository.save(charmer);
 		
 		progresserDogme.setNomMotivation("Progresser au sein de son dogme");
 		progresserDogme.setDescription("Vous expérimentez les voies internes de votre dogme et aspirez à progresser dans la symbiose avec votre Élément. Vous êtes enclin à faire de multiples expériences, braver de nombreux dangers afin de tester votre foi. Au moindre signe de faiblesse, vous redoublez d’efforts pour chercher à vous transcender. Vous avez parfois tendance à provoquer des situations qui pourraient vous mettre en mauvaise posture, rien que pour voir si vous êtes dignes de votre Élément..");
