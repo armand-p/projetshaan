@@ -2042,7 +2042,7 @@ class ApplicationTests {
 				"De vastes plaines d'herbe grasse s'étendent à l'infini. Parsemées d'arbres et de petits bosquets, ces régions sont principalement exploitées pour l'agriculture et l'élevage.");
 		hautesHerbes = peupleRepository.save(hautesHerbes);
 
-		marais.setNomPeuple("Hautes Herbes");
+		marais.setNomPeuple("Marais");
 		marais.setDomaine(savoir);
 		marais.setSpecialisation1(zoologie);
 		marais.setSpecialisation2(botanique);

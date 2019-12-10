@@ -7,10 +7,14 @@
       <h5>{{domaine.nom}}</h5>
       <div *ngIf="pouvoirs && domaines">
         <div *ngFor="let pouvoir of triPouvoir(domaine.nom)">
+          <br>
           <h6>{{pouvoir.nomPouvoir}}
             <button [hidden]="!findPouvoir(pouvoir)" (click)="ajoutePouvoir(pouvoir)">+</button>
             <button [hidden]="findPouvoir(pouvoir)" (click)="suppressionPouvoir(pouvoir)">-</button>
           </h6>
+          <br>
+          <b>{{pouvoir.description}}</b>
+          <br>
         </div>
       </div>
     </div>
