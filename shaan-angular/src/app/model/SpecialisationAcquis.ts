@@ -6,12 +6,14 @@ export class SpecialisationAcquis {
   version: number;
   specialisation : Specialisation;
   acquis : Acquis;
+  rangSpecialisation : number;
 
 
-  constructor(id: number, version: number, specialisation: Specialisation, acquis: Acquis) {
+  constructor(id: number, version: number, specialisation: Specialisation, acquis: Acquis, rangSpecilisation:number) {
     this.id = id;
     this.version = version;
     this.specialisation = specialisation;
     this.acquis = acquis;
+    this.rangSpecialisation = rangSpecilisation;
   }
 }

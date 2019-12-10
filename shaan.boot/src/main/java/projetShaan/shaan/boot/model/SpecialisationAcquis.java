@@ -23,21 +23,26 @@ public class SpecialisationAcquis {
 	@JsonView(Views.ViewCommon.class)
 	private Integer version;
 	
+	@JsonView(Views.ViewCommon.class)
+	private Integer rangSpecialisation;
+	
 	@ManyToOne
 	@JoinColumn(name = "acquisSpe")
-	@JsonView(Views.ViewSpecialisationAcquisDetail.class)
+	@JsonView(Views.ViewCommon.class)
 	private Specialisation specialisation;
 	@ManyToOne
 	@JoinColumn (name = "speAcquis")
-	@JsonView(Views.ViewSpecialisationAcquisDetail.class)
+	@JsonView(Views.ViewSpecialisationAcquis.class)
 	private Acquis acquis;
 	
 	
-	public SpecialisationAcquis(Specialisation specialisation, Acquis acquis) {
+	public SpecialisationAcquis(Specialisation specialisation, Acquis acquis, Integer rangSpecialisation) {
 		super();
 		this.specialisation = specialisation;
 		this.acquis = acquis;
+		this.rangSpecialisation = rangSpecialisation;
 	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -64,6 +69,12 @@ public class SpecialisationAcquis {
 	}
 	public SpecialisationAcquis() {
 		super();
+	}
+	public Integer getRangSpecialisation() {
+		return rangSpecialisation;
+	}
+	public void setRangSpecialisation(Integer rangSpecialisation) {
+		this.rangSpecialisation = rangSpecialisation;
 	}
 	
 	

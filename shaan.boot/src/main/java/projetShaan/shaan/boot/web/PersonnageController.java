@@ -91,7 +91,7 @@ public class PersonnageController {
 	}
 	
 	@GetMapping("/{id}/domaine")
-	@JsonView(Views.ViewDomainePersonnageDetail.class)
+	@JsonView(Views.ViewDomainePersonnage.class)
 	public List<DomainePersonnage> findDomaine(@PathVariable Long id) {
 		List<DomainePersonnage> domainePersonnages = domainePersoRepo.findByPersonnage(id);
 

@@ -1,7 +1,13 @@
 .princ {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  background-color: beige;
+  background-color: #F5F5DCE1;
+  margin: 0 auto;
+  border-style: solid;
+  border-color: gold;
+
+
   margin: auto;
+}
+table{
+  margin: auto;
+  width: 50%;
 }

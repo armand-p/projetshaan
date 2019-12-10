@@ -1,3 +1,5 @@
+import {Domaine} from "./Domaine";
+
 export class Acquis{
 id:number;
 version:number;
@@ -9,9 +11,10 @@ description:string;
 capacite:string;
 valeur:number;
 prestige:number;
+domaine:Domaine;
 
 
-  constructor(id?: number, version?: number, nom?: string, categorie?: string, classe?: number, protection?: string, description?: string, capacite?: string, valeur?: number, prestige?: number) {
+  constructor(id?: number, version?: number, nom?: string, categorie?: string, classe?: number, protection?: string, description?: string, capacite?: string, valeur?: number, prestige?: number, domaine?: Domaine) {
     this.id = id;
     this.version = version;
     this.nom = nom;
@@ -22,5 +25,6 @@ prestige:number;
     this.capacite = capacite;
     this.valeur = valeur;
     this.prestige = prestige;
+    this.domaine = domaine;
   }
 }

@@ -23,6 +23,8 @@ export class PersonnageService {
   private personnageNoPartie :any;
   private idPerso: any;
   private domainespersonnage:any;
+  private domainespersonnagedeux:any;
+
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService, private domainePersonnageService:DomainePersonnageService,
               private bonusPersonnageService:BonusPersonnageService, private pouvoirPersonnageService:PouvoirPersonnageService,
@@ -120,9 +122,8 @@ export class PersonnageService {
     this.http.delete(this.appConfigService.backEnd + 'personnage/' + id).subscribe(resp => this.load());
   }
 
-  domaineperso(id:number):Array<DomainePersonnage>{
-    this.http.get(this.appConfigService.backEnd + 'personnage/' + id + '/domaine').subscribe(resp =>this.domainespersonnage = resp);
-    return this.domainespersonnage;
+  domaineperso(id:number):Observable<Array<DomainePersonnage>> {
+    return this.http.get<Array<DomainePersonnage>>(this.appConfigService.backEnd + 'personnage/' + id + '/domaine');
   }
 
   domainesansboucle(id:number):Observable<any>{

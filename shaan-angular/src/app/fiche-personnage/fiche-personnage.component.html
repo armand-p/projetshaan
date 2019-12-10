@@ -2,7 +2,7 @@
 
 
 
-<div>
+<div class="princ">
   Nom : <span type="text">{{personnage.nom}}</span>
   Sexe : <span type="text">{{personnage.sexe}}</span>
   Age : <span type="text">{{personnage.age}}</span>
@@ -20,7 +20,7 @@
 
 <!--<span *ngFor="let domaine of personnageService.domaineperso(id)">-->
 
-  <span *ngFor="let domaine of listdomaine()">
+  <span *ngFor="let domaine of listDomaines">
   <td>{{domaine.domaineLie.nom}}</td>
   <td>{{domaine.rangDomaine}}</td>
 </span>
