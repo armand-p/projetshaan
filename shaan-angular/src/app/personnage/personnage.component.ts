@@ -4,6 +4,7 @@ import {PersonnageService} from "../service/personnage.service";
 import {DomainePersonnage} from "../model/DomainePersonnage";
 import {ActivatedRoute} from "@angular/router";
 
+
 @Component({
   selector: 'app-personnage',
   templateUrl: './personnage.component.html',
@@ -56,5 +57,6 @@ export class PersonnageComponent implements OnInit {
   cancel(){
     this.childEvent.emit();
   }
+
 
 }

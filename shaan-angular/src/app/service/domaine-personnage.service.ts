@@ -4,6 +4,7 @@ import {AppConfigService} from "../app-config.service";
 import {Domaine} from "../model/Domaine";
 import {Observable} from "rxjs";
 import {DomainePersonnage} from "../model/DomainePersonnage";
+import {Personnage} from "../model/Personnage";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import {DomainePersonnage} from "../model/DomainePersonnage";
 export class DomainePersonnageService {
 
   private domainePerso: any;
+  private domainespersonnage: any;
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService) {
     this.load();
@@ -21,7 +23,7 @@ export class DomainePersonnageService {
       .subscribe(resp => this.domainePerso = resp);
   }
 
-  public findAll(): Array<Domaine> {
+  public findAll(): Array<DomainePersonnage> {
     return this.domainePerso;
   }
 

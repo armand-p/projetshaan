@@ -15,6 +15,7 @@ export class PersonnageService {
   private personnageOnly :any;
   private personnageNoPartie :any;
   private idPerso: any;
+  private domainespersonnage:any;
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService, private domainePersonnageService:DomainePersonnageService) {
     this.load();
@@ -89,4 +90,10 @@ export class PersonnageService {
   deleteBydId(id: number) {
     this.http.delete(this.appConfigService.backEnd + 'personnage/' + id).subscribe(resp => this.load());
   }
+
+  domaineperso(id:number):Array<DomainePersonnage>{
+    this.http.get(this.appConfigService.backEnd + 'personnage/' + id + '/domaine').subscribe(resp =>this.domainespersonnage = resp);
+    return this.domainespersonnage;
+  }
+
 }
