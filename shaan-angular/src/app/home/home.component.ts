@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.erreur);
   }
 
   validate() {
@@ -39,11 +38,9 @@ export class HomeComponent implements OnInit {
             localStorage.setItem(this.id, this.utilisateur.id);
             localStorage.setItem(this.type, this.utilisateur.type);
 
-
             if (this.utilisateur.type == 'joueur') {
               this.type = 'joueur';
               localStorage.setItem(this.type, 'joueur');
-              console.log("trouve le type");
               this.router.navigate(['/accueiljoueur/', this.utilisateur.id]);
             } else if (this.utilisateur.type == 'maitreDuJeu') {
               localStorage.setItem(this.type, 'mj');

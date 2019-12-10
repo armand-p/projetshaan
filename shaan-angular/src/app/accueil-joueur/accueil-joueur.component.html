@@ -17,7 +17,7 @@
     </tr>
 
 
-    <tr *ngFor ="let personnage of list()">
+    <tr *ngFor ="let personnage of perso(this.joueurId)">
 <!--      // of perso(this.joueurId)-->
       <td> {{ personnage.nom }}</td>
       <td> {{ personnage.racePerso?.nomRace}} </td>

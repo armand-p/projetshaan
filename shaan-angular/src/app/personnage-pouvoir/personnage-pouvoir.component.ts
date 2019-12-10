@@ -17,7 +17,6 @@ export class PersonnagePouvoirComponent implements OnInit {
 
   @Output()
   pouvoirEnvoi = new EventEmitter<Array<PouvoirPersonnage>>();
-
   pouvoirs: Array<Pouvoir> = new Array<Pouvoir>();
   domaines: Array<Domaine> = new Array<Domaine>();
   pouvoirPerso: Array<PouvoirPersonnage> = new Array<PouvoirPersonnage>();
