@@ -1,11 +1,9 @@
 .princ {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  background-color: beige;
-  margin: auto;
+  background-color: #F5F5DCE1;
+  margin: 0 auto;
   border-style: solid;
   border-color: gold;
+  text-align: center;
 }
 .notprinc{
   display: block;

@@ -43,9 +43,9 @@ async save(){
     this.tabledujeu.maitreDuJeu=m;
     await this.tableDeJeuService.save(this.tabledujeu);
     this.tabledujeu=null;
-    await this.load(this.masterOfTheGame.id);
-  await this.load(this.masterOfTheGame.id);
-  await this.load(this.masterOfTheGame.id);
+    this.load(this.masterOfTheGame.id);
+  this.load(this.masterOfTheGame.id);
+  this.load(this.masterOfTheGame.id);
 }
 list(id:number):Array<TableDeJeu>{
 
