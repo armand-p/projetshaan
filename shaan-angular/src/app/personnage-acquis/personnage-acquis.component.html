@@ -1,10 +1,28 @@
-<div style="background: red">
-  <h5>Négotiant</h5>
-</div>
+<h3>Domaines :</h3>
 
-<div>
-  <h4>Liste des acquis</h4>
-  <p>exemple 1 <button>+</button> <button>-</button></p>
-</div>
+<div class="container">
+  <div style="flex: 60%">
+    <div *ngFor="let domaine of listDomaine()">
+      <h5>{{domaine.nom}}</h5>
+      <div *ngIf="specialisations && domaines">
+        <div *ngFor="let specialisation of triSpecialisation(domaine.nom)">
+          <h6>{{specialisation.nom}}
+            <button (click)="ajouteSpe(specialisation)">+</button>
+            <button [hidden]="findSpe(specialisation)" (click)="suppressionSpe(specialisation)">-</button>
+          </h6>
+        </div>
+      </div>
+    </div>
+    <button (click)="envoi()">Validation</button>
+  </div>
 
-<button>Validation</button>
+
+  <div style="flex: 10%">
+    <div *ngIf="bonusPers">
+      <div *ngFor="let bonus of bonusPers">
+        <p>{{bonus.specialisation.nom}} | {{bonus.bonusPerso}}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
