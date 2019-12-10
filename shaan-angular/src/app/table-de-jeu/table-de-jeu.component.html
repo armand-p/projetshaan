@@ -5,7 +5,7 @@
       <ng-container *ngFor="let perso of tabledejeu.personnages, let i=index "> <td align="center" *ngIf="i<tabledejeu.personnages.length/2">
       <div  class="container" [routerLink]="['/fichePerso/',perso.id]">
         {{perso.nom}}<br>
-        {{perso.age}}<br>
+        {{perso.age}} ans<br>
         {{perso.metierPerso?.nomMetier}}<br>
         {{perso.racePerso?.nomRace}}<br>
         {{perso.peuplePerso?.nomPeuple}}<br>
@@ -17,14 +17,14 @@
     </tr>
     <tr valign="center">
       <td class="td2"><div><img src="../../assets/vincent-price-maitre-du-monde-1961-rwdx0f.jpg" width="160" height="160"> {{tabledejeu.maitreDuJeu.pseudo}}</div></td>
-      <td [attr.colspan]="tabledejeu.personnages.length/2+0.5" ><img width="400" height="200" src="../../assets/téléchargement.jpg"></td>
+      <td [attr.colspan]="tabledejeu.personnages.length/2+0.5" ><img style="border: 10px solid #cc6600" [attr.width]="400*tabledejeu.personnages.length/2" height="200" src="../../assets/surface-fond-texture-bois-sombre-ancien-motif-naturel-vue-dessus-table-texture-bois-sombre-surface-grunge-fond-texture-bois-fond-texture-du-bois-vintage-vue-dessus-rustique-table_1253.jpg"></td>
     </tr>
     <tr>
       <td></td>
     <ng-container *ngFor="let perso of tabledejeu.personnages, let i=index "> <td align="center" *ngIf="i>=tabledejeu.personnages.length/2">
       <div [routerLink]="['/fichePerso/',perso.id]">
         {{perso.nom}}<br>
-        {{perso.age}}<br>
+        {{perso.age}} ans<br>
         {{perso.metierPerso?.nomMetier}}<br>
         {{perso.racePerso?.nomRace}}<br>
         {{perso.peuplePerso?.nomPeuple}}<br>

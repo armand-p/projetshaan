@@ -2,6 +2,12 @@
 <h3>Domaines :</h3>
 
 <div class="container ">
+  <div style="flex: 10%" >
+    <div *ngIf="bonusPers" class="princ" >
+      <div *ngFor="let bonus of bonusPers">
+        <p>{{bonus.specialisation.nom}} | {{bonus.bonusPerso}}</p>
+      </div>
+    </div>
   <div style="flex: 60%">
     <div *ngFor="let domaine of listDomaine()" class="princ">
       <h5>{{domaine.nom}}</h5>
@@ -22,12 +28,7 @@
   </div>
 
 
-  <div style="flex: 10%" >
-    <div *ngIf="bonusPers" class="princ" >
-      <div *ngFor="let bonus of bonusPers">
-        <p>{{bonus.specialisation.nom}} | {{bonus.bonusPerso}}</p>
-      </div>
-    </div>
+
 
   </div>
 </div>
