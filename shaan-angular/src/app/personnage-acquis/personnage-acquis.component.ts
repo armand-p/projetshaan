@@ -99,6 +99,19 @@ export class PersonnageAcquisComponent implements OnInit {
   }
 
 
+  affichageAcquis(index: number): boolean {
+
+    if (index !== 0) {
+      if (this.bonusPers[index].acquis.nom === this.bonusPers[index - 1].acquis.nom) {
+        return true;
+      }
+    }
+
+    return false;
+
+
+  }
+
 
   envoi() {
     console.log('envoi')

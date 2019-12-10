@@ -19,8 +19,8 @@
 
   <div style="flex: 10%">
     <div *ngIf="bonusPers">
-      <div *ngFor="let bonus of bonusPers">
-        <p>{{bonus.acquis.nom}} | {{bonus.specialisation?.nom}} : {{bonus?.bonusAcquis}}</p>
+      <div *ngFor="let bonus of bonusPers, let i = index">
+        <p><span [hidden]="affichageAcquis(i)" ><h6>{{bonus.acquis.nom}}</h6></span> <span [hidden]="!bonus.specialisation?.nom"> | {{bonus.specialisation?.nom}} : {{bonus?.bonusAcquis}}</span></p>
       </div>
     </div>
 
