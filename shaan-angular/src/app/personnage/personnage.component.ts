@@ -8,6 +8,7 @@ import {last} from "rxjs/operators";
 import {PouvoirPersonnage} from "../model/PouvoirPersonnage";
 import {MotivationPersonnage} from "../model/MotivationPersonnage";
 
+
 @Component({
   selector: 'app-personnage',
   templateUrl: './personnage.component.html',
@@ -86,5 +87,6 @@ export class PersonnageComponent implements OnInit {
   cancel() {
     this.childEvent.emit();
   }
+
 
 }

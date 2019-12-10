@@ -3,18 +3,35 @@
 
 
 <div>
-  Nom : <span type="text" [(ngModel)]="personnage.nom"></span>
-  Sexe : <span type="text" [(ngModel)]="personnage.sexe"></span>
-  Age : <span type="text" [(ngModel)]="personnage.age"></span>
+  Nom : <span type="text">{{personnage.nom}}</span>
+  Sexe : <span type="text">{{personnage.sexe}}</span>
+  Age : <span type="text">{{personnage.age}}</span>
+  Taille : <span type="text">{{personnage.taille}}</span>
+  Poids : <span type="text">{{personnage.poids}}</span>
 
-  Race : <span type="text" [(ngModel)]="personnage.racePerso.nomRace"></span>
-    Taille : <span type="text" [(ngModel)]="personnage.taille"></span>
-    Poids : <span type="text" [(ngModel)]="personnage.poids"></span>
+  Race : <span type="text">{{personnage.racePerso?.nomRace}}</span>
+  Peuple : <span type="text" >{{personnage.peuplePerso?.nomPeuple}}</span>
+  Caste : <span type="text" >{{personnage.castePerso?.nomCaste}}</span>
+  Métier : <span type="text" >{{personnage.metierPerso?.nomMetier}}</span>
 
-  Peuple : <span type="text" [(ngModel)]="personnage.peuplePerso.nomPeuple"></span>
+<!--  Domaines : <span type="text">{{personnageService.domaineperso(personnage.id)}}</span>-->
 
+<!--  Domaines : <span type="text">{{domainePersonnageService.domaineperso(personnage)}}</span>-->
 
-  Caste : <span type="text" [(ngModel)]="personnage.castePerso.nomCaste"></span>
-    < Métier : <span type="text" [(ngModel)]="personnage.metierPerso.nomMetier"></span>
+<!--<span *ngFor="let domaine of personnageService.domaineperso(id)">-->
+
+  <span *ngFor="let domaine of listdomaine()">
+  <td>{{domaine.domaineLie.nom}}</td>
+  <td>{{domaine.rangDomaine}}</td>
+</span>
+
+<!--  <ng-container *ngFor="let perso of tabledejeu.personnages, let i=index "> <td align="justify" *ngIf="i>tabledejeu.personnages.length/2">-->
+<!--    <div style="background-color: antiquewhite"[routerLink]="['/fichePerso/',perso.id]" >-->
+<!--      {{perso.nom}}<br>-->
+<!--      {{perso.age}}<br>-->
+<!--      {{perso.metierPerso?.nomMetier}}<br>-->
+<!--      {{perso.racePerso?.nomRace}}<br>-->
+<!--      {{perso.peuplePerso?.nomPeuple}}<br>-->
+
 
 </div>

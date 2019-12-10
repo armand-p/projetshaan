@@ -22,6 +22,7 @@ export class PersonnageService {
   private personnageOnly :any;
   private personnageNoPartie :any;
   private idPerso: any;
+  private domainespersonnage:any;
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService, private domainePersonnageService:DomainePersonnageService,
               private bonusPersonnageService:BonusPersonnageService, private pouvoirPersonnageService:PouvoirPersonnageService,
@@ -39,7 +40,7 @@ export class PersonnageService {
     return this.personnages;
   }
   findByJoueur(id:number): Observable<any>{
-    this.http.get(this.appConfigService.backEnd+'persos/'+ id).subscribe(resp =>this.personnageJoueur =resp);
+    this.http.get(this.appConfigService.backEnd+'/utilisateur/persos/'+ id).subscribe(resp =>this.personnageJoueur =resp);
     return this.personnageJoueur;
   }
 
@@ -119,4 +120,12 @@ export class PersonnageService {
     this.http.delete(this.appConfigService.backEnd + 'personnage/' + id).subscribe(resp => this.load());
   }
 
+  domaineperso(id:number):Array<DomainePersonnage>{
+    this.http.get(this.appConfigService.backEnd + 'personnage/' + id + '/domaine').subscribe(resp =>this.domainespersonnage = resp);
+    return this.domainespersonnage;
+  }
+
+  domainesansboucle(id:number):Observable<any>{
+    return this.http.get(this.appConfigService.backEnd + 'personnage/' + id + '/domaine');
+  }
 }
