@@ -1,0 +1,15 @@
+.princ {
+  background-color: #F5F5DCE1;
+  margin: 0 auto;
+  border-style: solid;
+  border-color: gold;
+  text-align: center;
+
+  margin: auto;
+}
+td{
+  text-align: center;
+}
+.td2{
+  text-align: right;
+}
