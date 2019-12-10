@@ -1,9 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Domaine} from "../model/Domaine";
 import {DomaineService} from "../service/domaine.service";
 import {PouvoirPersonnage} from "../model/PouvoirPersonnage";
 import {Pouvoir} from "../model/Pouvoir";
 import {PouvoirService} from "../service/pouvoir.service";
+import {DomainePersonnage} from '../model/DomainePersonnage';
 
 @Component({
   selector: 'personnage-pouvoir',
@@ -19,6 +20,9 @@ export class PersonnagePouvoirComponent implements OnInit {
   pouvoirPerso: Array<PouvoirPersonnage> = new Array<PouvoirPersonnage>();
   id: number = null;
 
+  @Input("current")
+    domainePerso : Array<DomainePersonnage>;
+
 
   constructor(private domaineService: DomaineService, private pouvoirService: PouvoirService) {
   }
@@ -26,9 +30,10 @@ export class PersonnagePouvoirComponent implements OnInit {
   ngOnInit() {
   }
 
-  listDomaine(): Array<Domaine> {
+  listDomaine(): Array<DomainePersonnage> {
     this.listPouvoir();
-    return this.domaines = this.domaineService.findAll();
+    // return this.domaines = this.domaineService.findAll();
+    return this.domainePerso.filter(domainePerso => domainePerso.rangDomaine >=5);
   }
 
   listPouvoir() {

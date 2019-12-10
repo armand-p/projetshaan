@@ -4,9 +4,9 @@
 <div class="container">
   <div style="flex: 60%">
     <div *ngFor="let domaine of listDomaine()" class="princ">
-      <h5>{{domaine.nom}}</h5>
+      <h5>{{domaine.domaineLie.nom}}</h5>
       <div *ngIf="pouvoirs && domaines">
-        <div *ngFor="let pouvoir of triPouvoir(domaine.nom)">
+        <div *ngFor="let pouvoir of triPouvoir(domaine.domaineLie.nom)">
           <br>
           <h6>{{pouvoir.nomPouvoir}}
             <button [hidden]="!findPouvoir(pouvoir)" (click)="ajoutePouvoir(pouvoir)">+</button>

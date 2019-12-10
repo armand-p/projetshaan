@@ -24,6 +24,7 @@ export class AccueilJoueurComponent implements OnInit {
 
   constructor(private personnageService: PersonnageService, private route:ActivatedRoute) {
     this.route.params.subscribe(params =>this.joueurId=params.id);
+    this.personnageService.findByJoueur(this.joueurId).subscribe(resp =>this.personnages =resp);
   }
 
 

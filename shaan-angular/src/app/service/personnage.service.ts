@@ -41,9 +41,8 @@ export class PersonnageService {
   public findAll(): Array<Personnage> {
     return this.personnages;
   }
-  findByJoueur(id:number): Observable<any>{
-    this.http.get(this.appConfigService.backEnd+'/utilisateur/persos/'+ id).subscribe(resp =>this.personnageJoueur =resp);
-    return this.personnageJoueur;
+  findByJoueur(id:number): Observable<Array<Personnage>>{
+    return this.http.get<Array<Personnage>>(this.appConfigService.backEnd+'/utilisateur/persos/'+ id);
   }
 
   loadPersoOnly() {
