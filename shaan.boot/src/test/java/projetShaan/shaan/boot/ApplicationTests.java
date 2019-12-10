@@ -761,7 +761,7 @@ class ApplicationTests {
 				"L'Informateur est un élément indispensable, dès qu'il s'agit de faire une enquête ou d'obtenir des informations au sein d'un milieu urbain. Il entend tout, voit tout et sait tout, grâce à ses nombreux réseaux de renseignement qui lui rendent compte en temps réel de la situation sociale, politique, économique d'un quartier et même de toute une ville pour les plus influents. Curieux et à l'affût des moindres faits et gestes des puissants et des Notables, les Informateurs connaissent et maîtrisent tous les us et coutumes citadins afin de se fondre dans la masse.");
 		informateur = metierRepository.save(informateur);
 
-		marchand.setNomMetier("Marchant");
+		marchand.setNomMetier("Marchand");
 		marchand.setVoie("Voie de l'Air");
 		marchand.setCasteLie(negociants);
 		marchand.setDescription(
