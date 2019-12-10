@@ -24,7 +24,7 @@ export class FichePersonnageComponent implements OnInit {
   constructor(private specialisationService:SpecialisationService, private domainePersonnageService: DomainePersonnageService, private personnageService: PersonnageService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => this.id = params.id);
     this.personnageService.findById(this.id).subscribe(resp => this.personnage = resp);
-    this.personnageService.domaineperso(this.id).subscribe(resp => {this.listDomaines = resp})
+    this.personnageService.domaineperso(this.id).subscribe(resp => {this.listDomaines = resp});
     this.specialisationService.speDomaines(this.id).subscribe(resp => this.listSpecialisations = resp);
 
   }
