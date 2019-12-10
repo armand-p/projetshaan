@@ -11,13 +11,13 @@
     <th>Partie</th>
     <th>Nombre de joueurs</th>
 </tr>
-  <tr *ngFor="let table of list()">
+  <tr *ngFor="let table of list(this.idMJ)">
     <td>{{table.nom}}</td>
     <td>{{table.personnages.length}}</td>
     <td><button type="button" class="btn btn-danger btn-circle" (click)="delete(table.id)" ><i class="fas fa-times"></i></button></td>
-    <td><button type="button" class="btn btn-success btn-circle" (click)="add(table)" ><i class="fas fa-user-plus"></i></button></td>
+    <td><button type="button" class="btn btn-primary btn-circle" (click)="add(table)" ><i class="fas fa-user-plus"></i></button></td>
     <td><button type="button" class="btn btn-danger btn-circle" (click)="remove(table.id)" ><i class="fas fa-user-minus"></i></button></td>
-    <td><button type="button" class="btn btn-success btn-circle" [routerLink]="['/tabledejeu/'+table.id]" ><i class="fas fa-external-link-square-alt"></i></button></td>
+    <td><button type="button" class="btn btn-primary btn-circle" [routerLink]="['/tabledejeu/'+table.id]" ><i class="fas fa-external-link-square-alt"></i></button></td>
   </tr>
 
   </tbody>

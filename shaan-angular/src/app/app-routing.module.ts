@@ -13,11 +13,11 @@ import {FichePersonnageComponent} from "./fiche-personnage/fiche-personnage.comp
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'personnage', component: PersonnageComponent},//, canActivate: [AuthGuard]},
+  {path: 'personnage', component: PersonnageComponent, canActivate: [AuthGuard]},
   {path: 'personnage/:id', component: PersonnageComponent},//, canActivate: [AuthGuard]},
   {path: 'creationcompte', component: CreationCompteComponent},
-  {path: 'accueiljoueur', component: AccueilJoueurComponent},
-  {path: 'accueilmj', component: AccueilMjComponent},
+  {path: 'accueiljoueur/:id', component: AccueilJoueurComponent},
+  {path: 'accueilmj/:id', component: AccueilMjComponent},
   {path: 'tabledejeu/:id', component: TableDeJeuComponent},
   {path: 'fichePerso/:id', component: FichePersonnageComponent}
 ];

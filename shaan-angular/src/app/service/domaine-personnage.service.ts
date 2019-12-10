@@ -26,7 +26,6 @@ export class DomainePersonnageService {
   public findAll(): Array<DomainePersonnage> {
     return this.domainePerso;
   }
-
   findById(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backEnd + 'domainePersonnage/' + id);
   }

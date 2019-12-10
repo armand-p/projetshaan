@@ -1,10 +1,28 @@
 <h3>Domaines :</h3>
-<div *ngFor="let domaine of listDomaine()" (load)="listSpecialisation(domaine.id)">
-  <h5>{{domaine.nom}}</h5>
 
-<!--  <div *ngFor="let specialisation of listSpecialisation(domaine.id)">-->
-<!--    <p>{{specialisation}}</p>-->
-<!--  </div>-->
+<div class="container">
+  <div style="flex: 60%">
+    <div *ngFor="let domaine of listDomaine()">
+      <h5>{{domaine.nom}}</h5>
+      <div *ngIf="specialisations && domaines">
+        <div *ngFor="let specialisation of triSpecialisation(domaine.nom)">
+          <h6>{{specialisation.nom}}
+            <button (click)="ajouteSpe(specialisation)">+</button>
+            <button [hidden]="findSpe(specialisation)" (click)="suppressionSpe(specialisation)">-</button>
+          </h6>
+        </div>
+      </div>
+    </div>
+    <button (click)="envoi()">Validation</button>
+  </div>
+
+
+  <div style="flex: 10%">
+    <div *ngIf="bonusPers">
+      <div *ngFor="let bonus of bonusPers">
+        <p>{{bonus.specialisation.nom}} | {{bonus.bonusPerso}}</p>
+      </div>
+    </div>
+
+  </div>
 </div>
-
-<button>Validation</button>

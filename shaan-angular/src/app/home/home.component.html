@@ -5,7 +5,8 @@
  <table>
   <tr>
 <tr><th>Nom d'utilisateur :</th><th><input [(ngModel)] = "pseudo"></th></tr>
-<tr><th>Mot de passe :</th><th><input type="password" [(ngModel)] = "motDePasse"></th> </tr>
+<tr><th>Mot de passe :</th><th><input type="password" [(ngModel)] = "motDePasse"></th></tr> <br>
+<b><td value="erreur" [hidden]="erreur == false"> Le Pseudo et le mot de passe ne correspondent pas</td></b> <br>
 
 
 

@@ -10,6 +10,8 @@ import {Personnage} from "../model/Personnage";
 import {DomainePersonnage} from "../model/DomainePersonnage";
 import {DomaineService} from "../service/domaine.service";
 import {Domaine} from "../model/Domaine";
+import {Specialisation} from "../model/Specialisation";
+import {BonusPersonnage} from "../model/BonusPersonnage";
 
 @Component({
   selector: 'personnage-identite',
@@ -24,6 +26,7 @@ export class PersonnageIdentiteComponent implements OnInit {
   @Output()
   domainePersoEnvoi = new EventEmitter<Array<DomainePersonnage>>();
 
+  domaines:Array<Domaine> = new Array<Domaine>();
   domainePerso: Array<DomainePersonnage> = new Array<DomainePersonnage>(10);
   personnage: Personnage = new Personnage();
   metiers: Array<Metier> = new Array<Metier>();
@@ -60,16 +63,16 @@ export class PersonnageIdentiteComponent implements OnInit {
     return this.domaineService.findAll();
   }
 
-  setDomaine($event, index, domaine) {
-    console.log($event + "|" + index  );
+  setDomaine(index, domaine):boolean {
 
     if(!this.domainePerso[index]) {
       this.domainePerso[index] = new DomainePersonnage();
+      this.domainePerso[index].rangDomaine = 1;
+      this.domainePerso[index].domaineLie = domaine;
     }
-    this.domainePerso[index].domaineLie = domaine;
-    this.domainePerso[index].rangDomaine = $event;
 
-    console.log(this.domainePerso);
+    return true;
+
   }
 
   envoi() {

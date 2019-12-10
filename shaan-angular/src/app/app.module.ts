@@ -25,6 +25,7 @@ import { TableDeJeuComponent } from './table-de-jeu/table-de-jeu.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

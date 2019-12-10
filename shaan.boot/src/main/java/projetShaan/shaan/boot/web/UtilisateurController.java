@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import projetShaan.shaan.boot.model.Joueur;
 import projetShaan.shaan.boot.model.MaitreDuJeu;
+import projetShaan.shaan.boot.model.Personnage;
 import projetShaan.shaan.boot.model.Utilisateur;
 import projetShaan.shaan.boot.model.Views;
 import projetShaan.shaan.boot.repository.IJoueurRepository;
@@ -82,6 +83,14 @@ public class UtilisateurController {
 		Joueur joueur = joueurRepo.findById(id).get();
 		return joueur;
 	}
+	
+	@GetMapping("/persos/{id}")
+	@JsonView(Views.ViewPersonnageDetail.class)
+	public List<Personnage> findByJoueur(@PathVariable Long id){
+		List<Personnage> personnages = persoRepo.findByJoueur(id);
+		return personnages;
+	}
+	
 	@PostMapping("")
 	@JsonView(Views.ViewUtilisateur.class)
 	public Utilisateur create (@RequestBody Utilisateur Utilisateur) {

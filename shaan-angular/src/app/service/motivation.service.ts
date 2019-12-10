@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class motivationService {
+export class MotivationService {
 
   private motivations: any;
 

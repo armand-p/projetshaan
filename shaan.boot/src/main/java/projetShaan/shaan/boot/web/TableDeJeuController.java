@@ -45,14 +45,24 @@ public class TableDeJeuController {
 		return tableDeJeu;
 	}
 	
+	@GetMapping("/mj/{id}")
+	@JsonView(Views.ViewTableDeJeuDetail.class)
+	public List<TableDeJeu> findAllbymj(@PathVariable Long id) {
+		List<TableDeJeu> tablesDeJeu = tableDeJeuRepo.findAllByMasterOfTheGame(id);
+
+		return tablesDeJeu;
+	}
+	
+	
+	
 	@PostMapping("")
-	@JsonView(Views.ViewTableDeJeu.class)
+	@JsonView(Views.ViewTableDeJeuDetail.class)
 	public TableDeJeu create (@RequestBody TableDeJeu tableDeJeu) {
 		return tableDeJeuRepo.save(tableDeJeu);
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewTableDeJeu.class)
+	@JsonView(Views.ViewTableDeJeuDetail.class)
 	public TableDeJeu update(@RequestBody TableDeJeu tableDeJeu,  @PathVariable Long id) {
 		return tableDeJeuRepo.save(tableDeJeu);
 	}
