@@ -30,8 +30,8 @@ public class Motivation {
 	private String description;
 	
 	@ManyToOne
-	@JoinColumn (name = "motivationId")
-	@JsonView(Views.ViewMotivationDetail.class)
+	@JoinColumn (name = "DomaineMotivation")
+	@JsonView(Views.ViewMotivation.class)
 	private Domaine domaineLie;
 
 	public Long getId() {
