@@ -24,7 +24,6 @@ export class PersonnageComponent implements OnInit {
   pouvoirPerso: Array<PouvoirPersonnage> = new Array<PouvoirPersonnage>();
   motivationPerso: Array<MotivationPersonnage> = new Array<MotivationPersonnage>();
 
-
   id: number;
 
   @Output()
@@ -60,9 +59,7 @@ export class PersonnageComponent implements OnInit {
 
   receptionSpecialisation(specilisationRecu: Array<BonusPersonnage>) {
     for (let i = 0; i < specilisationRecu.length; i++) {
-      this.bonusPerso.push(new BonusPersonnage());
-      this.bonusPerso[i].bonusPerso = specilisationRecu[i].bonusPerso;
-      this.bonusPerso[i].specialisation = specilisationRecu[i].specialisation;
+      this.bonusPerso.push(new BonusPersonnage(null, null, null, specilisationRecu[i].bonusPerso, specilisationRecu[i].specialisation, null, null,));
     }
   }
 
@@ -73,7 +70,13 @@ export class PersonnageComponent implements OnInit {
     }
   }
 
-  receptionMotivation(motivationRecu : Array<MotivationPersonnage>) {
+  receptionAcquis(acquisRecu: Array<BonusPersonnage>) {
+    for (let i = 0; i < acquisRecu.length; i++) {
+      this.bonusPerso.push(new BonusPersonnage(null, null, acquisRecu[i].bonusAcquis, null, acquisRecu[i].specialisation, acquisRecu[i].acquis, null,));
+    }
+  }
+
+  receptionMotivation(motivationRecu: Array<MotivationPersonnage>) {
     for (let i = 0; i < motivationRecu.length; i++) {
       this.motivationPerso.push(new MotivationPersonnage());
       this.motivationPerso[i].motivation = motivationRecu[i].motivation;
