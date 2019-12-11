@@ -88,21 +88,25 @@ listr():Array<Personnage>{
   delete(id){
     this.tableDeJeuService.findById(id).toPromise().then(resp =>{this.tableasupprimer=resp;
     if(this.tableasupprimer.personnages[0]){
+      let i :number =0;
+      console.log(this.tableasupprimer.personnages.length);
         for(let perso of this.tableasupprimer.personnages)
-        {  let i : number = 0;
+        {
 
           this.persoaenlever=perso;
           this.persoaenlever.parties=null;
           i=i+1;
-          if (i==this.tableasupprimer.personnages.length-1){
-          this.personnageService.savesimplepost(this.persoaenlever).toPromise().then(resp =>this.tableDeJeuService.deleteBydIdpost(id).toPromise().then(resp => this.load(this.masterOfTheGame.id)) );
+          console.log(i)
+          if (i==this.tableasupprimer.personnages.length){
+          this.personnageService.savesimplepost(this.persoaenlever).toPromise().then(resp =>this.tableDeJeuService.deleteBydIdpost(id).toPromise().then(resp => {this.load(this.masterOfTheGame.id);this.personnageService.loadPersoOrphanPartie()} ));
         }
           else{
             this.personnageService.savesimple(this.persoaenlever);
           }}
-          this.tableDeJeuService.load()}
+          this.tableDeJeuService.load();
+          this.personnageService.loadPersoOrphanPartie()}
       else{
-        this.tableDeJeuService.deleteBydIdpost(id).toPromise().then(resp => this.load(this.masterOfTheGame.id));
+        this.tableDeJeuService.deleteBydIdpost(id).toPromise().then(resp => {this.load(this.masterOfTheGame.id);this.tableDeJeuService.load();this.personnageService.loadPersoOrphanPartie()});
 
     }
 
