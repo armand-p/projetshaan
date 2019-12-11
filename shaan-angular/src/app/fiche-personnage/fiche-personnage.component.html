@@ -3,18 +3,8 @@
 
 
 <div class="princ">
-  <h4>Personnage</h4>
-  Nom : <span type="text">{{personnage.nom}}</span> |
-  Sexe : <span type="text">{{personnage.sexe}}</span> |
-  Age : <span type="text">{{personnage.age}}</span> |
-  Taille : <span type="text">{{personnage.taille}}</span> |
-  Poids : <span type="text">{{personnage.poids}}</span> |
 
-  Race : <span type="text">{{personnage.racePerso?.nomRace}}</span> |
-  Peuple : <span type="text" >{{personnage.peuplePerso?.nomPeuple}}</span> |
-  Caste : <span type="text" >{{personnage.castePerso?.nomCaste}}</span> |
-  Métier : <span type="text" >{{personnage.metierPerso?.nomMetier}}</span>
-  <br>
+
 
 <!--  Domaines : <span type="text">{{personnageService.domaineperso(personnage.id)}}</span>-->
 
@@ -22,16 +12,36 @@
 
 <!--<span *ngFor="let domaine of personnageService.domaineperso(id)">-->
   <br>
+  <div  style="display: flex" >
+
+    <div>
+      <h4>Personnage</h4>
+      <table style="margin-left: 1px">
+        <tr><td style="width: auto">Nom  :</td><td style="width: auto" type="text">{{personnage.nom}}</td></tr>
+        <tr><td>Sexe :</td><td style="width: auto" type="text">{{personnage.sexe}}</td></tr>
+
+        <tr><td> Age :</td><td style="width: auto" type="text">{{personnage.age}}</td></tr>
+        <tr><td>Taille :</td><td style="width: auto" type="text">{{personnage.taille}}</td></tr>
+        <tr><td>Poids :</td><td style="width: auto" type="text">{{personnage.poids}}</td></tr>
+
+        <tr><td>Race :</td><td style="width: auto" type="text">{{personnage.racePerso?.nomRace}}</td></tr>
+        <tr><td style="width: auto">Peuple :</td><td style="width: auto" type="text" >{{personnage.peuplePerso?.nomPeuple}}</td></tr>
+        <tr><td>Caste : </td><td style="width: auto" type="text" >{{personnage.castePerso?.nomCaste}}</td></tr>
+        <tr><td> Métier :</td><td style="width: auto" type="text" >{{personnage.metierPerso?.nomMetier}}</td></tr>
+        </table></div>
+
+
+  <div style="padding-left: 100px">
   <h4>Domaines</h4>
-  <table style="margin-left: 1px">
+  <table style="margin-left: 1px" border="color">
     <tr>
-    <th width="100">DOMAINE</th>
+    <th>DOMAINE</th>
     <th>RANG</th></tr>
     <tr *ngFor="let domaine of listDomaines">
-  <th>{{domaine.domaineLie.nom}}</th>
-  <th>{{domaine.rangDomaine}}</th>
+  <td>{{domaine.domaineLie.nom}}</td>
+  <td>{{domaine.rangDomaine}}</td>
 
-</tr></table>
+</tr></table></div>
 
 <!--  <br>-->
 
@@ -40,48 +50,75 @@
 <!--    <td>Rang Spé</td>-->
 <!--  </span>-->
 
-  <br><br><br>
+  <br>
+    <div style="padding-left: 100px">
   <h4>Spécialisations</h4>
-  <table style="margin-left: 1px">
+  <table border="color">
     <tr>
-      <th width="150">SPECIALISATION</th>
-      <th  width="100">DOMAINE</th>
+      <th>SPECIALISATION</th>
+      <th>DOMAINE</th>
       <th >BONUS</th>
     </tr>
 <ng-container *ngFor="let bonus of listBonus">
 
   <tr *ngIf="!bonus.acquis?.id">
-  <th>{{bonus.specialisation?.nom}}</th>
-   <th>{{bonus.specialisation?.domaineLie?.nom}}</th>
-    <th>{{bonus.bonusPerso}}</th>
+  <td>{{bonus.specialisation?.nom}}</td>
+   <td>{{bonus.specialisation?.domaineLie?.nom}}</td>
+    <td>{{bonus.bonusPerso}}</td>
 <!--    <th>{{bonus.bonusAcquis}}</th>-->
    </tr>
   </ng-container>
-  </table>
+  </table></div>
 
 
-<br>
+<br><div style="padding-left: 100px">
   <h4>Acquis</h4>
-  <table style="margin-left: 1px">
+  <table style="margin-left: 1px" border="color">
     <tr>
-      <th width="150">ACQUIS</th>
-      <th  width="200">SPECIALISATION</th>
+      <th>ACQUIS</th>
+      <th >SPECIALISATION</th>
       <th >BONUS</th>
     </tr>
   <ng-container *ngFor="let bonus of listBonus">
   <tr *ngIf="bonus.acquis?.id">
-  <th>{{bonus.acquis?.nom}}</th>
-    <th>{{bonus.specialisation?.nom}}</th>
-     <th>{{bonus.bonusAcquis}}</th>
+  <td>{{bonus.acquis?.nom}}</td>
+    <td>{{bonus.specialisation?.nom}}</td>
+     <td>{{bonus.bonusAcquis}}</td>
 <br>
 
 </tr>
-
-
-
-
   </ng-container>
-  </table>
+  </table></div>
+
+  <br><div style="padding-left: 100px">
+  <h4>Pouvoirs</h4>
+  <table style="margin-left: 1px; table-layout: auto" border="color">
+    <tr>
+      <th>POUVOIR</th>
+      <th>DOMAINE</th>
+    </tr>
+    <tr *ngFor="let pouvoir of listPouvoirs">
+        <td>{{pouvoir.pouvoir?.nomPouvoir}}</td>
+        <td>{{pouvoir.pouvoir?.domaineLie?.nom}}</td>
+        <br>
+    </tr>
+  </table></div>
+
+  <br><div style="padding-left: 100px">
+  <h4>Motivations</h4>
+  <table style="margin-left: 1px; table-layout: auto" border="color" >
+    <tr>
+      <th>MOTIVATION</th>
+<!--      <th  width="200">DESCRIPTION</th>-->
+    </tr>
+    <tr *ngFor="let motivation of listMotivation">
+      <td>{{motivation.motivation?.nomMotivation}}</td>
+<!--      <td>{{motivation.motivation?.description}}</td>-->
+<!--      <td>DESC</td>-->
+      <br>
+    </tr>
+  </table></div>
+  <br>
 <!--  <span *ngIf="bonus.acquis.id">-->
 
 <!--  </span>-->
@@ -98,4 +135,5 @@
 <!--      {{perso.peuplePerso?.nomPeuple}}<br>-->
 
 
+</div><br>
 </div>
