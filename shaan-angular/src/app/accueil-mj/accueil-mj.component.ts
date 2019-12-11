@@ -6,6 +6,7 @@ import {Personnage} from '../model/Personnage';
 import {UtilisateurService} from '../service/utilisateur.service';
 import {ActivatedRoute} from '@angular/router';
 import {MaitreDuJeu} from '../model/MaitreDuJeu';
+import {isNullOrUndefined} from 'util';
 
 @Component({
   selector: 'app-accueil-mj',
@@ -91,7 +92,9 @@ listr():Array<Personnage>{
           this.persoaenlever.parties=null;
           this.personnageService.savesimple(this.persoaenlever);
           this.tableDeJeuService.load()}
-      this.tableDeJeuService.deleteBydIdpost(id).toPromise().then(resp => this.load(this.masterOfTheGame.id));
+        console.log(this.tableasupprimer.personnages)
+        if(this.tableasupprimer.personnages = isNullOrUndefined()){
+      this.tableDeJeuService.deleteBydIdpost(id).toPromise().then(resp => this.load(this.masterOfTheGame.id));}
 
       }
 
