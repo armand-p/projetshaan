@@ -13,3 +13,8 @@
   margin: auto;
   padding-left: 20px;
 }
+button{
+
+  box-shadow: 3px 3px black;
+  border-radius: 5px;
+}

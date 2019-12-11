@@ -11,3 +11,8 @@ table{
   margin: auto;
   width: 50%;
 }
+button{
+
+  box-shadow: 3px 3px black;
+  border-radius: 5px;
+}
