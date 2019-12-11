@@ -37,7 +37,6 @@ export class PersonnageMotivationComponent implements OnInit {
 
   listDomaine(): Array<DomainePersonnage> {
     this.listMotivation();
-    // return this.domaines = this.domaineService.findAll();
     return this.domainePerso.filter(domainePerso => domainePerso.rangDomaine >=5);
   }
 
