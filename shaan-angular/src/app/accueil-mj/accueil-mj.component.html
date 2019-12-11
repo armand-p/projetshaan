@@ -38,8 +38,8 @@
     <input type="text" class="form-control" [(ngModel)]="tabledujeu.nom" [ngModelOptions]="{standalone: true}" id="nom">
   </div>
     <div class="form-group">
-     <button type="button" class="btn btn-primary btn-circle" (click)="save()"><i class="fas fa-save"></i></button>
-      <button type="button" class="btn btn-primary btn-circle" (click)="closeadd()"><i class="fas fa-reply"></i></button>
+     <button type="button" class="btn btn-primary btn-light btn-circle" (click)="save()"><i class="fas fa-save"></i></button>
+      <button type="button" class="btn btn-primary btn-light btn-circle" (click)="closeadd()"><i class="fas fa-reply"></i></button>
     </div>
 
   </form>
@@ -52,10 +52,11 @@
     </tr>
   <tr *ngFor="let perso of add()">
     <td>{{perso.nom}}</td>
-    <td><button type="button" class="btn btn-primary btn-circle" (click)="linkparties(perso)"><i class="fas fa-plus"></i></button></td>
+    <td>{{perso.joueur?.pseudo}}</td>
+    <td><button type="button" class="btn btn-primary btn-light btn-circle" (click)="linkparties(perso)"><i class="fas fa-plus"></i></button></td>
   </tr>
   </table>
-  <button type="button" class="btn btn-primary btn-circle" (click)="close()"><i class="fas fa-reply"></i></button>
+  <button type="button" class="btn btn-primary btn-light btn-circle" (click)="close()"><i class="fas fa-reply"></i></button>
 </div>
   <div *ngIf="showRemove" class="princ">
     <h1>Retrait de personnages</h1>
@@ -65,10 +66,11 @@
       </tr>
       <tr *ngFor="let perso of listr()">
         <td>{{perso.nom}}</td>
-        <td><button type="button" class="btn btn-primary btn-circle" (click)="unlinkparties(perso)"><i class="fas fa-minus"></i></button></td>
+        <td>{{perso.joueur?.pseudo}}</td>
+        <td><button type="button" class="btn btn-primary btn-light btn-circle" (click)="unlinkparties(perso)"><i class="fas fa-minus"></i></button></td>
       </tr>
     </table>
-    <button type="button" class="btn btn-primary btn-circle" (click)="closer()"><i class="fas fa-reply"></i></button>
+    <button type="button" class="btn btn-primary btn-light btn-circle" (click)="closer()"><i class="fas fa-reply"></i></button>
   </div>
 </div>
 

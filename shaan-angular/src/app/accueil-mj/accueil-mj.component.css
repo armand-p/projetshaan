@@ -8,3 +8,7 @@
   border-color: gold;
 
 }
+button{
+  box-shadow: 3px 3px;
+  border-radius: 5px;
+}
