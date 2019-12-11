@@ -18,7 +18,8 @@ const routes: Routes = [
   {path: 'creationcompte', component: CreationCompteComponent},
   {path: 'accueiljoueur/:id', component: AccueilJoueurComponent},
   {path: 'accueilmj/:id', component: AccueilMjComponent},
-  {path: 'tabledejeu/:id', component: TableDeJeuComponent},
+  {path: 'tabledejeu/:idMJ/:id', component: TableDeJeuComponent},
+  {path: 'tabledejeu/:id/player/:idJoueur', component: TableDeJeuComponent},
   {path: 'fichePerso/:id', component: FichePersonnageComponent}
 ];
 

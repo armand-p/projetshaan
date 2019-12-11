@@ -36,5 +36,6 @@
 
   </table>
 
-
+  <button *ngIf="this.idMJ" type="button" class="btn btn-primary btn-circle" [routerLink]="['/accueilmj/'+this.idMJ]"><i class="fas fa-reply"></i></button>
+  <button *ngIf="this.idJoueur" type="button" class="btn btn-primary btn-circle" [routerLink]="['/accueiljoueur/'+this.idJoueur]"><i class="fas fa-reply"></i></button>
 </div>

@@ -33,7 +33,13 @@ export class tableDeJeuService {
     return this.http.get(this.appConfigService.backEnd + 'tableDeJeu/mj/' + id);
   }
 
-
+  savepost(tableDeJeu: TableDeJeu): Observable<any> {
+    if (tableDeJeu.id) {
+      return this.http.put(this.appConfigService.backEnd + 'tableDeJeu/' + tableDeJeu.id, tableDeJeu)
+    } else {
+     return this.http.post(this.appConfigService.backEnd + 'tableDeJeu/', tableDeJeu)
+    }
+  }
 
   save(tableDeJeu: TableDeJeu) {
     if (tableDeJeu.id) {
@@ -41,6 +47,9 @@ export class tableDeJeuService {
     } else {
       this.http.post(this.appConfigService.backEnd + 'tableDeJeu/', tableDeJeu).subscribe(resp => {this.load();console.log("save")});
     }
+  }
+  deleteBydIdpost(id: number): Observable<any> {
+    return this.http.delete(this.appConfigService.backEnd + 'tableDeJeu/' + id);
   }
 
   deleteBydId(id: number) {
