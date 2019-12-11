@@ -12,8 +12,8 @@ div [value=error]{
   text-align: left;
 }
 button{
-  background-color: aliceblue;
-  box-shadow: 3px 3px;
+  background-color: beige;
+  box-shadow: 3px 3px black;
   border-radius: 5px;
 }
 

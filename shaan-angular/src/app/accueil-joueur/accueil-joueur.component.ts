@@ -1,7 +1,7 @@
 import {Personnage} from "../model/Personnage";
 
 templateUrl: './accueil-joueur.component.html'
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {Produit} from "../../../../../tpAngular/src/app/produit";
 import {PersonnageService} from "../service/personnage.service";
 import {Peuple} from "../model/Peuple";
@@ -20,7 +20,7 @@ export class AccueilJoueurComponent implements OnInit {
   personnages: Array<Personnage> = new Array<Personnage>();
   personnage : Personnage=null;
   joueurId : number;
-
+  utilisateurId:string;
 
   constructor(private personnageService: PersonnageService, private route:ActivatedRoute) {
     this.route.params.subscribe(params =>this.joueurId=params.id);
@@ -29,6 +29,7 @@ export class AccueilJoueurComponent implements OnInit {
 
 
   ngOnInit() {
+    localStorage.setItem(this.utilisateurId, String(this.joueurId));
   }
 
   public list(): any  {

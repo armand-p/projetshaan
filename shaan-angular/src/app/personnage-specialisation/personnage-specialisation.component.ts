@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Domaine} from "../model/Domaine";
 import {DomaineService} from "../service/domaine.service";
 import {SpecialisationService} from "../service/specialisation.service";
@@ -6,6 +6,7 @@ import {Specialisation} from "../model/Specialisation";
 import {Observable, Subscription} from "rxjs";
 import {BonusPersonnage} from "../model/BonusPersonnage";
 import {Personnage} from "../model/Personnage";
+import {DomainePersonnage} from '../model/DomainePersonnage';
 
 @Component({
   selector: 'personnage-specialisation',
@@ -17,16 +18,29 @@ export class PersonnageSpecialisationComponent implements OnInit {
   @Output()
   specialisationEnvoi = new EventEmitter<Array<BonusPersonnage>>();
 
+  @Input("current")
+  domainePerso : Array<DomainePersonnage>;
+
   specialisations: Array<Specialisation> = new Array<Specialisation>();
   domaines: Array<Domaine> = new Array<Domaine>();
   bonusPers: Array<BonusPersonnage> = new Array<BonusPersonnage>();
   id: number = null;
+  counter:number = 4;
+
+  @Input("current")
+  personnage: Personnage;
 
 
   constructor(private domaineService: DomaineService, private specialisationService: SpecialisationService) {
   }
 
   ngOnInit() {
+    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.racePerso.specialisation1,null,null));
+    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.racePerso.specialisation2,null,null));
+    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.peuplePerso.specialisation1,null,null));
+    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.peuplePerso.specialisation2,null,null));
+    this.bonusPers.push(new BonusPersonnage(null,null,null,2,this.personnage.metierPerso.specialisation,null,null));
+
   }
 
   listDomaine(): Array<Domaine> {

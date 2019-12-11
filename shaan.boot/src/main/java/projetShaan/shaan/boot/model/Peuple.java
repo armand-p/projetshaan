@@ -33,11 +33,11 @@ public class Peuple {
 	private Domaine domaine;
 	@OneToOne
 	@JoinColumn(name = "Specialisation_1_ID")
-	@JsonView(Views.ViewPeupleDetail.class)
+	@JsonView(Views.ViewPeuple.class)
 	private Specialisation specialisation1;
 	@OneToOne
 	@JoinColumn(name = "Specialisation_2_ID")
-	@JsonView(Views.ViewPeupleDetail.class)
+	@JsonView(Views.ViewPeuple.class)
 	private Specialisation specialisation2;
 
 	public Peuple() {

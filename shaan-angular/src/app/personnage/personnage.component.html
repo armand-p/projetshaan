@@ -7,7 +7,8 @@
 <div class="container" >
   <div style="flex: 60%">
     <p>Nom : <input type="text" [(ngModel)]="personnage.nom">
-      Sexe : <input type="radio" name="sexe"> M <input type="radio" name="sexe"> F
+      Sexe : <input type="radio" name="sexe" value="male" [(ngModel)]="personnage.sexe"> Male <input type="radio" name="sexe" value="femelle" [(ngModel)]="personnage.sexe"> Femelle
+      <input type="radio" name="sexe" value="nomoï" [(ngModel)]="personnage.sexe"> Nomoï
     Age : <input type="text" [(ngModel)]="personnage.age">
     </p>
     <p><span *ngIf="personnage.racePerso"><b>Race : </b><input type="text" [(ngModel)]="personnage.racePerso.nomRace"></span>
@@ -28,6 +29,9 @@
 
     <p>
       <button (click)="save()" class="btn btn-info btn-circle">Validation</button>
+    </p>
+    <p>
+      <button (click)="retour()" class="btn btn-warning btn-circle">Retour</button>
     </p>
     <p>
       <button class="btn btn-danger btn-circle">Effacer</button>
@@ -57,13 +61,13 @@
 
       <personnage-identite *ngIf="page === 'identite'" (personnageEnvoi)="receptionPerso($event)" (domainePersoEnvoi)="receptionDomaine($event)"></personnage-identite>
 
-      <personnage-specialisation *ngIf="page === 'specialisation'" (specialisationEnvoi)="receptionSpecialisation($event)"></personnage-specialisation>
+      <personnage-specialisation *ngIf="page === 'specialisation'" (specialisationEnvoi)="receptionSpecialisation($event)" [current]="personnage"></personnage-specialisation>
 
       <personnage-pouvoir *ngIf="page === 'pouvoir'" (pouvoirEnvoi)="receptionPouvoir($event)" [current]="domainePerso"></personnage-pouvoir>
 
-      <personnage-acquis *ngIf="page === 'acquis'" (acquisEnvoi)="receptionAcquis($event)"></personnage-acquis>
+      <personnage-acquis *ngIf="page === 'acquis'" (acquisEnvoi)="receptionAcquis($event)" [current]="domainePerso"></personnage-acquis>
 
-      <personnage-motivation *ngIf="page === 'motivation'" (motivationEnvoi)="receptionMotivation($event)"></personnage-motivation>
+      <personnage-motivation *ngIf="page === 'motivation'" (motivationEnvoi)="receptionMotivation($event)" [current]="domainePerso"></personnage-motivation>
 
   </div>
 </div>

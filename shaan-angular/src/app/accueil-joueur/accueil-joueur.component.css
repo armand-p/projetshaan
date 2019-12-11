@@ -8,3 +8,6 @@
 .notprinc{
   display: block;
 }
+button{
+  border-radius: 5px;
+}

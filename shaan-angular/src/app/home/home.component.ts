@@ -22,7 +22,8 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private utilisateurService: UtilisateurService) {
   }
 
-  ngOnInit() {
+  ngOnInit() {;
+
   }
 
   validate() {

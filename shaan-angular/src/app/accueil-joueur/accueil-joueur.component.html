@@ -18,27 +18,24 @@
 
 
     <tr *ngFor ="let personnage of personnages">
-<!--      // of perso(this.joueurId)-->
       <td> {{ personnage.nom }}</td>
       <td> {{ personnage.racePerso?.nomRace}} </td>
       <td> {{ personnage.peuplePerso?.nomPeuple }}</td>
       <td> {{ personnage.castePerso?.nomCaste }} </td>
       <td> {{ personnage.metierPerso?.nomMetier }}</td>
       <td> {{ personnage.parties?.nom }} </td>
-      <th><button title="Modifier" type="button" style="color:#4497BD" class="btn  btn-light btn-circle" (click)="edit(personnage.id)" [routerLink]="['/personnage/'+personnage.id]"><i class="fas fa-user-edit"></i></button></th>
+      <th><button title="Modifier" type="button" style="color:#4497BD" class="btn  btn-light btn-circle" (click)="edit(personnage.id)" [routerLink]="['/'+joueurId+'/personnage/'+personnage.id]"><i class="fas fa-user-edit"></i></button></th>
       <th><button type="button" style="color:#DE1423" class="btn  btn-light btn-circle" (click)="delete(personnage.id)"><i class="fas fa-trash-alt"></i></button></th>
-      <th><button type="button" style="color:#DE1423" class="btn  btn-light btn-circle" [routerLink]="['/tableDeJeu/',personnage.parties?.id]"><i class="fas fa-external-link-square-alt"></i></button></th>
+      <th><button type="button" style="color:#DE1423" class="btn  btn-light btn-circle" [routerLink]="['/tabledejeu/'+personnage.parties?.id+'/player/'+this.joueurId]"><i class="fas fa-external-link-square-alt"></i></button></th>
     </tr>
 
-
-<!--    [routerLink]="['/personnage']-->
 
     </tbody>
   </table>
   <br>
 <table>
   <th><button title="Retour" type="button" class="btn btn-danger btn-circle" [routerLink]="['']"><i class="fas fa-arrow-alt-circle-left"></i></button></th>
-  <th><button title="Nouveau Personnage" type="button" class="btn btn-primary btn-circle"  [routerLink]="['/personnage']"><i class="fas fa-user-plus"></i></button></th>
+  <th><button title="Nouveau Personnage" type="button" class="btn btn-primary btn-circle" [routerLink]="['/'+joueurId+'/personnage']" ><i class="fas fa-user-plus"></i></button></th>
 
 </table>
 

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {BonusPersonnage} from "../model/BonusPersonnage";
 import {Specialisation} from "../model/Specialisation";
 import {Domaine} from "../model/Domaine";
@@ -8,6 +8,7 @@ import {Acquis} from "../model/Acquis";
 import {AcquisService} from "../service/acquis.service";
 import {SpecialisationAcquisService} from "../service/specialisation-acquis.service";
 import {SpecialisationAcquis} from "../model/SpecialisationAcquis";
+import {DomainePersonnage} from "../model/DomainePersonnage";
 
 @Component({
   selector: 'personnage-acquis',
@@ -24,6 +25,10 @@ export class PersonnageAcquisComponent implements OnInit {
   bonusPers: Array<BonusPersonnage> = new Array<BonusPersonnage>();
   specialisationAcquis: Array<SpecialisationAcquis> = new Array<SpecialisationAcquis>();
   id: number = null;
+  counter : number = 5;
+
+  @Input("current")
+  domainePerso : Array<DomainePersonnage>;
 
 
   constructor(private domaineService: DomaineService, private acquisService: AcquisService, private specialisationAcquisService: SpecialisationAcquisService) {
@@ -32,10 +37,11 @@ export class PersonnageAcquisComponent implements OnInit {
   ngOnInit() {
   }
 
-  listDomaine(): Array<Domaine> {
+  listDomaine(): Array<DomainePersonnage> {
     this.listAcquis();
     this.listSpecialisationAcquis();
-    return this.domaines = this.domaineService.findAll();
+    // return this.domaines = this.domaineService.findAll();
+    return this.domainePerso.filter(domainePerso => domainePerso.rangDomaine >=5);
   }
 
   listAcquis() {
