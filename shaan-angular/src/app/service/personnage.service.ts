@@ -157,6 +157,11 @@ export class PersonnageService {
   deleteBydId(id: number) {
     this.http.delete(this.appConfigService.backEnd + 'personnage/' + id).subscribe(resp => this.load());
   }
+  deleteBydIdpost(id: number):Observable<any> {
+    return this.http.delete(this.appConfigService.backEnd + 'personnage/' + id);
+  }
+
+
 
   domaineperso(id:number):Observable<Array<DomainePersonnage>> {
     return this.http.get<Array<DomainePersonnage>>(this.appConfigService.backEnd + 'personnage/' + id + '/domaine');
