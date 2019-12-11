@@ -1,4 +1,5 @@
 <div class="princ">
+  <h5>Sélectionnez vos {{counter}} Spécialisations</h5>
   <h3>Spécialisation :</h3>
 
   <div class="container ">
@@ -15,8 +16,8 @@
             <div *ngFor="let specialisation of triSpecialisation(domaine.nom)">
               <br>
               <h6>{{specialisation.nom}}
-                <button (click)="ajouteSpe(specialisation)">+</button>
-                <button [hidden]="findSpe(specialisation)" (click)="suppressionSpe(specialisation)">-</button>
+                <button [hidden]="counter==0" (click)="ajouteSpe(specialisation); this.counter=this.counter-1">+</button>
+                <button [hidden]="findSpe(specialisation)" (click)="suppressionSpe(specialisation); this.counter=this.counter-1">-</button>
               </h6>
               <br>
               <b>{{specialisation.description}}</b>

@@ -1,4 +1,5 @@
 <div class="princ">
+  <h5>Sélectionnez vos {{counter}} Motivations</h5>
   <h3>Motivation :</h3>
 
   <div class="container">
@@ -14,13 +15,13 @@
           <div *ngIf="motivations && domaines">
             <div *ngFor="let motivation of triMotivation(domaine.domaineLie.nom)">
               <h6>{{motivation.nomMotivation}}
-                <button [hidden]="!findMotivation(motivation)" (click)="ajouteMotivation(motivation)">+</button>
-                <button [hidden]="findMotivation(motivation)" (click)="suppressionMotivation(motivation)">-</button>
+                <button [hidden]="!findMotivation(motivation)||counter==0" (click)="ajouteMotivation(motivation); this.counter=this.counter-1">+</button>
+                <button [hidden]="findMotivation(motivation)" (click)="suppressionMotivation(motivation); this.counter=this.counter+1">-</button>
               </h6>
             </div>
           </div>
         </div>
-        <button (click)="envoi()">Validation</button>
+        <button [disabled]="counter!=0" (click)="envoi()">Validation</button>
       </div>
 
 

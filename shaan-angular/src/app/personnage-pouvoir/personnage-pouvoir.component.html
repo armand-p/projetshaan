@@ -1,4 +1,5 @@
 <div class="princ">
+  <h5>Sélectionnez vos {{counter}} Pouvoirs</h5>
   <h3>Pouvoirs :</h3>
 
   <div class="container">
@@ -15,8 +16,8 @@
             <div *ngFor="let pouvoir of triPouvoir(domaine.domaineLie.nom)">
               <br>
               <h6>{{pouvoir.nomPouvoir}}
-                <button [hidden]="!findPouvoir(pouvoir)" (click)="ajoutePouvoir(pouvoir)">+</button>
-                <button [hidden]="findPouvoir(pouvoir)" (click)="suppressionPouvoir(pouvoir)">-</button>
+                <button [hidden]="!findPouvoir(pouvoir)||counter==0" (click)="ajoutePouvoir(pouvoir); this.counter=this.counter-1">+</button>
+                <button [hidden]="findPouvoir(pouvoir)" (click)="suppressionPouvoir(pouvoir); this.counter=this.counter+1">-</button>
               </h6>
               <br>
               <b>{{pouvoir.description}}</b>
@@ -24,7 +25,7 @@
             </div>
           </div>
         </div>
-        <button (click)="envoi()" class="btn btn-info btn-circle">Validation</button>
+        <button [disabled]="counter!=0" (click)="envoi()" class="btn btn-info btn-circle">Validation</button>
       </div>
 
 
