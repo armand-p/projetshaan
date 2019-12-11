@@ -1,34 +1,34 @@
+<h5> Sélectionnez vos {{counter}} Pouvoirs</h5>
+
 <div class="princ">
-<h3>Pouvoirs :</h3>
-
-<div class="container">
-  <div style="flex: 60%">
-    <div *ngFor="let domaine of listDomaine()" class="princ">
-      <h5>{{domaine.domaineLie.nom}}</h5>
-      <div *ngIf="pouvoirs && domaines">
-        <div *ngFor="let pouvoir of triPouvoir(domaine.domaineLie.nom)">
-          <br>
-          <h6>{{pouvoir.nomPouvoir}}
-            <button [hidden]="!findPouvoir(pouvoir)" (click)="ajoutePouvoir(pouvoir)">+</button>
-            <button [hidden]="findPouvoir(pouvoir)" (click)="suppressionPouvoir(pouvoir)">-</button>
-          </h6>
-          <br>
-          <b>{{pouvoir.description}}</b>
-          <br>
-        </div>
-      </div>
-    </div>
-    <button (click)="envoi()" class="btn btn-info btn-circle">Validation</button>
-  </div>
-
-
-  <div style="flex: 10%" class="princ">
+  <span style="flex: 10%" class="princ">
     <div *ngIf="pouvoirPerso">
       <div *ngFor="let pouvoir of pouvoirPerso">
         <p>{{pouvoir.pouvoir.nomPouvoir}}</p>
       </div>
     </div>
 
-  </div>
-</div>
+    <h3>Pouvoirs :</h3>
+
+    <div class="container">
+      <div style="flex: 60%">
+        <div *ngFor="let domaine of listDomaine()" class="princ">
+          <h5>{{domaine.domaineLie.nom}}</h5>
+          <div *ngIf="pouvoirs && domaines">
+            <div *ngFor="let pouvoir of triPouvoir(domaine.domaineLie.nom)">
+              <br>
+              <h6>{{pouvoir.nomPouvoir}}
+                <button [hidden]="!findPouvoir(pouvoir)||this.counter==0" (click)="ajoutePouvoir(pouvoir); this.counter=this.counter-1">+</button>
+                <button [hidden]="findPouvoir(pouvoir)" (click)="suppressionPouvoir(pouvoir); this.counter=this.counter+1">-</button>
+              </h6>
+              <br>
+              <b>{{pouvoir.description}}</b>
+              <br>
+            </div>
+          </div>
+        </div>
+        <button (click)="envoi()" class="btn btn-info btn-circle">Validation</button>
+      </div>
+    </div>
+  </span>
 </div>

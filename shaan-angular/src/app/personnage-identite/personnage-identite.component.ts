@@ -50,7 +50,6 @@ export class PersonnageIdentiteComponent implements OnInit {
         }else{
           this.domainePerso[7].rangDomaine=5;
           this.c5= this.c5+1;
-          console.log(this.c5);
         }
       }else if (this.personnage.racePerso.nomRace == "Darkens"){
         if (this.domainePerso[8].rangDomaine>=5){
@@ -299,8 +298,6 @@ export class PersonnageIdentiteComponent implements OnInit {
       this.hidden = false;
     }
    this.cf= 8+3*(4-this.c5);
-    console.log(this.c5);
-    console.log(this.cf);
   }
 
 
