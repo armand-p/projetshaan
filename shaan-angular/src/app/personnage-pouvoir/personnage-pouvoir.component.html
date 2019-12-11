@@ -1,34 +1,33 @@
 <div class="princ">
-<h3>Pouvoirs :</h3>
+  <h3>Pouvoirs :</h3>
 
-<div class="container">
-  <div style="flex: 60%">
-    <div *ngFor="let domaine of listDomaine()" class="princ">
-      <h5>{{domaine.domaineLie.nom}}</h5>
-      <div *ngIf="pouvoirs && domaines">
-        <div *ngFor="let pouvoir of triPouvoir(domaine.domaineLie.nom)">
-          <br>
-          <h6>{{pouvoir.nomPouvoir}}
-            <button [hidden]="!findPouvoir(pouvoir)" (click)="ajoutePouvoir(pouvoir)">+</button>
-            <button [hidden]="findPouvoir(pouvoir)" (click)="suppressionPouvoir(pouvoir)">-</button>
-          </h6>
-          <br>
-          <b>{{pouvoir.description}}</b>
-          <br>
+  <div class="container">
+    <div style="flex: 10%">
+      <div *ngIf="pouvoirPerso" class="princ">
+        <div *ngFor="let pouvoir of pouvoirPerso">
+          <p>{{pouvoir.pouvoir.nomPouvoir}}</p>
         </div>
       </div>
-    </div>
-    <button (click)="envoi()" class="btn btn-info btn-circle">Validation</button>
-  </div>
-
-
-  <div style="flex: 10%" class="princ">
-    <div *ngIf="pouvoirPerso">
-      <div *ngFor="let pouvoir of pouvoirPerso">
-        <p>{{pouvoir.pouvoir.nomPouvoir}}</p>
+      <div style="flex: 60%">
+        <div *ngFor="let domaine of listDomaine()" class="princ">
+          <h5>{{domaine.domaineLie.nom}}</h5>
+          <div *ngIf="pouvoirs && domaines">
+            <div *ngFor="let pouvoir of triPouvoir(domaine.domaineLie.nom)">
+              <br>
+              <h6>{{pouvoir.nomPouvoir}}
+                <button [hidden]="!findPouvoir(pouvoir)" (click)="ajoutePouvoir(pouvoir)">+</button>
+                <button [hidden]="findPouvoir(pouvoir)" (click)="suppressionPouvoir(pouvoir)">-</button>
+              </h6>
+              <br>
+              <b>{{pouvoir.description}}</b>
+              <br>
+            </div>
+          </div>
+        </div>
+        <button (click)="envoi()" class="btn btn-info btn-circle">Validation</button>
       </div>
-    </div>
 
+
+    </div>
   </div>
-</div>
 </div>

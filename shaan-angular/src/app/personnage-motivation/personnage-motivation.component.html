@@ -1,28 +1,29 @@
-<h3>Pouvoirs :</h3>
+<div class="princ">
+  <h3>Motivation :</h3>
 
-<div class="container">
-  <div style="flex: 60%">
-    <div *ngFor="let domaine of listDomaine()">
-      <h5>{{domaine.domaineLie.nom}}</h5>
-      <div *ngIf="motivations && domaines">
-        <div *ngFor="let motivation of triMotivation(domaine.domaineLie.nom)">
-          <h6>{{motivation.nomMotivation}}
-            <button [hidden]="!findMotivation(motivation)" (click)="ajouteMotivation(motivation)">+</button>
-            <button [hidden]="findMotivation(motivation)" (click)="suppressionMotivation(motivation)">-</button>
-          </h6>
+  <div class="container">
+    <div style="flex: 10%">
+      <div *ngIf="motivationrPerso" class="princ">
+        <div *ngFor="let motivation of motivationrPerso">
+          <p>{{motivation.motivation.nomMotivation}}</p>
         </div>
       </div>
-    </div>
-    <button (click)="envoi()">Validation</button>
-  </div>
-
-
-  <div style="flex: 10%">
-    <div *ngIf="motivationrPerso">
-      <div *ngFor="let motivation of motivationrPerso">
-        <p>{{motivation.motivation.nomMotivation}}</p>
+      <div style="flex: 60%">
+        <div *ngFor="let domaine of listDomaine()" class="princ">
+          <h5>{{domaine.domaineLie.nom}}</h5>
+          <div *ngIf="motivations && domaines">
+            <div *ngFor="let motivation of triMotivation(domaine.domaineLie.nom)">
+              <h6>{{motivation.nomMotivation}}
+                <button [hidden]="!findMotivation(motivation)" (click)="ajouteMotivation(motivation)">+</button>
+                <button [hidden]="findMotivation(motivation)" (click)="suppressionMotivation(motivation)">-</button>
+              </h6>
+            </div>
+          </div>
+        </div>
+        <button (click)="envoi()">Validation</button>
       </div>
-    </div>
 
+
+    </div>
   </div>
 </div>

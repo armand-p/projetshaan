@@ -1,3 +1,6 @@
+.container{
+  display: flex;
+}
 
 .princ {
   background-color: #F5F5DCE1;
