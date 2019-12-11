@@ -32,7 +32,6 @@ export class PersonnagePouvoirComponent implements OnInit {
   @Input('current')
   domainePerso: Array<DomainePersonnage>;
 
-
   constructor(private domaineService: DomaineService, private pouvoirService: PouvoirService) {
   }
 
