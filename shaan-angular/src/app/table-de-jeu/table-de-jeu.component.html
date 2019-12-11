@@ -3,7 +3,7 @@
     <tr>
       <td></td>
       <ng-container *ngFor="let perso of tabledejeu.personnages, let i=index "> <td align="center" *ngIf="i<tabledejeu.personnages.length/2">
-      <div  class="container" [routerLink]="['/fichePerso/',perso.id]">
+      <div  class="container" (click)="montrer(perso.id)">
         {{perso.nom}}<br>
         {{perso.age}} ans<br>
         {{perso.metierPerso?.nomMetier}}<br>
@@ -22,7 +22,7 @@
     <tr>
       <td></td>
     <ng-container *ngFor="let perso of tabledejeu.personnages, let i=index "> <td align="center" *ngIf="i>=tabledejeu.personnages.length/2">
-      <div [routerLink]="['/fichePerso/',perso.id]">
+      <div (click)="montrer(perso.id)">
         {{perso.nom}}<br>
         {{perso.age}} ans<br>
         {{perso.metierPerso?.nomMetier}}<br>
@@ -38,4 +38,10 @@
 
   <button *ngIf="this.idMJ" type="button" class="btn btn-primary btn-circle" [routerLink]="['/accueilmj/'+this.idMJ]"><i class="fas fa-reply"></i></button>
   <button *ngIf="this.idJoueur" type="button" class="btn btn-primary btn-circle" [routerLink]="['/accueiljoueur/'+this.idJoueur]"><i class="fas fa-reply"></i></button>
+</div>
+
+<div *ngIf="show" class="princ">
+
+  <app-fiche-personnage  [current]="idPerso" > </app-fiche-personnage>
+  <button type="button" class="btn btn-warning  btn-circle" (click)="close()"><i class="fas fa-reply"></i></button>
 </div>

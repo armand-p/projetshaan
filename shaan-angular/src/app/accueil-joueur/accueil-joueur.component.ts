@@ -22,6 +22,11 @@ export class AccueilJoueurComponent implements OnInit {
   joueurId : number;
   utilisateurId:string;
 
+  motDePasse;
+  pseudo;
+  id;
+  type;
+
   constructor(private personnageService: PersonnageService, private route:ActivatedRoute) {
     this.route.params.subscribe(params =>this.joueurId=params.id);
     this.load();
@@ -51,6 +56,15 @@ load(){
   delete(id: number) {
     this.personnageService.deleteBydIdpost(id).subscribe(resp =>this.load());
     this.load();
+  }
+
+  unlog(){
+    localStorage.setItem('isLoggedin', 'false');
+    localStorage.setItem(this.motDePasse, null);
+    localStorage.setItem(this.pseudo, null);
+    localStorage.setItem(this.id, null);
+    localStorage.setItem(this.type, null);
+
   }
 
 

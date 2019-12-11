@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Personnage} from "../model/Personnage";
 import {PersonnageService} from "../service/personnage.service";
 import {ActivatedRoute} from "@angular/router";
@@ -22,6 +22,7 @@ import {MotivationPersonnageService} from "../service/motivation-personnage.serv
 export class FichePersonnageComponent implements OnInit {
 
   personnage: Personnage = new Personnage();
+  @Input("current")
   id: number;
   private Domaines: Array<DomainePersonnage>;
   listDomaines: Array<DomainePersonnage>;
@@ -39,9 +40,15 @@ export class FichePersonnageComponent implements OnInit {
   this.personnageService.pouvoirPersonnage(this.id).subscribe(resp =>this.listPouvoirs=resp);
   this.personnageService.motivationPersonnage(this.id).subscribe(resp => this.listMotivation=resp);
 
+
   }
 
   ngOnInit() {
+    console.log(this.id);
+    this.personnageService.findById(this.id).subscribe(resp => this.personnage = resp );
+    this.personnageService.domaineperso(this.id).subscribe(resp => {this.listDomaines = resp});
+    // this.specialisationService.speDomaines(this.id).subscribe(resp => this.listSpecialisations = resp);
+    this.personnageService.bonusPersonnage(this.id).subscribe(resp => this.listBonus=resp);
   }
 
   public list(): any {
