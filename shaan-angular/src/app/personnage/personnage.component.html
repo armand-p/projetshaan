@@ -1,34 +1,37 @@
 <br>
 <div class="container princ">
-<div class="container">
-  <h3>Information personnage</h3>
-</div>
-
-<div class="container" >
-  <div style="flex: 60%">
-    <p>Nom : <input type="text" [(ngModel)]="personnage.nom">
-      Sexe : <input type="radio" name="sexe" value="male" [(ngModel)]="personnage.sexe"> Male <input type="radio" name="sexe" value="femelle" [(ngModel)]="personnage.sexe"> Femelle
-      <input type="radio" name="sexe" value="nomoï" [(ngModel)]="personnage.sexe"> Nomoï
-    Age : <input type="text" [(ngModel)]="personnage.age">
-    </p>
-    <p><span *ngIf="personnage.racePerso"><b>Race : </b><input type="text" [(ngModel)]="personnage.racePerso.nomRace"></span>
-      Taille : <input type="text" [(ngModel)]="personnage.taille">
-      Motivation : <input type="text">
-      Poids : <input type="text" [(ngModel)]="personnage.poids">
-    </p>
-    <p><b>Peuple : </b><span *ngIf="personnage.peuplePerso">{{personnage.peuplePerso.nomPeuple}}</span>
-
-    </p>
-    <p><b>Caste : </b><span *ngIf="personnage.castePerso">{{personnage.castePerso.nomCaste}}</span>
-      <br>
-      <b> Métier : </b><span *ngIf="personnage.metierPerso">{{personnage.metierPerso.nomMetier}}</span>
-    </p>
+  <div class="container">
+    <h3>Information personnage</h3>
   </div>
 
-  <div style="flex: 3">
+  <div class="container">
+    <div style="flex: 60%">
+      <p>Nom : <input type="text" [(ngModel)]="personnage.nom">
+        Sexe : <input type="radio" name="sexe" value="male" [(ngModel)]="personnage.sexe"> Male <input type="radio"
+                                                                                                       name="sexe"
+                                                                                                       value="femelle"
+                                                                                                       [(ngModel)]="personnage.sexe">
+        Femmelle
+        <input type="radio" name="sexe" value="nomoï" [(ngModel)]="personnage.sexe"> Nomoï
+        Age : <input type="text" [(ngModel)]="personnage.age">
+      </p>
+      <p><span *ngIf="personnage.racePerso"><b>Race : </b><input type="text" [(ngModel)]="personnage.racePerso.nomRace"></span>
+        Taille : <input type="text" [(ngModel)]="personnage.taille">
+        Poids : <input type="text" [(ngModel)]="personnage.poids">
+      </p>
+
+      <p><b>Peuple : </b><span *ngIf="personnage.peuplePerso">{{personnage.peuplePerso.nomPeuple}}</span></p>
+      <p><b>Caste : </b><span *ngIf="personnage.castePerso">{{personnage.castePerso.nomCaste}}</span></p>
+      <p><b> Métier : </b><span *ngIf="personnage.metierPerso">{{personnage.metierPerso.nomMetier}}</span></p>
+      <p><b>Motivations : </b><span *ngFor="let motivation of motivationPerso">
+        {{motivation.motivation.nomMotivation}}<br>
+      </span></p>
+    </div>
+
+    <div style="flex: 3">
 
     <p>
-      <button (click)="save()" class="btn btn-info btn-circle">Validation</button>
+      <button (click)="save()" [routerLink]="['/accueiljoueur/', this.joueurId]" class="btn btn-info btn-circle">Validation</button>
     </p>
     <p>
       <button (click)="retour()" class="btn btn-warning btn-circle">Retour</button>
@@ -38,37 +41,43 @@
     </p>
 
 
+    </div>
+
   </div>
 
-</div>
 
+  <div class="clear"></div>
 
-<div class="clear"></div>
-
-<br>
-<div >
-  <div class="container">
+  <br>
+  <div>
+    <div class="container">
 
       <button (click)="page = 'identite'" class="btn btn-info btn-circle">Identité</button>
-      <button (click)="page = 'specialisation'" class="btn btn-info btn-circle">Spécialisation</button>
-      <button (click)="page = 'pouvoir'" class="btn btn-info btn-circle">Pouvoir</button>
-      <button (click)="page = 'acquis'" class="btn btn-info btn-circle">Acquis</button>
-      <button (click)="page = 'motivation'" class="btn btn-info btn-circle">Motivation</button>
+      <button (click)="page = 'specialisation'" class="btn btn-info btn-circle" [disabled]="domainePerso[0]?.rangDomaine == null">Spécialisation</button>
+      <button (click)="page = 'pouvoir'" class="btn btn-info btn-circle" [disabled]="nbrSpe()">Pouvoir</button>
+      <button (click)="page = 'acquis'" class="btn btn-info btn-circle" [disabled]="pouvoirPerso.length ==0">Acquis</button>
+      <button (click)="page = 'motivation'" class="btn btn-info btn-circle" [disabled]="nbrAcquis()">Motivation</button>
 
+    </div>
+
+    <div class="container">
+
+      <personnage-identite *ngIf="page === 'identite'" (personnageEnvoi)="receptionPerso($event)"
+                           (domainePersoEnvoi)="receptionDomaine($event)" (pageEnvoi)="page = $event"></personnage-identite>
+
+      <personnage-specialisation *ngIf="page === 'specialisation'"
+                                 (specialisationEnvoi)="receptionSpecialisation($event)"
+                                 [current]="personnage" (pageEnvoi)="page = $event"></personnage-specialisation>
+
+      <personnage-pouvoir *ngIf="page === 'pouvoir'" (pouvoirEnvoi)="receptionPouvoir($event)"
+                          [current]="domainePerso" (pageEnvoi)="page = $event"></personnage-pouvoir>
+
+      <personnage-acquis *ngIf="page === 'acquis'" (acquisEnvoi)="receptionAcquis($event)"
+                         [current]="domainePerso" (pageEnvoi)="page = $event"></personnage-acquis>
+
+      <personnage-motivation *ngIf="page === 'motivation'" (motivationEnvoi)="receptionMotivation($event)"
+                             [current]="domainePerso" (validationEnvoi)="validation = $event"></personnage-motivation>
+
+    </div>
   </div>
-
-  <div class="container" >
-
-      <personnage-identite *ngIf="page === 'identite'" (personnageEnvoi)="receptionPerso($event)" (domainePersoEnvoi)="receptionDomaine($event)"></personnage-identite>
-
-      <personnage-specialisation *ngIf="page === 'specialisation'" (specialisationEnvoi)="receptionSpecialisation($event)" [current]="personnage"></personnage-specialisation>
-
-      <personnage-pouvoir *ngIf="page === 'pouvoir'" (pouvoirEnvoi)="receptionPouvoir($event)" [current]="domainePerso"></personnage-pouvoir>
-
-      <personnage-acquis *ngIf="page === 'acquis'" (acquisEnvoi)="receptionAcquis($event)" [current]="domainePerso"></personnage-acquis>
-
-      <personnage-motivation *ngIf="page === 'motivation'" (motivationEnvoi)="receptionMotivation($event)" [current]="domainePerso"></personnage-motivation>
-
-  </div>
-</div>
 </div>
