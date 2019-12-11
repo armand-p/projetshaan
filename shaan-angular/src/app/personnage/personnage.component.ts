@@ -169,11 +169,7 @@ export class PersonnageComponent implements OnInit {
     this.router.navigate(['/accueiljoueur/', this.joueurId]);
   }
 
-  cancel() {
-    this.childEvent.emit();
-  }
-
-  retour() {
+  retour(){
     this.domainePerso.splice(0, this.domainePerso.length);
     this.bonusPerso.splice(0, this.bonusPerso.length);
     this.pouvoirPerso.splice(0, this.pouvoirPerso.length);
