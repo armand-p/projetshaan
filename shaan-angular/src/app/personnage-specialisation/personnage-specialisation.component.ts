@@ -27,11 +27,20 @@ export class PersonnageSpecialisationComponent implements OnInit {
   id: number = null;
   counter:number = 4;
 
+  @Input("current")
+  personnage: Personnage;
+
 
   constructor(private domaineService: DomaineService, private specialisationService: SpecialisationService) {
   }
 
   ngOnInit() {
+    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.racePerso.specialisation1,null,null));
+    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.racePerso.specialisation2,null,null));
+    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.peuplePerso.specialisation1,null,null));
+    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.peuplePerso.specialisation2,null,null));
+    this.bonusPers.push(new BonusPersonnage(null,null,null,2,this.personnage.metierPerso.specialisation,null,null));
+
   }
 
   listDomaine(): Array<Domaine> {

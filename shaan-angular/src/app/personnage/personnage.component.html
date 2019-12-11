@@ -61,7 +61,7 @@
 
       <personnage-identite *ngIf="page === 'identite'" (personnageEnvoi)="receptionPerso($event)" (domainePersoEnvoi)="receptionDomaine($event)"></personnage-identite>
 
-      <personnage-specialisation *ngIf="page === 'specialisation'" (specialisationEnvoi)="receptionSpecialisation($event)" [current]="domainePerso"></personnage-specialisation>
+      <personnage-specialisation *ngIf="page === 'specialisation'" (specialisationEnvoi)="receptionSpecialisation($event)" [current]="personnage"></personnage-specialisation>
 
       <personnage-pouvoir *ngIf="page === 'pouvoir'" (pouvoirEnvoi)="receptionPouvoir($event)" [current]="domainePerso"></personnage-pouvoir>
 

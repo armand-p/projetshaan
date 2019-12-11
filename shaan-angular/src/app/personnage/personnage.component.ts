@@ -50,6 +50,7 @@ export class PersonnageComponent implements OnInit {
     this.personnage.peuplePerso = persoRecu.peuplePerso;
     this.personnage.castePerso = persoRecu.castePerso;
     this.personnage.metierPerso = persoRecu.metierPerso;
+    console.log(this.personnage)
   }
 
   receptionDomaine(domaineRecu: Array<DomainePersonnage>) {
