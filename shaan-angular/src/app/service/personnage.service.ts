@@ -137,4 +137,12 @@ export class PersonnageService {
   bonusPersonnage(id:number):Observable<Array<BonusPersonnage>> {
     return this.http.get<Array<BonusPersonnage>>(this.appConfigService.backEnd + 'personnage/' + id + '/bonusPerso');
   }
+
+  pouvoirPersonnage(id:number):Observable<Array<PouvoirPersonnage>>{
+    return this.http.get<Array<PouvoirPersonnage>>(this.appConfigService.backEnd + 'personnage/' + id + '/pouvoir')
+  }
+
+  motivationPersonnage(id:number):Observable<Array<MotivationPersonnage>>{
+    return this.http.get<Array<MotivationPersonnage>>(this.appConfigService.backEnd + 'personnage/' + id + '/motivation')
+  }
 }
