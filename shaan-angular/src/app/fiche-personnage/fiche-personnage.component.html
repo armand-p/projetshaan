@@ -3,15 +3,16 @@
 
 
 <div class="princ">
-  Nom : <span type="text">{{personnage.nom}}</span>
-  Sexe : <span type="text">{{personnage.sexe}}</span>
-  Age : <span type="text">{{personnage.age}}</span>
-  Taille : <span type="text">{{personnage.taille}}</span>
-  Poids : <span type="text">{{personnage.poids}}</span>
+  <h4>Personnage</h4>
+  Nom : <span type="text">{{personnage.nom}}</span> |
+  Sexe : <span type="text">{{personnage.sexe}}</span> |
+  Age : <span type="text">{{personnage.age}}</span> |
+  Taille : <span type="text">{{personnage.taille}}</span> |
+  Poids : <span type="text">{{personnage.poids}}</span> |
 
-  Race : <span type="text">{{personnage.racePerso?.nomRace}}</span>
-  Peuple : <span type="text" >{{personnage.peuplePerso?.nomPeuple}}</span>
-  Caste : <span type="text" >{{personnage.castePerso?.nomCaste}}</span>
+  Race : <span type="text">{{personnage.racePerso?.nomRace}}</span> |
+  Peuple : <span type="text" >{{personnage.peuplePerso?.nomPeuple}}</span> |
+  Caste : <span type="text" >{{personnage.castePerso?.nomCaste}}</span> |
   Métier : <span type="text" >{{personnage.metierPerso?.nomMetier}}</span>
   <br>
 
@@ -20,18 +21,73 @@
 <!--  Domaines : <span type="text">{{domainePersonnageService.domaineperso(personnage)}}</span>-->
 
 <!--<span *ngFor="let domaine of personnageService.domaineperso(id)">-->
-
-  <span *ngFor="let domaine of listDomaines">
-  <td>{{domaine.domaineLie.nom}}</td>
-  <td>{{domaine.rangDomaine}}</td>
-</span>
-
   <br>
+  <h4>Domaines</h4>
+  <table style="margin-left: 1px">
+    <tr>
+    <th width="100">DOMAINE</th>
+    <th>RANG</th></tr>
+    <tr *ngFor="let domaine of listDomaines">
+  <th>{{domaine.domaineLie.nom}}</th>
+  <th>{{domaine.rangDomaine}}</th>
 
-  <span *ngFor="let spe of listSpecialisations">
-    <td>{{spe.nom}}</td>
-    <td>Rang Spé</td>
-  </span>
+</tr></table>
+
+<!--  <br>-->
+
+<!--  <span *ngFor="let spe of listSpecialisations">-->
+<!--    <td>{{spe.nom}}</td>-->
+<!--    <td>Rang Spé</td>-->
+<!--  </span>-->
+
+  <br><br><br>
+  <h4>Spécialisations</h4>
+  <table style="margin-left: 1px">
+    <tr>
+      <th width="150">SPECIALISATION</th>
+      <th  width="100">DOMAINE</th>
+      <th >BONUS</th>
+    </tr>
+<ng-container *ngFor="let bonus of listBonus">
+
+  <tr *ngIf="!bonus.acquis?.id">
+  <th>{{bonus.specialisation?.nom}}</th>
+   <th>{{bonus.specialisation?.domaineLie?.nom}}</th>
+    <th>{{bonus.bonusPerso}}</th>
+<!--    <th>{{bonus.bonusAcquis}}</th>-->
+   </tr>
+  </ng-container>
+  </table>
+
+
+<br>
+  <h4>Acquis</h4>
+  <table style="margin-left: 1px">
+    <tr>
+      <th width="150">ACQUIS</th>
+      <th  width="200">SPECIALISATION</th>
+      <th >BONUS</th>
+    </tr>
+  <ng-container *ngFor="let bonus of listBonus">
+  <tr *ngIf="bonus.acquis?.id">
+  <th>{{bonus.acquis?.nom}}</th>
+    <th>{{bonus.specialisation?.nom}}</th>
+     <th>{{bonus.bonusAcquis}}</th>
+<br>
+
+</tr>
+
+
+
+
+  </ng-container>
+  </table>
+<!--  <span *ngIf="bonus.acquis.id">-->
+
+<!--  </span>-->
+
+<!--  </span>-->
+
 
 <!--  <ng-container *ngFor="let perso of tabledejeu.personnages, let i=index "> <td align="justify" *ngIf="i>tabledejeu.personnages.length/2">-->
 <!--    <div style="background-color: antiquewhite"[routerLink]="['/fichePerso/',perso.id]" >-->

@@ -18,3 +18,8 @@ td{
   border-style: solid;
   border-color: saddlebrown;
 }
+button{
+
+  box-shadow: 3px 3px black;
+  border-radius: 5px;
+}

@@ -69,7 +69,7 @@ public class Personnage {
 	private List<AlterationPersonnage> alterationPersonnage = new ArrayList<AlterationPersonnage>();
 	@ManyToOne
 	@JoinColumn(name = "Joueur_ID")
-	@JsonView(Views.ViewPersonnageDetail.class)
+	@JsonView(Views.ViewCommon.class)
 	private Joueur joueur;
 	@ManyToOne
 	@JoinColumn(name = "Race_ID")
@@ -88,16 +88,16 @@ public class Personnage {
 	@JsonView(Views.ViewCommon.class)
 	private Caste castePerso;
 	@OneToMany(mappedBy = "persoLie", cascade = CascadeType.REMOVE)
-	@JsonView(Views.ViewBonusPersoFromPersonnage.class)
+	@JsonView({Views.ViewBonusPersoFromPersonnage.class,Views.ViewTableDeJeuDetail.class,Views.ViewPersonnagePartie.class})
 	private List<BonusPersonnage> bonusPerso = new ArrayList<BonusPersonnage>();
 	@OneToMany(mappedBy = "persoLie", cascade = CascadeType.REMOVE)
-	@JsonView(Views.ViewDomainePersoFromPersonnage.class)
+	@JsonView({Views.ViewDomainePersoFromPersonnage.class,Views.ViewTableDeJeuDetail.class,Views.ViewPersonnagePartie.class})
 	private List<DomainePersonnage> domainesPerso = new ArrayList<DomainePersonnage>();
 	@OneToMany(mappedBy = "persoLie", cascade = CascadeType.REMOVE)
-	@JsonView(Views.ViewPouvoirPersoFromPersonnage.class)
+	@JsonView({Views.ViewPouvoirPersoFromPersonnage.class,Views.ViewTableDeJeuDetail.class,Views.ViewPersonnagePartie.class})
 	private List<PouvoirPersonnage> pouvoirsPerso = new ArrayList<PouvoirPersonnage>();
 	@OneToMany(mappedBy = "persoLie", cascade = CascadeType.REMOVE)
-	@JsonView(Views.ViewMotivationPersoFromPersonnage.class)
+	@JsonView({Views.ViewMotivationPersoFromPersonnage.class,Views.ViewTableDeJeuDetail.class,Views.ViewPersonnagePartie.class})
 	private List<MotivationPersonnage> motivationsPerso = new ArrayList<MotivationPersonnage>();
 	@ManyToOne
 	@JoinColumn(name = "Partie_ID")

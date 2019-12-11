@@ -52,8 +52,9 @@ export class SpecialisationService {
     this.http.delete(this.appConfigService.backEnd + 'specialisation/' + id).subscribe(resp => this.load());
   }
 
-  speDomaines(id:number):Observable<Array<Specialisation>> {
-    return this.http.get<Array<Specialisation>>(this.appConfigService.backEnd + 'specialisation/' + id);
+//   speDomaines(id:number):Observable<Array<Specialisation>> {
+//     return this.http.get<Array<Specialisation>>(this.appConfigService.backEnd + 'specialisation/' + id);
+//
+// }
 
-}
 }
