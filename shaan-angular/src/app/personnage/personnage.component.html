@@ -31,7 +31,7 @@
     <div style="flex: 3">
 
     <p>
-      <button (click)="save()" [routerLink]="['/accueiljoueur/', this.joueurId]" class="btn btn-info btn-circle" [disabled]="validation || personnage?.nom == null">Validation</button>
+      <button (click)="save()" [routerLink]="['/accueiljoueur/', this.joueurId]" class="btn btn-info btn-circle" [disabled]="validation || personnage?.nom == '' || personnage?.nom == null">Validation</button>
     </p>
     <p>
       <button (click)="retour()" class="btn btn-warning btn-circle">Retour</button>
