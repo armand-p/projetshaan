@@ -24,9 +24,11 @@ export class AccueilJoueurComponent implements OnInit {
 
   constructor(private personnageService: PersonnageService, private route:ActivatedRoute) {
     this.route.params.subscribe(params =>this.joueurId=params.id);
-    this.personnageService.findByJoueur(this.joueurId).subscribe(resp =>this.personnages =resp);
+    this.load();
   }
-
+load(){
+  this.personnageService.findByJoueur(this.joueurId).subscribe(resp =>this.personnages =resp);
+}
 
   ngOnInit() {
     localStorage.setItem(this.utilisateurId, String(this.joueurId));
@@ -42,11 +44,13 @@ export class AccueilJoueurComponent implements OnInit {
   }
 
     edit(id: number) {
-    this.personnageService.findById(id).subscribe(resp => this.personnage = resp);
+    this.personnageService.findById(id).subscribe(resp =>{this.personnage = resp;
+    this.load()});
     }
 
   delete(id: number) {
-    this.personnageService.deleteBydId(id);
+    this.personnageService.deleteBydIdpost(id).subscribe(resp =>this.load());
+    this.load();
   }
 
 

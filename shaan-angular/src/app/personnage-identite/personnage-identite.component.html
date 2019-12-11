@@ -66,4 +66,4 @@
   <div name="display" [hidden]="hidden==true" style="display: flex">Ajuster vos Domaines : 1 à 1, 2 à 2 , 3 à 3, le reste à 4. Plus que {{this.cf}} points</div>
 </div>
 
-<button [hidden]="hidden==true" (click)="envoi(); cache()" [disabled]="cf!=0">Validation</button>
+<button [hidden]="hidden==true" (click)="envoi(); cache(); saveSpe=false" [disabled]="cf!=0">Validation</button>

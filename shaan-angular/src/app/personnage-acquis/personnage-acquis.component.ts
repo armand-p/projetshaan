@@ -20,6 +20,9 @@ export class PersonnageAcquisComponent implements OnInit {
   @Output()
   acquisEnvoi = new EventEmitter<Array<BonusPersonnage>>();
 
+  @Output()
+  pageEnvoi = new EventEmitter<string>();
+
   acquiss: Array<Acquis> = new Array<Acquis>();
   domaines: Array<Domaine> = new Array<Domaine>();
   bonusPers: Array<BonusPersonnage> = new Array<BonusPersonnage>();
@@ -122,6 +125,7 @@ export class PersonnageAcquisComponent implements OnInit {
   envoi() {
     console.log('envoi')
     this.acquisEnvoi.emit(this.bonusPers);
+    this.pageEnvoi.emit('motivation');
   }
 
 

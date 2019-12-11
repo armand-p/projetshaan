@@ -16,6 +16,10 @@ export class PersonnagePouvoirComponent implements OnInit {
 
   @Output()
   pouvoirEnvoi = new EventEmitter<Array<PouvoirPersonnage>>();
+
+  @Output()
+  pageEnvoi = new EventEmitter<string>();
+
   pouvoirs: Array<Pouvoir> = new Array<Pouvoir>();
   domaines: Array<Domaine> = new Array<Domaine>();
   pouvoirPerso: Array<PouvoirPersonnage> = new Array<PouvoirPersonnage>();
@@ -27,7 +31,6 @@ export class PersonnagePouvoirComponent implements OnInit {
 
   @Input('current')
   domainePerso: Array<DomainePersonnage>;
-
 
   constructor(private domaineService: DomaineService, private pouvoirService: PouvoirService) {
   }
@@ -93,6 +96,7 @@ export class PersonnagePouvoirComponent implements OnInit {
   envoi() {
     console.log('envoi');
     this.pouvoirEnvoi.emit(this.pouvoirPerso);
+    this.pageEnvoi.emit('acquis');
   }
 
 
