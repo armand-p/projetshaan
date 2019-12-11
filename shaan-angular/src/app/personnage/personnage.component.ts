@@ -51,7 +51,6 @@ export class PersonnageComponent implements OnInit {
 
   receptionPerso(persoRecu: Personnage) {
 
-
     this.personnage.joueur = new Joueur(this.joueurId,null,null,null,null);
     console.log(this.personnage)
     this.personnage.joueur.id = this.joueurId;
