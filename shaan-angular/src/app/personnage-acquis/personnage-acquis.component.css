@@ -1,4 +1,14 @@
 .container{
   display: flex;
+}
 
+.princ {
+  background-color: #F5F5DCE1;
+  margin: 0 auto;
+  border-style: solid;
+  border-color: gold;
+
+
+  margin: auto;
+  padding-left: 20px;
 }

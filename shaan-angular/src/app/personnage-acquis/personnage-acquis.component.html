@@ -1,31 +1,32 @@
-<h3>Domaines :</h3>
+<div class="princ">
+  <h3>Acquis :</h3>
 
-<div class="container">
-  <div style="flex: 60%">
-    <div *ngFor="let domaine of listDomaine()">
-      <h5>{{domaine.domaineLie.nom}}</h5>
-      <div *ngIf="acquiss && domaines">
-        <div *ngFor="let acquis of triAcquis(domaine.domaineLie.nom)">
-          <h6>{{acquis.nom}}
-            <button [hidden]="!findAcquis(acquis)"(click)="ajouteAcquis(acquis)">+</button>
-            <button [hidden]="findAcquis(acquis)" (click)="suppressionAcquis(acquis)">-</button>
-          </h6>
-          <br>
-          <b>{{acquis.description}}</b>
-          <br>
+  <div class="container">
+    <div style="flex: 10%">
+      <div *ngIf="bonusPers" class="princ">
+        <div *ngFor="let bonus of bonusPers, let i = index">
+          <p><span [hidden]="affichageAcquis(i)"><h6>{{bonus.acquis.nom}}</h6></span> <span [hidden]="!bonus.specialisation?.nom"> - {{bonus.specialisation?.nom}} : {{bonus?.bonusAcquis}}</span></p>
         </div>
       </div>
-    </div>
-    <button (click)="envoi()">Validation</button>
-  </div>
-
-
-  <div style="flex: 10%">
-    <div *ngIf="bonusPers">
-      <div *ngFor="let bonus of bonusPers, let i = index">
-        <p><span [hidden]="affichageAcquis(i)" ><h6>{{bonus.acquis.nom}}</h6></span> <span [hidden]="!bonus.specialisation?.nom"> | {{bonus.specialisation?.nom}} : {{bonus?.bonusAcquis}}</span></p>
+      <div style="flex: 60%">
+        <div *ngFor="let domaine of listDomaine()" class="princ">
+          <h5>{{domaine.domaineLie.nom}}</h5>
+          <div *ngIf="acquiss && domaines">
+            <div *ngFor="let acquis of triAcquis(domaine.domaineLie.nom)">
+              <h6>{{acquis.nom}}
+                <button [hidden]="!findAcquis(acquis)" (click)="ajouteAcquis(acquis)">+</button>
+                <button [hidden]="findAcquis(acquis)" (click)="suppressionAcquis(acquis)">-</button>
+              </h6>
+              <br>
+              <b>{{acquis.description}}</b>
+              <br>
+            </div>
+          </div>
+        </div>
+        <button (click)="envoi()">Validation</button>
       </div>
-    </div>
 
+
+    </div>
   </div>
 </div>
