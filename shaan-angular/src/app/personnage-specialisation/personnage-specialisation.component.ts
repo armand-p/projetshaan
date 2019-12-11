@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Domaine} from "../model/Domaine";
 import {DomaineService} from "../service/domaine.service";
 import {SpecialisationService} from "../service/specialisation.service";
@@ -22,11 +22,20 @@ export class PersonnageSpecialisationComponent implements OnInit {
   bonusPers: Array<BonusPersonnage> = new Array<BonusPersonnage>();
   id: number = null;
 
+  @Input("current")
+  personnage: Personnage;
+
 
   constructor(private domaineService: DomaineService, private specialisationService: SpecialisationService) {
   }
 
   ngOnInit() {
+    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.racePerso.specialisation1,null,null));
+    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.racePerso.specialisation2,null,null));
+    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.peuplePerso.specialisation1,null,null));
+    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.peuplePerso.specialisation2,null,null));
+    this.bonusPers.push(new BonusPersonnage(null,null,null,2,this.personnage.metierPerso.specialisation,null,null));
+
   }
 
   listDomaine(): Array<Domaine> {

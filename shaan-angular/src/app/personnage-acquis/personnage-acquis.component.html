@@ -13,6 +13,7 @@
           <h5>{{domaine.domaineLie.nom}}</h5>
           <div *ngIf="acquiss && domaines">
             <div *ngFor="let acquis of triAcquis(domaine.domaineLie.nom)">
+              <br>
               <h6>{{acquis.nom}}
                 <button [hidden]="!findAcquis(acquis)" (click)="ajouteAcquis(acquis)">+</button>
                 <button [hidden]="findAcquis(acquis)" (click)="suppressionAcquis(acquis)">-</button>
