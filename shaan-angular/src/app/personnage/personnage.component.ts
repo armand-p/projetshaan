@@ -166,7 +166,6 @@ export class PersonnageComponent implements OnInit {
 
   save() {
     this.personnageService.save(this.personnage, this.domainePerso, this.bonusPerso, this.pouvoirPerso, this.motivationPerso);
-    this.router.navigate(['/accueiljoueur/', this.joueurId]);
   }
 
   retour(){

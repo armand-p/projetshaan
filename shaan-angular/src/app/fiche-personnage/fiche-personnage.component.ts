@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Personnage} from "../model/Personnage";
 import {PersonnageService} from "../service/personnage.service";
 import {ActivatedRoute} from "@angular/router";
@@ -18,22 +18,24 @@ import {BonusPersonnageService} from "../service/bonus-personnage.service";
 export class FichePersonnageComponent implements OnInit {
 
   personnage: Personnage = new Personnage();
+  @Input("current")
   id: number;
   private Domaines: Array<DomainePersonnage>;
   listDomaines: Array<DomainePersonnage>;
   listSpecialisations: Array<Specialisation>;
   listBonus:Array<BonusPersonnage>;
 
-  constructor(private bonusPersonnageService:BonusPersonnageService, private specialisationService:SpecialisationService, private domainePersonnageService: DomainePersonnageService, private personnageService: PersonnageService, private route: ActivatedRoute) {
-    this.route.params.subscribe(params => this.id = params.id);
-    this.personnageService.findById(this.id).subscribe(resp => this.personnage = resp);
-    this.personnageService.domaineperso(this.id).subscribe(resp => {this.listDomaines = resp});
-    // this.specialisationService.speDomaines(this.id).subscribe(resp => this.listSpecialisations = resp);
-    this.personnageService.bonusPersonnage(this.id).subscribe(resp => this.listBonus=resp);
+  constructor(private bonusPersonnageService:BonusPersonnageService, private specialisationService:SpecialisationService, private domainePersonnageService: DomainePersonnageService, private personnageService: PersonnageService) {
+
 
   }
 
   ngOnInit() {
+    console.log(this.id);
+    this.personnageService.findById(this.id).subscribe(resp => this.personnage = resp );
+    this.personnageService.domaineperso(this.id).subscribe(resp => {this.listDomaines = resp});
+    // this.specialisationService.speDomaines(this.id).subscribe(resp => this.listSpecialisations = resp);
+    this.personnageService.bonusPersonnage(this.id).subscribe(resp => this.listBonus=resp);
   }
 
   public list(): any {

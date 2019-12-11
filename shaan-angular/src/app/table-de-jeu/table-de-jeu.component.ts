@@ -9,7 +9,9 @@ import {tableDeJeuService} from '../service/tableDeJeu.service';
   styleUrls: ['./table-de-jeu.component.css']
 })
 export class TableDeJeuComponent implements OnInit {
+  show:boolean=false;
 id:number;
+idPerso:number;
 idMJ:number = null;
 idJoueur:number = null;
 tabledejeu : TableDeJeu;
@@ -25,4 +27,13 @@ this.load();
 async load() {
   await this.tabledejeuService.findById(this.id).toPromise().then(resp => this.tabledejeu=resp);
 }
+close(){
+    this.show=false;
+}
+montrer(id){
+    this.idPerso=id;
+    this.show=true;
+    console.log(this.idPerso)
+}
+
 }
