@@ -32,23 +32,19 @@ export class FichePersonnageComponent implements OnInit {
   listMotivation:Array<MotivationPersonnage>;
 
   constructor(private pouvoirPersonnageService:PouvoirPersonnageService, private bonusPersonnageService:BonusPersonnageService, private specialisationService:SpecialisationService, private domainePersonnageService: DomainePersonnageService, private personnageService: PersonnageService, private route: ActivatedRoute) {
-    this.route.params.subscribe(params => this.id = params.id);
-    this.personnageService.findById(this.id).subscribe(resp => this.personnage = resp);
-    this.personnageService.domaineperso(this.id).subscribe(resp => {this.listDomaines = resp});
-    // this.specialisationService.speDomaines(this.id).subscribe(resp => this.listSpecialisations = resp);
-    this.personnageService.bonusPersonnage(this.id).subscribe(resp => this.listBonus=resp);
-  this.personnageService.pouvoirPersonnage(this.id).subscribe(resp =>this.listPouvoirs=resp);
-  this.personnageService.motivationPersonnage(this.id).subscribe(resp => this.listMotivation=resp);
+
 
 
   }
 
   ngOnInit() {
-    console.log(this.id);
-    this.personnageService.findById(this.id).subscribe(resp => this.personnage = resp );
+
+    this.personnageService.findById(this.id).subscribe(resp => this.personnage = resp);
     this.personnageService.domaineperso(this.id).subscribe(resp => {this.listDomaines = resp});
     // this.specialisationService.speDomaines(this.id).subscribe(resp => this.listSpecialisations = resp);
     this.personnageService.bonusPersonnage(this.id).subscribe(resp => this.listBonus=resp);
+    this.personnageService.pouvoirPersonnage(this.id).subscribe(resp =>this.listPouvoirs=resp);
+    this.personnageService.motivationPersonnage(this.id).subscribe(resp => this.listMotivation=resp);
   }
 
   public list(): any {

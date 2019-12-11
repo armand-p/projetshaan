@@ -37,6 +37,7 @@ load(){
 
   ngOnInit() {
     localStorage.setItem(this.utilisateurId, String(this.joueurId));
+    this.load();
   }
 
   public list(): any  {
