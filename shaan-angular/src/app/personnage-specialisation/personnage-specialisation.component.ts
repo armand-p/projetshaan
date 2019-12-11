@@ -18,6 +18,9 @@ export class PersonnageSpecialisationComponent implements OnInit {
   @Output()
   specialisationEnvoi = new EventEmitter<Array<BonusPersonnage>>();
 
+  @Output()
+  pageEnvoi = new EventEmitter<string>();
+
   @Input("current")
   domainePerso : Array<DomainePersonnage>;
 
@@ -95,6 +98,7 @@ export class PersonnageSpecialisationComponent implements OnInit {
   envoi() {
     console.log('envoi')
     this.specialisationEnvoi.emit(this.bonusPers);
+    this.pageEnvoi.emit('pouvoir');
   }
 
 

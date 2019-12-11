@@ -26,6 +26,9 @@ export class PersonnageIdentiteComponent implements OnInit {
   @Output()
   domainePersoEnvoi = new EventEmitter<Array<DomainePersonnage>>();
 
+   @Output()
+   pageEnvoi = new EventEmitter<string>();
+
   domaines: Array<Domaine> = new Array<Domaine>();
 
   domainePerso: Array<DomainePersonnage> = new Array<DomainePersonnage>(10);
@@ -343,6 +346,7 @@ export class PersonnageIdentiteComponent implements OnInit {
   envoi() {
     this.personnageEnvoi.emit(this.personnage);
     this.domainePersoEnvoi.emit(this.domainePerso);
+    this.pageEnvoi.emit('specialisation');
   }
 
 }

@@ -24,7 +24,7 @@
       <td> {{ personnage.castePerso?.nomCaste }} </td>
       <td> {{ personnage.metierPerso?.nomMetier }}</td>
       <td> {{ personnage.parties?.nom }} </td>
-      <th><button title="Modifier" type="button" style="color:#4497BD" class="btn  btn-light btn-circle" (click)="edit(personnage.id)" [routerLink]="['/'+joueurId+'/personnage/'+personnage.id]"><i class="fas fa-user-edit"></i></button></th>
+      <th><button [hidden]="true" title="Modifier" type="button" style="color:#4497BD" class="btn  btn-light btn-circle" (click)="edit(personnage.id)" [routerLink]="['/'+joueurId+'/personnage/'+personnage.id]"><i class="fas fa-user-edit"></i></button></th>
       <th><button type="button" style="color:#DE1423" class="btn  btn-light btn-circle" (click)="delete(personnage.id)"><i class="fas fa-trash-alt"></i></button></th>
       <th><button type="button" style="color:#DE1423" class="btn  btn-light btn-circle" [routerLink]="['/tabledejeu/'+personnage.parties?.id+'/player/'+this.joueurId]"><i class="fas fa-external-link-square-alt"></i></button></th>
     </tr>

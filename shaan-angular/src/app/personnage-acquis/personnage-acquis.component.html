@@ -9,6 +9,7 @@
           <p><span [hidden]="affichageAcquis(i)"><h6>{{bonus.acquis.nom}}</h6></span> <span [hidden]="!bonus.specialisation?.nom"> - {{bonus.specialisation?.nom}} : {{bonus?.bonusAcquis}}</span></p>
         </div>
       </div>
+      <button (click)="envoi()" [disabled]="counter !=0">Validation</button>
       <div style="flex: 60%">
         <div *ngFor="let domaine of listDomaine()" class="princ">
           <h5>{{domaine.domaineLie.nom}}</h5>
@@ -25,7 +26,6 @@
             </div>
           </div>
         </div>
-        <button (click)="envoi()">Validation</button>
       </div>
 
 

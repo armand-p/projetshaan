@@ -9,6 +9,7 @@
           <p>{{bonus.specialisation?.nom}} | {{bonus.bonusPerso}}</p>
         </div>
       </div>
+      <button (click)="envoi()" class="btn btn-info btn-circle" [disabled]="counter !=0">Validation</button>
       <div style="flex: 60%">
         <div *ngFor="let domaine of listDomaine()" class="princ">
           <h5>{{domaine.nom}}</h5>
@@ -17,7 +18,7 @@
               <br>
               <h6>{{specialisation.nom}}
                 <button [hidden]="counter==0" (click)="ajouteSpe(specialisation); this.counter=this.counter-1">+</button>
-                <button [hidden]="findSpe(specialisation)" (click)="suppressionSpe(specialisation); this.counter=this.counter-1">-</button>
+                <button [hidden]="findSpe(specialisation)" (click)="suppressionSpe(specialisation); this.counter=this.counter+1">-</button>
               </h6>
               <br>
               <b>{{specialisation.description}}</b>
@@ -25,7 +26,6 @@
             </div>
           </div>
         </div>
-        <button (click)="envoi()" class="btn btn-info btn-circle">Validation</button>
       </div>
 
 

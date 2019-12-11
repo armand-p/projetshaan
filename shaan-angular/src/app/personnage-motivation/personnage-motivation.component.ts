@@ -16,6 +16,9 @@ export class PersonnageMotivationComponent implements OnInit {
   @Output()
   motivationEnvoi = new EventEmitter<Array<MotivationPersonnage>>();
 
+  @Output()
+  validationEnvoi = new EventEmitter<boolean>();
+
   @Input("current")
   domainePerso : Array<DomainePersonnage>;
 
@@ -79,6 +82,7 @@ export class PersonnageMotivationComponent implements OnInit {
   envoi() {
     console.log('envoi')
     this.motivationEnvoi.emit(this.motivationrPerso);
+    this.validationEnvoi.emit(false);
   }
 
 
