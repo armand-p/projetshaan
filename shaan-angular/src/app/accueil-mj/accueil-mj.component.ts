@@ -6,6 +6,7 @@ import {Personnage} from '../model/Personnage';
 import {UtilisateurService} from '../service/utilisateur.service';
 import {ActivatedRoute} from '@angular/router';
 import {MaitreDuJeu} from '../model/MaitreDuJeu';
+import {isNullOrUndefined} from 'util';
 
 @Component({
   selector: 'app-accueil-mj',
@@ -86,18 +87,32 @@ listr():Array<Personnage>{
 
   delete(id){
     this.tableDeJeuService.findById(id).toPromise().then(resp =>{this.tableasupprimer=resp;
+    if(this.tableasupprimer.personnages[0]){
         for(let perso of this.tableasupprimer.personnages)
-        {  this.persoaenlever=perso;
+        {  let i : number = 0;
+
+          this.persoaenlever=perso;
           this.persoaenlever.parties=null;
-          this.personnageService.savesimple(this.persoaenlever);
+          i=i+1;
+          if (i==this.tableasupprimer.personnages.length-1){
+          this.personnageService.savesimplepost(this.persoaenlever).toPromise().then(resp =>this.tableDeJeuService.deleteBydIdpost(id).toPromise().then(resp => this.load(this.masterOfTheGame.id)) );
+        }
+          else{
+            this.personnageService.savesimple(this.persoaenlever);
+          }}
           this.tableDeJeuService.load()}
-      this.tableDeJeuService.deleteBydIdpost(id).toPromise().then(resp => this.load(this.masterOfTheGame.id));
+      else{
+        this.tableDeJeuService.deleteBydIdpost(id).toPromise().then(resp => this.load(this.masterOfTheGame.id));
 
-      }
+    }
 
-    );
+    })}
 
-  }
+
+
+
+
+
 linkparties(perso:Personnage){
 
   this.persoarajouter=perso;

@@ -16,10 +16,14 @@ export class PersonnageMotivationComponent implements OnInit {
   @Output()
   motivationEnvoi = new EventEmitter<Array<MotivationPersonnage>>();
 
+  @Input("current")
+  domainePerso : Array<DomainePersonnage>;
+
   motivations: Array<Motivation> = new Array<Motivation>();
   domaines: Array<Domaine> = new Array<Domaine>();
   motivationrPerso: Array<MotivationPersonnage> = new Array<MotivationPersonnage>();
   id: number = null;
+  counter : number = 3;
 
   @Input("current")
   domainePerso : Array<DomainePersonnage>;

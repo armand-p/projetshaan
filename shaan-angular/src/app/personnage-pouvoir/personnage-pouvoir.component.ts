@@ -1,10 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Domaine} from "../model/Domaine";
-import {DomaineService} from "../service/domaine.service";
-import {PouvoirPersonnage} from "../model/PouvoirPersonnage";
-import {Pouvoir} from "../model/Pouvoir";
-import {PouvoirService} from "../service/pouvoir.service";
+import {Domaine} from '../model/Domaine';
+import {DomaineService} from '../service/domaine.service';
+import {PouvoirPersonnage} from '../model/PouvoirPersonnage';
+import {Pouvoir} from '../model/Pouvoir';
+import {PouvoirService} from '../service/pouvoir.service';
 import {DomainePersonnage} from '../model/DomainePersonnage';
+import {$} from 'protractor';
 
 @Component({
   selector: 'personnage-pouvoir',
@@ -19,9 +20,13 @@ export class PersonnagePouvoirComponent implements OnInit {
   domaines: Array<Domaine> = new Array<Domaine>();
   pouvoirPerso: Array<PouvoirPersonnage> = new Array<PouvoirPersonnage>();
   id: number = null;
+  c5: number;
+  c6: number;
+  c7: number;
+  counter: number = 3;
 
-  @Input("current")
-    domainePerso : Array<DomainePersonnage>;
+  @Input('current')
+  domainePerso: Array<DomainePersonnage>;
 
 
   constructor(private domaineService: DomaineService, private pouvoirService: PouvoirService) {
@@ -32,9 +37,20 @@ export class PersonnagePouvoirComponent implements OnInit {
 
   listDomaine(): Array<DomainePersonnage> {
     this.listPouvoir();
-    // return this.domaines = this.domaineService.findAll();
-    return this.domainePerso.filter(domainePerso => domainePerso.rangDomaine >=5);
+    this.comptePouvoir();
+    return this.domainePerso.filter(domainePerso => domainePerso.rangDomaine >= 5);
   }
+
+  comptePouvoir() {
+    this.c5 = this.domainePerso.filter(domainePerso => domainePerso.rangDomaine == 5).length;
+    this.c6 = this.domainePerso.filter(domainePerso => domainePerso.rangDomaine == 6).length;
+    this.c7 = this.domainePerso.filter(domainePerso => domainePerso.rangDomaine == 7).length;
+  }
+
+  // reste(nom : string) {
+  //   if (this.c5==3){
+  //   }
+  // }
 
   listPouvoir() {
     this.pouvoirs = this.pouvoirService.findAll();
@@ -57,8 +73,8 @@ export class PersonnagePouvoirComponent implements OnInit {
 
   suppressionPouvoir(pouvoir: Pouvoir) {
 
-      var index = this.pouvoirPerso.findIndex(pouvoirPerso => pouvoirPerso.pouvoir.nomPouvoir === pouvoir.nomPouvoir);
-      this.pouvoirPerso.splice(index, 1);
+    var index = this.pouvoirPerso.findIndex(pouvoirPerso => pouvoirPerso.pouvoir.nomPouvoir === pouvoir.nomPouvoir);
+    this.pouvoirPerso.splice(index, 1);
 
     console.log(this.pouvoirPerso);
 
@@ -75,7 +91,7 @@ export class PersonnagePouvoirComponent implements OnInit {
   }
 
   envoi() {
-    console.log('envoi')
+    console.log('envoi');
     this.pouvoirEnvoi.emit(this.pouvoirPerso);
   }
 
