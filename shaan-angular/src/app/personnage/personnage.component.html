@@ -31,6 +31,9 @@
       <button (click)="save()" class="btn btn-info btn-circle">Validation</button>
     </p>
     <p>
+      <button (click)="retour()" class="btn btn-warning btn-circle">Retour</button>
+    </p>
+    <p>
       <button class="btn btn-danger btn-circle">Effacer</button>
     </p>
 
@@ -58,7 +61,7 @@
 
       <personnage-identite *ngIf="page === 'identite'" (personnageEnvoi)="receptionPerso($event)" (domainePersoEnvoi)="receptionDomaine($event)"></personnage-identite>
 
-      <personnage-specialisation *ngIf="page === 'specialisation'" (specialisationEnvoi)="receptionSpecialisation($event)"></personnage-specialisation>
+      <personnage-specialisation *ngIf="page === 'specialisation'" (specialisationEnvoi)="receptionSpecialisation($event)" [current]="personnage"></personnage-specialisation>
 
       <personnage-pouvoir *ngIf="page === 'pouvoir'" (pouvoirEnvoi)="receptionPouvoir($event)" [current]="domainePerso"></personnage-pouvoir>
 

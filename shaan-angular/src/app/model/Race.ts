@@ -9,7 +9,7 @@ export class Race{
   nomRace : string;
   domaine : Domaine;
   specialisation1 : Specialisation;
-  specilisation2 : Specialisation;
+  specialisation2 : Specialisation;
   tailleEstmation : string;
   poidsEstmation : string;
   langue : string;
@@ -26,7 +26,7 @@ export class Race{
     this.nomRace = nomRace;
     this.domaine = domaine;
     this.specialisation1 = specialisation1;
-    this.specilisation2 = specilisation2;
+    this.specialisation2 = specilisation2;
     this.tailleEstmation = tailleEstmation;
     this.poidsEstmation = poidsEstmation;
     this.langue = langue;

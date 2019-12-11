@@ -28,7 +28,7 @@ public class CasteController {
 	private ICasteRepository casteRepo;
 	
 	@GetMapping("/{id}/metiers")
-	@JsonView(Views.ViewMetierFromCaste.class)
+	@JsonView(Views.ViewMetier.class)
 	public List<Metier> listmetiers(@PathVariable Long id){
 		List<Metier> metiers = casteRepo.findAllMetier(id);
 		return metiers;

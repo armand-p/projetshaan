@@ -1,4 +1,5 @@
 <div class="princ">
+  <h5> Sélectionnez vos {{counter}} Acquis</h5>
   <h3>Acquis :</h3>
 
   <div class="container">
@@ -13,9 +14,10 @@
           <h5>{{domaine.domaineLie.nom}}</h5>
           <div *ngIf="acquiss && domaines">
             <div *ngFor="let acquis of triAcquis(domaine.domaineLie.nom)">
+              <br>
               <h6>{{acquis.nom}}
-                <button [hidden]="!findAcquis(acquis)" (click)="ajouteAcquis(acquis)">+</button>
-                <button [hidden]="findAcquis(acquis)" (click)="suppressionAcquis(acquis)">-</button>
+                <button [hidden]="!findAcquis(acquis)||counter==0" (click)="ajouteAcquis(acquis); this.counter = this.counter-1">+</button>
+                <button [hidden]="findAcquis(acquis)" (click)="suppressionAcquis(acquis); this.counter=this.counter+1">-</button>
               </h6>
               <br>
               <b>{{acquis.description}}</b>

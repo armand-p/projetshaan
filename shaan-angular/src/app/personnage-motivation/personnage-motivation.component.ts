@@ -25,8 +25,6 @@ export class PersonnageMotivationComponent implements OnInit {
   id: number = null;
   counter : number = 3;
 
-  @Input("current")
-  domainePerso : Array<DomainePersonnage>;
 
   constructor(private domaineService: DomaineService, private motivationService: MotivationService) {
   }
