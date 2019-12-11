@@ -15,6 +15,11 @@ import {isNullOrUndefined} from 'util';
 })
 export class AccueilMjComponent implements OnInit {
 
+  motDePasse;
+  pseudo;
+  id;
+  type;
+
   tabledujeu:TableDeJeu = null;
   tableencours:TableDeJeu=null;
   tableasupprimer:TableDeJeu=null;
@@ -113,8 +118,14 @@ listr():Array<Personnage>{
     })}
 
 
+  unlog(){
+    localStorage.setItem('isLoggedin', 'false');
+    localStorage.setItem(this.motDePasse, null);
+    localStorage.setItem(this.pseudo, null);
+    localStorage.setItem(this.id, null);
+    localStorage.setItem(this.type, null);
 
-
+  }
 
 
 linkparties(perso:Personnage){

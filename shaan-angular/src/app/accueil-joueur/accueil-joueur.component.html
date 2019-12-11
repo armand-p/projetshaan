@@ -34,7 +34,7 @@
   </table>
   <br>
 <table>
-  <th><button title="Retour" type="button" class="btn btn-danger btn-circle" [routerLink]="['']"><i class="fas fa-arrow-alt-circle-left"></i></button></th>
+  <th><button title="Retour" type="button" class="btn btn-danger btn-circle" [routerLink]="['']" (click)="unlog()"><i class="fas fa-arrow-alt-circle-left"></i></button></th>
   <th><button title="Nouveau Personnage" type="button" class="btn btn-primary btn-circle" [routerLink]="['/'+joueurId+'/personnage']" ><i class="fas fa-user-plus"></i></button></th>
 
 </table>
