@@ -66,7 +66,7 @@ public class Pouvoir {
 	
 	@ManyToOne
 	@JoinColumn (name = "pouvoirsDomaine")
-	@JsonView(Views.ViewPouvoir.class)
+	@JsonView({Views.ViewPouvoir.class,Views.ViewPouvoirPersonnageDetail.class})
 	private Domaine domaineLie;
 
 	public Long getId() {
