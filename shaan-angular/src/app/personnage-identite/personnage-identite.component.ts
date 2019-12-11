@@ -33,6 +33,7 @@ export class PersonnageIdentiteComponent implements OnInit {
   personnage: Personnage = new Personnage();
 
   metiers: Array<Metier> = new Array<Metier>();
+  saveSpe :boolean=true;
   hidden: boolean = true;
   c5: number = 0;
   cf: number;
