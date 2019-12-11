@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {AppConfigService} from "../app-config.service";
 import {Observable} from "rxjs";
 import {BonusPersonnage} from "../model/BonusPersonnage";
+import {Specialisation} from "../model/Specialisation";
 
 @Injectable({
   providedIn: 'root'
@@ -37,4 +38,6 @@ export class BonusPersonnageService {
 
   deleteBydId(id: number) {
     this.http.delete(this.appConfigService.backEnd + 'bonusPersonnage/' + id).subscribe(resp => this.load());
-  }}
+  }
+
+}

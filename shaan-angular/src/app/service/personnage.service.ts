@@ -128,4 +128,8 @@ export class PersonnageService {
   domainesansboucle(id:number):Observable<any>{
     return this.http.get(this.appConfigService.backEnd + 'personnage/' + id + '/domaine');
   }
+
+  bonusPersonnage(id:number):Observable<Array<BonusPersonnage>> {
+    return this.http.get<Array<BonusPersonnage>>(this.appConfigService.backEnd + 'personnage/' + id + '/bonusPerso');
+  }
 }

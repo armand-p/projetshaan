@@ -37,7 +37,7 @@ public class Specialisation {
 	private Metier metier;
 	@ManyToOne
 	@JoinColumn(name = "domaineSpecilisation")
-	@JsonView(Views.ViewSpecialisation.class)
+	@JsonView({Views.ViewSpecialisation.class,Views.ViewBonusPersonnage.class})
 	private Domaine domaineLie;
 
 	public Long getId() {

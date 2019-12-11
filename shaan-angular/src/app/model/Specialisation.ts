@@ -10,12 +10,12 @@ export class Specialisation {
   domaineLie :Domaine;
 
 
-  constructor(id?: number, version?: number, nom?: string, description?: string, metier?: Metier, domineLie?: Domaine) {
+  constructor(id?: number, version?: number, nom?: string, description?: string, metier?: Metier, domaineLie?: Domaine) {
     this.id = id;
     this.version = version;
     this.nom = nom;
     this.description = description;
     this.metier = metier;
-    this.domaineLie = domineLie;
+    this.domaineLie = domaineLie;
   }
 }
