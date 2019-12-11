@@ -10,9 +10,13 @@ import {tableDeJeuService} from '../service/tableDeJeu.service';
 })
 export class TableDeJeuComponent implements OnInit {
 id:number;
+idMJ:number = null;
+idJoueur:number = null;
 tabledejeu : TableDeJeu;
   constructor(private route : ActivatedRoute,private tabledejeuService : tableDeJeuService) {
   this.route.params.subscribe(params => this.id=params.id);
+  this.route.params.subscribe(params => this.idMJ = params.idMJ);
+    this.route.params.subscribe(params => this.idJoueur = params.idJoueur);
 this.load();
   }
 

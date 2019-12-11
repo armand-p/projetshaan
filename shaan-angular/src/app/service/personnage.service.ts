@@ -67,17 +67,22 @@ export class PersonnageService {
     return this.http.get(this.appConfigService.backEnd + 'personnage/' + id);
   }
 
-  savesimple(personnage: Personnage)  {
+  savesimplepost(personnage: Personnage): Observable<any>  {
     if (personnage.id) {
-      this.http.put(this.appConfigService.backEnd + 'personnage/' + personnage.id, personnage).subscribe(resp => {this.load();this.loadPersoOrphanPartie()});
+      return this.http.put(this.appConfigService.backEnd + 'personnage/' + personnage.id, personnage);
     } else {
-      this.http.post<Personnage>(this.appConfigService.backEnd + 'personnage/', personnage).subscribe(resp => {
-        this.load()
-      });
+      return this.http.post<Personnage>(this.appConfigService.backEnd + 'personnage/', personnage);
 
 
     }}
+  savesimple(personnage: Personnage) {
+    if (personnage.id) {
+      this.http.put(this.appConfigService.backEnd + 'personnage/' + personnage.id, personnage).subscribe(resp => this.loadPersoOrphanPartie());
+    } else {
+      this.http.post<Personnage>(this.appConfigService.backEnd + 'personnage/', personnage).subscribe();
 
+
+    }}
 
   save(personnage: Personnage, domainePerso:Array<DomainePersonnage>, bonusPerso:Array<BonusPersonnage>, pouvoirPerso:Array<PouvoirPersonnage>,
        motivationPerso:Array<MotivationPersonnage>)  {

@@ -14,12 +14,13 @@ import {FichePersonnageComponent} from "./fiche-personnage/fiche-personnage.comp
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'personnage', component: PersonnageComponent, canActivate: [AuthGuard]},
-  {path: 'personnage/:id', component: PersonnageComponent},//, canActivate: [AuthGuard]},
+  {path: 'personnage/:id', component: PersonnageComponent,canActivate: [AuthGuard]},
   {path: 'creationcompte', component: CreationCompteComponent},
-  {path: 'accueiljoueur/:id', component: AccueilJoueurComponent},
-  {path: 'accueilmj/:id', component: AccueilMjComponent},
-  {path: 'tabledejeu/:id', component: TableDeJeuComponent},
-  {path: 'fichePerso/:id', component: FichePersonnageComponent}
+  {path: 'accueiljoueur/:id', component: AccueilJoueurComponent,canActivate: [AuthGuard]},
+  {path: 'accueilmj/:id', component: AccueilMjComponent,canActivate: [AuthGuard]},
+  {path: 'tabledejeu/:idMJ/:id', component: TableDeJeuComponent,canActivate: [AuthGuard]},
+  {path: 'tabledejeu/:id/player/:idJoueur', component: TableDeJeuComponent,canActivate: [AuthGuard]},
+  {path: 'fichePerso/:id', component: FichePersonnageComponent,canActivate: [AuthGuard]}
 ];
 
 @NgModule({

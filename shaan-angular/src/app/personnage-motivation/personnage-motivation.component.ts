@@ -4,7 +4,7 @@ import {DomaineService} from "../service/domaine.service";
 import {Motivation} from "../model/Motivation";
 import {MotivationPersonnage} from "../model/MotivationPersonnage";
 import {MotivationService} from "../service/motivation.service";
-import {DomainePersonnage} from '../model/DomainePersonnage';
+import {DomainePersonnage} from "../model/DomainePersonnage";
 
 @Component({
   selector: 'personnage-motivation',
@@ -25,6 +25,8 @@ export class PersonnageMotivationComponent implements OnInit {
   id: number = null;
   counter : number = 3;
 
+  @Input("current")
+  domainePerso : Array<DomainePersonnage>;
 
   constructor(private domaineService: DomaineService, private motivationService: MotivationService) {
   }
@@ -34,6 +36,7 @@ export class PersonnageMotivationComponent implements OnInit {
 
   listDomaine(): Array<DomainePersonnage> {
     this.listMotivation();
+    // return this.domaines = this.domaineService.findAll();
     return this.domainePerso.filter(domainePerso => domainePerso.rangDomaine >=5);
   }
 
