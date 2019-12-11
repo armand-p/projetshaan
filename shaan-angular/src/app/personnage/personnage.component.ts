@@ -8,6 +8,8 @@ import {last} from "rxjs/operators";
 import {PouvoirPersonnage} from "../model/PouvoirPersonnage";
 import {MotivationPersonnage} from "../model/MotivationPersonnage";
 import {SpecialisationAcquis} from "../model/SpecialisationAcquis";
+import {Joueur} from "../model/Joueur";
+import {UtilisateurService} from "../service/utilisateur.service";
 
 
 @Component({
@@ -30,7 +32,8 @@ export class PersonnageComponent implements OnInit {
   @Output()
   childEvent = new EventEmitter();
 
-  constructor(private router: Router, private personnageService: PersonnageService, private route: ActivatedRoute) {
+  constructor(private router: Router, private personnageService: PersonnageService, private route: ActivatedRoute,
+              private utilisateurService:UtilisateurService) {
 
     this.route.params.subscribe(params => this.id = params.id);
     if (this.id == null) {
@@ -45,7 +48,13 @@ export class PersonnageComponent implements OnInit {
   ngOnInit() {
   }
 
+
   receptionPerso(persoRecu: Personnage) {
+
+
+    this.personnage.joueur = new Joueur(this.joueurId,null,null,null,null);
+    console.log(this.personnage)
+    this.personnage.joueur.id = this.joueurId;
     this.personnage.racePerso = persoRecu.racePerso;
     this.personnage.peuplePerso = persoRecu.peuplePerso;
     this.personnage.castePerso = persoRecu.castePerso;
