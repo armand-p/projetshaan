@@ -3,9 +3,9 @@
 <div class="container">
   <div style="flex: 60%">
     <div *ngFor="let domaine of listDomaine()">
-      <h5>{{domaine.nom}}</h5>
+      <h5>{{domaine.domaineLie.nom}}</h5>
       <div *ngIf="motivations && domaines">
-        <div *ngFor="let motivation of triMotivation(domaine.nom)">
+        <div *ngFor="let motivation of triMotivation(domaine.domaineLie.nom)">
           <h6>{{motivation.nomMotivation}}
             <button [hidden]="!findMotivation(motivation)" (click)="ajouteMotivation(motivation)">+</button>
             <button [hidden]="findMotivation(motivation)" (click)="suppressionMotivation(motivation)">-</button>

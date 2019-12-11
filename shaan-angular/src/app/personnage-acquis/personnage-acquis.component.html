@@ -3,9 +3,9 @@
 <div class="container">
   <div style="flex: 60%">
     <div *ngFor="let domaine of listDomaine()">
-      <h5>{{domaine.nom}}</h5>
+      <h5>{{domaine.domaineLie.nom}}</h5>
       <div *ngIf="acquiss && domaines">
-        <div *ngFor="let acquis of triAcquis(domaine.nom)">
+        <div *ngFor="let acquis of triAcquis(domaine.domaineLie.nom)">
           <h6>{{acquis.nom}}
             <button [hidden]="!findAcquis(acquis)"(click)="ajouteAcquis(acquis)">+</button>
             <button [hidden]="findAcquis(acquis)" (click)="suppressionAcquis(acquis)">-</button>

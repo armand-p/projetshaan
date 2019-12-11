@@ -7,7 +7,8 @@
 <div class="container" >
   <div style="flex: 60%">
     <p>Nom : <input type="text" [(ngModel)]="personnage.nom">
-      Sexe : <input type="radio" name="sexe"> M <input type="radio" name="sexe"> F
+      Sexe : <input type="radio" name="sexe" value="male" [(ngModel)]="personnage.sexe"> Male <input type="radio" name="sexe" value="femelle" [(ngModel)]="personnage.sexe"> Femmelle
+      <input type="radio" name="sexe" value="nomoï" [(ngModel)]="personnage.sexe"> Nomoï
     Age : <input type="text" [(ngModel)]="personnage.age">
     </p>
     <p><span *ngIf="personnage.racePerso"><b>Race : </b><input type="text" [(ngModel)]="personnage.racePerso.nomRace"></span>
@@ -61,9 +62,9 @@
 
       <personnage-pouvoir *ngIf="page === 'pouvoir'" (pouvoirEnvoi)="receptionPouvoir($event)" [current]="domainePerso"></personnage-pouvoir>
 
-      <personnage-acquis *ngIf="page === 'acquis'" (acquisEnvoi)="receptionAcquis($event)"></personnage-acquis>
+      <personnage-acquis *ngIf="page === 'acquis'" (acquisEnvoi)="receptionAcquis($event)" [current]="domainePerso"></personnage-acquis>
 
-      <personnage-motivation *ngIf="page === 'motivation'" (motivationEnvoi)="receptionMotivation($event)"></personnage-motivation>
+      <personnage-motivation *ngIf="page === 'motivation'" (motivationEnvoi)="receptionMotivation($event)" [current]="domainePerso"></personnage-motivation>
 
   </div>
 </div>

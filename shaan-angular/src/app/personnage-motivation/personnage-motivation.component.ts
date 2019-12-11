@@ -1,9 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Domaine} from "../model/Domaine";
 import {DomaineService} from "../service/domaine.service";
 import {Motivation} from "../model/Motivation";
 import {MotivationPersonnage} from "../model/MotivationPersonnage";
 import {MotivationService} from "../service/motivation.service";
+import {DomainePersonnage} from "../model/DomainePersonnage";
 
 @Component({
   selector: 'personnage-motivation',
@@ -20,6 +21,8 @@ export class PersonnageMotivationComponent implements OnInit {
   motivationrPerso: Array<MotivationPersonnage> = new Array<MotivationPersonnage>();
   id: number = null;
 
+  @Input("current")
+  domainePerso : Array<DomainePersonnage>;
 
   constructor(private domaineService: DomaineService, private motivationService: MotivationService) {
   }
@@ -27,9 +30,10 @@ export class PersonnageMotivationComponent implements OnInit {
   ngOnInit() {
   }
 
-  listDomaine(): Array<Domaine> {
+  listDomaine(): Array<DomainePersonnage> {
     this.listMotivation();
-    return this.domaines = this.domaineService.findAll();
+    // return this.domaines = this.domaineService.findAll();
+    return this.domainePerso.filter(domainePerso => domainePerso.rangDomaine >=5);
   }
 
   listMotivation() {
