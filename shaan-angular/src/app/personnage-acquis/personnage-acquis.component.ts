@@ -25,6 +25,7 @@ export class PersonnageAcquisComponent implements OnInit {
   bonusPers: Array<BonusPersonnage> = new Array<BonusPersonnage>();
   specialisationAcquis: Array<SpecialisationAcquis> = new Array<SpecialisationAcquis>();
   id: number = null;
+  counter : number = 5;
 
   @Input("current")
   domainePerso : Array<DomainePersonnage>;
