@@ -87,20 +87,32 @@ listr():Array<Personnage>{
 
   delete(id){
     this.tableDeJeuService.findById(id).toPromise().then(resp =>{this.tableasupprimer=resp;
+    if(this.tableasupprimer.personnages[0]){
         for(let perso of this.tableasupprimer.personnages)
-        {  this.persoaenlever=perso;
+        {  let i : number = 0;
+
+          this.persoaenlever=perso;
           this.persoaenlever.parties=null;
-          this.personnageService.savesimple(this.persoaenlever);
+          i=i+1;
+          if (i==this.tableasupprimer.personnages.length-1){
+          this.personnageService.savesimplepost(this.persoaenlever).toPromise().then(resp =>this.tableDeJeuService.deleteBydIdpost(id).toPromise().then(resp => this.load(this.masterOfTheGame.id)) );
+        }
+          else{
+            this.personnageService.savesimple(this.persoaenlever);
+          }}
           this.tableDeJeuService.load()}
-        console.log(this.tableasupprimer.personnages)
-        if(this.tableasupprimer.personnages = isNullOrUndefined()){
-      this.tableDeJeuService.deleteBydIdpost(id).toPromise().then(resp => this.load(this.masterOfTheGame.id));}
+      else{
+        this.tableDeJeuService.deleteBydIdpost(id).toPromise().then(resp => this.load(this.masterOfTheGame.id));
 
-      }
+    }
 
-    );
+    })}
 
-  }
+
+
+
+
+
 linkparties(perso:Personnage){
 
   this.persoarajouter=perso;
