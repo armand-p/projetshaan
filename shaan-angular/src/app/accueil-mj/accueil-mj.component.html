@@ -69,7 +69,7 @@
       <tr *ngFor="let perso of listr()">
         <td>{{perso.nom}}</td>
         <td>{{perso.joueur?.pseudo}}</td>
-        <td><button title="Retire Personnage" type="button" class="btn btn-primary  btn-circle" (click)="unlinkparties(perso)"><i class="fas fa-minus"></i></button></td>
+        <td><button title="Retirer Personnage" type="button" class="btn btn-primary  btn-circle" (click)="unlinkparties(perso)"><i class="fas fa-minus"></i></button></td>
       </tr>
     </table>
     <button title="Annuler" type="button" class="btn btn-warning  btn-circle" (click)="closer()"><i class="fas fa-reply"></i></button>
