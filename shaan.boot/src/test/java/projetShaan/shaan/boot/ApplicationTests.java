@@ -3028,9 +3028,9 @@ class ApplicationTests {
 		miroitier.setClasse(1);
 		miroitier.setType("Outil");
 		SpecialisationAcquis miroitierSpe = new SpecialisationAcquis(sensDuVerre,miroitier,1);	
-		miroitierSpe=speAcquisRepository.save(miroitierSpe);
 		miroitier.setDomaine(technique);
 		miroitier=acquisRepository.save(miroitier);
+		miroitierSpe=speAcquisRepository.save(miroitierSpe);
 		
 		lanceClous.setNom("Lance-clous");
 		lanceClous.setCategorie("Armement");
@@ -3042,8 +3042,8 @@ class ApplicationTests {
 		SpecialisationAcquis lanceClousSpe = new SpecialisationAcquis(armesAProjectiles,lanceClous,1);	
 		lanceClous=acquisRepository.save(lanceClous);
 		lanceClousSpe=speAcquisRepository.save(lanceClousSpe);
-		
-		subvention.setNom("subvention");
+
+		subvention.setNom("Subvention");
 		subvention.setCategorie("Richesse");
 		subvention.setClasse(1);
 		subvention.setValeur(500);
@@ -3091,13 +3091,13 @@ class ApplicationTests {
 		maquillageTribal=acquisRepository.save(maquillageTribal);
 		maquillageTribalSpe= speAcquisRepository.save(maquillageTribalSpe);
 		
-		vetementMode.setNom(" Vêtements de Mode");
+		vetementMode.setNom("Vêtements de Mode");
 		vetementMode.setClasse(1);
 		vetementMode.setType("Richesses");
 		SpecialisationAcquis vetementModeSpe = new SpecialisationAcquis(seduction,vetementMode,1);	
-		vetementModeSpe=speAcquisRepository.save(vetementModeSpe);
 		vetementMode.setDomaine(social);
 		vetementMode=acquisRepository.save(vetementMode);
+		vetementModeSpe=speAcquisRepository.save(vetementModeSpe);
 		
 		trousseDuMenteur.setNom("Trousse du menteur");
 		trousseDuMenteur.setCategorie("Outil");
@@ -3110,21 +3110,21 @@ class ApplicationTests {
 		trousseDuMenteur=acquisRepository.save(trousseDuMenteur);
 		trousseDuMenteurSpe=speAcquisRepository.save(trousseDuMenteurSpe);
 		
-		flute.setNom(" Vêtements de Mode");
+		flute.setNom("Flûte Felings");
 		flute.setClasse(1);
 		vetementMode.setType("Richesses");
 		SpecialisationAcquis fluteSpe = new SpecialisationAcquis(chant,flute,1);	
-		fluteSpe=speAcquisRepository.save(fluteSpe);
 		flute.setDomaine(arts);
 		flute=acquisRepository.save(flute);
+		fluteSpe=speAcquisRepository.save(fluteSpe);
 		
 		champignons.setNom("Champignons relaxants");
 		champignons.setClasse(1);
 		champignons.setType("Richesses");
 		SpecialisationAcquis champignonsSpe = new SpecialisationAcquis(soinsDeLEsprit,champignons,1);	
-		champignonsSpe=speAcquisRepository.save(champignonsSpe);
 		champignons.setDomaine(shaan);
 		champignons=acquisRepository.save(champignons);
+		champignonsSpe=speAcquisRepository.save(champignonsSpe);
 		
 		cachet.setNom("Cachet");
 		cachet.setCategorie("Richesse");
