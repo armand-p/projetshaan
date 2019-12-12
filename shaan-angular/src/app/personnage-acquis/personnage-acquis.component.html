@@ -6,10 +6,11 @@
     <div style="flex: 10%">
       <div *ngIf="bonusPers" class="princ">
         <div *ngFor="let bonus of bonusPers, let i = index">
-          <p><span [hidden]="affichageAcquis(i)"><h6>{{bonus.acquis.nom}}</h6></span> <span [hidden]="!bonus.specialisation?.nom"> - {{bonus.specialisation?.nom}} : {{bonus?.bonusAcquis}}</span></p>
+          <p><span [hidden]="affichageAcquis(i)"><h6>{{bonus.acquis.nom}}</h6></span> <span
+            [hidden]="!bonus.specialisation?.nom"> - {{bonus.specialisation?.nom}} : {{bonus?.bonusAcquis}}</span></p>
         </div>
       </div>
-      <button (click)="envoi()" [disabled]="counter !=0">Validation</button>
+      <button (click)="envoi()" [disabled]="counter !=0">Validation des acquis</button>
       <div style="flex: 60%">
         <div *ngFor="let domaine of listDomaine()" class="princ">
           <h5>{{domaine.domaineLie.nom}}</h5>
@@ -17,8 +18,12 @@
             <div *ngFor="let acquis of triAcquis(domaine.domaineLie.nom)">
               <br>
               <h6>{{acquis.nom}}
-                <button [hidden]="!findAcquis(acquis)||counter==0" (click)="ajouteAcquis(acquis); this.counter = this.counter-1">+</button>
-                <button [hidden]="findAcquis(acquis)" (click)="suppressionAcquis(acquis); this.counter=this.counter+1">-</button>
+                <button [hidden]="!findAcquis(acquis)||counter==0"
+                        (click)="ajouteAcquis(acquis); this.counter = this.counter-1">+
+                </button>
+                <button [hidden]="findAcquis(acquis)" (click)="suppressionAcquis(acquis); this.counter=this.counter+1">
+                  -
+                </button>
               </h6>
               <br>
               <b>{{acquis.description}}</b>

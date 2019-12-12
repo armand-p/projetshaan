@@ -13,7 +13,7 @@
       <th>Peuple</th>
       <th>Caste</th>
       <th>Métier</th>
-      <th>Partie</th>
+      <th>Table de jeu</th>
     </tr>
 
 
@@ -25,8 +25,8 @@
       <td> {{ personnage.metierPerso?.nomMetier }}</td>
       <td> {{ personnage.parties?.nom }} </td>
       <th><button [hidden]="true" title="Modifier" type="button" style="color:#4497BD" class="btn  btn-light btn-circle" (click)="edit(personnage.id)" [routerLink]="['/'+joueurId+'/personnage/'+personnage.id]"><i class="fas fa-user-edit"></i></button></th>
-      <th><button type="button" style="color:#DE1423" class="btn  btn-light btn-circle" (click)="delete(personnage.id)"><i class="fas fa-trash-alt"></i></button></th>
-      <th><button *ngIf="personnage.parties" type="button" style="color:#DE1423" class="btn  btn-light btn-circle" [routerLink]="['/tabledejeu/'+personnage.parties?.id+'/player/'+this.joueurId]"><i class="fas fa-external-link-square-alt"></i></button></th>
+      <th><button title="Supprimer Personnage" type="button" style="color:#DE1423" class="btn  btn-light btn-circle" (click)="delete(personnage.id)"><i class="fas fa-trash-alt"></i></button></th>
+      <th><button title="Accéder à la Table de jeu" *ngIf="personnage.parties" type="button" style="color:#DE1423" class="btn  btn-light btn-circle" [routerLink]="['/tabledejeu/'+personnage.parties?.id+'/player/'+this.joueurId]"><i class="fas fa-external-link-square-alt"></i></button></th>
     </tr>
 
 
@@ -34,7 +34,7 @@
   </table>
   <br>
 <table>
-  <th><button title="Retour" type="button" class="btn btn-danger btn-circle" [routerLink]="['']" (click)="unlog()"><i class="fas fa-arrow-alt-circle-left"></i></button></th>
+  <th><button title="Déconnexion" type="button" class="btn btn-danger btn-circle" [routerLink]="['']" (click)="unlog()"><i class="fas fa-sign-out-alt"></i></button></th>
   <th><button title="Nouveau Personnage" type="button" class="btn btn-primary btn-circle" [routerLink]="['/'+joueurId+'/personnage']" ><i class="fas fa-user-plus"></i></button></th>
 
 </table>
