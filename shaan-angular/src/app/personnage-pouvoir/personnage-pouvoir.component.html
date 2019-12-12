@@ -9,7 +9,7 @@
           <p>{{pouvoir.pouvoir.nomPouvoir}}</p>
         </div>
       </div>
-      <button [disabled]="counter!=0" (click)="envoi()" class="btn btn-info btn-circle">Validation</button>
+      <button [disabled]="counter!=0" (click)="envoi()" class="btn btn-info btn-circle">Validation des pouvoirs</button>
       <div style="flex: 60%">
         <div *ngFor="let domaine of listDomaine()" class="princ">
           <h5>{{domaine.domaineLie.nom}}</h5>
