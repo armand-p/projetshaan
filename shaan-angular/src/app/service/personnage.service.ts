@@ -11,6 +11,7 @@ import {PouvoirPersonnage} from "../model/PouvoirPersonnage";
 import {PouvoirPersonnageService} from "./pouvoir-personnage.service";
 import {MotivationPersonnageService} from "./motivation-personnage.service";
 import {MotivationPersonnage} from "../model/MotivationPersonnage";
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,7 @@ export class PersonnageService {
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService, private domainePersonnageService:DomainePersonnageService,
               private bonusPersonnageService:BonusPersonnageService, private pouvoirPersonnageService:PouvoirPersonnageService,
-              private motivationPersonnageService: MotivationPersonnageService) {
+              private motivationPersonnageService: MotivationPersonnageService, private router: Router) {
     this.load();
     this.loadPersoOrphanPartie();
   }
@@ -116,6 +117,7 @@ export class PersonnageService {
 
         this.load();
         this.loadPersoOrphanPartie()
+        this.router.navigate(['/accueiljoueur/', resp.joueur.id])
 
       });
 
@@ -148,6 +150,7 @@ export class PersonnageService {
         }
 
         this.load()
+        this.router.navigate(['/accueiljoueur/', resp.joueur.id])
       });
 
 

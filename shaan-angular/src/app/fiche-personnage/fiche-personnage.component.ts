@@ -13,6 +13,7 @@ import {PouvoirPersonnage} from "../model/PouvoirPersonnage";
 import {PouvoirPersonnageService} from "../service/pouvoir-personnage.service";
 import {MotivationPersonnage} from "../model/MotivationPersonnage";
 import {MotivationPersonnageService} from "../service/motivation-personnage.service";
+import {Acquis} from "../model/Acquis";
 
 @Component({
   selector: 'app-fiche-personnage',
@@ -27,12 +28,11 @@ export class FichePersonnageComponent implements OnInit {
   private Domaines: Array<DomainePersonnage>;
   listDomaines: Array<DomainePersonnage>;
   listSpecialisations: Array<Specialisation>;
-  listBonus:Array<BonusPersonnage>;
-  listPouvoirs:Array<PouvoirPersonnage>;
-  listMotivation:Array<MotivationPersonnage>;
+  listBonus: Array<BonusPersonnage>;
+  listPouvoirs: Array<PouvoirPersonnage>;
+  listMotivation: Array<MotivationPersonnage>;
 
-  constructor(private pouvoirPersonnageService:PouvoirPersonnageService, private bonusPersonnageService:BonusPersonnageService, private specialisationService:SpecialisationService, private domainePersonnageService: DomainePersonnageService, private personnageService: PersonnageService, private route: ActivatedRoute) {
-
+  constructor(private pouvoirPersonnageService: PouvoirPersonnageService, private bonusPersonnageService: BonusPersonnageService, private specialisationService: SpecialisationService, private domainePersonnageService: DomainePersonnageService, private personnageService: PersonnageService, private route: ActivatedRoute) {
 
 
   }
@@ -40,10 +40,13 @@ export class FichePersonnageComponent implements OnInit {
   ngOnInit() {
 
     this.personnageService.findById(this.id).subscribe(resp => this.personnage = resp);
-    this.personnageService.domaineperso(this.id).subscribe(resp => {this.listDomaines = resp});
-    this.personnageService.bonusPersonnage(this.id).subscribe(resp => this.listBonus=resp);
-    this.personnageService.pouvoirPersonnage(this.id).subscribe(resp =>this.listPouvoirs=resp);
-    this.personnageService.motivationPersonnage(this.id).subscribe(resp => this.listMotivation=resp);
+    this.personnageService.domaineperso(this.id).subscribe(resp => {
+      this.listDomaines = resp
+    });
+    this.personnageService.bonusPersonnage(this.id).subscribe(resp => this.listBonus = resp);
+    this.personnageService.pouvoirPersonnage(this.id).subscribe(resp => this.listPouvoirs = resp);
+    this.personnageService.motivationPersonnage(this.id).subscribe(resp => this.listMotivation = resp);
+
   }
 
   public list(): any {
