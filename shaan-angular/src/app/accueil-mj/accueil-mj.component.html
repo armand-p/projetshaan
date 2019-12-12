@@ -4,42 +4,42 @@
   <table class="table table-sm table-hover ">
     <thead>
     <tr>
-      <th colspan="6">Liste des parties</th>
+      <th colspan="6">Liste des table de jeu</th>
     </tr>
     </thead>
   <tbody>
   <tr>
-    <th>Partie</th>
+    <th>Table de jeu</th>
     <th>Nombre de joueurs</th>
 </tr>
   <tr *ngFor="let table of list(this.idMJ)">
     <td>{{table.nom}}</td>
     <td>{{table.personnages.length}}</td>
-    <td><button type="button" class="btn btn-danger btn-circle" (click)="delete(table.id)" ><i class="fas fa-times"></i></button></td>
-    <td><button type="button" class="btn btn-primary btn-circle" (click)="add(table)" ><i class="fas fa-user-plus"></i></button></td>
-    <td><button type="button" class="btn btn-warning btn-circle" (click)="remove(table.id)" ><i class="fas fa-user-minus"></i></button></td>
-    <td><button type="button" class="btn btn-info btn-circle" [routerLink]="['/tabledejeu/'+this.idMJ+'/'+table.id]" ><i class="fas fa-external-link-square-alt"></i></button></td>
+    <td><button title="Supprimer Table de jeu" type="button" class="btn btn-danger btn-circle" (click)="delete(table.id)" ><i class="fas fa-times"></i></button></td>
+    <td><button title="Ajouter un Personnage" type="button" class="btn btn-primary btn-circle" (click)="add(table)" ><i class="fas fa-user-plus"></i></button></td>
+    <td><button title="Retirer un Personnage" type="button" class="btn btn-warning btn-circle" (click)="remove(table.id)" ><i class="fas fa-user-minus"></i></button></td>
+    <td><button title="Accéder à la Table de jeu" type="button" class="btn btn-info btn-circle" [routerLink]="['/tabledejeu/'+this.idMJ+'/'+table.id]" ><i class="fas fa-external-link-square-alt"></i></button></td>
   </tr>
 
   </tbody>
   </table>
   <table>
-    <th><button title="Retour" type="button" class="btn btn-danger btn-circle" [routerLink]="['']" (click)="unlog()"><i class="fas fa-arrow-alt-circle-left"></i></button></th>
-    <th><button type="button" class="btn btn-primary btn-circle notprinc" (click)="creer()"><i class="fas fa-plus"></i></button></th>
+    <th><button title="Déconnexion" type="button" class="btn btn-danger btn-circle" [routerLink]="['']" (click)="unlog()"><i class="fas fa-sign-out-alt"></i></button></th>
+    <th><button title="Nouvelle Table de jeu" type="button" class="btn btn-primary btn-circle notprinc" (click)="creer()"><i class="fas fa-plus"></i></button></th>
 
   </table>
   </div>
 <div *ngIf="tabledujeu" class="princ">
   <form>
-    <h1>Creation de table</h1>
+    <h1>Création de la table</h1>
     <div class="form-group">
 
-    <label for="nom">Nom de la table de jeu:</label>
+    <label for="nom">Nom de la table de jeu :</label>
     <input type="text" class="form-control" [(ngModel)]="tabledujeu.nom" [ngModelOptions]="{standalone: true}" id="nom">
   </div>
     <div class="form-group">
-     <button type="button" class="btn btn-primary  btn-circle" (click)="save()"><i class="fas fa-save"></i></button>
-      <button type="button" class="btn btn-warning  btn-circle" (click)="closeadd()"><i class="fas fa-reply"></i></button>
+     <button title="Enregistrer la table de jeu" type="button" class="btn btn-primary  btn-circle" (click)="save()"><i class="fas fa-save"></i></button>
+      <button title="Annuler" type="button" class="btn btn-warning  btn-circle" (click)="closeadd()"><i class="fas fa-reply"></i></button>
     </div>
 
   </form>
@@ -54,10 +54,10 @@
   <tr *ngFor="let perso of add()">
     <td>{{perso.nom}}</td>
     <td>{{perso.joueur?.pseudo}}</td>
-    <td><button type="button" class="btn btn-primary  btn-circle" (click)="linkparties(perso)"><i class="fas fa-plus"></i></button></td>
+    <td><button title="Ajouter Personnage" type="button" class="btn btn-primary  btn-circle" (click)="linkparties(perso)"><i class="fas fa-plus"></i></button></td>
   </tr>
   </table>
-  <button type="button" class="btn btn-warning  btn-circle" (click)="close()"><i class="fas fa-reply"></i></button>
+  <button title="Annuler" type="button" class="btn btn-warning  btn-circle" (click)="close()"><i class="fas fa-reply"></i></button>
 </div>
   <div *ngIf="showRemove" class="princ">
     <h1>Retrait de personnages</h1>
@@ -69,10 +69,10 @@
       <tr *ngFor="let perso of listr()">
         <td>{{perso.nom}}</td>
         <td>{{perso.joueur?.pseudo}}</td>
-        <td><button type="button" class="btn btn-primary  btn-circle" (click)="unlinkparties(perso)"><i class="fas fa-minus"></i></button></td>
+        <td><button title="Retirer Personnage" type="button" class="btn btn-primary  btn-circle" (click)="unlinkparties(perso)"><i class="fas fa-minus"></i></button></td>
       </tr>
     </table>
-    <button type="button" class="btn btn-warning  btn-circle" (click)="closer()"><i class="fas fa-reply"></i></button>
+    <button title="Annuler" type="button" class="btn btn-warning  btn-circle" (click)="closer()"><i class="fas fa-reply"></i></button>
   </div>
 </div>
 

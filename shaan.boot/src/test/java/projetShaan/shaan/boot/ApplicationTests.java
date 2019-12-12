@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javassist.expr.NewArray;
 import projetShaan.shaan.boot.model.PersonnageNonJoueur;
 import projetShaan.shaan.boot.model.Joueur;
 import projetShaan.shaan.boot.model.MaitreDuJeu;
@@ -454,6 +455,16 @@ class ApplicationTests {
 		Acquis sarbacane = new Acquis();
 		Acquis armeAFeu = new Acquis();
 		Acquis radar = new Acquis();
+		Acquis miroitier = new Acquis();
+		Acquis subvention = new Acquis();
+		Acquis vetementMode = new Acquis();
+		Acquis flute = new Acquis();
+		Acquis champignons = new Acquis();
+		Acquis schemeDArcanesMineur = new Acquis();
+		Acquis grigriAutre = new Acquis();
+		Acquis harnais = new Acquis();
+		Acquis cape = new Acquis();
+		Acquis stimulants = new Acquis();
 //*************************************************************************************************************************
 //		REMPLISSAGE
 //*************************************************************************************************************************
@@ -3013,6 +3024,14 @@ class ApplicationTests {
 		brevet.setDomaine(technique);
 		brevet=acquisRepository.save(brevet);
 		
+		miroitier.setNom("Outils de Miroitier");
+		miroitier.setClasse(1);
+		miroitier.setType("Outil");
+		SpecialisationAcquis miroitierSpe = new SpecialisationAcquis(sensDuVerre,miroitier,1);	
+		miroitier.setDomaine(technique);
+		miroitier=acquisRepository.save(miroitier);
+		miroitierSpe=speAcquisRepository.save(miroitierSpe);
+		
 		lanceClous.setNom("Lance-clous");
 		lanceClous.setCategorie("Armement");
 		lanceClous.setClasse(1);
@@ -3023,6 +3042,16 @@ class ApplicationTests {
 		SpecialisationAcquis lanceClousSpe = new SpecialisationAcquis(armesAProjectiles,lanceClous,1);	
 		lanceClous=acquisRepository.save(lanceClous);
 		lanceClousSpe=speAcquisRepository.save(lanceClousSpe);
+
+		subvention.setNom("Subvention");
+		subvention.setCategorie("Richesse");
+		subvention.setClasse(1);
+		subvention.setValeur(500);
+		subvention.setDescription("Crédit obtenu pour réaliserdes recherches théoriques.");
+		subvention.setPrestige(1);
+		subvention.setType("Acquis du quotidien");
+		subvention.setDomaine(savoir);
+		subvention=acquisRepository.save(subvention);
 		
 		herbier.setNom("Herbier");
 		herbier.setCategorie("Manuscrit");
@@ -3062,6 +3091,14 @@ class ApplicationTests {
 		maquillageTribal=acquisRepository.save(maquillageTribal);
 		maquillageTribalSpe= speAcquisRepository.save(maquillageTribalSpe);
 		
+		vetementMode.setNom("Vêtements de Mode");
+		vetementMode.setClasse(1);
+		vetementMode.setType("Richesses");
+		SpecialisationAcquis vetementModeSpe = new SpecialisationAcquis(seduction,vetementMode,1);	
+		vetementMode.setDomaine(social);
+		vetementMode=acquisRepository.save(vetementMode);
+		vetementModeSpe=speAcquisRepository.save(vetementModeSpe);
+		
 		trousseDuMenteur.setNom("Trousse du menteur");
 		trousseDuMenteur.setCategorie("Outil");
 		trousseDuMenteur.setClasse(1);
@@ -3072,6 +3109,22 @@ class ApplicationTests {
 		SpecialisationAcquis trousseDuMenteurSpe = new SpecialisationAcquis(bluff,trousseDuMenteur,1);
 		trousseDuMenteur=acquisRepository.save(trousseDuMenteur);
 		trousseDuMenteurSpe=speAcquisRepository.save(trousseDuMenteurSpe);
+		
+		flute.setNom("Flûte Felings");
+		flute.setClasse(1);
+		vetementMode.setType("Richesses");
+		SpecialisationAcquis fluteSpe = new SpecialisationAcquis(chant,flute,1);	
+		flute.setDomaine(arts);
+		flute=acquisRepository.save(flute);
+		fluteSpe=speAcquisRepository.save(fluteSpe);
+		
+		champignons.setNom("Champignons relaxants");
+		champignons.setClasse(1);
+		champignons.setType("Richesses");
+		SpecialisationAcquis champignonsSpe = new SpecialisationAcquis(soinsDeLEsprit,champignons,1);	
+		champignons.setDomaine(shaan);
+		champignons=acquisRepository.save(champignons);
+		champignonsSpe=speAcquisRepository.save(champignonsSpe);
 		
 		cachet.setNom("Cachet");
 		cachet.setCategorie("Richesse");
@@ -3137,6 +3190,18 @@ class ApplicationTests {
 		schemeDEnchantementMineur=acquisRepository.save(schemeDEnchantementMineur);
 		schemeDEnchantementMineurSpe=speAcquisRepository.save(schemeDEnchantementMineurSpe);
 		
+		schemeDArcanesMineur.setNom("Scheme d'arcanes mineur");
+		schemeDArcanesMineur.setCategorie("Artefact");
+		schemeDArcanesMineur.setClasse(1);
+		schemeDArcanesMineur.setValeur(500);
+		schemeDArcanesMineur.setPrestige(2);
+		schemeDArcanesMineur.setDomaine(magie);
+		schemeDArcanesMineur.setDescription("Schème sculpté, gravé, tatoué, peint, ... qui donne un bonus dans la Spécialisation Arcanes.");
+		schemeDArcanesMineur.setType("Schemes de classe 1");
+		SpecialisationAcquis schemeDArcanesMineurSpe = new SpecialisationAcquis(arcanes, schemeDArcanesMineur,1);
+		schemeDArcanesMineur=acquisRepository.save(schemeDArcanesMineur);
+		schemeDArcanesMineurSpe=speAcquisRepository.save(schemeDArcanesMineurSpe);
+		
 		batonWoon.setNom("Baton Woon");
 		batonWoon.setCategorie("Armement");
 		batonWoon.setClasse(1);
@@ -3161,6 +3226,18 @@ class ApplicationTests {
 		grigriDuVegetal=acquisRepository.save(grigriDuVegetal);
 		grigriDuVegetalSpe = speAcquisRepository.save(grigriDuVegetalSpe);
 		
+		grigriAutre.setNom("Grigri de l'Autre");
+		grigriAutre.setCategorie("Artefact");
+		grigriAutre.setClasse(1);
+		grigriAutre.setValeur(100);
+		grigriAutre.setPrestige(2);
+		grigriAutre.setDomaine(rituels);
+		grigriAutre.setDescription("pendentif à icônes, amulette, livre de culte, corne d’appel à la prière, talisman …");
+		grigriAutre.setType("Grigri");
+		SpecialisationAcquis grigriAutreSpe = new SpecialisationAcquis(riteDArts, grigriAutre,1);
+		grigriAutre=acquisRepository.save(grigriAutre);
+		grigriAutreSpe = speAcquisRepository.save(grigriAutreSpe);
+		
 		longueVue.setNom("Longue vue");
 		longueVue.setCategorie("Outil");
 		longueVue.setClasse(1);
@@ -3170,6 +3247,17 @@ class ApplicationTests {
 		SpecialisationAcquis longueVueSpe = new SpecialisationAcquis(vigilance, longueVue,1);
 		longueVue=acquisRepository.save(longueVue);
 		longueVueSpe = speAcquisRepository.save(longueVueSpe);
+		
+		harnais.setNom("Harnais de Monture");
+		harnais.setCategorie("Outil");
+		harnais.setClasse(1);
+		harnais.setValeur(100);
+		harnais.setDomaine(survie);
+		longueVue.setType("Outils de classe 1");
+		SpecialisationAcquis harnaisSpe = new SpecialisationAcquis(monture,harnais,1);
+		harnais=acquisRepository.save(harnais);
+		harnaisSpe = speAcquisRepository.save(harnaisSpe);
+		
 		
 		boomerang.setNom("Boomerang");
 		boomerang.setCategorie("Armement");
@@ -3191,6 +3279,15 @@ class ApplicationTests {
 		SpecialisationAcquis sarbacaneSpe = new SpecialisationAcquis(armesAProjectiles, sarbacane, 0);
 		sarbacane=acquisRepository.save(sarbacane);
 		sarbacaneSpe = speAcquisRepository.save(sarbacaneSpe);
+		
+		cape.setNom("Cape d'Evasion");
+		cape.setCategorie("Armement");
+		cape.setClasse(1);
+		cape.setDomaine(combat);
+		cape.setType("Armement");
+		SpecialisationAcquis capeSpe = new SpecialisationAcquis(esquive, cape,2);
+		cape=acquisRepository.save(cape);
+		capeSpe = speAcquisRepository.save(capeSpe);
 		
 		bolas.setNom("Bolas");
 		bolas.setCategorie("Artefact");
@@ -3215,6 +3312,22 @@ class ApplicationTests {
 		radar=acquisRepository.save(radar);
 		radarSpe = speAcquisRepository.save(radarSpe);
 		
+		stimulants.setNom("Stimulants Cardiaques");
+		stimulants.setCategorie("Drogues");
+		stimulants.setClasse(1);
+		stimulants.setValeur(500);
+		stimulants.setPrestige(1);
+		stimulants.setDomaine(necrose);
+		stimulants.setDescription("Dispositif de détection de mouvement aérien qui porte à 10km. Il est livré avec une petite console utilisée pour interpréter les signaux reçus et paramétrer le système de détection.");
+		stimulants.setType("Technologie de classe 1");
+		SpecialisationAcquis stimulantsSpe1 = new SpecialisationAcquis(vigilance,stimulants,1);
+		SpecialisationAcquis stimulantsSpe2 = new SpecialisationAcquis(pugilat,stimulants,1);
+		SpecialisationAcquis stimulantsSpe3 = new SpecialisationAcquis(esquive,stimulants,1);
+		stimulants=acquisRepository.save(stimulants);
+		stimulantsSpe1 = speAcquisRepository.save(stimulantsSpe1);
+		stimulantsSpe2 = speAcquisRepository.save(stimulantsSpe2);
+		stimulantsSpe3 = speAcquisRepository.save(stimulantsSpe3);
+		
 		armeAFeu.setNom("Arme à feu");
 		armeAFeu.setCategorie("Technologie");
 		armeAFeu.setClasse(1);
@@ -3233,64 +3346,64 @@ class ApplicationTests {
 
 		
 		
-		  Joueur theauj = new Joueur(); Personnage theau = new Personnage();
-		  MaitreDuJeu baptiste = new MaitreDuJeu(); PersonnageNonJoueur pnj = new
-		  PersonnageNonJoueur(); TableDeJeu parapleteam = new TableDeJeu();
-		  AlterationEtat aveugle = new AlterationEtat(); BonusPersonnage bonus = new
-		  BonusPersonnage(); PouvoirPersonnage briseCodeTheau = new
-		  PouvoirPersonnage(); DomainePersonnage rituelTheau = new DomainePersonnage();
-		  MotivationPersonnage forteresseTheau = new MotivationPersonnage();
-		  AlterationPersonnage aveugleTheau = new AlterationPersonnage();
-		  
-		  theauj.setPseudo("theau"); theauj.setEmail("coucou@e.fr");
-		  theauj.setMotDePasse("mdp");
-		  
-		  theauj = joueurRepository.save(theauj);
-		  
-		  baptiste.setEmail("t@e.fr"); baptiste.setMotDePasse("mdp");
-		  baptiste.setPseudo("baptou"); baptiste=maitreDuJeuRepository.save(baptiste);
-		  
-		  pnj.setCreateur(baptiste); pnj.setCastePerso(artistes);
-		  pnj.setMetierPerso(prestidigitateur); pnj.setNom("Armand"); pnj.setAge(2);
-		  pnj.setAme(0); pnj.setCorps(2); pnj.setEsprit(0); pnj.setTaille(1.25f);
-		  pnj.setSexe(null); pnj.setPoids(21f); pnj = (PersonnageNonJoueur)
-		  personnageRepository.save(pnj);
-		  
-		  parapleteam.setNotes("Il y a du gateau et des meufs dans le frigo. Oups");
-		  parapleteam.setMaitreDuJeu(baptiste); parapleteam.setTimer(null); parapleteam
-		  = tableDeJeuRepository.save(parapleteam);
-		  
-		  aveugle.setNom("aveuglé"); aveugle.setEffet("aveugle"); aveugle =
-		  alterationEtatRepository.save(aveugle);
-		  
-		  theau.setAge(22); theau.setAme(5); theau.setNom("Theau");
-		  theau.setJoueur(theauj); theau.setMetierPerso(prestidigitateur);
-		  theau.setParties(parapleteam); theau.setRacePerso(delhions);
-		  theau.setCastePerso(artistes); theau.setPeuplePerso(cites); theau =
-		  personnageRepository.save(theau);
-		  
-		  
-		  briseCodeTheau.setPersoLie(theau); briseCodeTheau.setPouvoir(brisecode);
-		  
-		  briseCodeTheau = pouvoirPersonnageRepository.save(briseCodeTheau);
-		  
-		  rituelTheau.setRangDomaine(5); rituelTheau.setPersoLie(theau);
-		  rituelTheau.setDomaineLie(rituels);
-		  
-		  rituelTheau = domainePersonnageRepository.save(rituelTheau);
-		  
-		  forteresseTheau.setPersoLie(theau);
-		  forteresseTheau.setMotivation(forteresse);
-		  
-		  forteresseTheau = motivationPersonnageRepository.save(forteresseTheau);
-		  
-		  bonus.setBonusPerso(1); bonus.setBonusAcquis(1); bonus.setAcquis(lanceClous);
-		  bonus.setPersoLie(theau); bonus.setSpecialisation(vigilance);
-		  
-		  bonus = bonusPersonnageRepository.save(bonus);
-		  
-		  aveugleTheau.setAlterationEtat(aveugle); aveugleTheau.setPersoLie(theau);
-		  aveugleTheau = alterationPersonnageRepository.save(aveugleTheau);
+//		  Joueur theauj = new Joueur(); Personnage theau = new Personnage();
+//		  MaitreDuJeu baptiste = new MaitreDuJeu(); PersonnageNonJoueur pnj = new
+//		  PersonnageNonJoueur(); TableDeJeu parapleteam = new TableDeJeu();
+//		  AlterationEtat aveugle = new AlterationEtat(); BonusPersonnage bonus = new
+//		  BonusPersonnage(); PouvoirPersonnage briseCodeTheau = new
+//		  PouvoirPersonnage(); DomainePersonnage rituelTheau = new DomainePersonnage();
+//		  MotivationPersonnage forteresseTheau = new MotivationPersonnage();
+//		  AlterationPersonnage aveugleTheau = new AlterationPersonnage();
+//		  
+//		  theauj.setPseudo("theau"); theauj.setEmail("coucou@e.fr");
+//		  theauj.setMotDePasse("mdp");
+//		  
+//		  theauj = joueurRepository.save(theauj);
+//		  
+//		  baptiste.setEmail("t@e.fr"); baptiste.setMotDePasse("mdp");
+//		  baptiste.setPseudo("baptou"); baptiste=maitreDuJeuRepository.save(baptiste);
+//		  
+//		  pnj.setCreateur(baptiste); pnj.setCastePerso(artistes);
+//		  pnj.setMetierPerso(prestidigitateur); pnj.setNom("Armand"); pnj.setAge(2);
+//		  pnj.setAme(0); pnj.setCorps(2); pnj.setEsprit(0); pnj.setTaille(1.25f);
+//		  pnj.setSexe(null); pnj.setPoids(21f); pnj = (PersonnageNonJoueur)
+//		  personnageRepository.save(pnj);
+//		  
+//		  parapleteam.setNotes("Il y a du gateau et des meufs dans le frigo. Oups");
+//		  parapleteam.setMaitreDuJeu(baptiste); parapleteam.setTimer(null); parapleteam
+//		  = tableDeJeuRepository.save(parapleteam);
+//		  
+//		  aveugle.setNom("aveuglé"); aveugle.setEffet("aveugle"); aveugle =
+//		  alterationEtatRepository.save(aveugle);
+//		  
+//		  theau.setAge(22); theau.setAme(5); theau.setNom("Theau");
+//		  theau.setJoueur(theauj); theau.setMetierPerso(prestidigitateur);
+//		  theau.setParties(parapleteam); theau.setRacePerso(delhions);
+//		  theau.setCastePerso(artistes); theau.setPeuplePerso(cites); theau =
+//		  personnageRepository.save(theau);
+//		  
+//		  
+//		  briseCodeTheau.setPersoLie(theau); briseCodeTheau.setPouvoir(brisecode);
+//		  
+//		  briseCodeTheau = pouvoirPersonnageRepository.save(briseCodeTheau);
+//		  
+//		  rituelTheau.setRangDomaine(5); rituelTheau.setPersoLie(theau);
+//		  rituelTheau.setDomaineLie(rituels);
+//		  
+//		  rituelTheau = domainePersonnageRepository.save(rituelTheau);
+//		  
+//		  forteresseTheau.setPersoLie(theau);
+//		  forteresseTheau.setMotivation(forteresse);
+//		  
+//		  forteresseTheau = motivationPersonnageRepository.save(forteresseTheau);
+//		  
+//		  bonus.setBonusPerso(1); bonus.setBonusAcquis(1); bonus.setAcquis(lanceClous);
+//		  bonus.setPersoLie(theau); bonus.setSpecialisation(vigilance);
+//		  
+//		  bonus = bonusPersonnageRepository.save(bonus);
+//		  
+//		  aveugleTheau.setAlterationEtat(aveugle); aveugleTheau.setPersoLie(theau);
+//		  aveugleTheau = alterationPersonnageRepository.save(aveugleTheau);
 		 
 	}
 

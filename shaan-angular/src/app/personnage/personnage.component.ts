@@ -1,15 +1,15 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Personnage} from "../model/Personnage";
-import {PersonnageService} from "../service/personnage.service";
-import {DomainePersonnage} from "../model/DomainePersonnage";
+import {Personnage} from '../model/Personnage';
+import {PersonnageService} from '../service/personnage.service';
+import {DomainePersonnage} from '../model/DomainePersonnage';
 import {ActivatedRoute, Router} from '@angular/router';
-import {BonusPersonnage} from "../model/BonusPersonnage";
-import {last} from "rxjs/operators";
-import {PouvoirPersonnage} from "../model/PouvoirPersonnage";
-import {MotivationPersonnage} from "../model/MotivationPersonnage";
-import {SpecialisationAcquis} from "../model/SpecialisationAcquis";
-import {Joueur} from "../model/Joueur";
-import {UtilisateurService} from "../service/utilisateur.service";
+import {BonusPersonnage} from '../model/BonusPersonnage';
+import {last} from 'rxjs/operators';
+import {PouvoirPersonnage} from '../model/PouvoirPersonnage';
+import {MotivationPersonnage} from '../model/MotivationPersonnage';
+import {SpecialisationAcquis} from '../model/SpecialisationAcquis';
+import {Joueur} from '../model/Joueur';
+import {UtilisateurService} from '../service/utilisateur.service';
 
 
 @Component({
@@ -28,7 +28,7 @@ export class PersonnageComponent implements OnInit {
   motivationPerso: Array<MotivationPersonnage> = new Array<MotivationPersonnage>();
   id: number;
   joueurId: number;
-  validation:boolean = true;
+  validation: boolean = true;
 
   @Output()
   childEvent = new EventEmitter();
@@ -51,19 +51,19 @@ export class PersonnageComponent implements OnInit {
 
   nbrSpe(): boolean {
 
-      if (this.bonusPerso.filter(bonus => bonus.acquis == null).length !=0) {
-        return false;
-      }else {
-        return true;
+    if (this.bonusPerso.filter(bonus => bonus.acquis == null).length != 0) {
+      return false;
+    } else {
+      return true;
     }
 
   }
 
   nbrAcquis(): boolean {
 
-    if (this.bonusPerso.filter(bonus => bonus.acquis != null).length !=0) {
+    if (this.bonusPerso.filter(bonus => bonus.acquis != null).length != 0) {
       return false;
-    }else {
+    } else {
       return true;
     }
 
@@ -77,7 +77,7 @@ export class PersonnageComponent implements OnInit {
     this.personnage.peuplePerso = persoRecu.peuplePerso;
     this.personnage.castePerso = persoRecu.castePerso;
     this.personnage.metierPerso = persoRecu.metierPerso;
-    console.log(this.personnage)
+    console.log(this.personnage);
   }
 
   receptionDomaine(domaineRecu: Array<DomainePersonnage>) {
@@ -168,12 +168,12 @@ export class PersonnageComponent implements OnInit {
     this.personnageService.save(this.personnage, this.domainePerso, this.bonusPerso, this.pouvoirPerso, this.motivationPerso);
   }
 
-  retour(){
+  retour() {
     this.domainePerso.splice(0, this.domainePerso.length);
     this.bonusPerso.splice(0, this.bonusPerso.length);
     this.pouvoirPerso.splice(0, this.pouvoirPerso.length);
     this.motivationPerso.splice(0, this.motivationPerso.length);
-    console.log(localStorage.getItem("this.id"));
+    console.log(localStorage.getItem('this.id'));
     this.router.navigate(['/accueiljoueur/', this.joueurId]);
   }
 

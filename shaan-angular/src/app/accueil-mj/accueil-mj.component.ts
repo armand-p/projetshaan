@@ -32,7 +32,7 @@ export class AccueilMjComponent implements OnInit {
   listTable : Array<TableDeJeu>;
   constructor(private tableDeJeuService:tableDeJeuService,private personnageService:PersonnageService,private utilisateurService:UtilisateurService,private route:ActivatedRoute) {
     this.route.params.subscribe(params =>this.idMJ=params.id);
-    this.utilisateurService.findByIdMasterOfTheGame(this.idMJ).toPromise().then(resp => {this.masterOfTheGame=resp; this.load(this.masterOfTheGame.id);});
+    this.utilisateurService.findByIdMasterOfTheGame(this.idMJ).toPromise().then(resp => {this.masterOfTheGame=resp; this.load(this.masterOfTheGame.id); this.personnageService.loadPersoOrphanPartie()});
 
   }
 
@@ -90,7 +90,7 @@ listr():Array<Personnage>{
 
 }
 
-  delete(id){
+ delete(id){
     this.tableDeJeuService.findById(id).toPromise().then(resp =>{this.tableasupprimer=resp;
     if(this.tableasupprimer.personnages[0]){
       let i :number =0;
@@ -101,12 +101,13 @@ listr():Array<Personnage>{
           this.persoaenlever=perso;
           this.persoaenlever.parties=null;
           i=i+1;
-          console.log(i)
+          console.log("i="+i)
+          console.log("length"+this.tableasupprimer.personnages.length);
           if (i==this.tableasupprimer.personnages.length){
-          this.personnageService.savesimplepost(this.persoaenlever).toPromise().then(resp =>this.tableDeJeuService.deleteBydIdpost(id).toPromise().then(resp => {this.load(this.masterOfTheGame.id);this.personnageService.loadPersoOrphanPartie()} ));
+           this.personnageService.savesimplepost(this.persoaenlever).toPromise().then(resp =>this.tableDeJeuService.deleteBydIdpost(id).toPromise().then(resp => {this.load(this.masterOfTheGame.id);this.personnageService.loadPersoOrphanPartie()} ));
         }
           else{
-            this.personnageService.savesimple(this.persoaenlever);
+            this.personnageService.savesimplepost(this.persoaenlever).toPromise().then();
           }}
           this.tableDeJeuService.load();
           this.personnageService.loadPersoOrphanPartie()}
