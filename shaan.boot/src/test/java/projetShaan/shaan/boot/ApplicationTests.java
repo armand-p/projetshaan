@@ -1201,7 +1201,7 @@ class ApplicationTests {
 				"Habitués à se battre en sous-sol et dans des espaces confinés, ces Combattants des tunnels ont pris l'habitude de se battre sans arme pour ne pas être gênés dans leur mouvements. Ils ont ainsi développé toutes sortes de techniques de poings, de pieds et de projection afin de venir à bout de n'importe quel adversaire. Les Garde-mines sont réputés pour vaincre des Gargans à mains nues, avec leur fameuse technique du «poing de pierre»...");
 		gardeMine = metierRepository.save(gardeMine);
 
-		gardienDesForets.setNomMetier("gardienDesForets");
+		gardienDesForets.setNomMetier("Gardien des forêts");
 		gardienDesForets.setVoie("Voie de Végétal");
 		gardienDesForets.setCasteLie(combattants);
 		gardienDesForets.setDescription(

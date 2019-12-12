@@ -65,8 +65,8 @@
   <ng-container *ngFor="let bonus of listBonus">
   <tr *ngIf="bonus.acquis?.id">
   <td>{{bonus.acquis?.nom}}</td>
-    <td>{{bonus.specialisation?.nom}}</td>
-     <td>{{bonus.bonusAcquis}}</td>
+    <td><span>{{bonus.specialisation?.nom}}</span></td>
+    <td>{{bonus.bonusAcquis}}</td>
 <br>
 
 </tr>
