@@ -1,6 +1,6 @@
 <div class="princ">
   <div>
-    <p><b> Ce que je suis : </b></p>
+    <p><b> Ce que je suis (Race) : </b></p>
     <div *ngIf="personnage.racePerso"><img width="150" height="300"
                                            [attr.src]="'../../assets/'+personnage.racePerso?.nomRace+'g.jpg'">
       <br>
@@ -9,7 +9,7 @@
 <input type="radio" name="race" [value]="race" [(ngModel)]="personnage.racePerso">{{race.nomRace}}
 </span>
 
-    <p><br><b>D'où je viens : </b></p>
+    <p><br><b>D'où je viens (Peuple) : </b></p>
     <div *ngIf="personnage.peuplePerso">
       Description:<br>
       <b>{{personnage.peuplePerso?.description}}</b>
@@ -21,7 +21,7 @@
  </span>
     <br>
 
-    <p><br><b>Ce que je fais : </b></p>
+    <p><br><b>Ce que je fais (Caste) : </b></p>
     <div *ngIf="personnage.castePerso">
       Description:<br>
       <b>{{personnage.castePerso?.description}}</b>
