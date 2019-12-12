@@ -9,20 +9,25 @@
           <p>{{bonus.specialisation?.nom}} | {{bonus.bonusPerso}}</p>
         </div>
       </div>
-      <button (click)="envoi()" class="btn btn-info btn-circle" [disabled]="counter !=0">Validation</button>
+      <button (click)="envoi()" class="btn btn-info btn-circle" [disabled]="counter !=0">Validation des spécialisations</button>
       <div style="flex: 60%">
-        <div *ngFor="let domaine of listDomaine()" class="princ">
-          <h5>{{domaine.nom}}</h5>
-          <div *ngIf="specialisations && domaines">
-            <div *ngFor="let specialisation of triSpecialisation(domaine?.nom)">
-              <br>
-              <h6>{{specialisation.nom}}
-                <button [hidden]="counter==0" (click)="ajouteSpe(specialisation); this.counter=this.counter-1">+</button>
-                <button [hidden]="findSpe(specialisation)" (click)="suppressionSpe(specialisation); this.counter=this.counter+1">-</button>
-              </h6>
-              <br>
-              <b>{{specialisation.description}}</b>
-              <br>
+        <div *ngFor="let domaine of listDomaine(); let i = index" class="princ">
+          <span (click)="afficherDomaine[i] =!afficherDomaine[i]"><h5>{{domaine.nom}}</h5></span>
+          <div [hidden]="afficherDomaine[i]">
+            <div *ngIf="specialisations && domaines">
+              <div *ngFor="let specialisation of triSpecialisation(domaine?.nom)">
+                <br>
+                <h6>{{specialisation.nom}}
+                  <button [hidden]="counter==0" (click)="ajouteSpe(specialisation); this.counter=this.counter-1">+
+                  </button>
+                  <button [hidden]="findSpe(specialisation)"
+                          (click)="suppressionSpe(specialisation); this.counter=this.counter+1">-
+                  </button>
+                </h6>
+                <br>
+                <b>{{specialisation.description}}</b>
+                <br>
+              </div>
             </div>
           </div>
         </div>

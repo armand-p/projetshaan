@@ -9,7 +9,7 @@
           <p>{{motivation.motivation.nomMotivation}}</p>
         </div>
       </div>
-      <button [disabled]="counter!=0" (click)="envoi()" [disabled]="counter !=0">Validation</button>
+      <button [disabled]="counter!=0" (click)="envoi()" [disabled]="counter !=0">Validation des motivations</button>
       <div style="flex: 60%">
         <div *ngFor="let domaine of listDomaine()" class="princ">
           <h5>{{domaine.domaineLie.nom}}</h5>

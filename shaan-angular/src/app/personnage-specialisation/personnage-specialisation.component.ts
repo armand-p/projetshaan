@@ -22,13 +22,15 @@ export class PersonnageSpecialisationComponent implements OnInit {
   pageEnvoi = new EventEmitter<string>();
 
   @Input("current")
-  domainePerso : Array<DomainePersonnage>;
+  domainePerso: Array<DomainePersonnage>;
 
   specialisations: Array<Specialisation> = new Array<Specialisation>();
   domaines: Array<Domaine> = new Array<Domaine>();
   bonusPers: Array<BonusPersonnage> = new Array<BonusPersonnage>();
   id: number = null;
-  counter:number = 4;
+  counter: number = 4;
+
+  afficherDomaine: Array<boolean> = [true, true, true, true, true, true, true, true, true, true];
 
   @Input("current")
   personnage: Personnage;
@@ -38,11 +40,11 @@ export class PersonnageSpecialisationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.racePerso.specialisation1,null,null));
-    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.racePerso.specialisation2,null,null));
-    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.peuplePerso.specialisation1,null,null));
-    this.bonusPers.push(new BonusPersonnage(null,null,null,1,this.personnage.peuplePerso.specialisation2,null,null));
-    this.bonusPers.push(new BonusPersonnage(null,null,null,2,this.personnage.metierPerso.specialisation,null,null));
+    this.bonusPers.push(new BonusPersonnage(null, null, null, 1, this.personnage.racePerso.specialisation1, null, null));
+    this.bonusPers.push(new BonusPersonnage(null, null, null, 1, this.personnage.racePerso.specialisation2, null, null));
+    this.bonusPers.push(new BonusPersonnage(null, null, null, 1, this.personnage.peuplePerso.specialisation1, null, null));
+    this.bonusPers.push(new BonusPersonnage(null, null, null, 1, this.personnage.peuplePerso.specialisation2, null, null));
+    this.bonusPers.push(new BonusPersonnage(null, null, null, 2, this.personnage.metierPerso.specialisation, null, null));
 
   }
 
