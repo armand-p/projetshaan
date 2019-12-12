@@ -41,7 +41,6 @@ export class FichePersonnageComponent implements OnInit {
 
     this.personnageService.findById(this.id).subscribe(resp => this.personnage = resp);
     this.personnageService.domaineperso(this.id).subscribe(resp => {this.listDomaines = resp});
-    // this.specialisationService.speDomaines(this.id).subscribe(resp => this.listSpecialisations = resp);
     this.personnageService.bonusPersonnage(this.id).subscribe(resp => this.listBonus=resp);
     this.personnageService.pouvoirPersonnage(this.id).subscribe(resp =>this.listPouvoirs=resp);
     this.personnageService.motivationPersonnage(this.id).subscribe(resp => this.listMotivation=resp);
